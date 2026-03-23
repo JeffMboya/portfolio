@@ -82,14 +82,16 @@ export default async function ProjectPage({ params }: Props) {
               ))}
             </div>
             <div className="flex flex-col gap-2">
-              <a
-                href={meta!.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[13px] text-[#111] underline underline-offset-2"
-              >
-                View on GitHub ↗
-              </a>
+              {meta!.github && (
+                <a
+                  href={meta!.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[13px] text-[#111] underline underline-offset-2"
+                >
+                  View on GitHub ↗
+                </a>
+              )}
               {meta!.demo && (
                 <a
                   href={meta!.demo}

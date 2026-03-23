@@ -1,0 +1,151 @@
+---
+title: SuperMQ
+slug: supermq
+description: A secure, multi-tenant IoT messaging platform. Identity management, channel-based pub/sub, and fine-grained access control over MQTT and HTTP — designed to handle millions of connected devices across isolated tenants.
+stack:
+  - Go
+  - MQTT
+  - gRPC
+  - PostgreSQL
+  - Redis
+  - Docker
+date: "2023-06"
+github: https://github.com/absmach/supermq
+demo: https://www.absmach.eu/
+featured: true
+---
+
+## The Problem
+
+IoT platforms have a multi-tenant problem that most messaging brokers don't solve.
+
+A raw MQTT broker gives you pub/sub over topics. What it doesn't give you is
+isolation between tenants, identity management, access control, or any guarantee
+that device A can't read messages from device B. For a platform serving multiple
+organizations — each with their own fleet of devices, their own users, and their own
+data — you need a layer above the broker that handles all of that.
+
+The naive approach is to bake tenant IDs into topic names and hope nobody guesses
+the scheme. The real approach is to make identity and authorization first-class
+concerns at the platform level, so the messaging layer can't be bypassed.
+
+## How It Works
+
+SuperMQ sits between your devices and your applications. Every entity in the
+system — users, devices (called "things"), and groups of topics (called "channels")
+— has a cryptographic identity. Communication is only allowed when a valid credential
+is presented and the access policy permits it.
+
+```
+Device (thing)
+    │  connect with thing key
+    ↓
+SuperMQ Auth Service
+    │  validate identity
+    │  check channel membership
+    ↓
+MQTT Broker (authenticated)
+    │
+    ↓
+Subscriber (user or service)
+    │  connect with user token
+```
+
+**Things** represent devices or services. Each thing gets an API key that it uses
+to authenticate with the MQTT broker. The broker delegates authentication to SuperMQ,
+so credentials are never managed in the broker's own config.
+
+**Channels** are logical message buses. A thing must be explicitly connected to a
+channel before it can publish or subscribe. This is the primary isolation boundary —
+things in different channels cannot see each other's messages even if they're on
+the same broker.
+
+**Users** authenticate via JWT tokens. The auth service handles login, token refresh,
+and role-based access. A user can own multiple things and channels, and can share
+channels across an organization via groups.
+
+## Access Control at Scale
+
+The authorization model is the core engineering challenge. At the platform level,
+every MQTT CONNECT, PUBLISH, and SUBSCRIBE needs to be checked against the policy
+store. That check has to be fast — adding 50ms of latency to every message publish
+would make the platform unusable.
+
+The solution is a combination of caching and a purpose-built authorization service.
+Auth decisions are cached in Redis with a short TTL. The gRPC interface between
+the broker plugin and the auth service is internal, so the round-trip is sub-millisecond
+in the common case.
+
+```go
+func (svc *authSvc) Authorize(ctx context.Context, req PolicyReq) error {
+    key := cacheKey(req.SubjectType, req.Subject, req.Object, req.Action)
+    if cached, ok := svc.cache.Get(key); ok {
+        if cached.(bool) {
+            return nil
+        }
+        return ErrAuthorization
+    }
+    allowed, err := svc.policies.Evaluate(ctx, req)
+    if err != nil {
+        return err
+    }
+    svc.cache.Set(key, allowed, cacheTTL)
+    if !allowed {
+        return ErrAuthorization
+    }
+    return nil
+}
+```
+
+## Protocol Support
+
+Devices don't all speak the same protocol. SuperMQ exposes the same channel
+abstraction over multiple transports:
+
+**MQTT** — the primary protocol for constrained devices. Long-lived connections,
+QoS levels 0/1/2, retained messages, and will messages for offline detection.
+
+**HTTP** — for devices that can't maintain persistent connections. A single POST
+to `/channels/{id}/messages` publishes to the channel and returns. Simpler, but
+no QoS guarantees.
+
+**WebSocket** — for browser-based dashboards and real-time UIs. The same
+channel model, over a persistent WebSocket connection.
+
+The protocol adapters all translate into the same internal message format, so a
+message published over HTTP can be consumed by a subscriber over MQTT — the
+protocol is transparent to the channel.
+
+## The Hard Parts
+
+**gRPC service decomposition.** SuperMQ is split into multiple services — auth,
+things, channels, messaging adapters. The service boundaries made the codebase
+easy to reason about but added a new class of failure: partial availability.
+When the auth service is slow, it backpressures every MQTT CONNECT across the
+entire platform. Adding timeouts and circuit breakers to every gRPC call was
+necessary but added significant boilerplate.
+
+**Schema migrations across deployments.** Running multiple service instances
+behind a load balancer means migrations need to be backward-compatible. A schema
+change that drops a column will break any instances that haven't yet been updated.
+We use additive-only migrations with deprecation cycles: add the new column, deploy
+new code that writes both old and new, then remove the old column in a later release.
+
+**Broker authentication plugin.** The MQTT broker (VerneMQ or EMQX) needs to
+call back into SuperMQ for authentication and authorization. Each broker has a
+different plugin interface. Writing and maintaining a plugin per broker was
+more work than expected — the plugin surface area is surprisingly large once
+you handle CONNECT, SUBSCRIBE, PUBLISH, and DISCONNECT lifecycle events.
+
+## What I'd Do Differently
+
+**Start with a single-binary mode.** SuperMQ's microservice split makes sense
+at scale, but for development and small deployments it's friction. Being able
+to run `supermq start` as a single process with everything embedded would make
+onboarding dramatically easier. The service boundaries can still exist internally
+without requiring separate deployments.
+
+**Make the policy model pluggable earlier.** The authorization model is tightly
+coupled to SuperMQ's own policy store. Plugging in an external policy engine
+(OPA, Cedar) was retrofitted rather than designed in. A `PolicyEvaluator`
+interface from the start would have made this clean.

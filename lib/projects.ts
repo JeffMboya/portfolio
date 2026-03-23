@@ -8,7 +8,7 @@ export interface ProjectMeta {
   description: string
   stack: string[]
   date: string
-  github: string
+  github: string | null
   demo: string | null
   featured: boolean
 }

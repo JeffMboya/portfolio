@@ -1,0 +1,148 @@
+---
+title: Scripli
+slug: scripli
+description: A privacy-first human authorship certificate platform. Proves a document was written by a real person — without ever seeing the document. Cryptographically sealed session metadata, zero content storage, and public verification with no account required.
+stack:
+  - Next.js
+  - TypeScript
+  - PostgreSQL
+  - Web Cryptography API
+date: "2024-11"
+github: null
+demo: https://scripli.com
+featured: true
+---
+
+## The Problem
+
+Generative AI broke the implicit trust contract between writers and their readers.
+
+For most of history, if someone submitted an essay, a report, or an article, you
+could assume a human wrote it. That assumption no longer holds. The response from
+institutions and platforms has mostly been detection — AI classifiers that try to
+tell whether text was AI-generated. Detection is the wrong approach. It's
+probabilistic, it produces false positives, and it becomes less reliable as
+models improve. A student who wrote their own essay can be flagged as AI-generated.
+A journalist with a genuine scoop can be accused of fabrication.
+
+The right question isn't "did a human write this?" — it's "can this person prove
+they wrote this?" Proof is binary and cryptographic. Detection is probabilistic
+and fragile.
+
+## How It Works
+
+Scripli proves authorship through process, not content. The document never leaves
+the user's device. What gets recorded is evidence of the writing session itself:
+when keystrokes happened, how edits were made, how long the session ran. This
+metadata is enough to prove a human was at the keyboard — without revealing what
+they wrote.
+
+```
+User writes in the Scripli editor
+    │
+    │  (document text never leaves browser)
+    │
+    ↓
+Session recorder captures metadata
+    │  keystroke timing patterns
+    │  edit sequences (add/delete/revise)
+    │  session duration and activity windows
+    │
+    ↓
+Session sealed on completion
+    │  HMAC-signed metadata blob
+    │  no document content, no file upload
+    │
+    ↓
+Certificate issued (public ID + verification URL)
+    │
+    ↓
+Anyone can verify: valid / invalid / expired
+```
+
+The cryptographic seal uses the Web Cryptography API directly in the browser.
+The session key is derived from the session metadata and a server-issued nonce.
+The server signs the resulting certificate. Neither party alone can forge a valid
+certificate — the server doesn't have the content, and the client doesn't have
+the signing key.
+
+## Zero Storage as a Design Constraint
+
+"Your writing never leaves your device" is not marketing copy — it's a hard
+constraint that shaped every technical decision.
+
+The session recorder cannot store document text. The network layer cannot send
+document text. The server logs cannot capture document text. This rules out
+a large class of simpler implementations: you can't diff the document to track
+edits, you can't hash the final document, you can't store anything that would
+let you reconstruct content.
+
+What you can store is the shape of the writing process: timing intervals between
+keystrokes, length of each edit operation (but not its content), timestamps of
+paste events, session start and end times. This is enough signal to distinguish
+a human writing session from a paste of AI-generated text.
+
+```typescript
+interface SessionEvent {
+  type: 'keystroke' | 'delete' | 'paste' | 'idle_start' | 'idle_end'
+  timestamp: number
+  duration?: number
+  length?: number
+}
+
+function sealSession(events: SessionEvent[], nonce: string): string {
+  const payload = JSON.stringify({ events, nonce, version: 1 })
+  return hmacSign(payload, deriveSessionKey(nonce))
+}
+```
+
+## Public Verification
+
+Any certificate can be verified by anyone, without an account. A certificate ID
+maps to a public verification page that shows: who issued it, when the session
+ran, and whether the seal is valid.
+
+This is the product's core trust model. The value isn't the certificate itself —
+it's that the certificate can be checked independently. A hiring manager, a
+professor, or a journal editor can verify a certificate without trusting Scripli
+as an intermediary.
+
+The verification endpoint is intentionally simple: a certificate ID in, a
+`valid` / `invalid` / `expired` status out, plus the session metadata that was
+committed at issuance time. No account, no API key, no friction.
+
+## The Hard Parts
+
+**Distinguishing human from AI-assisted writing.** The metadata model captures
+the shape of a session, but defining what a "human" session looks like is not
+trivial. A user who writes a draft, pastes in a reference, and edits it heavily
+looks different from a user who pastes in 2000 words and hits submit. The session
+model needs to be flexible enough to capture real human workflows without being
+so loose that a single paste counts as a valid session.
+
+**Privacy without obscurity.** Zero content storage is a promise that needs to
+be technically enforced, not just policy-enforced. The session recorder runs
+entirely in the browser. Any network monitoring tool can confirm that no
+document content is transmitted. Making this verifiable by a technically
+sophisticated user — without requiring them to trust us — was the hardest
+design constraint.
+
+**Certificate revocation.** A certificate that's valid forever is a problem.
+Sessions can be invalidated by the issuer if evidence of abuse is found. The
+revocation check needs to be part of every verification, but it needs to be
+fast and cacheable. We use short-lived certificate TTLs with explicit renewal,
+rather than a revocation list, to keep the verification path simple.
+
+## What I'd Do Differently
+
+**Invest earlier in the session replay UI.** The current certificate page shows
+session metadata in a table. What would be far more convincing — and technically
+possible without revealing content — is a replay visualization: a graph of typing
+speed over time, a heatmap of edit density, the rhythm of the session. This would
+make the certificate intuitively trustworthy rather than technically trustworthy.
+
+**Open-source the verification library.** The value of a certificate is its
+verifiability. A closed verification implementation requires trusting Scripli.
+An open-source verification library — one that any developer can audit — would
+make the trust model much stronger. The signing scheme is straightforward enough
+to publish.
