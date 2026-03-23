@@ -1,0 +1,146 @@
+---
+title: Propeller
+slug: propeller
+description: A distributed WebAssembly task execution platform. Edge agents written in Rust subscribe via MQTT, receive task dispatch from a Go manager, and execute sandboxed WASM binaries — with OCI registry fetch, HTTP delivery, and platform attestation support.
+stack:
+  - Go
+  - Rust
+  - WebAssembly
+  - MQTT
+  - wasmtime
+  - PostgreSQL
+  - Docker
+date: "2024-03"
+github: https://github.com/absmach/propeller
+demo: null
+featured: true
+---
+
+## The Problem
+
+Running arbitrary workloads on heterogeneous edge devices is harder than it looks.
+The edge is full of devices with different architectures, operating systems, and
+resource constraints. You want to ship code to a fleet of devices and have it run
+correctly on all of them — without pre-installing runtimes, without SSH access, and
+without a reliable network connection.
+
+WebAssembly solves the portability problem. A WASM binary compiled once runs anywhere
+that has a WASM runtime. But that only solves half the problem. You still need a way
+to dispatch tasks, deliver binaries, and get results back — reliably, over a
+bandwidth-constrained connection that may drop at any time.
+
+## How It Works
+
+Propeller has two main components that communicate over MQTT:
+
+**Manager** (Go) — the control plane. Accepts task submissions via a REST API,
+stores task state in PostgreSQL (or SQLite for lighter deployments), and dispatches
+tasks to proplets over MQTT. Handles task lifecycle: pending → scheduled → running
+→ completed/failed.
+
+**Proplet** (Rust) — the execution agent. Runs on edge devices. Subscribes to MQTT
+topics for its channel, receives `StartRequest` messages, fetches the WASM binary,
+executes it in a sandboxed wasmtime instance, and publishes results back to the manager.
+
+```
+Manager (Go)
+    │  REST API  │  MQTT pub
+    │            ↓
+    │     RabbitMQ broker
+    │            ↓
+    └──── Proplet (Rust) ──── wasmtime ──── WASM binary
+                ↑
+         result publish
+```
+
+MQTT was chosen over HTTP for the manager-proplet transport because it handles
+unreliable connections gracefully. QoS levels give you at-least-once delivery,
+the broker buffers messages when a device is offline, and the pub/sub model
+means you can fan out a task to multiple proplets with zero extra code.
+
+## WASM Binary Delivery
+
+The most interesting engineering challenge was binary delivery. WASM binaries can
+be tens of megabytes. MQTT has a default message size limit of ~128MB but
+in practice brokers and clients struggle with messages over a few megabytes.
+
+We implemented three delivery strategies, in order of complexity:
+
+**Inline base64** — for tiny binaries in development. The binary is base64-encoded
+and sent directly in the `StartRequest` payload. Simple, but doesn't scale.
+
+**OCI registry** — for production. The manager publishes the image reference, the
+proplet pulls the WASM binary from an OCI-compatible registry using the chunked
+MQTT protocol. The binary is split into ~512KB chunks, each published as a
+separate MQTT message, and the proplet reassembles them in order. This decouples
+binary size from message size.
+
+**HTTP URL** — the newest delivery path. For cases where you're already serving
+WASM binaries from a plain HTTP server, the proplet can fetch directly via `reqwest`
+with a streaming 100MB size limit. No MQTT chunking overhead, no OCI registry needed.
+
+```rust
+async fn fetch_wasm_from_http(client: &HttpClient, url: &str) -> Result<Vec<u8>> {
+    let response = client.get(url).send().await?;
+    // fast-fail on content-length before downloading
+    if let Some(len) = response.content_length() {
+        if len as usize > WASM_FETCH_MAX_BYTES {
+            return Err(anyhow!("response exceeds size limit"));
+        }
+    }
+    // streaming read with running total check
+    let mut binary = Vec::new();
+    let mut stream = response.bytes_stream();
+    while let Some(chunk) = stream.next().await {
+        binary.extend_from_slice(&chunk?);
+        if binary.len() > WASM_FETCH_MAX_BYTES {
+            return Err(anyhow!("response exceeds size limit"));
+        }
+    }
+    Ok(binary)
+}
+```
+
+## The Hard Parts
+
+**MQTT reconnect drops subscriptions.** When the manager sends a large MQTT message
+(a 9MB WASM binary dispatched inline will do it), the broker drops the connection.
+On reconnect, the manager re-publishes the message but its subscriptions — including
+the heartbeat topic for proplet liveness — are not automatically re-established.
+The proplet appears dead to the manager until a restart. The fix is to re-subscribe
+after every reconnect. This is a well-known MQTT footgun that the spec handles via
+`cleanSession: false`, but not all client libraries make this obvious.
+
+**wasmtime WASI-HTTP proxy.** Running a WASM component that implements the
+`wasi:http/proxy` interface requires specific wasmtime configuration. The proplet
+supports both an external runtime (calling `wasmtime run` as a subprocess) and
+an internal runtime (wasmtime embedded as a Rust library). Only the internal runtime
+can configure the HTTP proxy listener properly. The `PROPLET_EXTERNAL_WASM_RUNTIME`
+environment variable must be empty for WASI-HTTP workloads — a non-obvious constraint
+that burned several hours of debugging.
+
+**Database migrations across two storage backends.** Propeller supports both
+PostgreSQL and SQLite. Every schema change needs a migration for both. We use
+numbered migration IDs (`1_create_tables`, `2_add_workflow_job_columns`, etc.) with
+`ALTER TABLE ... ADD COLUMN IF NOT EXISTS` so migrations are idempotent. The PostgreSQL
+and SQLite migration runners use different libraries but the same numbered ID scheme,
+which makes it easy to keep them in sync.
+
+## What I'd Do Differently
+
+**Observability from day one.** The current system is hard to debug in production.
+Task state is queryable via the REST API, but there's no distributed tracing and the
+MQTT message flow is invisible without attaching a broker-level monitor. Adding
+OpenTelemetry spans to the MQTT publish/subscribe path from the start would have
+saved significant debugging time.
+
+**Abstract the delivery mechanism earlier.** The WASM delivery code in the proplet
+started as an if/else over `file` vs `image_url`. Adding `wasm_http_url` as a third
+path made the branching logic more complex than it needed to be. A proper
+`WasmSource` enum with a `fetch() -> Vec<u8>` interface would have made each
+delivery strategy independently testable from the start.
+
+**Use a proper service mesh for the broker.** Running RabbitMQ in Docker works but
+the keep-alive timeout configuration is fragile. A managed MQTT broker (HiveMQ Cloud,
+EMQX) would remove an entire class of connection stability issues that are outside
+the application's control.
