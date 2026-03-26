@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: 'Jeff Mboya — Software Engineer',
     description:
       'Backend and systems engineer focused on WebAssembly, distributed task execution, and infrastructure.',
-    url: 'https://jeffmboya.dev',
+    url: 'https://jeffmboya.com',
     siteName: 'Jeff Mboya',
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],
     type: 'website',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className="min-h-full bg-white text-[#111]">
+      <body className="min-h-full bg-[#0c0c0c] text-[#f0f0f0]">
         <div className="max-w-[900px] mx-auto px-6">
           <Nav />
           <main>{children}</main>

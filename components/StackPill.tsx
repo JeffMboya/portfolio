@@ -4,7 +4,7 @@ interface StackPillProps {
 
 export default function StackPill({ label }: StackPillProps) {
   return (
-    <span className="inline-block bg-[#f0fdf4] border border-[#bbf7d0] text-[#15803d] text-[11px] px-2.5 py-1 rounded-full font-medium">
+    <span className="inline-block bg-[rgba(34,197,94,0.08)] border border-[rgba(34,197,94,0.2)] text-[#22c55e] text-[11px] px-2.5 py-1 rounded-full font-medium">
       {label}
     </span>
   )

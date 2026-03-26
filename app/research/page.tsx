@@ -59,11 +59,11 @@ const publications: Publication[] = [
 
 function AuthorList({ authors }: { authors: string[] }) {
   return (
-    <p className="text-[12px] text-[#666] mb-1">
+    <p className="text-[12px] text-[#555] mb-1">
       {authors.map((author, i) => (
         <span key={author}>
           {author === 'Jeff Mboya' || author === 'Angina J Mboya' ? (
-            <strong className="text-[#111] font-semibold">{author}</strong>
+            <strong className="text-[#f0f0f0] font-semibold">{author}</strong>
           ) : (
             author
           )}
@@ -80,36 +80,36 @@ export default function ResearchPage() {
       <div className="mb-8">
         <Link
           href="/"
-          className="text-[13px] text-[#16a34a] hover:text-[#15803d] transition-colors duration-150"
+          className="text-[13px] text-[#22c55e] hover:text-[#16a34a] transition-colors duration-150"
         >
           ← Back
         </Link>
       </div>
 
       <div className="mb-10">
-        <div className="text-[11px] text-[#16a34a] uppercase tracking-widest mb-3 font-medium">
+        <div className="text-[11px] text-[#22c55e] uppercase tracking-widest mb-3 font-medium">
           Academic Work
         </div>
-        <h1 className="text-[32px] font-bold tracking-tight mb-3">Research</h1>
-        <p className="text-[15px] text-[#555] leading-relaxed max-w-[560px] mb-5">
+        <h1 className="text-[32px] font-bold tracking-tight mb-3 text-[#f0f0f0]">Research</h1>
+        <p className="text-[15px] text-[#888] leading-relaxed max-w-[560px] mb-5">
           Published work spanning computer vision, rocketry, and climate tech.
         </p>
         <a
           href={SCHOLAR_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-[13px] text-[#15803d] bg-[#f0fdf4] border border-[#bbf7d0] px-4 py-2 rounded-md hover:border-[#16a34a] transition-colors duration-150"
+          className="inline-flex items-center gap-2 text-[13px] text-[#22c55e] bg-[rgba(34,197,94,0.08)] border border-[rgba(34,197,94,0.2)] px-4 py-2 rounded-md hover:border-[rgba(34,197,94,0.4)] transition-colors duration-150"
         >
           View Google Scholar profile ↗
         </a>
       </div>
 
       <div className="flex items-center gap-3 mb-8">
-        <span className="text-[11px] text-[#16a34a] uppercase tracking-widest font-medium">
+        <span className="text-[11px] text-[#22c55e] uppercase tracking-widest font-medium">
           Publications
         </span>
-        <div className="flex-1 h-px bg-[#e8e8e8]" />
-        <span className="text-[11px] text-[#888]">{publications.length} papers</span>
+        <div className="flex-1 h-px bg-[rgba(255,255,255,0.08)]" />
+        <span className="text-[11px] text-[#555]">{publications.length} papers</span>
       </div>
 
       <div className="flex flex-col gap-5">
@@ -119,28 +119,28 @@ export default function ResearchPage() {
             href={pub.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="block border border-[#e8e8e8] rounded-xl p-6 bg-white hover:border-[#16a34a] hover:translate-y-[-2px] transition-all duration-150 group"
+            className="block border border-[rgba(255,255,255,0.08)] rounded-xl p-6 bg-[#161616] hover:border-[rgba(255,255,255,0.18)] hover:bg-[#1a1a1a] hover:translate-y-[-2px] transition-all duration-150 group"
           >
             <div className="flex items-start justify-between gap-4">
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="text-[11px] text-[#16a34a] font-medium uppercase tracking-wider">
+                  <span className="text-[11px] text-[#22c55e] font-medium uppercase tracking-wider">
                     {pub.year}
                   </span>
                   {pub.citations > 0 && (
-                    <span className="text-[11px] text-[#888] bg-[#f5f5f5] px-1.5 py-0.5 rounded">
+                    <span className="text-[11px] text-[#555] bg-[#1f1f1f] border border-[rgba(255,255,255,0.06)] px-1.5 py-0.5 rounded">
                       Cited by {pub.citations}
                     </span>
                   )}
                 </div>
-                <h3 className="text-[16px] font-semibold tracking-tight mb-1.5 text-[#111] leading-snug">
+                <h3 className="text-[16px] font-semibold tracking-tight mb-1.5 text-[#f0f0f0] leading-snug">
                   {pub.title}
                 </h3>
                 <AuthorList authors={pub.authors} />
-                <p className="text-[11px] text-[#888] italic mb-3">{pub.venue}</p>
-                <p className="text-[13px] text-[#555] leading-relaxed">{pub.abstract}</p>
+                <p className="text-[11px] text-[#555] italic mb-3">{pub.venue}</p>
+                <p className="text-[13px] text-[#888] leading-relaxed">{pub.abstract}</p>
               </div>
-              <span className="text-[#bbb] text-lg mt-1 group-hover:text-[#16a34a] transition-colors duration-150 shrink-0">
+              <span className="text-[#444] text-lg mt-1 group-hover:text-[#22c55e] transition-colors duration-150 shrink-0">
                 ↗
               </span>
             </div>

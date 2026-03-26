@@ -46,7 +46,7 @@ export default async function ProjectPage({ params }: Props) {
       <div className="mb-8">
         <Link
           href="/"
-          className="text-[13px] text-[#16a34a] hover:text-[#15803d] transition-colors duration-150"
+          className="text-[13px] text-[#22c55e] hover:text-[#16a34a] transition-colors duration-150"
         >
           ← Back
         </Link>
@@ -54,17 +54,17 @@ export default async function ProjectPage({ params }: Props) {
 
       <div className="grid grid-cols-[1fr_220px] gap-12 items-start">
         <div>
-          <div className="text-[11px] text-[#16a34a] uppercase tracking-widest mb-3 font-medium">
+          <div className="text-[11px] text-[#22c55e] uppercase tracking-widest mb-3 font-medium">
             {meta!.date}
           </div>
-          <h1 className="text-[32px] font-bold tracking-tight mb-3">{meta!.title}</h1>
-          <p className="text-[15px] text-[#555] mb-10 leading-relaxed">{meta!.description}</p>
+          <h1 className="text-[32px] font-bold tracking-tight mb-3 text-[#f0f0f0]">{meta!.title}</h1>
+          <p className="text-[15px] text-[#888] mb-10 leading-relaxed">{meta!.description}</p>
           <article className="prose">
             <MDXRemote
               source={content!}
               options={{
                 mdxOptions: {
-                  rehypePlugins: [[rehypePrettyCode as any, { theme: 'github-light' }]],
+                  rehypePlugins: [[rehypePrettyCode as any, { theme: 'github-dark' }]],
                 },
               }}
             />
@@ -72,11 +72,11 @@ export default async function ProjectPage({ params }: Props) {
         </div>
 
         <aside className="sticky top-8">
-          <div className="bg-[#f0fdf4] border border-[#bbf7d0] rounded-xl p-5">
-            <div className="text-[11px] text-[#16a34a] uppercase tracking-widest mb-3 font-medium">Stack</div>
+          <div className="bg-[#161616] border border-[rgba(255,255,255,0.08)] rounded-xl p-5">
+            <div className="text-[11px] text-[#22c55e] uppercase tracking-widest mb-3 font-medium">Stack</div>
             <div className="flex flex-col gap-1.5 mb-5">
               {meta!.stack.map((s) => (
-                <span key={s} className="text-[13px] text-[#555] border-b border-[#bbf7d0] pb-1.5">
+                <span key={s} className="text-[13px] text-[#888] border-b border-[rgba(255,255,255,0.06)] pb-1.5">
                   {s}
                 </span>
               ))}
@@ -87,7 +87,7 @@ export default async function ProjectPage({ params }: Props) {
                   href={meta!.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[13px] text-[#16a34a] underline underline-offset-2 hover:text-[#15803d] transition-colors duration-150"
+                  className="text-[13px] text-[#22c55e] underline underline-offset-2 hover:text-[#16a34a] transition-colors duration-150"
                 >
                   View on GitHub ↗
                 </a>
@@ -97,7 +97,7 @@ export default async function ProjectPage({ params }: Props) {
                   href={meta!.demo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[13px] text-[#16a34a] underline underline-offset-2 hover:text-[#15803d] transition-colors duration-150"
+                  className="text-[13px] text-[#22c55e] underline underline-offset-2 hover:text-[#16a34a] transition-colors duration-150"
                 >
                   Live demo ↗
                 </a>

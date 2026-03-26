@@ -9,15 +9,14 @@ const links = [
   { href: '/research', label: 'Research' },
   { href: 'https://github.com/JeffMboya', label: 'GitHub', external: true },
   { href: 'https://scholar.google.com/citations?user=KmGiUgcAAAAJ&hl=en', label: 'Scholar', external: true },
-  { href: '/#contact', label: 'Contact' },
 ]
 
 export default function Nav() {
   const pathname = usePathname()
 
   return (
-    <nav className="flex items-center justify-between py-6 mb-16 border-b border-[#e8e8e8]">
-      <Link href="/" className="text-[15px] font-semibold tracking-tight text-[#111]">
+    <nav className="flex items-center justify-between py-6 mb-16 border-b border-[rgba(255,255,255,0.08)]">
+      <Link href="/" className="text-[15px] font-semibold tracking-tight text-[#f0f0f0]">
         Jeff Mboya
       </Link>
       <div className="flex items-center gap-6">
@@ -28,7 +27,7 @@ export default function Nav() {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[13px] text-[#555] hover:text-[#16a34a] transition-colors duration-150"
+              className="text-[13px] text-[#666] hover:text-[#f0f0f0] transition-colors duration-150"
             >
               {link.label}
             </a>
@@ -37,13 +36,21 @@ export default function Nav() {
               key={link.href}
               href={link.href}
               className={`text-[13px] transition-colors duration-150 ${
-                pathname === link.href ? 'text-[#16a34a] font-medium' : 'text-[#555] hover:text-[#16a34a]'
+                pathname === link.href || (link.href === '/research' && pathname.startsWith('/research'))
+                  ? 'text-[#f0f0f0] font-medium'
+                  : 'text-[#666] hover:text-[#f0f0f0]'
               }`}
             >
               {link.label}
             </Link>
           )
         )}
+        <a
+          href="/#contact"
+          className="text-[13px] text-[#0c0c0c] bg-[#22c55e] px-4 py-1.5 rounded-full font-medium hover:bg-[#16a34a] transition-colors duration-150"
+        >
+          Contact
+        </a>
       </div>
     </nav>
   )
