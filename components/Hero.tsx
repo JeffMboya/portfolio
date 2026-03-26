@@ -11,7 +11,10 @@ export default function Hero() {
   return (
     <section className="mb-24">
       <div className="flex items-center gap-3 mb-5">
-        <div className="relative w-[64px] h-[64px] rounded-full ring-2 ring-[#22c55e] ring-offset-2 ring-offset-[#0c0c0c] overflow-hidden shrink-0">
+        <div
+          className="relative w-[64px] h-[64px] rounded-full ring-2 ring-offset-2 overflow-hidden shrink-0"
+          style={{ '--tw-ring-color': 'var(--accent)', '--tw-ring-offset-color': 'var(--background)' } as React.CSSProperties}
+        >
           <Image
             src="/avatar.jpg"
             alt="Jeff Mboya"
@@ -21,22 +24,23 @@ export default function Hero() {
           />
         </div>
         <div>
-          <div className="text-[15px] font-semibold text-[#f0f0f0]">Jeff Mboya</div>
-          <div className="text-[11px] text-[#555] uppercase tracking-widest font-medium">Software Engineer</div>
+          <div className="text-[15px] font-semibold" style={{ color: 'var(--foreground)' }}>Jeff Mboya</div>
+          <div className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--muted-dim)' }}>Software Engineer</div>
         </div>
       </div>
-      <h1 className="text-[48px] font-bold leading-[1.1] tracking-tight mb-5 text-[#f0f0f0]">
+      <h1 className="text-[48px] font-bold leading-[1.1] tracking-tight mb-5" style={{ color: 'var(--foreground)' }}>
         I build systems<br />
         that run at the edge.
       </h1>
-      <p className="text-[16px] text-[#888] leading-relaxed max-w-[540px] mb-7">
+      <p className="text-[16px] leading-relaxed max-w-[540px] mb-7" style={{ color: 'var(--muted)' }}>
         Backend and systems engineer focused on WebAssembly, distributed task
         execution, and infrastructure. Currently contributing to{' '}
         <a
           href="https://github.com/absmach/propeller"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[#22c55e] underline underline-offset-2 hover:text-[#16a34a] transition-colors duration-150"
+          className="underline underline-offset-2 transition-colors duration-150"
+          style={{ color: 'var(--accent)' }}
         >
           Propeller
         </a>{' '}
@@ -45,13 +49,15 @@ export default function Hero() {
       <div className="flex items-center gap-3 mb-8">
         <Link
           href="/#work"
-          className="bg-[#22c55e] text-[#0c0c0c] text-[13px] font-medium px-5 py-2.5 rounded-md hover:bg-[#16a34a] transition-colors duration-150"
+          className="text-[13px] font-medium px-5 py-2.5 rounded-md transition-colors duration-150"
+          style={{ backgroundColor: 'var(--accent)', color: 'var(--accent-text)' }}
         >
           View my work →
         </Link>
         <Link
           href="/research"
-          className="text-[#888] text-[13px] px-5 py-2.5 rounded-md border border-[rgba(255,255,255,0.1)] hover:border-[rgba(255,255,255,0.25)] hover:text-[#f0f0f0] transition-colors duration-150"
+          className="text-[13px] px-5 py-2.5 rounded-md transition-colors duration-150"
+          style={{ color: 'var(--muted)', border: '1px solid var(--border)' }}
         >
           Research
         </Link>

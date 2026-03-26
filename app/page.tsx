@@ -11,8 +11,8 @@ export default function Home() {
 
       <section id="work" className="mb-20">
         <div className="flex items-center gap-3 mb-8">
-          <span className="text-[11px] text-[#555] uppercase tracking-widest font-medium">Selected Work</span>
-          <div className="flex-1 h-px bg-[rgba(255,255,255,0.08)]" />
+          <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--muted-dim)' }}>Selected Work</span>
+          <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
         </div>
         <div className="grid grid-cols-3 gap-4">
           {projects.map((meta) => (
@@ -21,10 +21,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="bg-[#161616] border border-[rgba(255,255,255,0.08)] rounded-xl p-8 mb-20 grid grid-cols-2 gap-8">
+      <section
+        id="about"
+        className="rounded-xl p-8 mb-20 grid grid-cols-2 gap-8"
+        style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
+      >
         <div>
-          <h2 className="text-[20px] font-semibold tracking-tight mb-3 text-[#f0f0f0]">About me</h2>
-          <p className="text-[13px] text-[#888] leading-relaxed">
+          <h2 className="text-[20px] font-semibold tracking-tight mb-3" style={{ color: 'var(--foreground)' }}>About me</h2>
+          <p className="text-[13px] leading-relaxed" style={{ color: 'var(--muted)' }}>
             Software engineer with a focus on systems programming, edge computing, and open source.
             I care about correctness, performance, and code that other engineers can reason about
             at 3am. When I&apos;m not writing Go or Rust I&apos;m usually reading about distributed
@@ -36,35 +40,38 @@ export default function Home() {
             href="https://github.com/JeffMboya"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2.5 text-[13px] text-[#888] bg-[#1a1a1a] border border-[rgba(255,255,255,0.08)] rounded-md px-3.5 py-2.5 hover:border-[rgba(255,255,255,0.2)] hover:text-[#f0f0f0] transition-colors duration-150"
+            className="flex items-center gap-2.5 text-[13px] rounded-md px-3.5 py-2.5 transition-colors duration-150"
+            style={{ color: 'var(--muted)', backgroundColor: 'var(--surface-hover)', border: '1px solid var(--border)' }}
           >
-            <span className="w-4 h-4 bg-[rgba(255,255,255,0.1)] rounded-sm inline-block shrink-0" />
+            <span className="w-4 h-4 rounded-sm inline-block shrink-0" style={{ backgroundColor: 'var(--border-hover)' }} />
             github.com/JeffMboya
           </a>
           <a
             href="https://linkedin.com/in/jeffmboya"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2.5 text-[13px] text-[#888] bg-[#1a1a1a] border border-[rgba(255,255,255,0.08)] rounded-md px-3.5 py-2.5 hover:border-[rgba(255,255,255,0.2)] hover:text-[#f0f0f0] transition-colors duration-150"
+            className="flex items-center gap-2.5 text-[13px] rounded-md px-3.5 py-2.5 transition-colors duration-150"
+            style={{ color: 'var(--muted)', backgroundColor: 'var(--surface-hover)', border: '1px solid var(--border)' }}
           >
-            <span className="w-4 h-4 bg-[rgba(255,255,255,0.1)] rounded-sm inline-block shrink-0" />
+            <span className="w-4 h-4 rounded-sm inline-block shrink-0" style={{ backgroundColor: 'var(--border-hover)' }} />
             linkedin.com/in/jeffmboya
           </a>
         </div>
       </section>
 
-      <section id="contact" className="text-center py-16 border-t border-[rgba(255,255,255,0.08)] mb-16">
-        <h2 className="text-[28px] font-bold tracking-tight mb-3 text-[#f0f0f0]">
+      <section id="contact" className="text-center py-16 mb-16" style={{ borderTop: '1px solid var(--border)' }}>
+        <h2 className="text-[28px] font-bold tracking-tight mb-3" style={{ color: 'var(--foreground)' }}>
           Have a hard problem?
         </h2>
-        <p className="text-[14px] text-[#888] mb-7 max-w-[440px] mx-auto leading-relaxed">
+        <p className="text-[14px] mb-7 max-w-[440px] mx-auto leading-relaxed" style={{ color: 'var(--muted)' }}>
           Open to backend, systems, and infrastructure roles. Always happy to hear interesting proposals.
         </p>
         <a
           href="https://linkedin.com/in/jeffmboya"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block text-[13px] text-[#888] px-6 py-2.5 rounded-full border border-[rgba(255,255,255,0.15)] hover:border-[rgba(255,255,255,0.35)] hover:text-[#f0f0f0] transition-colors duration-150"
+          className="inline-block text-[13px] px-6 py-2.5 rounded-full transition-colors duration-150"
+          style={{ color: 'var(--muted)', border: '1px solid var(--border)' }}
         >
           Connect on LinkedIn
         </a>

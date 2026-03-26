@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import ThemeToggle from './ThemeToggle'
 
 const links = [
   { href: '/#work', label: 'Work' },
@@ -15,8 +16,11 @@ export default function Nav() {
   const pathname = usePathname()
 
   return (
-    <nav className="flex items-center justify-between py-6 mb-16 border-b border-[rgba(255,255,255,0.08)]">
-      <Link href="/" className="text-[15px] font-semibold tracking-tight text-[#f0f0f0]">
+    <nav
+      className="flex items-center justify-between py-6 mb-16"
+      style={{ borderBottom: '1px solid var(--border)' }}
+    >
+      <Link href="/" className="text-[15px] font-semibold tracking-tight" style={{ color: 'var(--foreground)' }}>
         Jeff Mboya
       </Link>
       <div className="flex items-center gap-6">
@@ -27,7 +31,10 @@ export default function Nav() {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[13px] text-[#666] hover:text-[#f0f0f0] transition-colors duration-150"
+              className="text-[13px] transition-colors duration-150"
+              style={{ color: 'var(--muted-dim)' }}
+              onMouseEnter={e => ((e.target as HTMLElement).style.color = 'var(--foreground)')}
+              onMouseLeave={e => ((e.target as HTMLElement).style.color = 'var(--muted-dim)')}
             >
               {link.label}
             </a>
@@ -35,19 +42,32 @@ export default function Nav() {
             <Link
               key={link.href}
               href={link.href}
-              className={`text-[13px] transition-colors duration-150 ${
-                pathname === link.href || (link.href === '/research' && pathname.startsWith('/research'))
-                  ? 'text-[#f0f0f0] font-medium'
-                  : 'text-[#666] hover:text-[#f0f0f0]'
-              }`}
+              className="text-[13px] transition-colors duration-150"
+              style={{
+                color:
+                  pathname === link.href || (link.href === '/research' && pathname.startsWith('/research'))
+                    ? 'var(--foreground)'
+                    : 'var(--muted-dim)',
+                fontWeight:
+                  pathname === link.href || (link.href === '/research' && pathname.startsWith('/research'))
+                    ? '500'
+                    : undefined,
+              }}
             >
               {link.label}
             </Link>
           )
         )}
+        <ThemeToggle />
         <a
           href="/#contact"
-          className="text-[13px] text-[#0c0c0c] bg-[#22c55e] px-4 py-1.5 rounded-full font-medium hover:bg-[#16a34a] transition-colors duration-150"
+          className="text-[13px] px-4 py-1.5 rounded-full font-medium transition-colors duration-150"
+          style={{
+            color: 'var(--accent-text)',
+            backgroundColor: 'var(--accent)',
+          }}
+          onMouseEnter={e => ((e.currentTarget as HTMLElement).style.backgroundColor = 'var(--accent-dim)')}
+          onMouseLeave={e => ((e.currentTarget as HTMLElement).style.backgroundColor = 'var(--accent)')}
         >
           Contact
         </a>

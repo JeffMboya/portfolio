@@ -47,7 +47,8 @@ export default async function ProjectPage({ params }: Props) {
       <div className="mb-8">
         <Link
           href="/"
-          className="text-[13px] text-[#22c55e] hover:text-[#16a34a] transition-colors duration-150"
+          className="text-[13px] transition-colors duration-150"
+          style={{ color: 'var(--accent)' }}
         >
           ← Back
         </Link>
@@ -55,11 +56,11 @@ export default async function ProjectPage({ params }: Props) {
 
       <div className="grid grid-cols-[1fr_220px] gap-12 items-start">
         <div>
-          <div className="text-[11px] text-[#555] uppercase tracking-widest mb-3 font-medium">
+          <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--muted-dim)' }}>
             {meta!.date}
           </div>
-          <h1 className="text-[32px] font-bold tracking-tight mb-3 text-[#f0f0f0]">{meta!.title}</h1>
-          <p className="text-[15px] text-[#888] mb-10 leading-relaxed">{meta!.description}</p>
+          <h1 className="text-[32px] font-bold tracking-tight mb-3" style={{ color: 'var(--foreground)' }}>{meta!.title}</h1>
+          <p className="text-[15px] mb-10 leading-relaxed" style={{ color: 'var(--muted)' }}>{meta!.description}</p>
           <article className="prose">
             <MDXRemote
               source={content!}
@@ -74,11 +75,11 @@ export default async function ProjectPage({ params }: Props) {
         </div>
 
         <aside className="sticky top-8">
-          <div className="bg-[#161616] border border-[rgba(255,255,255,0.08)] rounded-xl p-5">
-            <div className="text-[11px] text-[#555] uppercase tracking-widest mb-3 font-medium">Stack</div>
+          <div className="rounded-xl p-5" style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}>
+            <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--muted-dim)' }}>Stack</div>
             <div className="flex flex-col gap-1.5 mb-5">
               {meta!.stack.map((s) => (
-                <span key={s} className="text-[13px] text-[#888] border-b border-[rgba(255,255,255,0.06)] pb-1.5">
+                <span key={s} className="text-[13px] pb-1.5" style={{ color: 'var(--muted)', borderBottom: '1px solid var(--border)' }}>
                   {s}
                 </span>
               ))}
@@ -89,7 +90,8 @@ export default async function ProjectPage({ params }: Props) {
                   href={meta!.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[13px] text-[#22c55e] underline underline-offset-2 hover:text-[#16a34a] transition-colors duration-150"
+                  className="text-[13px] underline underline-offset-2 transition-colors duration-150"
+                  style={{ color: 'var(--accent)' }}
                 >
                   View on GitHub ↗
                 </a>
@@ -99,7 +101,8 @@ export default async function ProjectPage({ params }: Props) {
                   href={meta!.demo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[13px] text-[#22c55e] underline underline-offset-2 hover:text-[#16a34a] transition-colors duration-150"
+                  className="text-[13px] underline underline-offset-2 transition-colors duration-150"
+                  style={{ color: 'var(--accent)' }}
                 >
                   Live demo ↗
                 </a>
