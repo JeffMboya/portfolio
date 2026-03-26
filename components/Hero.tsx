@@ -53,8 +53,7 @@ export default function Hero() {
       </div>
 
       <h1 className="text-[44px] font-bold leading-[1.1] tracking-tight mb-3" style={{ color: 'var(--foreground)' }}>
-        From the Global South&apos;s first DAC machine<br />
-        to WebAssembly task orchestrators.
+        From the Global South&apos;s first DAC machine to WebAssembly task orchestrators.
       </h1>
       <p className="text-[14px] font-medium mb-5" style={{ color: 'var(--muted-dim)' }}>
         I build systems that bridge physical infrastructure and distributed software.
