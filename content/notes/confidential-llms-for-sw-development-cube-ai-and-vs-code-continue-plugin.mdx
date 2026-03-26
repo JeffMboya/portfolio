@@ -1,0 +1,258 @@
+---
+title: "Confidential LLMs for SW Development: Cube AI and VS Code Continue Plugin"
+slug: confidential-llms-for-sw-development-cube-ai-and-vs-code-continue-plugin
+description: "In today’s fast-paced development environment, AI-assisted tools are becoming essential for enhancing productivity.  In this post, we’ll explore how Cube AI and Continue can enhance your development e"
+date: "2024-12"
+tags: ["ollama", "large-language-models", "confidential-computing", "cybersecurity"]
+source: "https://medium.com/ultraviolet-blog/confidential-llms-for-sw-development-cube-ai-and-vs-code-continue-plugin-80f6b7668812"
+---
+
+#### In today’s fast-paced development environment, AI-assisted tools are becoming essential for enhancing productivity. In this post, we’ll explore how [Cube AI](https://github.com/ultravioletrs/cube) and [Continue](https://www.continue.dev/) can enhance your development experience by providing a secure and AI-assisted coding environment.
+
+### What is Cube AI?
+
+[Cube AI](https://github.com/ultravioletrs/cube) is a platform designed to provide a secure, AI-assisted coding environment through confidential computing. Unlike traditional AI tools that depend on public cloud services, Cube AI uses trusted execution environments (TEEs) to protect your data and code. This makes Cube AI perfect for projects where security is critical.
+
+### What is Continue?
+
+[Continue](https://docs.continue.dev/) is an open-source AI code assistant. It uses Large Language Models (LLMs) to offer real-time coding suggestions, auto-completion, and debugging help.
+
+### **Why Use Cube AI and Continue Together?**
+
+Using Cube AI and Continue together provides a secure environment for AI-assisted coding. This means you can code faster without sacrificing data security. Additionally, Continue allows you to use any large language model (LLM), making it customizable for your specific project needs.
+
+### Integrate Cube AI with Continue in Visual Studio Code
+
+To set up and integrate Cube AI with the Continue in Visual Studio Code:
+
+#### Step 1: Install Visual Studio Code
+
+1.  Go to the [Visual Studio Code website](https://code.visualstudio.com/).
+2.  Download the version compatible with your operating system (Windows, macOS, or Linux).
+3.  Follow the installation instructions provided for your OS.
+
+#### Step 2: Install the Continue Extension
+
+1.  Open Visual Studio Code after installation.
+2.  In the left sidebar, click on the **Extensions** icon (or press Ctrl+Shift+X).
+3.  Search for “Continue”.
+4.  Search for “Continue”.
+5.  Click **Install** next to **Continue — Codestral, Claude, and more.**
+
+#### Step 3: Connect Continue to Cube AI
+
+Once Continue is installed, the next step is configuring it.
+
+-   In Visual Studio Code, open the Continue sidebar and click the **gear icon** at the bottom right corner. This will open a configuration file located at:
+-   **MacOS/Linux**: ~/.continue/config.json
+-   **Windows**: %USERPROFILE%\\\\\\\\.continue\\\\\\\\config.json
+
+Once config.json is open, delete the default configuration and specify Cube AI as the model provider by connecting Continue to the Cube AI API as shown below:
+
+```
+{
+  "models": [
+    {
+      "title": "Model Title",
+      "provider": "ollama",
+      "model": "",
+      "apiKey": "",
+      "apiBase": "/ollama"
+    }
+  ],
+  "tabAutocompleteModel": {
+    "title": "Model Title",
+    "provider": "ollama",
+    "model": "",
+    "apiKey": "",
+    "apiBase": "/ollama"
+  },
+  "embeddingsProvider": {
+    "provider": "ollama",
+    "model": "",
+    "apiKey": "",
+    "apiBase": "/ollama"
+  },
+  "requestOptions": {
+    "verifySsl": false
+  },
+  "customCommands": [
+    {
+      "name": "test",
+      "prompt": "{{{ input }}}\n\nWrite a comprehensive suite of unit tests for the provided code snippet. Include setup, execution, and teardown. Ensure the tests cover key functionality and edge cases. Output the tests directly without modifying any files.",
+      "description": "Generate unit tests for the selected code"
+    }
+  ],
+  "contextProviders": [
+    {
+      "name": "code",
+      "params": {}
+    },
+    {
+      "name": "docs",
+      "params": {}
+    },
+    {
+      "name": "diff",
+      "params": {}
+    },
+    {
+      "name": "terminal",
+      "params": {}
+    },
+    {
+      "name": "problems",
+      "params": {}
+    },
+    {
+      "name": "folder",
+      "params": {}
+    },
+    {
+      "name": "codebase",
+      "params": {}
+    }
+  ],
+  "slashCommands": [
+    {
+      "name": "edit",
+      "description": "Edit selected code"
+    },
+    {
+      "name": "comment",
+      "description": "Write comments for the selected code"
+    },
+    {
+      "name": "share",
+      "description": "Export the current chat session to markdown"
+    },
+    {
+      "name": "cmd",
+      "description": "Generate a shell command"
+    },
+    {
+      "name": "commit",
+      "description": "Generate a git commit message"
+    }
+  ]
+}
+```
+
+-   Ensure ollama is selected as the provider.
+-   Set the model to any of the models provided by Ollama. For a complete list of all the available models, see [Ollama Library](https://ollama.com/library).
+-   Set apiKey field to your access token. Make sure the access token you use is valid.
+-   Set apiBase to your Cube AI instance URL
+
+Here is an example config files with all the necessary fields filled:
+
+```
+{
+  "models": [
+    {
+      "title": "Ollama",
+      "provider": "ollama",
+      "model": "tinyllama:1.1b",
+      "apiKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzEwNTI4MDgsImlhdCI6MTczMTA0OTIwOCwiaXNzIjoiY3ViZUFJIn0.KdKePubFv7xpVSoOLyerEJs1Qr9SssUNu31ODyge6eI",
+      "apiBase": "http://159.65.237.28/ollama"
+    }
+  ],
+  "tabAutocompleteModel": {
+    "title": "Starcoder 2 3b",
+    "provider": "ollama",
+    "model": "starcoder2:3b",
+    "apiKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzEwNTI4MDgsImlhdCI6MTczMTA0OTIwOCwiaXNzIjoiY3ViZUFJIn0.KdKePubFv7xpVSoOLyerEJs1Qr9SssUNu31ODyge6eI",
+    "apiBase": "http://159.65.237.28/ollama"
+  },
+  "embeddingsProvider": {
+    "provider": "ollama",
+    "model": "nomic-embed-text",
+    "apiKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzEwNTI4MDgsImlhdCI6MTczMTA0OTIwOCwiaXNzIjoiY3ViZUFJIn0.KdKePubFv7xpVSoOLyerEJs1Qr9SssUNu31ODyge6eI",
+    "apiBase": "http://159.65.237.28/ollama"
+  },
+  "customCommands": [
+    {
+      "name": "test",
+      "prompt": "{{{ input }}}\n\nWrite a comprehensive set of unit tests for the selected code. It should setup, run tests that check for correctness including important edge cases, and teardown. Ensure that the tests are complete and sophisticated. Give the tests just as chat output, don't edit any file.",
+      "description": "Write unit tests for highlighted code"
+    }
+  ],
+  "contextProviders": [
+    {
+      "name": "code",
+      "params": {}
+    },
+    {
+      "name": "docs",
+      "params": {}
+    },
+    {
+      "name": "diff",
+      "params": {}
+    },
+    {
+      "name": "terminal",
+      "params": {}
+    },
+    {
+      "name": "problems",
+      "params": {}
+    },
+    {
+      "name": "folder",
+      "params": {}
+    },
+    {
+      "name": "codebase",
+      "params": {}
+    }
+  ],
+  "slashCommands": [
+    {
+      "name": "edit",
+      "description": "Edit selected code"
+    },
+    {
+      "name": "comment",
+      "description": "Write comments for the selected code"
+    },
+    {
+      "name": "share",
+      "description": "Export the current chat session to markdown"
+    },
+    {
+      "name": "cmd",
+      "description": "Generate a shell command"
+    },
+    {
+      "name": "commit",
+      "description": "Generate a git commit message"
+    }
+  ],
+  "requestOptions": {
+    "verifySsl": false
+  }
+}
+```
+
+Changes are automatically applied when you save the file, so there is no need to restart Visual Studio Code or the Continue extension. For a visual demonstration of how to connect to Cube AI with the Continue extension, check out the video below
+
+#### Step 4: Start Coding with AI Assistance
+
+Now that everything is set up, you can begin coding with real-time AI help:
+
+1.  Open your project in Visual Studio Code.
+2.  Highlight a block of code
+
+3\. Use the shortcut Ctrl + L (or Cmd + L on Mac) to add the highlighted code directly into the Continue chat.
+
+4\. Type your prompt in the chat box and press **Enter** to send it.
+
+Cube AI will process the request and respond as shown below
+
+### **Conclusion**
+
+Whether you’re a beginner or an experienced developer, combining the secure environment of Cube AI with the real-time, intelligent assistance of Continue brings the power of LLMs directly to your VS Code editor to boost your productivity securely. With the above set-up, you will only need to turn to traditional methods, like reading documentation, watching tutorials, or consulting platforms like StackOverflow, when double-checking LLM suggestions that don’t seem quite right or working through more complex tasks that LLMs aren’t ideal for.
+
+_To learn more about_ [_Ultraviolet Security_](https://ultraviolet.rs/index.html), _and how we’re building the world’s most sophisticated_ [_collaborative AI platform_](https://ultraviolet.rs/prism.html)_, visit our_ [_website_](https://ultraviolet.rs/index.html) _and follow us on_ [_Twitter_](https://x.com/ultravioletrs)_!_
+
+_If you liked this article, click the👏 below multiple times so others will see it here on Medium._

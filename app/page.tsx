@@ -152,7 +152,7 @@ export default function Home() {
           <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
         </div>
         <a
-          href="/blogs/wrong-question-about-ai-images"
+          href="/blogs/i-think-we-re-asking-the-wrong-question-about-ai-images"
           className="block rounded-xl p-6 transition-colors duration-150 group"
           style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
         >

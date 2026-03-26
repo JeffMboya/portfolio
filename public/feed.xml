@@ -5,15 +5,87 @@
     <link>https://jeffmboya.com</link>
     <description>Systems engineering, software, and research by Jeff Mboya.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 26 Mar 2026 21:44:29 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Mar 2026 21:54:47 GMT</lastBuildDate>
     <atom:link href="https://jeffmboya.com/feed.xml" rel="self" type="application/rss+xml"/>
     
   <item>
-    <title>I Think We&apos;re Asking the Wrong Question About AI Images</title>
-    <link>https://jeffmboya.com/logs/wrong-question-about-ai-images</link>
-    <guid isPermaLink="true">https://jeffmboya.com/logs/wrong-question-about-ai-images</guid>
-    <description>Detection assumes the right moment to understand an image is after it already exists. What if we just recorded where it began?</description>
+    <title>The People Who Don’t Look Like Founders</title>
+    <link>https://jeffmboya.com/logs/the-people-who-don-t-look-like-founders</link>
+    <guid isPermaLink="true">https://jeffmboya.com/logs/the-people-who-don-t-look-like-founders</guid>
+    <description>There’s a certain image people have of successful founders.  Top schools.</description>
     <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+    <author>Jeff Mboya</author>
+  </item>
+  <item>
+    <title>The Internet Remembers Everything -Except Where Ideas Come From</title>
+    <link>https://jeffmboya.com/logs/the-internet-remembers-everything-except-where-ideas-come-from</link>
+    <guid isPermaLink="true">https://jeffmboya.com/logs/the-internet-remembers-everything-except-where-ideas-come-from</guid>
+    <description>A few weeks ago I wrote about a registry for AI images.  The idea was pretty simple tbh — when an image is created, you log a fingerprint somewhere, so later if it shows up again you can trace where i</description>
+    <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+    <author>Jeff Mboya</author>
+  </item>
+  <item>
+    <title>Scripli Wrapped: The Year Your Writing Finally Talks Back</title>
+    <link>https://jeffmboya.com/logs/scripli-wrapped-the-year-your-writing-finally-talks-back</link>
+    <guid isPermaLink="true">https://jeffmboya.com/logs/scripli-wrapped-the-year-your-writing-finally-talks-back</guid>
+    <description>Today we’re introducing Scripli Wrapped — your writing year, reflected back at you as a series of cards you can explore, save, and share.  Writing is one of the few things people do consistently over </description>
+    <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+    <author>Jeff Mboya</author>
+  </item>
+  <item>
+    <title>I Think We’re Asking the Wrong Question About AI Images</title>
+    <link>https://jeffmboya.com/logs/i-think-we-re-asking-the-wrong-question-about-ai-images</link>
+    <guid isPermaLink="true">https://jeffmboya.com/logs/i-think-we-re-asking-the-wrong-question-about-ai-images</guid>
+    <description>For the past year or so, almost every conversation I’ve had about AI images eventually lands in the same place.  Detection.</description>
+    <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+    <author>Jeff Mboya</author>
+  </item>
+  <item>
+    <title>How Twitter Refreshes Your Feed Without Reloading the Page</title>
+    <link>https://jeffmboya.com/logs/how-twitter-refreshes-your-feed-without-reloading-the-page</link>
+    <guid isPermaLink="true">https://jeffmboya.com/logs/how-twitter-refreshes-your-feed-without-reloading-the-page</guid>
+    <description>If you’ve ever used Twitter (now known as X), you’ve probably noticed something subtle but powerful: new tweets appear without the page ever reloading.  There’s no flicker, no white screen, no full re</description>
+    <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+    <author>Jeff Mboya</author>
+  </item>
+  <item>
+    <title>Cloud-Edge Computing: Why Routing Everything Through the Cloud Is Quietly Killing Your IoT…</title>
+    <link>https://jeffmboya.com/logs/cloud-edge-computing-why-routing-everything-through-the-cloud-is-quietly-killing</link>
+    <guid isPermaLink="true">https://jeffmboya.com/logs/cloud-edge-computing-why-routing-everything-through-the-cloud-is-quietly-killing</guid>
+    <description>Cloud-Edge Computing: Why Routing Everything Through the Cloud Is Quietly Killing Your IoT Architecture | Blog You are running a factory with 5,000 sensors reporting temperature, vibration, pressure, </description>
+    <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+    <author>Jeff Mboya</author>
+  </item>
+  <item>
+    <title>Why the “Painful” Zephyr Learning Curve Is Probably the Best Move You’ll Make</title>
+    <link>https://jeffmboya.com/logs/why-the-painful-zephyr-learning-curve-is-probably-the-best-move-you-ll-make</link>
+    <guid isPermaLink="true">https://jeffmboya.com/logs/why-the-painful-zephyr-learning-curve-is-probably-the-best-move-you-ll-make</guid>
+    <description>I have this conversation almost every week.  Someone leans in and says, “ I’m looking at Zephyr, but it’s a wall.</description>
+    <pubDate>Sun, 01 Feb 2026 00:00:00 GMT</pubDate>
+    <author>Jeff Mboya</author>
+  </item>
+  <item>
+    <title>Authorship Has Always Been Assumed. Now It Has to Be Proven.</title>
+    <link>https://jeffmboya.com/logs/authorship-has-always-been-assumed-now-it-has-to-be-proven</link>
+    <guid isPermaLink="true">https://jeffmboya.com/logs/authorship-has-always-been-assumed-now-it-has-to-be-proven</guid>
+    <description>For a long time, authorship was simple.  If your name appeared on a piece of writing, people assumed you wrote it.</description>
+    <pubDate>Sun, 01 Feb 2026 00:00:00 GMT</pubDate>
+    <author>Jeff Mboya</author>
+  </item>
+  <item>
+    <title>AI Detectors Can’t Be Fixed. The Approach Is the Problem.</title>
+    <link>https://jeffmboya.com/logs/ai-detectors-can-t-be-fixed-the-approach-is-the-problem</link>
+    <guid isPermaLink="true">https://jeffmboya.com/logs/ai-detectors-can-t-be-fixed-the-approach-is-the-problem</guid>
+    <description>The premise is flawed from the start AI content detectors work by analysing the statistical characteristics of finished text.  They look for patterns — predictability, perplexity, burstiness — that te</description>
+    <pubDate>Sun, 01 Feb 2026 00:00:00 GMT</pubDate>
+    <author>Jeff Mboya</author>
+  </item>
+  <item>
+    <title>Confidential LLMs for SW Development: Cube AI and VS Code Continue Plugin</title>
+    <link>https://jeffmboya.com/logs/confidential-llms-for-sw-development-cube-ai-and-vs-code-continue-plugin</link>
+    <guid isPermaLink="true">https://jeffmboya.com/logs/confidential-llms-for-sw-development-cube-ai-and-vs-code-continue-plugin</guid>
+    <description>In today’s fast-paced development environment, AI-assisted tools are becoming essential for enhancing productivity.  In this post, we’ll explore how Cube AI and Continue can enhance your development e</description>
+    <pubDate>Sun, 01 Dec 2024 00:00:00 GMT</pubDate>
     <author>Jeff Mboya</author>
   </item>
   </channel>

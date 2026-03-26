@@ -1,0 +1,63 @@
+---
+title: "How Twitter Refreshes Your Feed Without Reloading the Page"
+slug: how-twitter-refreshes-your-feed-without-reloading-the-page
+description: "If you’ve ever used Twitter (now known as X), you’ve probably noticed something subtle but powerful: new tweets appear without the page ever reloading.  There’s no flicker, no white screen, no full re"
+date: "2026-03"
+source: "https://medium.com/@jangina.mboya/how-twitter-refreshes-your-feed-without-reloading-the-page-3426e04f3ef0"
+---
+
+If you’ve ever used Twitter (now known as X), you’ve probably noticed something subtle but powerful: new tweets appear without the page ever reloading. There’s no flicker, no white screen, no full refresh. Content just… shows up. Seamlessly.
+
+That smooth experience is the result of modern web architecture working behind the scenes to turn what used to be static websites into dynamic applications.
+
+Let’s unpack how it works.
+
+### From Web Pages to Web Applications
+
+In the early days of the internet, websites were built like documents. Every time you clicked a link or submitted a form, your browser requested a brand-new HTML page from the server. The entire page would reload — even if only a small piece of information had changed.
+
+Modern platforms like Twitter don’t work that way. Instead of treating each interaction as a request for a new page, they treat the browser as a running application. The initial visit loads the structure of the app — its layout, styles, and JavaScript logic. After that, the page rarely reloads. What changes is the data inside it.
+
+### The Role of Background Requests
+
+Once Twitter loads in your browser, JavaScript takes over. That JavaScript can communicate with Twitter’s servers in the background, sending requests and receiving responses without interrupting what you’re looking at.
+
+When you open your timeline, your browser doesn’t fetch a fully formed web page for each tweet. Instead, it asks the server for raw data — usually formatted as JSON. That data contains the content of tweets, metadata, user information, and engagement counts.
+
+When the data arrives, JavaScript updates the relevant parts of the page. The browser modifies only the specific elements that need to change. The rest of the interface remains untouched.
+
+This technique — originally popularized through AJAX — made it possible for web pages to update without refreshing.
+
+### Real-Time Updates with Persistent Connections
+
+Twitter also needs to deliver updates in real time — new tweets, likes, replies, and notifications. Rather than constantly asking the server whether something new has happened, modern applications use persistent connections such as WebSockets. A WebSocket creates a continuous, two-way channel between your browser and the server.
+
+Once the connection is established, the server doesn’t have to wait for your browser to ask for updates. It can push new information instantly. That’s why you might see a banner that says “New Tweets” appear at the top of your timeline. The server has already delivered that information in the background. The interface is simply notifying you that fresh data is available.
+
+### The Single Page Application Model
+
+Twitter operates as what developers call a Single Page Application (SPA). Instead of navigating between separate HTML pages, you’re interacting with one long-running application.
+
+When you click on a profile, open a tweet, or switch tabs, you’re not triggering a full reload. You’re telling the JavaScript application to fetch new data and update part of the interface.
+
+Frontend frameworks — like React — make this efficient. They keep track of the application’s state (for example, your timeline data). When new tweets arrive, the framework compares the old state to the new state and updates only what’s necessary. This selective rendering makes everything feel instantaneous.
+
+### Infinite Scroll and Continuous Loading
+
+Another key piece of the experience is infinite scrolling. As you scroll down your timeline, Twitter detects when you’re nearing the bottom of the loaded content. At that moment, it quietly requests older tweets from the server.
+
+When the data arrives, it appends those tweets to the timeline. The process feels continuous because it happens before you reach the end. Again, there’s no refresh.
+
+### Why It Feels So Seamless
+
+What makes this all feel smooth is that the heavy lifting happens once — when the application initially loads. After that, the browser already has the logic it needs to request data, manage updates, and modify the interface.
+
+Instead of repeatedly loading HTML, CSS, and scripts, Twitter simply moves small packets of data back and forth. The browser updates the Document Object Model (DOM) in place. The layout doesn’t disappear. The screen doesn’t flash.
+
+### The Bigger Picture
+
+The techniques behind Twitter’s feed are now standard across modern platforms. Instagram, Facebook, LinkedIn, and countless SaaS tools rely on the same principles: background API calls, persistent connections, intelligent rendering, and client-side state management.
+
+The result is an experience that feels immediate, responsive, and continuous — less like browsing documents and more like using software.
+
+And that’s exactly what the modern web has become.
