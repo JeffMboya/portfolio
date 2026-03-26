@@ -54,7 +54,7 @@ export default async function ProjectPage({ params }: Props) {
 
       <div className="grid grid-cols-[1fr_220px] gap-12 items-start">
         <div>
-          <div className="text-[11px] text-[#22c55e] uppercase tracking-widest mb-3 font-medium">
+          <div className="text-[11px] text-[#555] uppercase tracking-widest mb-3 font-medium">
             {meta!.date}
           </div>
           <h1 className="text-[32px] font-bold tracking-tight mb-3 text-[#f0f0f0]">{meta!.title}</h1>
@@ -73,7 +73,7 @@ export default async function ProjectPage({ params }: Props) {
 
         <aside className="sticky top-8">
           <div className="bg-[#161616] border border-[rgba(255,255,255,0.08)] rounded-xl p-5">
-            <div className="text-[11px] text-[#22c55e] uppercase tracking-widest mb-3 font-medium">Stack</div>
+            <div className="text-[11px] text-[#555] uppercase tracking-widest mb-3 font-medium">Stack</div>
             <div className="flex flex-col gap-1.5 mb-5">
               {meta!.stack.map((s) => (
                 <span key={s} className="text-[13px] text-[#888] border-b border-[rgba(255,255,255,0.06)] pb-1.5">

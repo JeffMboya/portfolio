@@ -22,12 +22,12 @@ export default function Hero() {
         </div>
         <div>
           <div className="text-[15px] font-semibold text-[#f0f0f0]">Jeff Mboya</div>
-          <div className="text-[11px] text-[#22c55e] uppercase tracking-widest font-medium">Software Engineer</div>
+          <div className="text-[11px] text-[#555] uppercase tracking-widest font-medium">Software Engineer</div>
         </div>
       </div>
-      <h1 className="text-[48px] font-bold leading-[1.1] tracking-tight mb-5">
+      <h1 className="text-[48px] font-bold leading-[1.1] tracking-tight mb-5 text-[#f0f0f0]">
         I build systems<br />
-        <span className="text-[#22c55e]">that run at the edge.</span>
+        that run at the edge.
       </h1>
       <p className="text-[16px] text-[#888] leading-relaxed max-w-[540px] mb-7">
         Backend and systems engineer focused on WebAssembly, distributed task

@@ -15,7 +15,7 @@ export default function ProjectCard({ meta }: ProjectCardProps) {
     >
       <div className="flex items-start justify-between gap-4">
         <div className="flex-1">
-          <div className="text-[11px] text-[#22c55e] uppercase tracking-wider mb-2 font-medium">
+          <div className="text-[11px] text-[#555] uppercase tracking-wider mb-2 font-medium">
             {meta.date}
           </div>
           <h3 className="text-[18px] font-semibold tracking-tight mb-2 text-[#f0f0f0]">

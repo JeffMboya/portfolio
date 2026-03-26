@@ -87,7 +87,7 @@ export default function ResearchPage() {
       </div>
 
       <div className="mb-10">
-        <div className="text-[11px] text-[#22c55e] uppercase tracking-widest mb-3 font-medium">
+        <div className="text-[11px] text-[#555] uppercase tracking-widest mb-3 font-medium">
           Academic Work
         </div>
         <h1 className="text-[32px] font-bold tracking-tight mb-3 text-[#f0f0f0]">Research</h1>
@@ -105,7 +105,7 @@ export default function ResearchPage() {
       </div>
 
       <div className="flex items-center gap-3 mb-8">
-        <span className="text-[11px] text-[#22c55e] uppercase tracking-widest font-medium">
+        <span className="text-[11px] text-[#555] uppercase tracking-widest font-medium">
           Publications
         </span>
         <div className="flex-1 h-px bg-[rgba(255,255,255,0.08)]" />
@@ -124,7 +124,7 @@ export default function ResearchPage() {
             <div className="flex items-start justify-between gap-4">
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="text-[11px] text-[#22c55e] font-medium uppercase tracking-wider">
+                  <span className="text-[11px] text-[#555] font-medium uppercase tracking-wider">
                     {pub.year}
                   </span>
                   {pub.citations > 0 && (

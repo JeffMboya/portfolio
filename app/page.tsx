@@ -11,7 +11,7 @@ export default function Home() {
 
       <section id="work" className="mb-20">
         <div className="flex items-center gap-3 mb-8">
-          <span className="text-[11px] text-[#22c55e] uppercase tracking-widest font-medium">Selected Work</span>
+          <span className="text-[11px] text-[#555] uppercase tracking-widest font-medium">Selected Work</span>
           <div className="flex-1 h-px bg-[rgba(255,255,255,0.08)]" />
         </div>
         <div className="flex flex-col gap-4">
