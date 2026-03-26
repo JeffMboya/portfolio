@@ -14,7 +14,7 @@ export default function Home() {
           <span className="text-[11px] text-[#555] uppercase tracking-widest font-medium">Selected Work</span>
           <div className="flex-1 h-px bg-[rgba(255,255,255,0.08)]" />
         </div>
-        <div className="flex flex-col gap-4">
+        <div className="grid grid-cols-3 gap-4">
           {projects.map((meta) => (
             <ProjectCard key={meta.slug} meta={meta} />
           ))}
