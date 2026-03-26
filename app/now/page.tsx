@@ -23,8 +23,7 @@ export default function NowPage() {
             Building
           </h2>
           <p className="text-[15px] leading-relaxed" style={{ color: 'var(--muted)' }}>
-            {/* TODO: Replace with what you're actually building */}
-            Working on Propeller at Abstract Machines — a WebAssembly task orchestration runtime in Go and Rust. The interesting problem is scheduling compute tasks onto heterogeneous edge nodes while keeping the control plane lightweight enough to run on a Raspberry Pi.
+            Working on <a href="https://github.com/absmach/propeller" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2" style={{ color: 'var(--accent)' }}>Propeller</a> at Abstract Machines — a WebAssembly orchestrator that deploys workloads across the cloud-edge continuum, from bare-metal servers down to Zephyr RTOS microcontrollers. The Go manager schedules tasks and the Rust proplet workers execute them via Wasmtime, pulling images from OCI registries over MQTT. The interesting current work is the TEE runtime: decrypting and running encrypted WASM inside a Trusted Execution Environment, so clients can verify their code ran untampered. We also have federated learning built in — training ML models across distributed edge nodes without the raw data ever leaving the device.
           </p>
         </div>
 
@@ -33,8 +32,7 @@ export default function NowPage() {
             Learning
           </h2>
           <p className="text-[15px] leading-relaxed" style={{ color: 'var(--muted)' }}>
-            {/* TODO: Replace with what you're actually learning */}
-            Going deeper on the WASM component model and how it changes the boundary between host runtimes and guest modules. Also re-reading Dijkstra's semaphore papers — concurrent systems problems don't change, only the vocabulary does.
+            Going deep on the WASM component model and how it changes the trust boundary between a host runtime and guest modules — relevant directly to the TEE work. I&apos;m also working through the Confidential Containers attestation stack: how a Key Broker Service and Attestation Agent cooperate to release secrets only to verified enclaves. On the Rust side, learning to write async MQTT clients that stay sub-1 MB resident on ARM Cortex-M4. The constraint forces clarity that you don&apos;t get writing services for cloud VMs.
           </p>
         </div>
 
@@ -43,8 +41,7 @@ export default function NowPage() {
             Thinking about
           </h2>
           <p className="text-[15px] leading-relaxed" style={{ color: 'var(--muted)' }}>
-            {/* TODO: Replace with what's on your mind */}
-            Whether the next decade of climate infrastructure in Africa gets built on imported SaaS tooling or on open protocols engineered locally. The DAC work at Octavia convinced me the latter is possible — the gap is mostly institutional, not technical.
+            Whether edge-native compute — small, verifiable, offline-capable — is a better match for African infrastructure than cloud-first architectures that assume reliable connectivity. The DAC work at Octavia ran on a Siemens PLC in a field site with intermittent uptime; Propeller&apos;s model of &quot;deploy once, run anywhere, verify remotely&quot; would have been genuinely useful there. I think the next wave of climate and agricultural tech in the Global South gets built on open edge protocols, not SaaS dashboards. The gap is less technical than it is institutional — who funds the integrators.
           </p>
         </div>
       </div>
