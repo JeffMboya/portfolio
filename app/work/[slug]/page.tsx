@@ -55,51 +55,10 @@ export default async function ProjectPage({ params }: Props) {
         </Link>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_220px] gap-12 items-start">
-        <div>
-          <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--muted-dim)' }}>
-            {formatDate(meta!.date)}
-          </div>
-          <h1 className="text-[32px] font-bold tracking-tight mb-3" style={{ color: 'var(--foreground)' }}>{meta!.title}</h1>
-          <p className="text-[15px] mb-10 leading-relaxed" style={{ color: 'var(--muted)' }}>{meta!.description}</p>
-          <article className="prose">
-            <MDXRemote
-              source={content!}
-              components={{ PhotoGrid }}
-              options={{
-                mdxOptions: {
-                  remarkPlugins: [remarkGfm],
-                  rehypePlugins: [rehypeSlug, [rehypePrettyCode as any, { theme: 'github-dark' }]],
-                },
-              }}
-            />
-          </article>
-        </div>
+      <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr_220px] gap-10 items-start">
 
+        {/* Left sidebar — Stack */}
         <aside className="hidden lg:block sticky top-8">
-          {headings.length > 0 && (
-            <div className="rounded-xl p-5 mb-4" style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}>
-              <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--muted-dim)' }}>
-                On this page
-              </div>
-              <nav className="flex flex-col gap-1">
-                {headings.map((h) => (
-                  <a
-                    key={h.id}
-                    href={`#${h.id}`}
-                    className="text-[12px] leading-snug transition-colors duration-150"
-                    style={{
-                      color: 'var(--muted)',
-                      paddingLeft: h.level === 3 ? '12px' : '0',
-                    }}
-                  >
-                    {h.text}
-                  </a>
-                ))}
-              </nav>
-            </div>
-          )}
-
           <div className="rounded-xl p-5" style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}>
             <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--muted-dim)' }}>Stack</div>
             <div className="flex flex-col gap-1.5 mb-5">
@@ -134,6 +93,53 @@ export default async function ProjectPage({ params }: Props) {
               )}
             </div>
           </div>
+        </aside>
+
+        {/* Main content */}
+        <div>
+          <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--muted-dim)' }}>
+            {formatDate(meta!.date)}
+          </div>
+          <h1 className="text-[32px] font-bold tracking-tight mb-3" style={{ color: 'var(--foreground)' }}>{meta!.title}</h1>
+          <p className="text-[15px] mb-10 leading-relaxed" style={{ color: 'var(--muted)' }}>{meta!.description}</p>
+          <article className="prose">
+            <MDXRemote
+              source={content!}
+              components={{ PhotoGrid }}
+              options={{
+                mdxOptions: {
+                  remarkPlugins: [remarkGfm],
+                  rehypePlugins: [rehypeSlug, [rehypePrettyCode as any, { theme: 'github-dark' }]],
+                },
+              }}
+            />
+          </article>
+        </div>
+
+        {/* Right sidebar — On this page */}
+        <aside className="hidden lg:block sticky top-8">
+          {headings.length > 0 && (
+            <div className="rounded-xl p-5" style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}>
+              <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--muted-dim)' }}>
+                On this page
+              </div>
+              <nav className="flex flex-col gap-1">
+                {headings.map((h) => (
+                  <a
+                    key={h.id}
+                    href={`#${h.id}`}
+                    className="text-[12px] leading-snug transition-colors duration-150"
+                    style={{
+                      color: 'var(--muted)',
+                      paddingLeft: h.level === 3 ? '12px' : '0',
+                    }}
+                  >
+                    {h.text}
+                  </a>
+                ))}
+              </nav>
+            </div>
+          )}
         </aside>
       </div>
     </div>
