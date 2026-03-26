@@ -238,6 +238,61 @@ export default function ResearchPage() {
           </a>
         ))}
       </div>
+
+      {/* Conferences */}
+      <div className="flex items-center gap-3 mt-16 mb-8">
+        <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--muted-dim)' }}>
+          Invited Conferences
+        </span>
+        <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
+        <span className="text-[11px]" style={{ color: 'var(--muted-dim)' }}>4 events</span>
+      </div>
+
+      <div className="flex flex-col gap-3">
+        {[
+          {
+            year: 2023,
+            name: '2023 Sustainable Research & Innovation (SRI) Conference',
+            theme: 'Linking Industry with Academia through Research and Innovation for Sustainable Development',
+          },
+          {
+            year: 2022,
+            name: '2022 Sustainable Research & Innovation (SRI) Conference',
+            theme: 'Sustainable Research in Science Technology and Innovation During and Post COVID-19',
+          },
+          {
+            year: 2021,
+            name: '2021 Sustainable Research & Innovation (SRI) Conference',
+            theme: 'Sustainable Development through Innovation, Technology & Industry Linkage',
+          },
+          {
+            year: 2020,
+            name: '29th Institution of Engineers of Kenya (IEK) International Convention',
+            theme: 'Sustainable Engineering in the Era of Climate Change',
+          },
+        ].map((c) => (
+          <div
+            key={c.year}
+            className="flex items-start gap-5 rounded-xl px-5 py-4"
+            style={{ border: '1px solid var(--border)', backgroundColor: 'var(--surface)' }}
+          >
+            <div
+              className="text-[13px] font-semibold tabular-nums shrink-0 pt-0.5"
+              style={{ color: 'var(--accent)' }}
+            >
+              {c.year}
+            </div>
+            <div>
+              <div className="text-[14px] font-semibold leading-snug mb-1" style={{ color: 'var(--foreground)' }}>
+                {c.name}
+              </div>
+              <div className="text-[12px] italic leading-relaxed" style={{ color: 'var(--muted)' }}>
+                {c.theme}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
