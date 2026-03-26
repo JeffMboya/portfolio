@@ -32,7 +32,10 @@ export default function Hero() {
       {/* Currently */}
       <div className="flex flex-col gap-2 mb-5">
         <div className="flex items-center gap-2">
-          <span className="text-[10px] font-medium uppercase tracking-widest" style={{ color: 'var(--muted-dim)' }}>
+          <span
+            className="text-[10px] font-semibold uppercase tracking-widest px-2 py-0.5 rounded-full"
+            style={{ backgroundColor: 'var(--accent)', color: 'var(--accent-text)' }}
+          >
             Now
           </span>
           <span className="text-[13px]" style={{ color: 'var(--muted)' }}>

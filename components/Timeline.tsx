@@ -85,7 +85,8 @@ function Card({ m, position }: { m: Milestone; position: 'above' | 'below' }) {
         {m.impact}
       </div>
       {m.current && (
-        <div className="flex justify-center mt-2">
+        <div className="flex justify-center items-center gap-1.5 mt-2">
+          <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse shrink-0" />
           <span
             className="text-[9px] font-medium uppercase tracking-wider"
             style={{ color: 'var(--muted-dim)' }}
@@ -135,17 +136,30 @@ export default function Timeline() {
           />
           {milestones.map((m, i) => (
             <div key={i} className="flex items-center justify-center py-3 relative z-10">
-              <div
-                style={{
-                  width: m.current ? '12px' : '10px',
-                  height: m.current ? '12px' : '10px',
-                  borderRadius: '50%',
-                  backgroundColor: trackColor[m.track],
-                  boxShadow: m.current
-                    ? `0 0 0 4px color-mix(in srgb, ${trackColor[m.track]} 25%, transparent)`
-                    : 'none',
-                }}
-              />
+              {m.current ? (
+                <span className="relative flex items-center justify-center w-3 h-3">
+                  <span
+                    className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-60"
+                    style={{ backgroundColor: trackColor[m.track] }}
+                  />
+                  <span
+                    className="relative inline-flex rounded-full w-3 h-3"
+                    style={{
+                      backgroundColor: trackColor[m.track],
+                      boxShadow: `0 0 0 4px color-mix(in srgb, ${trackColor[m.track]} 25%, transparent)`,
+                    }}
+                  />
+                </span>
+              ) : (
+                <div
+                  style={{
+                    width: '10px',
+                    height: '10px',
+                    borderRadius: '50%',
+                    backgroundColor: trackColor[m.track],
+                  }}
+                />
+              )}
             </div>
           ))}
         </div>
@@ -201,11 +215,14 @@ export default function Timeline() {
                   {m.role}
                 </div>
                 {m.current && (
-                  <span
-                    className="text-[9px] font-medium uppercase tracking-wider shrink-0"
-                    style={{ color: 'var(--muted-dim)' }}
-                  >
-                    Now
+                  <span className="flex items-center gap-1 shrink-0">
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse shrink-0" />
+                    <span
+                      className="text-[9px] font-medium uppercase tracking-wider"
+                      style={{ color: 'var(--muted-dim)' }}
+                    >
+                      Now
+                    </span>
                   </span>
                 )}
               </div>
