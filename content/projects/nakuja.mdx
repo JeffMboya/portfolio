@@ -1,0 +1,80 @@
+---
+title: Nakuja Project
+slug: nakuja
+description: University-based amateur rocketry programme at JKUAT working toward a liquid-propellant rocket capable of placing nanosatellites in low Earth orbit. Built and launched a series of high-power solid-motor rockets — N-1 through N-4 — and contributed propulsion research published at JKUAT-COETEC.
+stack:
+  - Solid propellant motors
+  - C++
+  - Python
+  - Ansys
+  - Custom DAQ
+  - Kenya Space Agency
+date: "2022-11"
+github: https://github.com/nakujaproject
+demo: https://nakujaproject.com
+featured: true
+---
+
+## Overview
+
+The Nakuja Project is a student-led rocketry programme at Jomo Kenyatta University of Agriculture and Technology (JKUAT), Kenya. The goal is to develop a liquid-propellant rocket capable of delivering nanosatellites into low Earth orbit — making Kenya and the broader East African region contributors to the global space economy.
+
+All work is open source, low-cost, and student-operated in partnership with the Kenya Space Agency (KSA).
+
+## My Involvement
+
+I joined the propulsion sub-team during the N-2 development cycle and contributed through the N-3 and N-3.5 launches. My work spanned motor design, static fire testing, and data acquisition — and fed directly into two peer-reviewed papers published at JKUAT-COETEC 2024:
+
+- *Development of Solid Propellant Motor for Low Altitude Model Rockets* — N-2 motor (35 N avg thrust, 34 m apogee)
+- *Development of a Solid Propellant Motor for High-Powered Model Rockets* — N-3 motor (151.7 N avg thrust, 280 m apogee)
+
+## Propulsion Development
+
+Each rocket in the Nakuja series uses a custom solid propellant motor designed, fabricated, and tested by the team. The propellant is a potassium nitrate / sucrose-dextrose mixture — chosen for availability, cost, and predictable burn characteristics.
+
+The nozzle geometry is convergent-divergent, machined in-house from mild steel. We validated designs using static fire tests on a purpose-built thrust stand instrumented with load cells and a custom data acquisition system that logs thrust, chamber pressure, and burn time.
+
+Key milestones:
+
+| Rocket | Launch | Avg Thrust | Apogee |
+|--------|--------|-----------|--------|
+| N-1 | May 2021 | — | ~50 m |
+| N-2 | November 2022 | 35 N | ~34 m |
+| N-3 | January 2024 | 151.7 N | ~280 m |
+| N-3.5 | May 2024 | — | — |
+| N-4 | November 2024 | — | — |
+
+## KSA Partnership & Broglio Visit
+
+The Kenya Space Agency facilitates our launch clearances and has hosted the team at the Broglio Space Center in Malindi — Kenya's historic satellite tracking facility. The visit gave the team hands-on exposure to ground station infrastructure, satellite dish arrays, and orbital mechanics in a professional setting.
+
+## Photo Gallery
+
+import Image from 'next/image'
+
+<div className="grid grid-cols-3 gap-3 my-8">
+  {[
+    { file: 'IMG_20210422_140013_1.jpg', caption: 'N-1 and N-2 rocket models' },
+    { file: 'IMG_20210430_174709.jpg', caption: 'N-1 launch prep in the field' },
+    { file: 'IMG-20220621-WA0015.jpg', caption: 'Post-fire solid motor casing' },
+    { file: 'IMG-20220627-WA0003.jpg', caption: 'Machined convergent-divergent nozzles' },
+    { file: 'IMG_20221111_144738_5.jpg', caption: 'JKUAT Innovation Exhibits' },
+    { file: '1L9A3187.JPG', caption: 'Team design session' },
+    { file: 'FQNR1ftXMAQkyab.jpeg', caption: 'At Broglio Space Center, Malindi' },
+    { file: 'IMG_20220413_111411_2.jpg', caption: 'Broglio ground station dishes' },
+    { file: 'IMG_20220413_111919_5.jpg', caption: 'Broglio satellite tracking array' },
+  ].map(({ file, caption }) => (
+    <div key={file} className="flex flex-col gap-1.5">
+      <div className="relative aspect-[4/3] rounded-lg overflow-hidden border border-[rgba(255,255,255,0.08)]">
+        <Image
+          src={`/nakuja/${file}`}
+          alt={caption}
+          fill
+          className="object-cover hover:scale-105 transition-transform duration-300"
+          sizes="(max-width: 768px) 100vw, 33vw"
+        />
+      </div>
+      <p className="text-[11px] text-[#555] text-center">{caption}</p>
+    </div>
+  ))}
+</div>
