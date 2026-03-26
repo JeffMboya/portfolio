@@ -9,6 +9,7 @@ const links = [
   { href: '/#about', label: 'About' },
   { href: '/blogs', label: 'Blogs' },
   { href: '/research', label: 'Research' },
+  { href: '/now', label: 'Now' },
   { href: 'https://github.com/JeffMboya', label: 'GitHub', external: true },
 ]
 
@@ -48,14 +49,16 @@ export default function Nav() {
                   (link.href.startsWith('/#') && pathname === '/') ||
                   pathname === link.href ||
                   (link.href === '/research' && pathname.startsWith('/research')) ||
-                  (link.href === '/blogs' && pathname.startsWith('/blogs'))
+                  (link.href === '/blogs' && pathname.startsWith('/blogs')) ||
+                  (link.href === '/now' && pathname.startsWith('/now'))
                     ? 'var(--foreground)'
                     : 'var(--muted-dim)',
                 fontWeight:
                   (link.href.startsWith('/#') && pathname === '/') ||
                   pathname === link.href ||
                   (link.href === '/research' && pathname.startsWith('/research')) ||
-                  (link.href === '/blogs' && pathname.startsWith('/blogs'))
+                  (link.href === '/blogs' && pathname.startsWith('/blogs')) ||
+                  (link.href === '/now' && pathname.startsWith('/now'))
                     ? '500'
                     : undefined,
               }}

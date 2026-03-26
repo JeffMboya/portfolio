@@ -110,6 +110,67 @@ export default function Home() {
 
       <Leadership />
 
+      <section className="mb-20">
+        <div className="flex items-center gap-3 mb-8">
+          <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--muted-dim)' }}>Research</span>
+          <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
+        </div>
+        <div
+          className="rounded-xl p-6 mb-3"
+          style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
+        >
+          <div className="flex flex-col gap-4">
+            <div className="flex items-start gap-3">
+              <span className="text-[11px] font-medium shrink-0 mt-0.5 px-1.5 py-0.5 rounded" style={{ backgroundColor: 'var(--accent-light)', color: 'var(--accent)', border: '1px solid var(--accent-muted)' }}>2025</span>
+              <div>
+                <p className="text-[13px] font-medium leading-snug mb-0.5" style={{ color: 'var(--foreground)' }}>
+                  Simulation and Airflow Experimentation of a Multi-Layer Adsorbent Chamber for Enhanced Direct Air Capture Efficiency
+                </p>
+                <p className="text-[11px]" style={{ color: 'var(--muted-dim)' }}>Sustainable Research and Innovation Conference</p>
+              </div>
+            </div>
+            <div style={{ height: '1px', backgroundColor: 'var(--border)' }} />
+            <div className="flex items-start gap-3">
+              <span className="text-[11px] font-medium shrink-0 mt-0.5 px-1.5 py-0.5 rounded" style={{ backgroundColor: 'var(--surface-hover)', color: 'var(--muted)', border: '1px solid var(--border)' }}>2024</span>
+              <div>
+                <p className="text-[13px] font-medium leading-snug mb-0.5" style={{ color: 'var(--foreground)' }}>
+                  Improving Small Pest Bird Detection in YOLOv5s for Autonomous Bird Deterrent Systems
+                </p>
+                <p className="text-[11px]" style={{ color: 'var(--muted-dim)' }}>JKUAT-COETEC · 1 citation</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="/research" className="text-[13px] font-medium transition-colors duration-150" style={{ color: 'var(--accent)' }}>
+          View all 4 publications →
+        </a>
+      </section>
+
+      <section className="mb-20">
+        <div className="flex items-center gap-3 mb-8">
+          <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--muted-dim)' }}>From the blog</span>
+          <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
+        </div>
+        <a
+          href="/logs/debugging-plc-and-go"
+          className="block rounded-xl p-6 transition-colors duration-150 group"
+          style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
+        >
+          <p className="text-[11px] uppercase tracking-widest font-medium mb-2" style={{ color: 'var(--muted-dim)' }}>
+            Systems · 6 min read
+          </p>
+          <h3 className="text-[18px] font-semibold tracking-tight mb-2 group-hover:underline underline-offset-2" style={{ color: 'var(--foreground)' }}>
+            Debugging a PLC Without a Debugger (And What That Taught Me About Goroutines)
+          </h3>
+          <p className="text-[13px] leading-relaxed mb-4" style={{ color: 'var(--muted)' }}>
+            The mental model behind ladder logic and concurrent Go routines is closer than it looks — state machines, scan cycles, and why "just add a print statement" doesn&apos;t work in either world.
+          </p>
+          <span className="text-[13px] font-medium" style={{ color: 'var(--accent)' }}>
+            Read the post →
+          </span>
+        </a>
+      </section>
+
       <section id="contact" className="mb-20">
         <div className="flex items-center gap-3 mb-8">
           <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--muted-dim)' }}>Contact</span>
@@ -125,6 +186,13 @@ export default function Home() {
               be the unusual fit you&apos;ve been looking for. Open to backend, systems, and
               infrastructure roles — and always happy to hear interesting proposals.
             </p>
+            <a
+              href="mailto:jangina.mboya@gmail.com"
+              className="inline-flex items-center gap-2 text-[13px] font-medium mt-4 transition-colors duration-150"
+              style={{ color: 'var(--accent)' }}
+            >
+              jangina.mboya@gmail.com →
+            </a>
           </div>
           <ContactForm />
         </div>

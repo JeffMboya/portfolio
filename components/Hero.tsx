@@ -30,7 +30,7 @@ export default function Hero() {
       </div>
 
       {/* Currently */}
-      <div className="flex items-center gap-2 mb-5">
+      <div className="flex flex-wrap items-center gap-2 mb-5">
         <span className="text-[10px] font-medium uppercase tracking-widest" style={{ color: 'var(--muted-dim)' }}>
           Now
         </span>
@@ -45,7 +45,19 @@ export default function Hero() {
           >
             Abstract Machines
           </a>
-          {' '}· Open to backend / systems roles
+        </span>
+        <span
+          className="inline-flex items-center gap-1.5 text-[11px] font-semibold px-2 py-0.5 rounded-full"
+          style={{ backgroundColor: '#dcfce7', border: '1px solid #86efac', color: '#15803d' }}
+        >
+          <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse shrink-0" />
+          Open to work
+        </span>
+        <span
+          className="inline-flex items-center gap-1 text-[11px] font-semibold px-2 py-0.5 rounded-full"
+          style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)', color: 'var(--foreground)' }}
+        >
+          🏆 IBM Call for Code MEA Winner 2021
         </span>
       </div>
 
@@ -68,6 +80,14 @@ export default function Hero() {
         >
           View my work →
         </Link>
+        <a
+          href="/resume.pdf"
+          download
+          className="text-[13px] font-medium px-5 py-2.5 rounded-md transition-colors duration-150"
+          style={{ color: 'var(--foreground)', border: '1px solid var(--border)', backgroundColor: 'var(--surface)' }}
+        >
+          ↓ Download CV
+        </a>
       </div>
       <div className="flex flex-wrap gap-2 mb-1">
         {primaryStack.map((s) => (
