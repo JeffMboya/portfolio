@@ -3,13 +3,10 @@ import Hero from '@/components/Hero'
 import ProjectCard from '@/components/ProjectCard'
 import Timeline from '@/components/Timeline'
 import ContactForm from '@/components/ContactForm'
-import NoteCard from '@/components/NoteCard'
 import { getAllProjects } from '@/lib/projects'
-import { getAllNotes } from '@/lib/notes'
 
 export default function Home() {
   const projects = getAllProjects()
-  const notes = getAllNotes()
 
   return (
     <>
@@ -28,20 +25,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-
-      {notes.length > 0 && (
-        <section id="blogs" className="mb-20">
-          <div className="flex items-center gap-3 mb-8">
-            <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--muted-dim)' }}>Blogs</span>
-            <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
-          </div>
-          <div className="flex flex-col gap-3">
-            {notes.map((meta) => (
-              <NoteCard key={meta.slug} meta={meta} />
-            ))}
-          </div>
-        </section>
-      )}
 
       <section
         id="about"
