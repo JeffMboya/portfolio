@@ -3,7 +3,7 @@ import Image from 'next/image'
 import StackPill from './StackPill'
 
 const primaryStack = ['Go', 'Rust', 'C++']
-const secondaryStack = ['TypeScript', 'WebAssembly', 'Python', 'Siemens PLCs', 'PCB Design', 'Docker', 'MQTT']
+const secondaryStack = ['TypeScript', 'WebAssembly', 'Python', 'C', 'TensorFlow/PyTorch', 'MATLAB', 'Siemens PLCs', 'PCB Design', 'Docker', 'MQTT']
 
 export default function Hero() {
   return (
