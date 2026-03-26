@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Hero from '@/components/Hero'
 import ProjectCard from '@/components/ProjectCard'
 import Timeline from '@/components/Timeline'
+import Leadership from '@/components/Leadership'
 import ContactForm from '@/components/ContactForm'
 import { getAllProjects } from '@/lib/projects'
 
@@ -106,6 +107,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <Leadership />
 
       <section id="contact" className="mb-20">
         <div className="flex items-center gap-3 mb-8">

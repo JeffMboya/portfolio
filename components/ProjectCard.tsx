@@ -76,7 +76,7 @@ export default function ProjectCard({ meta }: ProjectCardProps) {
         {meta.result && (
           <div className="mt-3 pt-3" style={{ borderTop: '1px solid var(--border)' }}>
             <span className="text-[11px]" style={{ color: 'var(--accent)' }}>
-              ✦ {meta.result}
+              {meta.result}
             </span>
           </div>
         )}

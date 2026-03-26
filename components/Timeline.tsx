@@ -81,14 +81,14 @@ function Card({ m, position }: { m: Milestone; position: 'above' | 'below' }) {
       <div className="text-[11px] mb-2 text-center" style={{ color: 'var(--muted-dim)' }}>
         {m.org}
       </div>
-      <div className="text-[11px] leading-snug text-center" style={{ color }}>
+      <div className="text-[11px] leading-snug text-center" style={{ color: 'var(--muted)' }}>
         {m.impact}
       </div>
       {m.current && (
         <div className="flex justify-center mt-2">
           <span
-            className="text-[9px] font-semibold uppercase tracking-wider px-1.5 py-0.5 rounded"
-            style={{ color, backgroundColor: `color-mix(in srgb, ${color} 15%, transparent)` }}
+            className="text-[9px] font-medium uppercase tracking-wider"
+            style={{ color: 'var(--muted-dim)' }}
           >
             Now
           </span>
@@ -202,7 +202,6 @@ export default function Timeline() {
               style={{
                 backgroundColor: 'var(--surface)',
                 border: '1px solid var(--border)',
-                borderLeft: `2px solid ${trackColor[m.track]}`,
               }}
             >
               <div className="flex items-center justify-between gap-2 mb-0.5">
@@ -211,11 +210,8 @@ export default function Timeline() {
                 </div>
                 {m.current && (
                   <span
-                    className="text-[9px] font-semibold uppercase tracking-wider px-1.5 py-0.5 rounded shrink-0"
-                    style={{
-                      color: trackColor[m.track],
-                      backgroundColor: `color-mix(in srgb, ${trackColor[m.track]} 15%, transparent)`,
-                    }}
+                    className="text-[9px] font-medium uppercase tracking-wider shrink-0"
+                    style={{ color: 'var(--muted-dim)' }}
                   >
                     Now
                   </span>
@@ -224,7 +220,7 @@ export default function Timeline() {
               <div className="text-[11px] mb-1.5" style={{ color: 'var(--muted-dim)' }}>
                 {m.org} · {m.year}
               </div>
-              <div className="text-[12px] leading-snug" style={{ color: trackColor[m.track] }}>
+              <div className="text-[12px] leading-snug" style={{ color: 'var(--muted)' }}>
                 {m.impact}
               </div>
             </div>

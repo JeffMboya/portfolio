@@ -8,7 +8,7 @@
   --surface-hover: #1d1d1d;
   --foreground: #f0f0f0;
   --muted: #888888;
-  --muted-dim: #555555;
+  --muted-dim: #767676;
   --border: rgba(255, 255, 255, 0.08);
   --border-hover: rgba(255, 255, 255, 0.2);
   --accent: #22c55e;
@@ -28,13 +28,13 @@
   --surface-hover: #f2f2f0;
   --foreground: #111111;
   --muted: #555555;
-  --muted-dim: #888888;
+  --muted-dim: #626262;
   --border: rgba(0, 0, 0, 0.08);
   --border-hover: rgba(0, 0, 0, 0.18);
-  --accent: #4f46e5;
-  --accent-dim: #3730a3;
-  --accent-light: rgba(79, 70, 229, 0.08);
-  --accent-muted: rgba(79, 70, 229, 0.2);
+  --accent: #166534;
+  --accent-dim: #14532d;
+  --accent-light: rgba(22, 101, 52, 0.08);
+  --accent-muted: rgba(22, 101, 52, 0.2);
   --accent-text: #ffffff;
   --texture-line: rgba(0, 0, 0, 0.025);
 }
