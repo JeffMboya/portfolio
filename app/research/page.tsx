@@ -136,27 +136,23 @@ export default function ResearchPage() {
           continuous human supervision.
         </p>
 
-        <div className="grid grid-cols-4 gap-2 mb-6">
+        <div className="grid grid-cols-3 gap-3 mb-6">
           {[
-            'IMG_20221220_181636_8',
-            'IMG_20221220_181647_3',
-            'IMG_20221220_182158_7',
-            'IMG_20221220_182210_6',
-            'IMG_20221220_182226_2',
-            'IMG_20221220_182254_0',
-            'IMG_20221220_182306_0',
-            'IMG_20221220_182316_6',
-            'IMG_20221220_182318_5',
-            'IMG_20221220_182319_5',
-          ].map((name) => (
-            <div key={name} className="relative aspect-square rounded-lg overflow-hidden border border-[rgba(255,255,255,0.08)]">
-              <Image
-                src={`/thesis-photos/${name}.jpg`}
-                alt="Prototype photo"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-300"
-                sizes="(max-width: 768px) 50vw, 25vw"
-              />
+            { name: 'IMG_20221220_182226_2', caption: 'Field deployment' },
+            { name: 'IMG_20221220_182158_7', caption: 'Row navigation' },
+            { name: 'IMG_20221220_182316_6', caption: 'Hardware detail' },
+          ].map(({ name, caption }) => (
+            <div key={name} className="flex flex-col gap-1.5">
+              <div className="relative aspect-[4/3] rounded-lg overflow-hidden border border-[rgba(255,255,255,0.08)]">
+                <Image
+                  src={`/thesis-photos/${name}.jpg`}
+                  alt={caption}
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-300"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <p className="text-[11px] text-[#555] text-center">{caption}</p>
             </div>
           ))}
         </div>
