@@ -19,11 +19,13 @@ export const metadata: Metadata = {
     url: 'https://jeffmboya.com',
     siteName: 'Jeff Mboya',
     type: 'website',
+    images: [{ url: '/og.png', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Jeff Mboya — Software Engineer',
     description: 'Backend and systems engineer. Go · Rust · WebAssembly.',
+    images: ['/og.png'],
   },
 }
 
