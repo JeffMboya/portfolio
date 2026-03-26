@@ -25,7 +25,7 @@ const milestones = [
     role: 'I&C Engineer',
     org: 'Octavia Carbon',
     track: 'Hardware',
-    detail: 'Wired the first PLC and built control systems for Africa\'s first direct air capture machine.',
+    detail: 'Wired the first PLC, designed custom PCBs, and led migration to ESP32-based controllers for TRL 4–6 machines.',
   },
   {
     year: '2024–26',

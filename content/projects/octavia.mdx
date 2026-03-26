@@ -1,10 +1,12 @@
 ---
 title: Octavia Carbon
 slug: octavia
-description: Two and a half years at Africa's leading direct air capture startup — from wiring the first PLC on the pilot machine as an I&C engineer, to leading pilot plant operations and optimisation, to Deputy Head of R&D.
+description: Two and a half years at Africa's leading direct air capture startup — from wiring the first PLC and designing custom PCBs, to leading the migration from Siemens PLCs to ESP32-based controllers for TRL 4–6 machines, to Deputy Head of R&D.
 stack:
   - Siemens S7-1200
   - TIA Portal
+  - ESP32
+  - PCB Design
   - Distributed Control Systems
   - Python
   - CFD / Ansys
@@ -31,6 +33,7 @@ Day-to-day work included:
 - Regular calibration cycles to keep measurement accuracy within process tolerances
 - Commissioning the **Siemens S7-1200 PLC** — wiring I/O modules, configuring the TIA Portal project, and writing ladder logic for the adsorption and thermal regeneration cycles
 - Full end-to-end testing of control sequences before and after each hardware change
+- Designing custom **PCBs** for sensor signal conditioning and actuator interfacing, reducing wiring complexity and improving noise immunity on long cable runs
 - Preparing instrumentation documentation, P&IDs, and calibration records
 
 <PhotoGrid
@@ -48,6 +51,36 @@ Responsibilities expanded to:
 - Designing and implementing **distributed control system (DCS)** architecture to handle increased I/O points and inter-system communication as the pilot plant grew
 - Setting calibration schedules and maintenance intervals for the growing sensor network
 - Mentoring junior engineers on instrumentation best practices and PLC programming
+
+## PCB Design & Platform Migration — PLC to ESP32
+
+The early pilot machine used a Siemens S7-1200 PLC — the right choice for a first
+prototype where reliability and mature tooling matter more than cost or flexibility.
+But as the machine matured toward TRL 4, 5, and 6, the constraints of a commercial
+PLC platform became limiting: high per-unit cost, fixed I/O counts, and limited
+ability to customise firmware for DAC-specific control loops.
+
+My PCB design work during the I&C phase laid the groundwork for the transition. The
+custom boards — designed for sensor signal conditioning, actuator interfacing, and
+distributed I/O — progressively replaced off-the-shelf PLC expansion modules,
+validating that the control architecture could run on lower-cost hardware without
+sacrificing reliability.
+
+The outcome was a migration from Siemens PLCs to **ESP32-based controllers** for
+the next generation of Octavia machines. The ESP32 platform offered:
+
+- **Cost reduction** — dramatically lower BOM cost per control node, critical for
+  scaling from one pilot unit to a fleet of DAC machines
+- **Firmware ownership** — full control over the control loop implementation, sensor
+  drivers, and communication stack rather than being constrained by TIA Portal's
+  ladder logic environment
+- **Custom I/O density** — PCBs sized exactly to the machine's sensor and actuator
+  count rather than overpaying for unused PLC channels
+- **OTA updates** — ability to push firmware changes to deployed machines without
+  physical access to a PLC programming terminal
+
+The transition covered TRL 4, 5, and 6 — the stages where Octavia moved from a
+validated lab prototype to a machine approaching commercial readiness.
 
 ## Team Lead, Pilot Plant Operations & Optimisation
 
