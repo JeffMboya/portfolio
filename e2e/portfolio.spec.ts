@@ -12,10 +12,10 @@ test.describe('Home page', () => {
     await expect(cards.first()).toBeVisible()
   })
 
-  test('contact mailto link is present', async ({ page }) => {
+  test('contact form submit button is present', async ({ page }) => {
     await page.goto('/')
-    const mailto = page.locator('a[href^="mailto:"]').first()
-    await expect(mailto).toBeVisible()
+    const submitBtn = page.locator('button[type="submit"]').first()
+    await expect(submitBtn).toBeVisible()
   })
 })
 

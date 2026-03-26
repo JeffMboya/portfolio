@@ -1,16 +1,10 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import type { ProjectMeta } from '@/lib/projects'
+import { formatDate } from '@/lib/utils'
 
 interface ProjectCardProps {
   meta: ProjectMeta
-}
-
-function formatDate(raw: string): string {
-  const [year, month] = raw.split('-')
-  if (!month) return year
-  const date = new Date(Number(year), Number(month) - 1)
-  return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
 }
 
 export default function ProjectCard({ meta }: ProjectCardProps) {

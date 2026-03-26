@@ -18,14 +18,12 @@ export const metadata: Metadata = {
       'Backend and systems engineer focused on WebAssembly, distributed task execution, and infrastructure.',
     url: 'https://jeffmboya.com',
     siteName: 'Jeff Mboya',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Jeff Mboya — Software Engineer',
     description: 'Backend and systems engineer. Go · Rust · WebAssembly.',
-    images: ['/og-image.png'],
   },
 }
 

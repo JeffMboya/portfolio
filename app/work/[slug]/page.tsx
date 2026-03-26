@@ -3,8 +3,10 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import rehypePrettyCode from 'rehype-pretty-code'
+import rehypeSlug from 'rehype-slug'
 import { getAllProjectSlugs, getProjectBySlug } from '@/lib/projects'
 import PhotoGrid from '@/components/PhotoGrid'
+import { extractHeadings } from '@/lib/utils'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -30,18 +32,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   } catch {
     return { title: 'Not Found' }
   }
-}
-
-function extractHeadings(content: string) {
-  return content
-    .split('\n')
-    .map((line) => line.match(/^(#{2,3})\s+(.+)/))
-    .filter(Boolean)
-    .map((m) => ({
-      level: m![1].length,
-      text: m![2].trim(),
-      id: m![2].trim().toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-'),
-    }))
 }
 
 export default async function ProjectPage({ params }: Props) {
@@ -77,14 +67,14 @@ export default async function ProjectPage({ params }: Props) {
               components={{ PhotoGrid }}
               options={{
                 mdxOptions: {
-                  rehypePlugins: [[rehypePrettyCode as any, { theme: 'github-dark' }]],
+                  rehypePlugins: [rehypeSlug, [rehypePrettyCode as any, { theme: 'github-dark' }]],
                 },
               }}
             />
           </article>
         </div>
 
-        <aside className="sticky top-8">
+        <aside className="hidden lg:block sticky top-8">
           {headings.length > 0 && (
             <div className="rounded-xl p-5 mb-4" style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}>
               <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--muted-dim)' }}>

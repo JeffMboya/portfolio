@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
+import { z } from 'zod'
 
 export interface ProjectMeta {
   title: string
@@ -15,6 +16,19 @@ export interface ProjectMeta {
   result?: string
 }
 
+const ProjectMetaSchema = z.object({
+  title: z.string(),
+  slug: z.string(),
+  description: z.string(),
+  stack: z.array(z.string()),
+  date: z.string(),
+  github: z.string().nullable().default(null),
+  demo: z.string().nullable().default(null),
+  featured: z.boolean(),
+  cover: z.string().nullable().default(null),
+  result: z.string().optional(),
+})
+
 const projectsDir = path.join(process.cwd(), 'content', 'projects')
 
 export function getAllProjects(): ProjectMeta[] {
@@ -22,7 +36,7 @@ export function getAllProjects(): ProjectMeta[] {
   const projects = files.map((filename) => {
     const raw = fs.readFileSync(path.join(projectsDir, filename), 'utf8')
     const { data } = matter(raw)
-    return data as ProjectMeta
+    return ProjectMetaSchema.parse(data)
   })
   return projects
     .filter((p) => p.featured)
@@ -36,7 +50,7 @@ export function getProjectBySlug(slug: string): { meta: ProjectMeta; content: st
   }
   const raw = fs.readFileSync(filePath, 'utf8')
   const { data, content } = matter(raw)
-  return { meta: data as ProjectMeta, content }
+  return { meta: ProjectMetaSchema.parse(data), content }
 }
 
 export function getAllProjectSlugs(): string[] {

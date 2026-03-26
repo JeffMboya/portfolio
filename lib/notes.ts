@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
+import { z } from 'zod'
 
 export interface NoteMeta {
   title: string
@@ -8,6 +9,13 @@ export interface NoteMeta {
   description: string
   date: string
 }
+
+const NoteMetaSchema = z.object({
+  title: z.string(),
+  slug: z.string(),
+  description: z.string(),
+  date: z.string(),
+})
 
 const notesDir = path.join(process.cwd(), 'content', 'notes')
 
@@ -18,7 +26,7 @@ export function getAllNotes(): NoteMeta[] {
     .map((filename) => {
       const raw = fs.readFileSync(path.join(notesDir, filename), 'utf8')
       const { data } = matter(raw)
-      return data as NoteMeta
+      return NoteMetaSchema.parse(data)
     })
     .sort((a, b) => (a.date < b.date ? 1 : -1))
 }
@@ -30,7 +38,7 @@ export function getNoteBySlug(slug: string): { meta: NoteMeta; content: string }
   }
   const raw = fs.readFileSync(filePath, 'utf8')
   const { data, content } = matter(raw)
-  return { meta: data as NoteMeta, content }
+  return { meta: NoteMetaSchema.parse(data), content }
 }
 
 export function getAllNoteSlugs(): string[] {

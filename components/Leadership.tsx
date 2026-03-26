@@ -15,7 +15,7 @@ const roles = [
     title: 'Vice-President',
     period: 'May 2020 – Dec 2021',
     bullets: [
-      'Grew club funding from Kshs 5,000 → Kshs 210,000 by securing partnerships with Microsoft, NCA, Moringa School, Africa\'s Talking, and Elarian.',
+      "Grew club funding from Kshs 5,000 to Kshs 210,000 by securing partnerships with Microsoft, NCA, Moringa School, Africa's Talking, and Elarian.",
       'Co-ordinated a 2-day tech event with 200+ student attendees, 16 speakers, and 5 sponsors — boosting student interest in robotics by 17%.',
       'Led mentorship sessions for 308 high-school students from 7 schools, resulting in 35 scholarship recipients worth $70,000.',
       'Benefited 47 orphaned children in Kahawa West through community donations worth $1,000.',

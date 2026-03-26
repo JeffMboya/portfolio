@@ -28,7 +28,7 @@ export default function OGImage() {
             left: 0,
             width: '100%',
             height: '3px',
-            backgroundColor: '#22d3ee',
+            backgroundColor: '#22c55e',
           }}
         />
 
@@ -46,9 +46,9 @@ export default function OGImage() {
               fontWeight: 600,
               letterSpacing: '0.15em',
               textTransform: 'uppercase',
-              color: '#22d3ee',
-              backgroundColor: 'rgba(34,211,238,0.08)',
-              border: '1px solid rgba(34,211,238,0.2)',
+              color: '#22c55e',
+              backgroundColor: 'rgba(34,197,94,0.08)',
+              border: '1px solid rgba(34,197,94,0.2)',
               borderRadius: '4px',
               padding: '4px 10px',
             }}

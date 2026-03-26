@@ -41,7 +41,7 @@ const milestones: Milestone[] = [
     role: 'Deputy Head, R&D',
     org: 'Octavia Carbon',
     track: 'Research',
-    impact: 'TRL 4→6 transition; CFD paper at SRI 2025.',
+    impact: 'TRL 4 to 6 transition; CFD paper at SRI 2025.',
   },
   {
     year: '2023–',

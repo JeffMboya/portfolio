@@ -38,8 +38,7 @@ Propeller has two main components that communicate over MQTT:
 
 **Manager** (Go) — the control plane. Accepts task submissions via a REST API,
 stores task state in PostgreSQL (or SQLite for lighter deployments), and dispatches
-tasks to proplets over MQTT. Handles task lifecycle: pending → scheduled → running
-→ completed/failed.
+tasks to proplets over MQTT. Handles task lifecycle: pending to scheduled to running to completed or failed.
 
 **Proplet** (Rust) — the execution agent. Runs on edge devices. Subscribes to MQTT
 topics for its channel, receives `StartRequest` messages, fetches the WASM binary,

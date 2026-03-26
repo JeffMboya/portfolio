@@ -1,17 +1,11 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getAllNotes } from '@/lib/notes'
+import NoteCard from '@/components/NoteCard'
 
 export const metadata: Metadata = {
   title: 'Blogs — Jeff Mboya',
   description: 'Observations on hardware, software, and the space between.',
-}
-
-function formatDate(raw: string): string {
-  const [year, month] = raw.split('-')
-  if (!month) return year
-  const date = new Date(Number(year), Number(month) - 1)
-  return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
 }
 
 export default function BlogsPage() {
@@ -40,27 +34,7 @@ export default function BlogsPage() {
       ) : (
         <div className="flex flex-col gap-4">
           {notes.map((note) => (
-            <Link
-              key={note.slug}
-              href={`/blogs/${note.slug}`}
-              className="block rounded-xl p-6 hover:translate-y-[-2px] transition-all duration-150 group"
-              style={{ border: '1px solid var(--border)', backgroundColor: 'var(--surface)' }}
-            >
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <div className="text-[11px] uppercase tracking-wider font-medium mb-2" style={{ color: 'var(--muted-dim)' }}>
-                    {formatDate(note.date)}
-                  </div>
-                  <h2 className="text-[17px] font-semibold tracking-tight mb-2" style={{ color: 'var(--foreground)' }}>
-                    {note.title}
-                  </h2>
-                  <p className="text-[13px] leading-relaxed" style={{ color: 'var(--muted)' }}>
-                    {note.description}
-                  </p>
-                </div>
-                <span className="text-lg mt-1 shrink-0" style={{ color: 'var(--muted-dim)' }}>↗</span>
-              </div>
-            </Link>
+            <NoteCard key={note.slug} meta={note} />
           ))}
         </div>
       )}

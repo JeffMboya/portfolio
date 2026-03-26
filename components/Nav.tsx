@@ -45,12 +45,14 @@ export default function Nav() {
               className="text-[13px] transition-colors duration-150"
               style={{
                 color:
+                  (link.href.startsWith('/#') && pathname === '/') ||
                   pathname === link.href ||
                   (link.href === '/research' && pathname.startsWith('/research')) ||
                   (link.href === '/blogs' && pathname.startsWith('/blogs'))
                     ? 'var(--foreground)'
                     : 'var(--muted-dim)',
                 fontWeight:
+                  (link.href.startsWith('/#') && pathname === '/') ||
                   pathname === link.href ||
                   (link.href === '/research' && pathname.startsWith('/research')) ||
                   (link.href === '/blogs' && pathname.startsWith('/blogs'))

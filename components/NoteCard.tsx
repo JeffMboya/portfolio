@@ -1,12 +1,6 @@
 import Link from 'next/link'
 import type { NoteMeta } from '@/lib/notes'
-
-function formatDate(raw: string): string {
-  const [year, month] = raw.split('-')
-  if (!month) return year
-  const date = new Date(Number(year), Number(month) - 1)
-  return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
-}
+import { formatDate } from '@/lib/utils'
 
 export default function NoteCard({ meta }: { meta: NoteMeta }) {
   return (
