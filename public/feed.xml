@@ -5,15 +5,15 @@
     <link>https://jeffmboya.com</link>
     <description>Systems engineering, software, and research by Jeff Mboya.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 26 Mar 2026 21:03:58 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Mar 2026 21:38:18 GMT</lastBuildDate>
     <atom:link href="https://jeffmboya.com/feed.xml" rel="self" type="application/rss+xml"/>
     
   <item>
-    <title>Debugging a PLC and a Go service in the same week</title>
-    <link>https://jeffmboya.com/logs/debugging-plc-and-go</link>
-    <guid isPermaLink="true">https://jeffmboya.com/logs/debugging-plc-and-go</guid>
-    <description>What it feels like to context-switch between ladder logic and goroutines — and why the mental models are more similar than they look.</description>
-    <pubDate>Sat, 01 Mar 2025 00:00:00 GMT</pubDate>
+    <title>I Think We&apos;re Asking the Wrong Question About AI Images</title>
+    <link>https://jeffmboya.com/logs/wrong-question-about-ai-images</link>
+    <guid isPermaLink="true">https://jeffmboya.com/logs/wrong-question-about-ai-images</guid>
+    <description>Detection assumes the right moment to understand an image is after it already exists. What if we just recorded where it began?</description>
+    <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
     <author>Jeff Mboya</author>
   </item>
   </channel>

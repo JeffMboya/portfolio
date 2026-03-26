@@ -24,7 +24,7 @@ export default function NowPage() {
 
       <div className="flex flex-col gap-10">
         <div>
-          <h2 className="text-[13px] font-semibold uppercase tracking-widest mb-3" style={{ color: 'var(--muted-dim)' }}>
+          <h2 className="text-[13px] font-semibold uppercase tracking-widest mb-3" style={{ color: 'var(--foreground)' }}>
             Building
           </h2>
           <p className="text-[15px] leading-relaxed" style={{ color: 'var(--muted)' }}>
@@ -33,7 +33,7 @@ export default function NowPage() {
         </div>
 
         <div>
-          <h2 className="text-[13px] font-semibold uppercase tracking-widest mb-3" style={{ color: 'var(--muted-dim)' }}>
+          <h2 className="text-[13px] font-semibold uppercase tracking-widest mb-3" style={{ color: 'var(--foreground)' }}>
             Learning
           </h2>
           <p className="text-[15px] leading-relaxed" style={{ color: 'var(--muted)' }}>
@@ -42,7 +42,7 @@ export default function NowPage() {
         </div>
 
         <div>
-          <h2 className="text-[13px] font-semibold uppercase tracking-widest mb-3" style={{ color: 'var(--muted-dim)' }}>
+          <h2 className="text-[13px] font-semibold uppercase tracking-widest mb-3" style={{ color: 'var(--foreground)' }}>
             Thinking about
           </h2>
           <p className="text-[15px] leading-relaxed" style={{ color: 'var(--muted)' }}>

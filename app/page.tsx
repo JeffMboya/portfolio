@@ -152,18 +152,18 @@ export default function Home() {
           <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
         </div>
         <a
-          href="/logs/debugging-plc-and-go"
+          href="/blogs/wrong-question-about-ai-images"
           className="block rounded-xl p-6 transition-colors duration-150 group"
           style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
         >
           <p className="text-[11px] uppercase tracking-widest font-medium mb-2" style={{ color: 'var(--muted-dim)' }}>
-            Systems · 6 min read
+            AI · Provenance · 4 min read
           </p>
           <h3 className="text-[18px] font-semibold tracking-tight mb-2 group-hover:underline underline-offset-2" style={{ color: 'var(--foreground)' }}>
-            Debugging a PLC Without a Debugger (And What That Taught Me About Goroutines)
+            I Think We&apos;re Asking the Wrong Question About AI Images
           </h3>
           <p className="text-[13px] leading-relaxed mb-4" style={{ color: 'var(--muted)' }}>
-            The mental model behind ladder logic and concurrent Go routines is closer than it looks — state machines, scan cycles, and why "just add a print statement" doesn&apos;t work in either world.
+            Detection assumes the right moment to understand an image is after it already exists. What if we simply recorded where it began?
           </p>
           <span className="text-[13px] font-medium" style={{ color: 'var(--accent)' }}>
             Read the post →
