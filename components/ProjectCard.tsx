@@ -22,17 +22,13 @@ export default function ProjectCard({ meta }: ProjectCardProps) {
             className="object-cover group-hover:scale-105 transition-transform duration-300"
             sizes="(max-width: 1024px) 100vw, 33vw"
           />
-          <div
-            className="absolute inset-0"
-            style={{ background: 'linear-gradient(to top, var(--surface), transparent)' }}
-          />
         </div>
       ) : (
         <div
           className="w-full h-[160px] flex items-center justify-center"
           style={{ backgroundColor: 'var(--surface-hover)', borderBottom: '1px solid var(--border)' }}
         >
-          <span className="text-[48px] font-bold tracking-tighter select-none" style={{ color: 'var(--border-hover)' }}>
+          <span className="text-[48px] font-bold tracking-tighter select-none" style={{ color: 'var(--border-hover)', opacity: 0.5 }}>
             {meta.title.slice(0, 2).toUpperCase()}
           </span>
         </div>
