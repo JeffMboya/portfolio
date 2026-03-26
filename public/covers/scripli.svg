@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" fill="none">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#0A1628"/>
+  <!-- Subtle grid texture -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+  </pattern>
+  <rect width="800" height="400" fill="url(#grid)"/>
+  <!-- Glow behind logo -->
+  <circle cx="400" cy="175" r="120" fill="rgba(26,58,107,0.4)"/>
+  <!-- Shield -->
+  <path d="M400 90 L340 112.5V150c0 36 26 69 60 79c34-10 60-43 60-79v-37.5L400 90z" fill="#0A1628"/>
+  <!-- Shield inner -->
+  <path d="M400 104 L347.5 123v27c0 29.5 21 56.5 52.5 65.5c31.5-9 52.5-36 52.5-65.5v-27L400 104z" fill="#1A3A6B" fill-opacity="0.35"/>
+  <!-- Pen body -->
+  <path d="M383.75 202.5l36-36 12.5 12.5-36 36-17.5 5 5-17.5z" fill="#B8860B"/>
+  <!-- Pen cap -->
+  <path d="M421 162l6-6 7.5 7.5-6 6-7.5-7.5z" fill="#c0c0c0"/>
+  <!-- Pen tip highlight -->
+  <path d="M413.5 166.5l12.5 12.5" stroke="#EDC88F" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- Squiggly signature line -->
+  <path d="M362.5 225 q9-10 18 0 q9 10 18 0 q9-10 18 0 q9 10 18 0" stroke="#B8860B" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <!-- Wordmark -->
+  <text x="400" y="310" font-family="system-ui, -apple-system, sans-serif" font-size="42" font-weight="600" letter-spacing="2" fill="#f0f0f0" text-anchor="middle">scripli</text>
+  <!-- Tagline -->
+  <text x="400" y="348" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#555" text-anchor="middle" letter-spacing="3">HUMAN AUTHORSHIP · VERIFIED</text>
+</svg>
