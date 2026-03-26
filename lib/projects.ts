@@ -12,6 +12,7 @@ export interface ProjectMeta {
   demo: string | null
   featured: boolean
   cover: string | null
+  result?: string
 }
 
 const projectsDir = path.join(process.cwd(), 'content', 'projects')
