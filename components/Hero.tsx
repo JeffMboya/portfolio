@@ -36,12 +36,6 @@ export default function Hero() {
         >
           View my work →
         </Link>
-        <a
-          href="/jeff-mboya-resume.pdf"
-          className="text-[#111] text-[13px] px-5 py-2.5 rounded-md border border-[#ccc] hover:border-[#16a34a] hover:text-[#16a34a] transition-colors duration-150"
-        >
-          Resume
-        </a>
       </div>
       <div className="flex flex-wrap gap-2">
         {stack.map((s) => (

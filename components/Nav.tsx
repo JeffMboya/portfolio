@@ -6,7 +6,9 @@ import { usePathname } from 'next/navigation'
 const links = [
   { href: '/#work', label: 'Work' },
   { href: '/#about', label: 'About' },
+  { href: '/research', label: 'Research' },
   { href: 'https://github.com/JeffMboya', label: 'GitHub', external: true },
+  { href: 'https://scholar.google.com/citations?user=KmGiUgcAAAAJ&hl=en', label: 'Scholar', external: true },
   { href: '/#contact', label: 'Contact' },
 ]
 
