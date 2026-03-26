@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 // Sign up at formspree.io, create a form, and replace this with your form ID.
 // Your email address is stored only in Formspree's dashboard — never in code or on the page.
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID'
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xaqlnyap'
 
 type Status = 'idle' | 'submitting' | 'success' | 'error'
 
