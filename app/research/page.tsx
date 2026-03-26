@@ -60,11 +60,11 @@ const publications: Publication[] = [
 
 function AuthorList({ authors }: { authors: string[] }) {
   return (
-    <p className="text-[12px] text-[#555] mb-1">
+    <p className="text-[12px] mb-1" style={{ color: 'var(--muted-dim)' }}>
       {authors.map((author, i) => (
         <span key={author}>
           {author === 'Jeff Mboya' || author === 'Angina J Mboya' ? (
-            <strong className="text-[#f0f0f0] font-semibold">{author}</strong>
+            <strong style={{ color: 'var(--foreground)', fontWeight: 600 }}>{author}</strong>
           ) : (
             author
           )}
@@ -81,55 +81,69 @@ export default function ResearchPage() {
       <div className="mb-8">
         <Link
           href="/"
-          className="text-[13px] text-[#22c55e] hover:text-[#16a34a] transition-colors duration-150"
+          className="text-[13px] transition-colors duration-150"
+          style={{ color: 'var(--accent)' }}
         >
           ← Back
         </Link>
       </div>
 
       <div className="mb-10">
-        <div className="text-[11px] text-[#555] uppercase tracking-widest mb-3 font-medium">
+        <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--muted-dim)' }}>
           Academic Work
         </div>
-        <h1 className="text-[32px] font-bold tracking-tight mb-3 text-[#f0f0f0]">Research</h1>
-        <p className="text-[15px] text-[#888] leading-relaxed max-w-[560px] mb-5">
+        <h1 className="text-[32px] font-bold tracking-tight mb-3" style={{ color: 'var(--foreground)' }}>Research</h1>
+        <p className="text-[15px] leading-relaxed max-w-[560px] mb-5" style={{ color: 'var(--muted)' }}>
           Published work spanning computer vision, rocketry, and climate tech.
         </p>
         <a
           href={SCHOLAR_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-[13px] text-[#22c55e] bg-[rgba(34,197,94,0.08)] border border-[rgba(34,197,94,0.2)] px-4 py-2 rounded-md hover:border-[rgba(34,197,94,0.4)] transition-colors duration-150"
+          className="inline-flex items-center gap-2 text-[13px] px-4 py-2 rounded-md transition-colors duration-150"
+          style={{
+            color: 'var(--accent)',
+            backgroundColor: 'var(--accent-light)',
+            border: '1px solid var(--accent-muted)',
+          }}
         >
           View Google Scholar profile ↗
         </a>
       </div>
 
+      {/* Undergraduate Thesis */}
       <div className="flex items-center gap-3 mb-8">
-        <span className="text-[11px] text-[#555] uppercase tracking-widest font-medium">
+        <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--muted-dim)' }}>
           Undergraduate Thesis
         </span>
-        <div className="flex-1 h-px bg-[rgba(255,255,255,0.08)]" />
-        <span className="text-[11px] text-[#555]">2023</span>
+        <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
+        <span className="text-[11px]" style={{ color: 'var(--muted-dim)' }}>2023</span>
       </div>
 
-      <div className="border border-[rgba(255,255,255,0.08)] rounded-xl p-6 bg-[#161616] mb-12">
+      <div className="rounded-xl p-6 mb-12" style={{ border: '1px solid var(--border)', backgroundColor: 'var(--surface)' }}>
         <div className="flex items-center gap-2 mb-3">
-          <span className="text-[11px] text-[#555] font-medium uppercase tracking-wider">2023</span>
-          <span className="text-[11px] text-[#555] bg-[#1f1f1f] border border-[rgba(255,255,255,0.06)] px-1.5 py-0.5 rounded">
+          <span className="text-[11px] font-medium uppercase tracking-wider" style={{ color: 'var(--muted-dim)' }}>2023</span>
+          <span
+            className="text-[11px] px-1.5 py-0.5 rounded"
+            style={{
+              color: 'var(--muted-dim)',
+              backgroundColor: 'var(--surface-hover)',
+              border: '1px solid var(--border)',
+            }}
+          >
             Mechatronics Engineering
           </span>
         </div>
-        <h3 className="text-[18px] font-semibold tracking-tight mb-1.5 text-[#f0f0f0] leading-snug">
+        <h3 className="text-[18px] font-semibold tracking-tight mb-1.5 leading-snug" style={{ color: 'var(--foreground)' }}>
           Design and Fabrication of an Autonomous Bird Deterrent Robot Prototype
         </h3>
-        <p className="text-[12px] text-[#555] mb-1">
-          <strong className="text-[#f0f0f0] font-semibold">Jeff Mboya</strong>, Steve Nyaga
+        <p className="text-[12px] mb-1" style={{ color: 'var(--muted-dim)' }}>
+          <strong style={{ color: 'var(--foreground)', fontWeight: 600 }}>Jeff Mboya</strong>, Steve Nyaga
         </p>
-        <p className="text-[11px] text-[#555] italic mb-4">
+        <p className="text-[11px] italic mb-4" style={{ color: 'var(--muted-dim)' }}>
           JKUAT — Department of Mechatronics Engineering · Supervised by Dr.-Ing. Jackson G. Njiri
         </p>
-        <p className="text-[13px] text-[#888] leading-relaxed mb-6">
+        <p className="text-[13px] leading-relaxed mb-6" style={{ color: 'var(--muted)' }}>
           Designed and built a rover-type robot that autonomously detects and deters granivorous pest
           birds in agricultural fields. The system combines a YOLOv5s computer-vision pipeline for
           real-time bird detection with an onboard deterrent mechanism, enabling deployment without
@@ -143,7 +157,7 @@ export default function ResearchPage() {
             { name: 'IMG_20221220_182316_6', caption: 'Hardware detail' },
           ].map(({ name, caption }) => (
             <div key={name} className="flex flex-col gap-1.5">
-              <div className="relative aspect-[4/3] rounded-lg overflow-hidden border border-[rgba(255,255,255,0.08)]">
+              <div className="relative aspect-[4/3] rounded-lg overflow-hidden" style={{ border: '1px solid var(--border)' }}>
                 <Image
                   src={`/thesis-photos/${name}.jpg`}
                   alt={caption}
@@ -152,7 +166,7 @@ export default function ResearchPage() {
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>
-              <p className="text-[11px] text-[#555] text-center">{caption}</p>
+              <p className="text-[11px] text-center" style={{ color: 'var(--muted-dim)' }}>{caption}</p>
             </div>
           ))}
         </div>
@@ -161,18 +175,24 @@ export default function ResearchPage() {
           href="/thesis/report.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-[13px] text-[#22c55e] bg-[rgba(34,197,94,0.08)] border border-[rgba(34,197,94,0.2)] px-4 py-2 rounded-md hover:border-[rgba(34,197,94,0.4)] transition-colors duration-150"
+          className="inline-flex items-center gap-2 text-[13px] px-4 py-2 rounded-md transition-colors duration-150"
+          style={{
+            color: 'var(--accent)',
+            backgroundColor: 'var(--accent-light)',
+            border: '1px solid var(--accent-muted)',
+          }}
         >
           Download full report (PDF) ↗
         </a>
       </div>
 
+      {/* Publications */}
       <div className="flex items-center gap-3 mb-8">
-        <span className="text-[11px] text-[#555] uppercase tracking-widest font-medium">
+        <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--muted-dim)' }}>
           Publications
         </span>
-        <div className="flex-1 h-px bg-[rgba(255,255,255,0.08)]" />
-        <span className="text-[11px] text-[#555]">{publications.length} papers</span>
+        <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
+        <span className="text-[11px]" style={{ color: 'var(--muted-dim)' }}>{publications.length} papers</span>
       </div>
 
       <div className="flex flex-col gap-5">
@@ -182,28 +202,36 @@ export default function ResearchPage() {
             href={pub.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="block border border-[rgba(255,255,255,0.08)] rounded-xl p-6 bg-[#161616] hover:border-[rgba(255,255,255,0.18)] hover:bg-[#1a1a1a] hover:translate-y-[-2px] transition-all duration-150 group"
+            className="block rounded-xl p-6 hover:translate-y-[-2px] transition-all duration-150 group"
+            style={{ border: '1px solid var(--border)', backgroundColor: 'var(--surface)' }}
           >
             <div className="flex items-start justify-between gap-4">
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="text-[11px] text-[#555] font-medium uppercase tracking-wider">
+                  <span className="text-[11px] font-medium uppercase tracking-wider" style={{ color: 'var(--muted-dim)' }}>
                     {pub.year}
                   </span>
                   {pub.citations > 0 && (
-                    <span className="text-[11px] text-[#555] bg-[#1f1f1f] border border-[rgba(255,255,255,0.06)] px-1.5 py-0.5 rounded">
+                    <span
+                      className="text-[11px] px-1.5 py-0.5 rounded"
+                      style={{
+                        color: 'var(--muted-dim)',
+                        backgroundColor: 'var(--surface-hover)',
+                        border: '1px solid var(--border)',
+                      }}
+                    >
                       Cited by {pub.citations}
                     </span>
                   )}
                 </div>
-                <h3 className="text-[16px] font-semibold tracking-tight mb-1.5 text-[#f0f0f0] leading-snug">
+                <h3 className="text-[16px] font-semibold tracking-tight mb-1.5 leading-snug" style={{ color: 'var(--foreground)' }}>
                   {pub.title}
                 </h3>
                 <AuthorList authors={pub.authors} />
-                <p className="text-[11px] text-[#555] italic mb-3">{pub.venue}</p>
-                <p className="text-[13px] text-[#888] leading-relaxed">{pub.abstract}</p>
+                <p className="text-[11px] italic mb-3" style={{ color: 'var(--muted-dim)' }}>{pub.venue}</p>
+                <p className="text-[13px] leading-relaxed" style={{ color: 'var(--muted)' }}>{pub.abstract}</p>
               </div>
-              <span className="text-[#444] text-lg mt-1 group-hover:text-[#22c55e] transition-colors duration-150 shrink-0">
+              <span className="text-lg mt-1 shrink-0 transition-colors duration-150" style={{ color: 'var(--muted-dim)' }}>
                 ↗
               </span>
             </div>
