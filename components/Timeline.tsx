@@ -4,6 +4,7 @@ const milestones = [
     role: 'Propulsion Engineer',
     org: 'Nakuja Project',
     track: 'Hardware',
+    impact: 'Designed solid rocket motors; published at JKUAT-COETEC 2024.',
     detail: 'Solid rocket motor design, static fire testing, and DAQ. Published at JKUAT-COETEC 2024.',
   },
   {
@@ -11,6 +12,7 @@ const milestones = [
     role: 'Software Engineer',
     org: 'Qualislabs',
     track: 'Software',
+    impact: 'IBM Call for Code 2021 global winner.',
     detail: 'Co-developed Mavuno Link. IBM Call for Code 2021 global winner.',
   },
   {
@@ -18,6 +20,7 @@ const milestones = [
     role: 'Electronics & Software Engineer',
     org: 'AMT Technologies',
     track: 'Hardware',
+    impact: 'Built AI driver assistance — sensor fusion + embedded C.',
     detail: 'AI-powered driver assistance system — sensor fusion, computer vision, embedded C.',
   },
   {
@@ -25,6 +28,7 @@ const milestones = [
     role: 'I&C Engineer',
     org: 'Octavia Carbon',
     track: 'Hardware',
+    impact: "Built Nairobi's first DAC plant control system and custom PCBs.",
     detail: 'Wired the first PLC, designed custom PCBs, and led migration to ESP32-based controllers for TRL 4–6 machines.',
   },
   {
@@ -32,6 +36,7 @@ const milestones = [
     role: 'Team Lead → Deputy Head R&D',
     org: 'Octavia Carbon',
     track: 'Research',
+    impact: 'Led I&C team through TRL 6; CFD airflow paper at SRI 2025.',
     detail: 'Led I&C team, pilot plant ops, and co-led R&D. CFD airflow paper at SRI 2025.',
   },
   {
@@ -39,6 +44,7 @@ const milestones = [
     role: 'OSS Contributor',
     org: 'Propeller · Magistrala',
     track: 'Software',
+    impact: 'Wasm on ESP32-S3; distributed task orchestration in Go + Rust.',
     detail: 'Wasm on ESP32-S3 via Zephyr RTOS. Distributed task orchestration in Go + Rust.',
   },
 ]
@@ -92,8 +98,8 @@ export default function Timeline() {
             <div className="text-[11px] text-center mb-2" style={{ color: 'var(--muted-dim)' }}>
               {m.org}
             </div>
-            <div className="text-[11px] text-center leading-relaxed" style={{ color: 'var(--muted)' }}>
-              {m.detail}
+            <div className="text-[11px] text-center font-medium leading-snug mb-1" style={{ color: 'var(--foreground)' }}>
+              {m.impact}
             </div>
           </div>
         ))}
@@ -128,7 +134,7 @@ export default function Timeline() {
                 {m.role}
               </div>
               <div className="text-[12px] mb-1" style={{ color: 'var(--muted-dim)' }}>{m.org}</div>
-              <div className="text-[12px] leading-relaxed" style={{ color: 'var(--muted)' }}>{m.detail}</div>
+              <div className="text-[12px] font-medium leading-snug" style={{ color: 'var(--foreground)' }}>{m.impact}</div>
             </div>
           </div>
         ))}

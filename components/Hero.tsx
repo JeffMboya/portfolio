@@ -2,10 +2,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import StackPill from './StackPill'
 
-const stack = [
-  'Go', 'Rust', 'C++', 'TypeScript', 'WebAssembly',
-  'Python', 'Siemens PLCs', 'PCB Design', 'Docker', 'MQTT',
-]
+const primaryStack = ['Go', 'Rust', 'C++']
+const secondaryStack = ['TypeScript', 'WebAssembly', 'Python', 'Siemens PLCs', 'PCB Design', 'Docker', 'MQTT']
 
 export default function Hero() {
   return (
@@ -54,10 +52,13 @@ export default function Hero() {
         </span>
       </div>
 
-      <h1 className="text-[44px] font-bold leading-[1.1] tracking-tight mb-5" style={{ color: 'var(--foreground)' }}>
+      <h1 className="text-[44px] font-bold leading-[1.1] tracking-tight mb-3" style={{ color: 'var(--foreground)' }}>
         From the Global South&apos;s first DAC machine<br />
         to WebAssembly task orchestrators.
       </h1>
+      <p className="text-[14px] font-medium mb-5" style={{ color: 'var(--muted-dim)' }}>
+        I build systems that bridge physical infrastructure and distributed software.
+      </p>
       <p className="text-[16px] leading-relaxed max-w-[560px] mb-7" style={{ color: 'var(--muted)' }}>
         I&apos;ve wired PLCs for a carbon capture startup, co-authored propulsion
         research, and shipped distributed infrastructure in Go and Rust. I build
@@ -71,16 +72,23 @@ export default function Hero() {
         >
           View my work →
         </Link>
-        <Link
-          href="/research"
+        <a
+          href="/resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
           className="text-[13px] px-5 py-2.5 rounded-md transition-colors duration-150"
           style={{ color: 'var(--muted)', border: '1px solid var(--border)' }}
         >
-          Research
-        </Link>
+          Resume ↗
+        </a>
+      </div>
+      <div className="flex flex-wrap gap-2 mb-1">
+        {primaryStack.map((s) => (
+          <StackPill key={s} label={s} primary />
+        ))}
       </div>
       <div className="flex flex-wrap gap-2">
-        {stack.map((s) => (
+        {secondaryStack.map((s) => (
           <StackPill key={s} label={s} />
         ))}
       </div>
