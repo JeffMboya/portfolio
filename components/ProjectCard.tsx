@@ -6,6 +6,13 @@ interface ProjectCardProps {
   meta: ProjectMeta
 }
 
+function formatDate(raw: string): string {
+  const [year, month] = raw.split('-')
+  if (!month) return year
+  const date = new Date(Number(year), Number(month) - 1)
+  return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
+}
+
 export default function ProjectCard({ meta }: ProjectCardProps) {
   return (
     <Link
@@ -36,7 +43,7 @@ export default function ProjectCard({ meta }: ProjectCardProps) {
       <div className="flex flex-col p-5 flex-1">
         <div className="flex items-start justify-between mb-2">
           <div className="text-[11px] uppercase tracking-wider font-medium" style={{ color: 'var(--muted-dim)' }}>
-            {meta.date}
+            {formatDate(meta.date)}
           </div>
           <span
             className="transition-colors duration-150 text-sm"

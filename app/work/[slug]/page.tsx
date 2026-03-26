@@ -54,7 +54,7 @@ export default async function ProjectPage({ params }: Props) {
         </Link>
       </div>
 
-      <div className="grid grid-cols-[1fr_220px] gap-12 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_220px] gap-12 items-start">
         <div>
           <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--muted-dim)' }}>
             {meta!.date}

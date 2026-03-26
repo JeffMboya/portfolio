@@ -14,7 +14,7 @@ export default function PhotoGrid({ srcs, captions }: Props) {
     <div className="grid grid-cols-3 gap-3 my-8 not-prose">
       {srcList.map((src, i) => (
         <div key={src} className="flex flex-col gap-1.5">
-          <div className="relative aspect-[4/3] rounded-lg overflow-hidden border border-[rgba(255,255,255,0.08)]">
+          <div className="relative aspect-[4/3] rounded-lg overflow-hidden" style={{ border: '1px solid var(--border)' }}>
             <Image
               src={src}
               alt={captionList[i] ?? ''}
@@ -24,7 +24,7 @@ export default function PhotoGrid({ srcs, captions }: Props) {
             />
           </div>
           {captionList[i] && (
-            <p className="text-[11px] text-[#555] text-center">{captionList[i]}</p>
+            <p className="text-[11px] text-center" style={{ color: 'var(--muted-dim)' }}>{captionList[i]}</p>
           )}
         </div>
       ))}
