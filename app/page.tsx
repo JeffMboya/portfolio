@@ -186,13 +186,6 @@ export default function Home() {
               be the unusual fit you&apos;ve been looking for. Open to backend, systems, and
               infrastructure roles — and always happy to hear interesting proposals.
             </p>
-            <a
-              href="mailto:jangina.mboya@gmail.com"
-              className="inline-flex items-center gap-2 text-[13px] font-medium mt-4 transition-colors duration-150"
-              style={{ color: 'var(--accent)' }}
-            >
-              jangina.mboya@gmail.com →
-            </a>
           </div>
           <ContactForm />
         </div>

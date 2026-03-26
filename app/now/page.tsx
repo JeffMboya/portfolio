@@ -41,7 +41,7 @@ export default function NowPage() {
             Thinking about
           </h2>
           <p className="text-[15px] leading-relaxed" style={{ color: 'var(--muted)' }}>
-            Whether edge-native compute — small, verifiable, offline-capable — is a better match for African infrastructure than cloud-first architectures that assume reliable connectivity. The DAC work at Octavia ran on a Siemens PLC in a field site with intermittent uptime; Propeller&apos;s model of &quot;deploy once, run anywhere, verify remotely&quot; would have been genuinely useful there. I think the next wave of climate and agricultural tech in the Global South gets built on open edge protocols, not SaaS dashboards. The gap is less technical than it is institutional — who funds the integrators.
+            Whether the computer vision pipelines that currently require an NVIDIA GPU in a lab can be made to run on a $10 ARM device in a field. My first-author work modified YOLOv5s with Transformer encoder blocks and BiFPN to detect small pest birds in agricultural imagery — a 4.8% mAP gain at only 4ms extra inference. The harder follow-on question is deployment: Propeller&apos;s WASI-NN integration means a WASM-packaged model can be dispatched to a constrained edge node the same way you&apos;d schedule any other workload, with 95% device compatibility across ARM hardware. The use case I keep returning to is African smallholder agriculture — early pest and drought stress detection that doesn&apos;t require cloud connectivity or expensive hardware, just a cheap SBC and an open orchestration layer.
           </p>
         </div>
       </div>

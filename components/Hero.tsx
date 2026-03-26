@@ -82,11 +82,11 @@ export default function Hero() {
         </Link>
         <a
           href="/resume.pdf"
-          download
+          download="Jeff_Mboya_resume.pdf"
           className="text-[13px] font-medium px-5 py-2.5 rounded-md transition-colors duration-150"
           style={{ color: 'var(--foreground)', border: '1px solid var(--border)', backgroundColor: 'var(--surface)' }}
         >
-          ↓ Download CV
+          See resume
         </a>
       </div>
       <div className="flex flex-wrap gap-2 mb-1">
