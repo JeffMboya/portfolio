@@ -11,6 +11,7 @@ export interface ProjectMeta {
   github: string | null
   demo: string | null
   featured: boolean
+  cover: string | null
 }
 
 const projectsDir = path.join(process.cwd(), 'content', 'projects')

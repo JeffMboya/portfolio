@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import rehypePrettyCode from 'rehype-pretty-code'
 import { getAllProjectSlugs, getProjectBySlug } from '@/lib/projects'
+import PhotoGrid from '@/components/PhotoGrid'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -62,6 +63,7 @@ export default async function ProjectPage({ params }: Props) {
           <article className="prose">
             <MDXRemote
               source={content!}
+              components={{ PhotoGrid }}
               options={{
                 mdxOptions: {
                   rehypePlugins: [[rehypePrettyCode as any, { theme: 'github-dark' }]],

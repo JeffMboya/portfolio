@@ -13,6 +13,7 @@ date: "2022-11"
 github: https://github.com/nakujaproject
 demo: https://nakujaproject.com
 featured: true
+cover: /covers/nakuja.jpg
 ---
 
 ## Overview
@@ -50,31 +51,7 @@ The Kenya Space Agency facilitates our launch clearances and has hosted the team
 
 ## Photo Gallery
 
-import Image from 'next/image'
-
-<div className="grid grid-cols-3 gap-3 my-8">
-  {[
-    { file: 'IMG_20210422_140013_1.jpg', caption: 'N-1 and N-2 rocket models' },
-    { file: 'IMG_20210430_174709.jpg', caption: 'N-1 launch prep in the field' },
-    { file: 'IMG-20220621-WA0015.jpg', caption: 'Post-fire solid motor casing' },
-    { file: 'IMG-20220627-WA0003.jpg', caption: 'Machined convergent-divergent nozzles' },
-    { file: 'IMG_20221111_144738_5.jpg', caption: 'JKUAT Innovation Exhibits' },
-    { file: '1L9A3187.JPG', caption: 'Team design session' },
-    { file: 'FQNR1ftXMAQkyab.jpeg', caption: 'At Broglio Space Center, Malindi' },
-    { file: 'IMG_20220413_111411_2.jpg', caption: 'Broglio ground station dishes' },
-    { file: 'IMG_20220413_111919_5.jpg', caption: 'Broglio satellite tracking array' },
-  ].map(({ file, caption }) => (
-    <div key={file} className="flex flex-col gap-1.5">
-      <div className="relative aspect-[4/3] rounded-lg overflow-hidden border border-[rgba(255,255,255,0.08)]">
-        <Image
-          src={`/nakuja/${file}`}
-          alt={caption}
-          fill
-          className="object-cover hover:scale-105 transition-transform duration-300"
-          sizes="(max-width: 768px) 100vw, 33vw"
-        />
-      </div>
-      <p className="text-[11px] text-[#555] text-center">{caption}</p>
-    </div>
-  ))}
-</div>
+<PhotoGrid
+  srcs="/nakuja/IMG_20210422_140013_1.jpg, /nakuja/IMG_20210430_174709.jpg, /nakuja/IMG-20220621-WA0015.jpg, /nakuja/IMG-20220627-WA0003.jpg, /nakuja/IMG_20221111_144738_5.jpg, /nakuja/1L9A3187.JPG, /nakuja/FQNR1ftXMAQkyab.jpeg, /nakuja/IMG_20220413_111411_2.jpg, /nakuja/IMG_20220413_111919_5.jpg"
+  captions="N-1 and N-2 rocket models|N-1 launch prep in the field|Post-fire solid motor casing|Machined convergent-divergent nozzles|JKUAT Innovation Exhibits|Team design session|At Broglio Space Center, Malindi|Broglio ground station dishes|Broglio satellite tracking array"
+/>
