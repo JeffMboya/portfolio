@@ -1,15 +1,16 @@
 ---
 title: Propeller
 slug: propeller
-description: A distributed WebAssembly task execution platform. Edge agents written in Rust subscribe via MQTT, receive task dispatch from a Go manager, and execute sandboxed WASM binaries — with OCI registry fetch, HTTP delivery, and platform attestation support.
+description: A distributed WebAssembly task execution platform. Edge agents written in Rust subscribe via MQTT, receive task dispatch from a Go manager, and execute sandboxed WASM binaries — down to an ESP32-S3 microcontroller running Zephyr RTOS.
 stack:
   - Go
   - Rust
+  - C / Zephyr RTOS
   - WebAssembly
   - MQTT
-  - wasmtime
+  - ESP32-S3
+  - wasmtime / WAMR
   - PostgreSQL
-  - Docker
 date: "2024-03"
 github: https://github.com/absmach/propeller
 demo: null
@@ -102,6 +103,42 @@ async fn fetch_wasm_from_http(client: &HttpClient, url: &str) -> Result<Vec<u8>>
     Ok(binary)
 }
 ```
+
+## Embedded Proplet — Wasm on Microcontrollers
+
+The most constrained environment Propeller targets is the ESP32-S3 — a dual-core
+Xtensa microcontroller with 512KB RAM and no OS. To run WebAssembly on it, we use
+the **WebAssembly Micro Runtime (WAMR)** integrated with the **Zephyr RTOS**, with
+MQTT as the task transport layer.
+
+I built and maintain the embedded proplet — a C implementation that runs on the
+ESP32-S3 and joins the same Propeller network as any Rust proplet:
+
+- **WiFi + MQTT client** — handles credential provisioning, reconnect logic, and
+  QoS-1 subscriptions for task delivery
+- **WASM handler** — invokes WAMR to instantiate and execute Wasm modules with
+  configurable memory limits and execution sandboxing
+- **Task monitor** — collects metrics (heap usage, CPU cycles) and publishes
+  heartbeat messages back to the manager
+
+```c
+// Task dispatch on the embedded proplet
+static void handle_start_request(const cJSON *payload) {
+    const char *wasm_b64 = cJSON_GetStringValue(cJSON_GetObjectItem(payload, "wasm"));
+    size_t wasm_len = 0;
+    uint8_t *wasm_buf = base64_decode(wasm_b64, &wasm_len);
+    wasm_handler_run(wasm_buf, wasm_len);
+    free(wasm_buf);
+}
+```
+
+The Zephyr kernel config (`prj.conf`) required careful tuning — WAMR's JIT is
+unavailable on Xtensa, so we use the interpreter mode with a 64KB stack and
+careful heap sizing to stay within the ESP32-S3's constraints.
+
+Benchmarks (`examples/esp32s3-wasm-benchmark-zephyr`) confirmed that simple Wasm
+modules (fibonacci, sorting) execute within acceptable latencies for edge
+sensing and inference workloads.
 
 ## The Hard Parts
 
