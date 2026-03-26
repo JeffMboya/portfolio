@@ -40,7 +40,7 @@ export default function Hero() {
           Currently
         </span>
         <span className="text-[13px]" style={{ color: 'var(--muted)' }}>
-          Contributing to{' '}
+          Software Engineer II at{' '}
           <a
             href="https://github.com/absmach/propeller"
             target="_blank"
@@ -48,7 +48,7 @@ export default function Hero() {
             className="underline underline-offset-2 transition-colors duration-150"
             style={{ color: 'var(--accent)' }}
           >
-            Propeller
+            Abstract Machines
           </a>
           {' '}· Open to backend / systems roles
         </span>

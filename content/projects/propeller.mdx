@@ -107,7 +107,7 @@ async fn fetch_wasm_from_http(client: &HttpClient, url: &str) -> Result<Vec<u8>>
 ## Embedded Proplet — Wasm on Microcontrollers
 
 The most constrained environment Propeller targets is the ESP32-S3 — a dual-core
-Xtensa microcontroller with 512KB RAM and no OS. To run WebAssembly on it, we use
+Xtensa microcontroller with 512KB SRAM and no OS. To run WebAssembly on it, we use
 the **WebAssembly Micro Runtime (WAMR)** integrated with the **Zephyr RTOS**, with
 MQTT as the task transport layer.
 
@@ -132,13 +132,22 @@ static void handle_start_request(const cJSON *payload) {
 }
 ```
 
-The Zephyr kernel config (`prj.conf`) required careful tuning — WAMR's JIT is
-unavailable on Xtensa, so we use the interpreter mode with a 64KB stack and
-careful heap sizing to stay within the ESP32-S3's constraints.
+The Zephyr kernel config required careful tuning — WAMR's JIT is unavailable on
+Xtensa, so we use the interpreter mode. The key result from benchmarking on a
+single-core configuration (512KB SRAM, no PSRAM):
 
-Benchmarks (`examples/esp32s3-wasm-benchmark-zephyr`) confirmed that simple Wasm
-modules (fibonacci, sorting) execute within acceptable latencies for edge
-sensing and inference workloads.
+![24 concurrent WebAssembly instances on a $4 ESP32-S3](/covers/propeller-esp32-cover.webp)
+
+**24 concurrent CPU-bound Wasm instances** running simultaneously on a single
+$4 chip, with 40KB of arena remaining and zero errors. Each instance gets an
+isolated 4KB stack and ~6KB of linear memory — the module is parsed once and
+instantiated N times, so the parse cost is paid exactly once regardless of
+instance count. MEM-type workloads (64KB linear memory each) cap at 2 concurrent
+instances before hitting OOM — the benchmark maps the limits precisely.
+
+This validates Propeller's core claim: a heterogeneous fleet ranging from cloud
+VMs to $4 microcontrollers can be orchestrated through the same MQTT-based
+dispatch layer.
 
 ## The Hard Parts
 
