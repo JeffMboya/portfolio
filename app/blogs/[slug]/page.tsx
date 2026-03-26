@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
+import remarkGfm from 'remark-gfm'
 import { getAllNoteSlugs, getNoteBySlug } from '@/lib/notes'
 import { extractHeadings, formatDate } from '@/lib/utils'
 
@@ -64,6 +65,7 @@ export default async function LogPage({ params }: Props) {
               source={content!}
               options={{
                 mdxOptions: {
+                  remarkPlugins: [remarkGfm],
                   rehypePlugins: [rehypeSlug, [rehypePrettyCode as any, { theme: 'github-dark' }]],
                 },
               }}
