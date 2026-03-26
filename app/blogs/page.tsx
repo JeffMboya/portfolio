@@ -33,13 +33,21 @@ export default function BlogsPage() {
 
       {notes.length === 0 ? (
         <p className="text-[14px]" style={{ color: 'var(--muted-dim)' }}>Nothing here yet — check back soon.</p>
-      ) : (
-        <div className="flex flex-col gap-4">
-          {notes.map((note) => (
-            <NoteCard key={note.slug} meta={note} />
-          ))}
-        </div>
-      )}
+      ) : (() => {
+        const [featured, ...rest] = notes
+        return (
+          <div className="flex flex-col gap-4">
+            {featured && <NoteCard key={featured.slug} meta={featured} featured />}
+            {rest.length > 0 && (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {rest.map((note) => (
+                  <NoteCard key={note.slug} meta={note} />
+                ))}
+              </div>
+            )}
+          </div>
+        )
+      })()}
     </div>
   )
 }

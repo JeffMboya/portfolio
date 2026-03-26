@@ -75,10 +75,15 @@ function cleanHtml(html) {
     .replace(/<img[^>]*medium\.com\/_\/stat[^>]*>/gi, '')
     // remove figure/img blocks (CDN images won't serve cross-origin)
     .replace(/<figure[\s\S]*?<\/figure>/gi, '')
-    // remove "Originally published at ..." footer
-    .replace(/<hr\s*\/?>\s*<p><em>Originally published[\s\S]*$/i, '')
+    // remove "Originally published at ..." footer (with or without leading <hr>)
+    .replace(/(<hr\s*\/?>\s*)?<p[^>]*>\s*<em>Originally published[\s\S]*$/i, '')
+    .replace(/(<hr\s*\/?>\s*)?<p[^>]*>Originally published[\s\S]*$/i, '')
     // remove cross-publication footer link
-    .replace(/<hr\s*\/?>\s*<p><a href="https:\/\/medium\.com[\s\S]*$/i, '')    // normalize bare <pre> (no <code> child) → <pre><code> for turndown
+    .replace(/<hr\s*\/?>\s*<p><a href="https:\/\/medium\.com[\s\S]*$/i, '')
+    // remove "To learn more about X" company promotion paragraphs
+    .replace(/<p[^>]*>\s*<em>\s*To learn more about[\s\S]*?<\/em>\s*<\/p>/gi, '')
+    // remove "If you liked this article, click the 👏" Medium clap prompts
+    .replace(/<p[^>]*>\s*<em>[^<]*click the[^<]*<\/em>\s*<\/p>/gi, '')    // normalize bare <pre> (no <code> child) → <pre><code> for turndown
     .replace(/<pre[^>]*>([\s\S]*?)<\/pre>/gi, (match, content) => {
       if (/<code/i.test(content)) return match
       const text = content
@@ -91,6 +96,19 @@ function cleanHtml(html) {
         .replace(/&amp;/g, '&')
       return `<pre><code>${text}</code></pre>`
     })}
+
+/** Strip Medium/publication boilerplate that survives HTML→Markdown conversion */
+function cleanMarkdown(md) {
+  return md
+    // "_Originally published at_ [_url_](...) _on date._"
+    .replace(/\n+_Originally published at_[\s\S]*$/i, '')
+    // "_If you liked this article, click the 👏 ..."
+    .replace(/\n+_If you liked this article[\s\S]*$/i, '')
+    // "_To learn more about [Company]..." promo footer
+    .replace(/\n+_To learn more about[\s\S]*$/i, '')
+    // trailing whitespace lines
+    .trimEnd()
+}
 
 /** Escape { and } outside fenced code blocks so MDX doesn't parse them as JSX */
 function escapeMdxBraces(md) {
@@ -136,7 +154,7 @@ for (const item of items) {
   const html = cleanHtml(item.content)
   const date = isoToYearMonth(item.pubDate)
   const description = extractDescription(html).replace(/"/g, "'")
-  const body = escapeMdxBraces(td.turndown(html))
+  const body = cleanMarkdown(escapeMdxBraces(td.turndown(html)))
 
   const front = [
     '---',

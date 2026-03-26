@@ -23,13 +23,6 @@ const milestones: Milestone[] = [
     impact: 'IBM Call for Code 2021 global winner.',
   },
   {
-    year: '2022',
-    role: 'Speaker',
-    org: 'PyConKenya',
-    track: 'Speaking',
-    impact: 'Python community conference in Nairobi.',
-  },
-  {
     year: '2022–23',
     role: 'Electronics & Software',
     org: 'AMT Technologies',
@@ -44,18 +37,11 @@ const milestones: Milestone[] = [
     impact: "Built the Global South's first DAC control system.",
   },
   {
-    year: '2024',
-    role: 'Speaker',
-    org: 'SRI Conference',
-    track: 'Speaking',
-    impact: 'Sustainable Research & Innovation Conference.',
-  },
-  {
     year: '2024–26',
     role: 'Deputy Head, R&D',
     org: 'Octavia Carbon',
     track: 'Research',
-    impact: 'TRL 4 to 6 transition; CFD paper at SRI 2025.',
+    impact: '3 PCT patents; CFD paper presented at SRI 2025; $3.1M Series A.',
   },
   {
     year: '2023–',
@@ -71,7 +57,6 @@ const trackColor: Record<string, string> = {
   Hardware: 'var(--accent)',
   Research: '#f59e0b',
   Software: '#60a5fa',
-  Speaking: '#a78bfa',
 }
 
 function Card({ m, position }: { m: Milestone; position: 'above' | 'below' }) {
@@ -127,7 +112,7 @@ export default function Timeline() {
       <div className="hidden md:block">
 
         {/* Above-spine row: even-indexed items */}
-        <div className="grid grid-cols-8">
+        <div className="grid grid-cols-6">
           {milestones.map((m, i) => (
             <div key={i} className="px-1.5 flex flex-col justify-end" style={{ minHeight: '140px' }}>
               {i % 2 === 0 && (
@@ -143,9 +128,9 @@ export default function Timeline() {
         </div>
 
         {/* Spine row */}
-        <div className="grid grid-cols-8 relative">
+        <div className="grid grid-cols-6 relative">
           <div
-            className="absolute top-1/2 left-[6.25%] right-[6.25%] h-px -translate-y-1/2 z-0"
+            className="absolute top-1/2 left-[8.33%] right-[8.33%] h-px -translate-y-1/2 z-0"
             style={{ backgroundColor: 'var(--border-hover)' }}
           />
           {milestones.map((m, i) => (
@@ -166,7 +151,7 @@ export default function Timeline() {
         </div>
 
         {/* Below-spine row: odd-indexed items */}
-        <div className="grid grid-cols-8">
+        <div className="grid grid-cols-6">
           {milestones.map((m, i) => (
             <div key={i} className="px-1.5 flex flex-col" style={{ minHeight: '140px' }}>
               {i % 2 === 1 && (
@@ -181,15 +166,7 @@ export default function Timeline() {
           ))}
         </div>
 
-        {/* Legend */}
-        <div className="flex items-center gap-5 mt-5">
-          {Object.entries(trackColor).map(([track, color]) => (
-            <div key={track} className="flex items-center gap-1.5">
-              <div className="w-2 h-2 rounded-full" style={{ backgroundColor: color }} />
-              <span className="text-[11px]" style={{ color: 'var(--muted-dim)' }}>{track}</span>
-            </div>
-          ))}
-        </div>
+
       </div>
 
       {/* Mobile: vertical cards with colored left border */}
