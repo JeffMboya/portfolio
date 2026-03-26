@@ -7,7 +7,7 @@ import ThemeToggle from './ThemeToggle'
 const links = [
   { href: '/#work', label: 'Work' },
   { href: '/#about', label: 'About' },
-  { href: '/logs', label: 'Logs' },
+  { href: '/blogs', label: 'Blogs' },
   { href: '/research', label: 'Research' },
   { href: 'https://github.com/JeffMboya', label: 'GitHub', external: true },
 ]
@@ -47,13 +47,13 @@ export default function Nav() {
                 color:
                   pathname === link.href ||
                   (link.href === '/research' && pathname.startsWith('/research')) ||
-                  (link.href === '/logs' && pathname.startsWith('/logs'))
+                  (link.href === '/blogs' && pathname.startsWith('/blogs'))
                     ? 'var(--foreground)'
                     : 'var(--muted-dim)',
                 fontWeight:
                   pathname === link.href ||
                   (link.href === '/research' && pathname.startsWith('/research')) ||
-                  (link.href === '/logs' && pathname.startsWith('/logs'))
+                  (link.href === '/blogs' && pathname.startsWith('/blogs'))
                     ? '500'
                     : undefined,
               }}

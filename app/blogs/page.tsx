@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { getAllNotes } from '@/lib/notes'
 
 export const metadata: Metadata = {
-  title: 'Logs — Jeff Mboya',
+  title: 'Blogs — Jeff Mboya',
   description: 'Observations on hardware, software, and the space between.',
 }
 
@@ -14,7 +14,7 @@ function formatDate(raw: string): string {
   return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
 }
 
-export default function LogsPage() {
+export default function BlogsPage() {
   const notes = getAllNotes()
 
   return (
@@ -27,9 +27,9 @@ export default function LogsPage() {
 
       <div className="mb-10">
         <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--muted-dim)' }}>
-          Logs
+          Blogs
         </div>
-        <h1 className="text-[32px] font-bold tracking-tight mb-3" style={{ color: 'var(--foreground)' }}>Logs</h1>
+        <h1 className="text-[32px] font-bold tracking-tight mb-3" style={{ color: 'var(--foreground)' }}>Blogs</h1>
         <p className="text-[15px] leading-relaxed max-w-[560px]" style={{ color: 'var(--muted)' }}>
           Observations on hardware, software, and the space between.
         </p>
@@ -42,7 +42,7 @@ export default function LogsPage() {
           {notes.map((note) => (
             <Link
               key={note.slug}
-              href={`/logs/${note.slug}`}
+              href={`/blogs/${note.slug}`}
               className="block rounded-xl p-6 hover:translate-y-[-2px] transition-all duration-150 group"
               style={{ border: '1px solid var(--border)', backgroundColor: 'var(--surface)' }}
             >

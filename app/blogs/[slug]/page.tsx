@@ -60,8 +60,8 @@ export default async function LogPage({ params }: Props) {
   return (
     <div className="pb-20">
       <div className="mb-8">
-        <Link href="/logs" className="text-[13px] transition-colors duration-150" style={{ color: 'var(--accent)' }}>
-          ← Logs
+        <Link href="/blogs" className="text-[13px] transition-colors duration-150" style={{ color: 'var(--accent)' }}>
+          ← Blogs
         </Link>
       </div>
 

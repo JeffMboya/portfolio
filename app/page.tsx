@@ -30,9 +30,9 @@ export default function Home() {
       </section>
 
       {notes.length > 0 && (
-        <section id="logs" className="mb-20">
+        <section id="blogs" className="mb-20">
           <div className="flex items-center gap-3 mb-8">
-            <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--muted-dim)' }}>Logs</span>
+            <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--muted-dim)' }}>Blogs</span>
             <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
           </div>
           <div className="flex flex-col gap-3">
