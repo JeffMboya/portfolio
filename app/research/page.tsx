@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: 'Research — Jeff Mboya',
@@ -101,6 +102,72 @@ export default function ResearchPage() {
           className="inline-flex items-center gap-2 text-[13px] text-[#22c55e] bg-[rgba(34,197,94,0.08)] border border-[rgba(34,197,94,0.2)] px-4 py-2 rounded-md hover:border-[rgba(34,197,94,0.4)] transition-colors duration-150"
         >
           View Google Scholar profile ↗
+        </a>
+      </div>
+
+      <div className="flex items-center gap-3 mb-8">
+        <span className="text-[11px] text-[#555] uppercase tracking-widest font-medium">
+          Undergraduate Thesis
+        </span>
+        <div className="flex-1 h-px bg-[rgba(255,255,255,0.08)]" />
+        <span className="text-[11px] text-[#555]">2023</span>
+      </div>
+
+      <div className="border border-[rgba(255,255,255,0.08)] rounded-xl p-6 bg-[#161616] mb-12">
+        <div className="flex items-center gap-2 mb-3">
+          <span className="text-[11px] text-[#555] font-medium uppercase tracking-wider">2023</span>
+          <span className="text-[11px] text-[#555] bg-[#1f1f1f] border border-[rgba(255,255,255,0.06)] px-1.5 py-0.5 rounded">
+            Mechatronics Engineering
+          </span>
+        </div>
+        <h3 className="text-[18px] font-semibold tracking-tight mb-1.5 text-[#f0f0f0] leading-snug">
+          Design and Fabrication of an Autonomous Bird Deterrent Robot Prototype
+        </h3>
+        <p className="text-[12px] text-[#555] mb-1">
+          <strong className="text-[#f0f0f0] font-semibold">Jeff Mboya</strong>, Steve Nyaga
+        </p>
+        <p className="text-[11px] text-[#555] italic mb-4">
+          JKUAT — Department of Mechatronics Engineering · Supervised by Dr.-Ing. Jackson G. Njiri
+        </p>
+        <p className="text-[13px] text-[#888] leading-relaxed mb-6">
+          Designed and built a rover-type robot that autonomously detects and deters granivorous pest
+          birds in agricultural fields. The system combines a YOLOv5s computer-vision pipeline for
+          real-time bird detection with an onboard deterrent mechanism, enabling deployment without
+          continuous human supervision.
+        </p>
+
+        <div className="grid grid-cols-4 gap-2 mb-6">
+          {[
+            'IMG_20221220_181636_8',
+            'IMG_20221220_181647_3',
+            'IMG_20221220_182158_7',
+            'IMG_20221220_182210_6',
+            'IMG_20221220_182226_2',
+            'IMG_20221220_182254_0',
+            'IMG_20221220_182306_0',
+            'IMG_20221220_182316_6',
+            'IMG_20221220_182318_5',
+            'IMG_20221220_182319_5',
+          ].map((name) => (
+            <div key={name} className="relative aspect-square rounded-lg overflow-hidden border border-[rgba(255,255,255,0.08)]">
+              <Image
+                src={`/thesis-photos/${name}.jpg`}
+                alt="Prototype photo"
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-300"
+                sizes="(max-width: 768px) 50vw, 25vw"
+              />
+            </div>
+          ))}
+        </div>
+
+        <a
+          href="/thesis/report.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-[13px] text-[#22c55e] bg-[rgba(34,197,94,0.08)] border border-[rgba(34,197,94,0.2)] px-4 py-2 rounded-md hover:border-[rgba(34,197,94,0.4)] transition-colors duration-150"
+        >
+          Download full report (PDF) ↗
         </a>
       </div>
 
