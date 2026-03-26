@@ -26,7 +26,7 @@ export default function Nav() {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[13px] text-[#555] hover:text-[#111] transition-colors duration-150"
+              className="text-[13px] text-[#555] hover:text-[#16a34a] transition-colors duration-150"
             >
               {link.label}
             </a>
@@ -35,7 +35,7 @@ export default function Nav() {
               key={link.href}
               href={link.href}
               className={`text-[13px] transition-colors duration-150 ${
-                pathname === link.href ? 'text-[#111] font-medium' : 'text-[#555] hover:text-[#111]'
+                pathname === link.href ? 'text-[#16a34a] font-medium' : 'text-[#555] hover:text-[#16a34a]'
               }`}
             >
               {link.label}

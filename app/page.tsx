@@ -11,7 +11,7 @@ export default function Home() {
 
       <section id="work" className="mb-20">
         <div className="flex items-center gap-3 mb-8">
-          <span className="text-[11px] text-[#888] uppercase tracking-widest">Selected Work</span>
+          <span className="text-[11px] text-[#16a34a] uppercase tracking-widest font-medium">Selected Work</span>
           <div className="flex-1 h-px bg-[#e8e8e8]" />
         </div>
         <div className="flex flex-col gap-4">
@@ -21,7 +21,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="bg-[#f5f5f5] rounded-xl p-8 mb-20 grid grid-cols-2 gap-8">
+      <section id="about" className="bg-[#f0fdf4] border border-[#bbf7d0] rounded-xl p-8 mb-20 grid grid-cols-2 gap-8">
         <div>
           <h2 className="text-[20px] font-semibold tracking-tight mb-3">About me</h2>
           <p className="text-[13px] text-[#555] leading-relaxed">
@@ -36,26 +36,19 @@ export default function Home() {
             href="https://github.com/JeffMboya"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2.5 text-[13px] text-[#555] bg-white border border-[#e8e8e8] rounded-md px-3.5 py-2.5 hover:border-[#ccc] transition-colors duration-150"
+            className="flex items-center gap-2.5 text-[13px] text-[#555] bg-white border border-[#bbf7d0] rounded-md px-3.5 py-2.5 hover:border-[#16a34a] hover:text-[#16a34a] transition-colors duration-150"
           >
-            <span className="w-4 h-4 bg-[#e0e0e0] rounded-sm inline-block" />
+            <span className="w-4 h-4 bg-[#bbf7d0] rounded-sm inline-block" />
             github.com/JeffMboya
           </a>
           <a
             href="https://linkedin.com/in/jeffmboya"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2.5 text-[13px] text-[#555] bg-white border border-[#e8e8e8] rounded-md px-3.5 py-2.5 hover:border-[#ccc] transition-colors duration-150"
+            className="flex items-center gap-2.5 text-[13px] text-[#555] bg-white border border-[#bbf7d0] rounded-md px-3.5 py-2.5 hover:border-[#16a34a] hover:text-[#16a34a] transition-colors duration-150"
           >
-            <span className="w-4 h-4 bg-[#e0e0e0] rounded-sm inline-block" />
+            <span className="w-4 h-4 bg-[#bbf7d0] rounded-sm inline-block" />
             linkedin.com/in/jeffmboya
-          </a>
-          <a
-            href="mailto:hello@jeffmboya.dev"
-            className="flex items-center gap-2.5 text-[13px] text-[#555] bg-white border border-[#e8e8e8] rounded-md px-3.5 py-2.5 hover:border-[#ccc] transition-colors duration-150"
-          >
-            <span className="w-4 h-4 bg-[#e0e0e0] rounded-sm inline-block" />
-            hello@jeffmboya.dev
           </a>
         </div>
       </section>
@@ -68,10 +61,12 @@ export default function Home() {
           Open to backend, systems, and infrastructure roles. I&apos;ll reply within a day.
         </p>
         <a
-          href="mailto:hello@jeffmboya.dev"
-          className="inline-block bg-[#111] text-white text-[13px] px-5 py-2.5 rounded-md hover:bg-[#333] transition-colors duration-150"
+          href="https://linkedin.com/in/jeffmboya"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block bg-[#16a34a] text-white text-[13px] px-5 py-2.5 rounded-md hover:bg-[#15803d] transition-colors duration-150"
         >
-          Send me an email
+          Connect on LinkedIn
         </a>
       </section>
     </>
