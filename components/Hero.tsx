@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import StackPill from './StackPill'
 
 const stack = [
@@ -9,8 +10,20 @@ const stack = [
 export default function Hero() {
   return (
     <section className="mb-24">
-      <div className="text-[11px] text-[#22c55e] uppercase tracking-widest mb-4 font-medium">
-        Software Engineer
+      <div className="flex items-center gap-3 mb-5">
+        <div className="relative w-[64px] h-[64px] rounded-full ring-2 ring-[#22c55e] ring-offset-2 ring-offset-[#0c0c0c] overflow-hidden shrink-0">
+          <Image
+            src="/avatar.jpg"
+            alt="Jeff Mboya"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+        <div>
+          <div className="text-[15px] font-semibold text-[#f0f0f0]">Jeff Mboya</div>
+          <div className="text-[11px] text-[#22c55e] uppercase tracking-widest font-medium">Software Engineer</div>
+        </div>
       </div>
       <h1 className="text-[48px] font-bold leading-[1.1] tracking-tight mb-5">
         I build systems<br />
