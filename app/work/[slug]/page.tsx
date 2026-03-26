@@ -6,7 +6,7 @@ import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
 import { getAllProjectSlugs, getProjectBySlug } from '@/lib/projects'
 import PhotoGrid from '@/components/PhotoGrid'
-import { extractHeadings } from '@/lib/utils'
+import { extractHeadings, formatDate } from '@/lib/utils'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -57,7 +57,7 @@ export default async function ProjectPage({ params }: Props) {
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_220px] gap-12 items-start">
         <div>
           <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--muted-dim)' }}>
-            {meta!.date}
+            {formatDate(meta!.date)}
           </div>
           <h1 className="text-[32px] font-bold tracking-tight mb-3" style={{ color: 'var(--foreground)' }}>{meta!.title}</h1>
           <p className="text-[15px] mb-10 leading-relaxed" style={{ color: 'var(--muted)' }}>{meta!.description}</p>
