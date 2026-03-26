@@ -44,9 +44,13 @@ export default async function LogPage({ params }: Props) {
   return (
     <div className="pb-20">
       <div className="mb-8">
-        <Link href="/blogs" className="text-[13px] transition-colors duration-150" style={{ color: 'var(--accent)' }}>
-          ← Blogs
-        </Link>
+        <nav className="flex items-center gap-1.5 text-[12px]" style={{ color: 'var(--muted-dim)' }}>
+          <Link href="/" className="transition-colors duration-150 hover:underline" style={{ color: 'var(--accent)' }}>Home</Link>
+          <span>/</span>
+          <Link href="/blogs" className="transition-colors duration-150 hover:underline" style={{ color: 'var(--accent)' }}>Blogs</Link>
+          <span>/</span>
+          <span className="truncate max-w-[200px]" style={{ color: 'var(--foreground)' }}>{meta!.title}</span>
+        </nav>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_200px] gap-12 items-start">

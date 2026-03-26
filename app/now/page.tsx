@@ -8,7 +8,12 @@ export const metadata: Metadata = {
 export default function NowPage() {
   return (
     <div className="pb-20 max-w-[640px]">
-      <div className="flex items-center gap-3 mb-10">
+      <nav className="flex items-center gap-1.5 text-[12px] mb-10" style={{ color: 'var(--muted-dim)' }}>
+        <a href="/" className="transition-colors duration-150 hover:underline" style={{ color: 'var(--accent)' }}>Home</a>
+        <span>/</span>
+        <span style={{ color: 'var(--foreground)' }}>Now</span>
+      </nav>
+      <div className="flex items-center gap-3 mb-6">
         <h1 className="text-[28px] font-bold tracking-tight" style={{ color: 'var(--foreground)' }}>
           Now
         </h1>
