@@ -68,15 +68,6 @@ export default function Hero() {
         >
           View my work →
         </Link>
-        <a
-          href="/resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-[13px] px-5 py-2.5 rounded-md transition-colors duration-150"
-          style={{ color: 'var(--muted)', border: '1px solid var(--border)' }}
-        >
-          Resume ↗
-        </a>
       </div>
       <div className="flex flex-wrap gap-2 mb-1">
         {primaryStack.map((s) => (
