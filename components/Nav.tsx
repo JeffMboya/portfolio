@@ -7,6 +7,7 @@ import ThemeToggle from './ThemeToggle'
 const links = [
   { href: '/#work', label: 'Work' },
   { href: '/#about', label: 'About' },
+  { href: '/logs', label: 'Logs' },
   { href: '/research', label: 'Research' },
   { href: 'https://github.com/JeffMboya', label: 'GitHub', external: true },
 ]
@@ -44,11 +45,15 @@ export default function Nav() {
               className="text-[13px] transition-colors duration-150"
               style={{
                 color:
-                  pathname === link.href || (link.href === '/research' && pathname.startsWith('/research'))
+                  pathname === link.href ||
+                  (link.href === '/research' && pathname.startsWith('/research')) ||
+                  (link.href === '/logs' && pathname.startsWith('/logs'))
                     ? 'var(--foreground)'
                     : 'var(--muted-dim)',
                 fontWeight:
-                  pathname === link.href || (link.href === '/research' && pathname.startsWith('/research'))
+                  pathname === link.href ||
+                  (link.href === '/research' && pathname.startsWith('/research')) ||
+                  (link.href === '/logs' && pathname.startsWith('/logs'))
                     ? '500'
                     : undefined,
               }}

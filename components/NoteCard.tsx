@@ -11,7 +11,7 @@ function formatDate(raw: string): string {
 export default function NoteCard({ meta }: { meta: NoteMeta }) {
   return (
     <Link
-      href={`/notes/${meta.slug}`}
+      href={`/logs/${meta.slug}`}
       className="flex items-start justify-between gap-4 rounded-xl px-5 py-4 transition-all duration-150 group hover:translate-y-[-1px]"
       style={{ border: '1px solid var(--border)', backgroundColor: 'var(--surface)' }}
     >

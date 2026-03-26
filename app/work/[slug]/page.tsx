@@ -32,6 +32,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
+function extractHeadings(content: string) {
+  return content
+    .split('\n')
+    .map((line) => line.match(/^(#{2,3})\s+(.+)/))
+    .filter(Boolean)
+    .map((m) => ({
+      level: m![1].length,
+      text: m![2].trim(),
+      id: m![2].trim().toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-'),
+    }))
+}
+
 export default async function ProjectPage({ params }: Props) {
   const { slug } = await params
 
@@ -42,14 +54,12 @@ export default async function ProjectPage({ params }: Props) {
     notFound()
   }
 
+  const headings = extractHeadings(content!)
+
   return (
     <div className="pb-20">
       <div className="mb-8">
-        <Link
-          href="/"
-          className="text-[13px] transition-colors duration-150"
-          style={{ color: 'var(--accent)' }}
-        >
+        <Link href="/" className="text-[13px] transition-colors duration-150" style={{ color: 'var(--accent)' }}>
           ← Back
         </Link>
       </div>
@@ -75,6 +85,29 @@ export default async function ProjectPage({ params }: Props) {
         </div>
 
         <aside className="sticky top-8">
+          {headings.length > 0 && (
+            <div className="rounded-xl p-5 mb-4" style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}>
+              <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--muted-dim)' }}>
+                On this page
+              </div>
+              <nav className="flex flex-col gap-1">
+                {headings.map((h) => (
+                  <a
+                    key={h.id}
+                    href={`#${h.id}`}
+                    className="text-[12px] leading-snug transition-colors duration-150"
+                    style={{
+                      color: 'var(--muted)',
+                      paddingLeft: h.level === 3 ? '12px' : '0',
+                    }}
+                  >
+                    {h.text}
+                  </a>
+                ))}
+              </nav>
+            </div>
+          )}
+
           <div className="rounded-xl p-5" style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}>
             <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--muted-dim)' }}>Stack</div>
             <div className="flex flex-col gap-1.5 mb-5">

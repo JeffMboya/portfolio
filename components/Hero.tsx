@@ -3,8 +3,8 @@ import Image from 'next/image'
 import StackPill from './StackPill'
 
 const stack = [
-  'Go', 'Rust', 'TypeScript', 'WebAssembly',
-  'Python', 'Siemens PLCs', 'Docker', 'MQTT',
+  'Go', 'Rust', 'C++', 'TypeScript', 'WebAssembly',
+  'Python', 'Siemens PLCs', 'PCB Design', 'Docker', 'MQTT',
 ]
 
 export default function Hero() {
@@ -55,7 +55,7 @@ export default function Hero() {
       </div>
 
       <h1 className="text-[44px] font-bold leading-[1.1] tracking-tight mb-5" style={{ color: 'var(--foreground)' }}>
-        From Nairobi&apos;s first DAC machine<br />
+        From the Global South&apos;s first DAC machine<br />
         to WebAssembly task orchestrators.
       </h1>
       <p className="text-[16px] leading-relaxed max-w-[560px] mb-7" style={{ color: 'var(--muted)' }}>
