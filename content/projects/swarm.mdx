@@ -1,0 +1,38 @@
+---
+title: Swarm
+slug: swarm
+description: A multi-agent market sentiment simulator. Feed it a news headline and a swarm of AI trader personas — quant funds, macro tourists, retail degenerates — react independently, then debate each other and update their positions.
+stack:
+  - Go
+  - Claude API
+date: "2026-03"
+github: https://github.com/JeffMboya/swarm
+demo: null
+featured: true
+cover: /covers/swarm.svg
+result: "Emergent market consensus from competing AI agents"
+---
+
+## The Problem
+
+Market-moving events are ambiguous. A Fed rate hike is bullish for banks, bearish for growth stocks, and neutral for commodities — depending on who you ask. No single analyst captures all of that. The interesting signal isn't any one view; it's where a diverse set of participants land after they've heard each other out.
+
+## Approach
+
+Swarm runs 15 distinct trader personas in parallel — each with a different role, style, natural bias, and time horizon. A quant fund doesn't react the same way as a macro tourist or a retail momentum trader.
+
+Round 1 is independent: every agent reads the headline and forms a view without knowing what anyone else thinks. Round 2 is the debate: each agent reads a summary of all other positions and decides whether to hold firm, partially update, or flip entirely. View changes are tracked and surfaced in the final output.
+
+The result is an emergent consensus — or a persistent disagreement — that no single prompt could produce.
+
+## Why Two Rounds
+
+A single round of parallel calls gives you a breadth of views but no interaction. The interesting dynamics in real markets happen when participants update on each other. A momentum trader who reads that every macro fund is bearish might temper their enthusiasm. A contrarian who sees consensus forming in one direction has more reason to go the other way.
+
+Round 2 is what makes the output feel alive rather than just a list of opinions.
+
+## Design
+
+The entire tool is a single Go binary with no runtime dependencies. Agents run concurrently via goroutines. The output is a color-coded terminal display with a signal bar chart, sentiment breakdown, and a watch list of the most-mentioned assets.
+
+Install via the releases page or `go install` — no config files, no accounts, just an API key.
