@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" fill="none">
+
+  <!-- Definitions -->
+  <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+    <circle cx="1" cy="1" r="0.8" fill="rgba(255,255,255,0.04)"/>
+  </pattern>
+
+  <radialGradient id="sweepGlow" cx="310" cy="200" r="230" gradientUnits="userSpaceOnUse">
+    <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.10"/>
+    <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
+  </radialGradient>
+
+  <radialGradient id="synthGlow" cx="452" cy="188" r="40" gradientUnits="userSpaceOnUse">
+    <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
+  </radialGradient>
+
+  <radialGradient id="buildGlow" cx="608" cy="152" r="36" gradientUnits="userSpaceOnUse">
+    <stop offset="0%" stop-color="#22c55e" stop-opacity="0.20"/>
+    <stop offset="100%" stop-color="#22c55e" stop-opacity="0"/>
+  </radialGradient>
+
+  <!-- Background -->
+  <rect width="800" height="400" fill="#060D14"/>
+  <rect width="800" height="400" fill="url(#dots)"/>
+
+  <!-- Radar arcs (centered at 310, 200) -->
+  <circle cx="310" cy="200" r="90"  stroke="#22d3ee" stroke-width="0.8" stroke-opacity="0.07"/>
+  <circle cx="310" cy="200" r="160" stroke="#22d3ee" stroke-width="0.8" stroke-opacity="0.055"/>
+  <circle cx="310" cy="200" r="230" stroke="#22d3ee" stroke-width="0.8" stroke-opacity="0.04"/>
+
+  <!-- Cross-hairs (very faint) -->
+  <line x1="310" y1="30"  x2="310" y2="370" stroke="#22d3ee" stroke-width="0.6" stroke-opacity="0.05"/>
+  <line x1="80"  y1="200" x2="540" y2="200" stroke="#22d3ee" stroke-width="0.6" stroke-opacity="0.05"/>
+
+  <!-- Radar sweep wedge: center 310,200, arc from -35° to 0° clockwise, r≈228 -->
+  <path d="M310 200 L497 69 A228 228 0 0 1 538 200 Z" fill="url(#sweepGlow)"/>
+
+  <!-- Sweep leading edge -->
+  <line x1="310" y1="200" x2="538" y2="200" stroke="#22d3ee" stroke-width="0.9" stroke-opacity="0.22"/>
+
+  <!-- ── Dependency edges (drawn before nodes) ── -->
+
+  <!-- P1 → P3 -->
+  <line x1="175" y1="92"  x2="252" y2="113" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+  <!-- P3 → synthesis -->
+  <line x1="270" y1="118" x2="432" y2="180" stroke="rgba(34,211,238,0.15)" stroke-width="1"/>
+  <!-- P2 → synthesis -->
+  <line x1="140" y1="185" x2="430" y2="185" stroke="rgba(34,211,238,0.12)" stroke-width="1"/>
+  <!-- P4 → synthesis -->
+  <line x1="268" y1="214" x2="432" y2="194" stroke="rgba(34,211,238,0.10)" stroke-width="1"/>
+  <!-- P3 → P4 -->
+  <line x1="262" y1="130" x2="262" y2="203" stroke="rgba(255,255,255,0.06)" stroke-width="0.8"/>
+  <!-- P5 → P4 -->
+  <line x1="202" y1="288" x2="256" y2="220" stroke="rgba(255,255,255,0.06)" stroke-width="0.8"/>
+  <!-- P6 → P2 -->
+  <line x1="140" y1="308" x2="140" y2="200" stroke="rgba(255,255,255,0.05)" stroke-width="0.8"/>
+
+  <!-- synthesis → best build -->
+  <line x1="474" y1="183" x2="585" y2="154" stroke="#22c55e" stroke-width="1.5" stroke-opacity="0.55"/>
+  <!-- arrowhead -->
+  <polygon points="585,154 572,147 574,157" fill="#22c55e" fill-opacity="0.65"/>
+
+  <!-- ── Paper blip glows ── -->
+  <circle cx="175" cy="92"  r="19" fill="#22c55e" fill-opacity="0.10"/>
+  <circle cx="140" cy="185" r="18" fill="#22c55e" fill-opacity="0.10"/>
+  <circle cx="260" cy="116" r="17" fill="#22c55e" fill-opacity="0.10"/>
+  <circle cx="262" cy="213" r="16" fill="#facc15" fill-opacity="0.09"/>
+  <circle cx="200" cy="290" r="15" fill="#facc15" fill-opacity="0.08"/>
+  <circle cx="140" cy="310" r="13" fill="rgba(200,200,200,0.03)"/>
+
+  <!-- ── Paper blip dots ── -->
+  <!-- P1 — high signal -->
+  <circle cx="175" cy="92"  r="6.5" fill="#22c55e" fill-opacity="0.90"/>
+  <!-- P2 — high signal -->
+  <circle cx="140" cy="185" r="6.5" fill="#22c55e" fill-opacity="0.85"/>
+  <!-- P3 — high signal -->
+  <circle cx="260" cy="116" r="6"   fill="#22c55e" fill-opacity="0.85"/>
+  <!-- P4 — medium -->
+  <circle cx="262" cy="213" r="5.5" fill="#facc15" fill-opacity="0.80"/>
+  <!-- P5 — medium -->
+  <circle cx="200" cy="290" r="5"   fill="#facc15" fill-opacity="0.72"/>
+  <!-- P6 — low signal -->
+  <circle cx="140" cy="310" r="4"   fill="rgba(180,180,180,0.40)"/>
+
+  <!-- Mini signal bars next to P1 (highest signal paper) -->
+  <rect x="186" y="85" width="3" height="13" rx="1" fill="#22c55e" fill-opacity="0.75"/>
+  <rect x="191" y="87" width="3" height="11" rx="1" fill="#22c55e" fill-opacity="0.65"/>
+  <rect x="196" y="89" width="3" height="9"  rx="1" fill="#22c55e" fill-opacity="0.55"/>
+  <rect x="201" y="92" width="3" height="6"  rx="1" fill="#22c55e" fill-opacity="0.40"/>
+  <rect x="206" y="92" width="3" height="6"  rx="1" fill="rgba(255,255,255,0.09)"/>
+
+  <!-- ── Synthesis node ── -->
+  <circle cx="452" cy="188" r="40" fill="url(#synthGlow)"/>
+  <circle cx="452" cy="188" r="27" fill="#061520" fill-opacity="0.92"/>
+  <circle cx="452" cy="188" r="23" stroke="#22d3ee" stroke-width="1.2" stroke-opacity="0.35"/>
+  <circle cx="452" cy="188" r="11" fill="#22d3ee" fill-opacity="0.18"/>
+  <text x="452" y="193" font-family="Georgia, serif" font-size="14" fill="#22d3ee" fill-opacity="0.80" text-anchor="middle">∑</text>
+  <text x="452" y="226" font-family="system-ui, -apple-system, monospace" font-size="9" fill="#22d3ee" fill-opacity="0.38" text-anchor="middle" letter-spacing="1.5">SYNTHESIS</text>
+
+  <!-- ── Best build node ── -->
+  <circle cx="608" cy="152" r="36" fill="url(#buildGlow)"/>
+  <circle cx="608" cy="152" r="22" fill="#071a0e" fill-opacity="0.92"/>
+  <circle cx="608" cy="152" r="18" stroke="#22c55e" stroke-width="1.5" stroke-opacity="0.55"/>
+  <circle cx="608" cy="152" r="11" fill="#22c55e" fill-opacity="0.14"/>
+  <!-- Up arrow -->
+  <path d="M608 141 L602 150 L605.5 150 L605.5 162 L610.5 162 L610.5 150 L614 150 Z"
+        fill="#22c55e" fill-opacity="0.80"/>
+  <text x="608" y="186" font-family="system-ui, -apple-system, monospace" font-size="9" fill="#22c55e" fill-opacity="0.42" text-anchor="middle" letter-spacing="1">BEST BUILD</text>
+
+  <!-- ── Signal legend panel (right edge) ── -->
+  <rect x="690" y="98" width="80" height="178" rx="3"
+        fill="rgba(255,255,255,0.015)" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
+
+  <text x="730" y="117" font-family="system-ui, monospace" font-size="9" fill="rgba(255,255,255,0.20)"
+        text-anchor="middle" letter-spacing="2">SIGNAL</text>
+
+  <circle cx="708" cy="137" r="5" fill="#22c55e" fill-opacity="0.90"/>
+  <text x="718" y="141" font-family="monospace" font-size="9.5" fill="#22c55e" fill-opacity="0.65">9–10</text>
+
+  <circle cx="708" cy="162" r="5" fill="#22c55e" fill-opacity="0.70"/>
+  <text x="718" y="166" font-family="monospace" font-size="9.5" fill="#22c55e" fill-opacity="0.52">7–8</text>
+
+  <circle cx="708" cy="187" r="5" fill="#facc15" fill-opacity="0.75"/>
+  <text x="718" y="191" font-family="monospace" font-size="9.5" fill="#facc15" fill-opacity="0.55">5–6</text>
+
+  <circle cx="708" cy="212" r="5" fill="rgba(200,200,200,0.38)"/>
+  <text x="718" y="216" font-family="monospace" font-size="9.5" fill="rgba(200,200,200,0.35)">1–4</text>
+
+  <line x1="700" y1="234" x2="762" y2="234" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
+  <text x="730" y="250" font-family="monospace" font-size="8.5" fill="rgba(255,255,255,0.15)"
+        text-anchor="middle" letter-spacing="1">BUILD SCORE</text>
+
+  <!-- ── Wordmark ── -->
+  <text x="400" y="356" font-family="system-ui, -apple-system, sans-serif"
+        font-size="40" font-weight="600" letter-spacing="6"
+        fill="#f0f0f0" text-anchor="middle">radar</text>
+
+  <!-- Tagline -->
+  <text x="400" y="383" font-family="system-ui, -apple-system, sans-serif"
+        font-size="12" fill="#444" text-anchor="middle" letter-spacing="4">AI RESEARCH DIGEST</text>
+
+</svg>
