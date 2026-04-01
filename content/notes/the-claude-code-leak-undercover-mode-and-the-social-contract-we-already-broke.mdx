@@ -7,50 +7,115 @@ cover: /covers/claude-code-leak.svg
 source: "https://venturebeat.com/technology/claude-codes-source-code-appears-to-have-leaked-heres-what-we-know"
 ---
 
-The thing that caught most people's attention in the Claude Code leak wasn't the 512,000 lines of TypeScript or the 44 unreleased features. It was a single system prompt — one that instructed Claude to operate "undercover" in open source repositories, write commit messages that revealed nothing about its origins, and not blow its cover.
+The outrage about Anthropic's Undercover Mode is legitimate. I had the same reaction when I read the leak.
 
-The word that kept appearing was *deceptive*.
+But the timing is strange.
 
-That reaction is fair. But it arrives at a strange time.
+Because the thing people are reacting to — AI contributing code without really owning it — didn't start here. We've been drifting toward it for a while now. Quietly.
 
-### What git was actually for
+---
 
-Open source has always depended on a specific kind of accountability.
+What caught everyone's attention in the Claude Code leak wasn't the scale of it — not the 512,000 lines of TypeScript or the dozens of unreleased features.
 
-Not legal accountability. Something more social — the understanding that when you look at a commit, there's a person behind it. Someone you can reach, disagree with, or ask to explain their reasoning. A maintainer who chose a trade-off and can tell you why. A contributor whose judgment you can evaluate over time.
+It was one line in a system prompt.
 
-The commit graph was accountability infrastructure. Not because git makes it technically impossible to lie — it doesn't — but because the community treated it as a record of human decision-making. Bug reports could route back to the person who introduced an issue. Design decisions had traceable authors. Trust accumulated around names.
+The instruction to operate "undercover."
+To contribute to open source without revealing what you are.
+To write commit messages that don't give it away.
 
-AI has been changing that. Quietly. Without anyone deciding it should.
+People kept coming back to the same word: deceptive.
 
-### Two different things, one open question
+That reaction makes sense. It *is* deceptive.
 
-Here's where the picture gets complicated.
+But it also feels like we skipped a step. Like we're reacting to the most explicit version of something we never really talked through when it was happening more quietly.
+
+---
+
+Open source has always depended on a kind of accountability that's hard to formalize.
+
+Not legal accountability. Something more social than that.
+
+When I look at a commit, I don't just see code. I see a person behind it — or at least I assume there is one. Someone who made a decision, chose a trade-off, and could explain it if I asked. Someone whose judgment I can learn to trust, or not, over time.
+
+I've definitely clicked into a commit before and thought: *okay, this person probably knew what they were doing*. Or the opposite.
+
+That's what the commit graph really is. Not just a technical record — a social one.
+
+Not because git makes it impossible to lie (it doesn't), but because we've treated it as a record of human decision-making. A place where responsibility lives, even if it's informal.
+
+---
+
+And AI has been changing that. Gradually.
+
+Not through some big announcement or coordinated shift. Just… by becoming useful.
+
+A developer uses Claude to write a function. They read it, maybe tweak it, test it, and commit it under their name. No disclosure, not because they're hiding anything, but because there isn't really a norm that says they should.
+
+That feels different from Undercover Mode. It is different.
+
+One is a person using a tool and still taking responsibility for the result.
+
+The other is a system designed to participate without being recognized as what it is — operating at scale, without a human in the loop, and specifically instructed not to reveal itself.
+
+Those aren't the same thing.
+
+But they're not unrelated either.
+
+---
 
 <img src="/covers/claude-code-leak-diagram.svg" alt="Individual developer vs Undercover Mode: the same open question" style={{width: '100%', borderRadius: '8px', margin: '8px 0 24px'}} />
 
-A developer who uses Claude to write a function, reads it, tests it, and commits it under their name is not doing what Anthropic did with Undercover Mode. The difference is real. One is a person using a tool and taking responsibility for the output. The other is a company deploying autonomous agents specifically designed to contribute to codebases without leaving any trace of their origin — at scale, without a human in the loop, as a deliberate feature.
+They're both sitting on the same unanswered question: what does authorship actually mean when AI is involved?
+
+We never really worked that out.
+
+We just… kept going.
+
+The industry moved fast, people adapted, and a kind of informal consensus emerged: AI can write the code, and you can commit it as yours, and we don't need to talk too much about it.
+
+Not because anyone decided that explicitly. Just because it was convenient, and it worked.
+
+But that leaves a lot unresolved.
+
+When does AI involvement matter enough to disclose?
+What would disclosure even look like?
+Who is it for — maintainers, users, other contributors?
+What are we actually promising when we attach our name to a commit now?
+
+I don't think we ever answered those questions. We just stopped asking them.
+
+---
+
+Undercover Mode is what happens when that ambiguity gets turned into a product feature.
+
+Anthropic didn't invent the underlying behavior. They formalized it.
+
+They took something informal — AI contributing without being explicitly acknowledged — and made it deliberate. Systematic. Scalable.
+
+They wrote it into the prompt.
+
+And then, accidentally, we all got to read it.
+
+---
+
+The backlash makes sense.
+
+There *is* a real difference between a developer using AI and standing behind the result, and a company deploying agents designed to blend in and not be recognized.
 
 Scale matters. Intent matters. Architecture matters.
 
-But both of these things are happening on the same unanswered question: what does authorship mean when AI is involved? And that question has been sitting unanswered for two years, while the industry quietly made peace with it by convention rather than by conversation.
+But the conversation this triggered isn't just about Anthropic.
 
-When a developer uses AI to write code and commits it without saying so — not because they're hiding anything, but because nobody established a norm that said they should disclose it — that's not the same as Undercover Mode. But it's the same unresolved question, lived informally, one commit at a time.
+It's about the gap we left open.
 
-The question of when AI-assisted authorship requires disclosure, what that disclosure should look like, and who owes it to whom — none of that was worked out. The community moved fast and quietly, and nobody wrote the rules.
+About the fact that the norms around authorship, accountability, and disclosure never fully caught up to the tools we started using.
 
-### When the informal gets a system prompt
+About what the commit graph is supposed to represent now — if the "person behind the code" might partly be a system running somewhere else, with no name and no memory of the decision it made.
 
-Undercover Mode is what happens when that unresolved question gets operationalized at corporate scale.
+---
 
-Anthropic didn't create the problem. They formalized it. They took the informal, unarticulated arrangement — "AI wrote this, but we're not flagging it" — and turned it into explicit product behavior. They made it a feature. They wrote the system prompt.
+The social contract of open source wasn't suddenly broken.
 
-And then the sourcemap shipped by accident, and everyone could read it.
+If anything, it was never fully written.
 
-The outrage is understandable. There's a genuine difference between the informal, human-in-the-loop version of AI authorship and a corporate agent operating at scale, specifically architected to obscure its origins. That difference is worth taking seriously.
-
-But the conversation the leak forced is not just about Anthropic. It's about the norms we never built — about what authorship means now, about what the commit graph is supposed to represent, about what disclosure looks like when the tool that wrote your code is running in a data center somewhere and has no name on it.
-
-The social contract of open source wasn't broken on March 31st.
-
-It was never fully written. The leak just made that harder to ignore.
+We just managed to avoid noticing that — until something made it impossible to ignore.
