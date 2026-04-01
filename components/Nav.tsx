@@ -8,6 +8,7 @@ const links = [
   { href: '/#work', label: 'Work' },
   { href: '/#about', label: 'About' },
   { href: '/blogs', label: 'Blogs' },
+  { href: '/hardware', label: 'Hardware' },
   { href: '/research', label: 'Research' },
   { href: '/now', label: 'Now' },
   { href: 'https://github.com/JeffMboya', label: 'GitHub', external: true },
@@ -50,6 +51,7 @@ export default function Nav() {
                   pathname === link.href ||
                   (link.href === '/research' && pathname.startsWith('/research')) ||
                   (link.href === '/blogs' && pathname.startsWith('/blogs')) ||
+                  (link.href === '/hardware' && pathname.startsWith('/hardware')) ||
                   (link.href === '/now' && pathname.startsWith('/now'))
                     ? 'var(--foreground)'
                     : 'var(--muted-dim)',
@@ -58,6 +60,7 @@ export default function Nav() {
                   pathname === link.href ||
                   (link.href === '/research' && pathname.startsWith('/research')) ||
                   (link.href === '/blogs' && pathname.startsWith('/blogs')) ||
+                  (link.href === '/hardware' && pathname.startsWith('/hardware')) ||
                   (link.href === '/now' && pathname.startsWith('/now'))
                     ? '500'
                     : undefined,
