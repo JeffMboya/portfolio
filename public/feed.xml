@@ -5,9 +5,17 @@
     <link>https://jeffmboya.com</link>
     <description>Systems engineering, software, and research by Jeff Mboya.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 26 Mar 2026 21:58:28 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 01 Apr 2026 13:57:46 GMT</lastBuildDate>
     <atom:link href="https://jeffmboya.com/feed.xml" rel="self" type="application/rss+xml"/>
     
+  <item>
+    <title>The Claude Code Leak: Undercover Mode and the Social Contract We Never Wrote</title>
+    <link>https://jeffmboya.com/logs/the-claude-code-leak-undercover-mode-and-the-social-contract-we-already-broke</link>
+    <guid isPermaLink="true">https://jeffmboya.com/logs/the-claude-code-leak-undercover-mode-and-the-social-contract-we-already-broke</guid>
+    <description>The outrage about Anthropic&apos;s Undercover Mode is legitimate. But it arrives after two years of the industry quietly avoiding the same question at the individual level.</description>
+    <pubDate>Wed, 01 Apr 2026 00:00:00 GMT</pubDate>
+    <author>Jeff Mboya</author>
+  </item>
   <item>
     <title>The People Who Don’t Look Like Founders</title>
     <link>https://jeffmboya.com/logs/the-people-who-don-t-look-like-founders</link>
@@ -78,6 +86,14 @@
     <guid isPermaLink="true">https://jeffmboya.com/logs/ai-detectors-can-t-be-fixed-the-approach-is-the-problem</guid>
     <description>The premise is flawed from the start AI content detectors work by analysing the statistical characteristics of finished text.  They look for patterns — predictability, perplexity, burstiness — that te</description>
     <pubDate>Sun, 01 Feb 2026 00:00:00 GMT</pubDate>
+    <author>Jeff Mboya</author>
+  </item>
+  <item>
+    <title>What 450 Thermocycles Did to My PCB</title>
+    <link>https://jeffmboya.com/logs/32-channel-rtd-thermocyclic-testing</link>
+    <guid isPermaLink="true">https://jeffmboya.com/logs/32-channel-rtd-thermocyclic-testing</guid>
+    <description>I designed a 32-channel RTD module for temperature mapping in a direct air capture plant. Then we put it through 450+ thermal cycles from ambient to 100°C. Here&apos;s what happened.</description>
+    <pubDate>Fri, 01 Aug 2025 00:00:00 GMT</pubDate>
     <author>Jeff Mboya</author>
   </item>
   <item>

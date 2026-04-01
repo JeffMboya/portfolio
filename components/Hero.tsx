@@ -52,15 +52,16 @@ export default function Hero() {
       </div>
 
       <h1 className="text-[44px] font-bold leading-[1.1] tracking-tight mb-3" style={{ color: 'var(--foreground)' }}>
-        From the Global South&apos;s first DAC machine to WebAssembly task orchestrators.
+        I debug PCB traces, PLC ladder logic, and Go goroutines in the same week.
       </h1>
       <p className="text-[14px] font-medium mb-5" style={{ color: 'var(--muted-dim)' }}>
-        I build systems that bridge physical infrastructure and distributed software.
+        Most hardware engineers can&apos;t read a goroutine trace. Most software engineers can&apos;t read a schematic. I do both — and I&apos;ve shipped proof of each.
       </p>
       <p className="text-[16px] leading-relaxed max-w-[560px] mb-7" style={{ color: 'var(--muted)' }}>
-        I&apos;ve wired PLCs for a carbon capture startup, co-authored propulsion
-        research, and shipped distributed infrastructure in Go and Rust. I build
-        systems that work in the real world — hardware or software.
+        I&apos;ve designed PCBs for industrial sensing, built autonomous robots,
+        wired PLCs for a carbon capture startup, co-authored propulsion research,
+        and shipped distributed infrastructure in Go and Rust. Hardware or
+        software — I build systems that work in the real world.
       </p>
       <div className="flex items-center gap-3 mb-8">
         <Link

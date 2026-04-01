@@ -7,6 +7,7 @@ import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 import { getAllNoteSlugs, getNoteBySlug } from '@/lib/notes'
+import ContactCTA from '@/components/ContactCTA'
 import { extractHeadings, formatDate } from '@/lib/utils'
 
 interface Props {
@@ -24,6 +25,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {
       title: `${meta.title} — Jeff Mboya`,
       description: meta.description,
+      openGraph: {
+        title: `${meta.title} — Jeff Mboya`,
+        description: meta.description,
+        type: 'article',
+        ...(meta.cover ? { images: [{ url: meta.cover }] } : {}),
+      },
     }
   } catch {
     return { title: 'Not Found' }
@@ -88,6 +95,7 @@ export default async function LogPage({ params }: Props) {
               }}
             />
           </article>
+          <ContactCTA />
         </div>
 
         {headings.length > 0 && (

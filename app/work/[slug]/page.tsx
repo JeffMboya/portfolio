@@ -7,6 +7,7 @@ import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 import { getAllProjectSlugs, getProjectBySlug } from '@/lib/projects'
 import PhotoGrid from '@/components/PhotoGrid'
+import ContactCTA from '@/components/ContactCTA'
 import { formatDate } from '@/lib/utils'
 
 
@@ -29,6 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         title: `${meta.title} — Jeff Mboya`,
         description: meta.description,
         type: 'article',
+        ...(meta.cover ? { images: [{ url: meta.cover }] } : {}),
       },
     }
   } catch {
@@ -79,6 +81,7 @@ export default async function ProjectPage({ params }: Props) {
               }}
             />
           </article>
+          <ContactCTA />
         </div>
 
         {/* Right sidebar — Stack */}

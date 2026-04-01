@@ -1,13 +1,16 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import Hero from '@/components/Hero'
 import ProjectCard from '@/components/ProjectCard'
 import Timeline from '@/components/Timeline'
 import Leadership from '@/components/Leadership'
 import ContactForm from '@/components/ContactForm'
 import { getAllProjects } from '@/lib/projects'
+import { getAllNotes } from '@/lib/notes'
 
 export default function Home() {
   const projects = getAllProjects()
+  const latestNotes = getAllNotes().slice(0, 2)
 
   return (
     <>
@@ -151,24 +154,31 @@ export default function Home() {
           <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--muted-dim)' }}>From the blog</span>
           <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
         </div>
-        <a
-          href="/blogs/i-think-we-re-asking-the-wrong-question-about-ai-images"
-          className="block rounded-xl p-6 transition-colors duration-150 group"
-          style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
-        >
-          <p className="text-[11px] uppercase tracking-widest font-medium mb-2" style={{ color: 'var(--muted-dim)' }}>
-            AI · Provenance · 4 min read
-          </p>
-          <h3 className="text-[18px] font-semibold tracking-tight mb-2 group-hover:underline underline-offset-2" style={{ color: 'var(--foreground)' }}>
-            I Think We&apos;re Asking the Wrong Question About AI Images
-          </h3>
-          <p className="text-[13px] leading-relaxed mb-4" style={{ color: 'var(--muted)' }}>
-            Detection assumes the right moment to understand an image is after it already exists. What if we simply recorded where it began?
-          </p>
-          <span className="text-[13px] font-medium" style={{ color: 'var(--accent)' }}>
-            Read the post →
-          </span>
-        </a>
+        <div className="flex flex-col gap-4">
+          {latestNotes.map((note) => (
+            <Link
+              key={note.slug}
+              href={`/blogs/${note.slug}`}
+              className="block rounded-xl p-6 transition-colors duration-150 group"
+              style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
+            >
+              <h3 className="text-[18px] font-semibold tracking-tight mb-2 group-hover:underline underline-offset-2" style={{ color: 'var(--foreground)' }}>
+                {note.title}
+              </h3>
+              <p className="text-[13px] leading-relaxed mb-4" style={{ color: 'var(--muted)' }}>
+                {note.description}
+              </p>
+              <span className="text-[13px] font-medium" style={{ color: 'var(--accent)' }}>
+                Read the post →
+              </span>
+            </Link>
+          ))}
+        </div>
+        <div className="mt-4">
+          <Link href="/blogs" className="text-[13px] font-medium transition-colors duration-150" style={{ color: 'var(--accent)' }}>
+            View all posts →
+          </Link>
+        </div>
       </section>
 
       <section id="contact" className="mb-20">
