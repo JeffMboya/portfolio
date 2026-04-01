@@ -1,0 +1,55 @@
+---
+title: S0 & S1 IoT Gateways
+slug: am-gateways
+description: Open-source IoT gateway hardware built at Abstract Machines. The S0 is a compact RISC-V module running Zephyr with multi-protocol wireless support. The S1 pairs it with a Linux-capable BeagleV-Fire processor for edge computing and containerised workloads.
+stack:
+  - PCB Design
+  - ESP32-C6
+  - Zephyr RTOS
+  - RISC-V
+  - Wireless M-Bus
+  - NB-IoT / LTE-M
+  - C
+date: "2025-06"
+github: null
+demo: https://hardware.absmach.eu
+featured: true
+cover: /covers/am-gateways.svg
+result: "Multi-protocol IoT gateway shipping to industrial deployments"
+---
+
+## The Problem
+
+Most IoT gateway hardware forces a choice: either something small and power-efficient that speaks only one protocol, or something powerful enough for real edge compute but too large and expensive for field deployments. Smart metering infrastructure, in particular, depends on Wireless M-Bus — a protocol that most commodity modules simply don't support.
+
+The goal was a modular platform that could do both: small enough to deploy anywhere, powerful enough to run real workloads, and open down to the schematics.
+
+## What We Built
+
+### S0 — The Module
+
+The S0 is a compact IoT module built around the ESP32-C6, Espressif's RISC-V based SoC with native 802.15.4 support. It runs Zephyr RTOS and handles simultaneous connectivity across four protocol stacks: Wireless M-Bus at 868 MHz, NB-IoT and LTE-M for cellular backhaul, and WiFi and BLE for local connectivity.
+
+The design is modular by intent. The S0 sits on a baseboard that adds Ethernet, SD card logging, and M-Bus pass-through headers — so the same module covers both battery-backed field sensors and rack-mounted aggregators.
+
+### S1 — The Gateway
+
+The S1 combines the S0 module with a BeagleV-Fire carrier board. BeagleV-Fire runs full Linux on a PolarFire SoC — RISC-V application cores alongside FPGA fabric. This gives the S1 proper edge compute: containerised workloads, local inference, and protocol translation that would be impossible on a microcontroller.
+
+From a connectivity standpoint the S1 inherits the S0's full wireless stack and adds Ethernet, multiple USB ports, and GPIO expansion. It integrates natively with Magistrala, Abstract Machines' open-source IoT messaging platform, so sensor data flows from the field to the cloud without custom glue code.
+
+## Hardware Engineering
+
+Both boards are fully open-source — schematics, PCB layouts, and BOM are publicly available. The design choices reflect field constraints more than lab constraints: wide input voltage ranges, secure boot, encrypted storage, and a form factor that fits standard DIN rail enclosures.
+
+The RF design required careful attention to antenna placement and ground plane management to maintain sensitivity across the M-Bus band while coexisting with WiFi and BLE on the same board. Regulatory compliance for 868 MHz operation in the EU shaped the output power budget and duty cycle handling in firmware.
+
+## Firmware
+
+The S0 firmware is written in C against the Zephyr RTOS HAL. Zephyr's device tree model maps cleanly to the S0's hardware — peripheral configuration lives in the DTS overlay rather than scattered across application code. Protocol drivers for Wireless M-Bus are implemented as Zephyr subsystem modules, which keeps the radio stack testable in isolation.
+
+The S1 runs a standard Linux distribution with Magistrala agent services containerised via Docker. The S0 module on the S1 handles all RF and sensor I/O; the BeagleV-Fire application cores handle routing, storage, and cloud egress. The boundary between the two is a UART bridge — simple and reliable.
+
+## Deployment Context
+
+The gateways are designed for smart metering infrastructure, building management systems, and industrial IoT environments where a single field device needs to aggregate readings from dozens of sensors, apply local logic, and forward structured data upstream. The S0 handles low-power deployments on battery. The S1 handles sites with mains power that need local compute — edge AI inference, local dashboards, or offline buffering.

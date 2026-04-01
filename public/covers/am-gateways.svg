@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+
+  <!-- PCB dark green substrate -->
+  <rect width="800" height="400" fill="#0a0f0a"/>
+
+  <!-- Subtle PCB grid -->
+  <defs>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(34,197,94,0.06)" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="400" fill="url(#grid)"/>
+
+  <!-- Board outline: S0 module (left) -->
+  <rect x="40" y="40" width="220" height="320" rx="4" fill="none" stroke="rgba(34,197,94,0.30)" stroke-width="1.5"/>
+  <text x="56" y="64" font-family="ui-monospace,'Cascadia Code','Fira Mono',monospace" font-size="11" font-weight="700" fill="rgba(34,197,94,0.90)" letter-spacing="1">S0 MODULE</text>
+  <text x="56" y="79" font-family="ui-monospace,'Cascadia Code','Fira Mono',monospace" font-size="9.5" fill="rgba(34,197,94,0.40)">ESP32-C6 · Zephyr RTOS</text>
+
+  <!-- S0: CPU component -->
+  <rect x="90" y="100" width="70" height="70" rx="2" fill="rgba(34,197,94,0.08)" stroke="rgba(34,197,94,0.35)" stroke-width="1"/>
+  <text x="125" y="133" font-family="ui-monospace,'Cascadia Code','Fira Mono',monospace" font-size="9" fill="rgba(34,197,94,0.70)" text-anchor="middle">ESP32</text>
+  <text x="125" y="146" font-family="ui-monospace,'Cascadia Code','Fira Mono',monospace" font-size="8" fill="rgba(34,197,94,0.45)" text-anchor="middle">C6</text>
+
+  <!-- S0: CPU pins (top) -->
+  <line x1="100" y1="100" x2="100" y2="88" stroke="rgba(34,197,94,0.30)" stroke-width="1"/>
+  <line x1="112" y1="100" x2="112" y2="88" stroke="rgba(34,197,94,0.30)" stroke-width="1"/>
+  <line x1="124" y1="100" x2="124" y2="88" stroke="rgba(34,197,94,0.30)" stroke-width="1"/>
+  <line x1="136" y1="100" x2="136" y2="88" stroke="rgba(34,197,94,0.30)" stroke-width="1"/>
+  <line x1="148" y1="100" x2="148" y2="88" stroke="rgba(34,197,94,0.30)" stroke-width="1"/>
+  <!-- CPU pins (bottom) -->
+  <line x1="100" y1="170" x2="100" y2="182" stroke="rgba(34,197,94,0.30)" stroke-width="1"/>
+  <line x1="112" y1="170" x2="112" y2="182" stroke="rgba(34,197,94,0.30)" stroke-width="1"/>
+  <line x1="124" y1="170" x2="124" y2="182" stroke="rgba(34,197,94,0.30)" stroke-width="1"/>
+  <line x1="136" y1="170" x2="136" y2="182" stroke="rgba(34,197,94,0.30)" stroke-width="1"/>
+  <line x1="148" y1="170" x2="148" y2="182" stroke="rgba(34,197,94,0.30)" stroke-width="1"/>
+
+  <!-- S0: radio chip -->
+  <rect x="66" y="205" width="42" height="42" rx="2" fill="rgba(34,197,94,0.06)" stroke="rgba(34,197,94,0.25)" stroke-width="1"/>
+  <text x="87" y="224" font-family="ui-monospace,'Cascadia Code','Fira Mono',monospace" font-size="8" fill="rgba(34,197,94,0.55)" text-anchor="middle">M-Bus</text>
+  <text x="87" y="236" font-family="ui-monospace,'Cascadia Code','Fira Mono',monospace" font-size="7.5" fill="rgba(34,197,94,0.35)" text-anchor="middle">868MHz</text>
+
+  <!-- S0: NB-IoT chip -->
+  <rect x="152" y="205" width="42" height="42" rx="2" fill="rgba(34,197,94,0.06)" stroke="rgba(34,197,94,0.25)" stroke-width="1"/>
+  <text x="173" y="224" font-family="ui-monospace,'Cascadia Code','Fira Mono',monospace" font-size="8" fill="rgba(34,197,94,0.55)" text-anchor="middle">NB-IoT</text>
+  <text x="173" y="236" font-family="ui-monospace,'Cascadia Code','Fira Mono',monospace" font-size="7.5" fill="rgba(34,197,94,0.35)" text-anchor="middle">LTE-M</text>
+
+  <!-- trace connecting chips -->
+  <path d="M 108 205 L 108 192 L 152 192 L 152 205" fill="none" stroke="rgba(34,197,94,0.20)" stroke-width="1"/>
+
+  <!-- S0: protocol labels -->
+  <text x="56" y="275" font-family="ui-monospace,'Cascadia Code','Fira Mono',monospace" font-size="9" fill="rgba(34,197,94,0.35)">WiFi · BLE · USB</text>
+
+  <!-- S0 edge connector -->
+  <line x1="260" y1="100" x2="260" y2="300" stroke="rgba(34,197,94,0.50)" stroke-width="2"/>
+  <text x="246" y="200" font-family="ui-monospace,'Cascadia Code','Fira Mono',monospace" font-size="8" fill="rgba(34,197,94,0.40)" text-anchor="middle" transform="rotate(-90 246 200)">EDGE CONNECTOR</text>
+
+  <!-- Board outline: S1 gateway (right) -->
+  <rect x="320" y="40" width="300" height="320" rx="4" fill="none" stroke="rgba(34,197,94,0.22)" stroke-width="1.5"/>
+  <text x="336" y="64" font-family="ui-monospace,'Cascadia Code','Fira Mono',monospace" font-size="11" font-weight="700" fill="rgba(34,197,94,0.75)" letter-spacing="1">S1 GATEWAY</text>
+  <text x="336" y="79" font-family="ui-monospace,'Cascadia Code','Fira Mono',monospace" font-size="9.5" fill="rgba(34,197,94,0.35)">BeagleV-Fire · Linux · RISC-V</text>
+
+  <!-- S1: main SoC -->
+  <rect x="380" y="95" width="100" height="100" rx="2" fill="rgba(34,197,94,0.07)" stroke="rgba(34,197,94,0.28)" stroke-width="1"/>
+  <text x="430" y="142" font-family="ui-monospace,'Cascadia Code','Fira Mono',monospace" font-size="9.5" fill="rgba(34,197,94,0.65)" text-anchor="middle">BeagleV</text>
+  <text x="430" y="155" font-family="ui-monospace,'Cascadia Code','Fira Mono',monospace" font-size="8.5" fill="rgba(34,197,94,0.45)" text-anchor="middle">Fire</text>
+  <text x="430" y="168" font-family="ui-monospace,'Cascadia Code','Fira Mono',monospace" font-size="7.5" fill="rgba(34,197,94,0.30)" text-anchor="middle">RISC-V</text>
+
+  <!-- S1: SoC pins -->
+  <line x1="390" y1="95" x2="390" y2="83" stroke="rgba(34,197,94,0.25)" stroke-width="1"/>
+  <line x1="405" y1="95" x2="405" y2="83" stroke="rgba(34,197,94,0.25)" stroke-width="1"/>
+  <line x1="420" y1="95" x2="420" y2="83" stroke="rgba(34,197,94,0.25)" stroke-width="1"/>
+  <line x1="435" y1="95" x2="435" y2="83" stroke="rgba(34,197,94,0.25)" stroke-width="1"/>
+  <line x1="450" y1="95" x2="450" y2="83" stroke="rgba(34,197,94,0.25)" stroke-width="1"/>
+  <line x1="465" y1="95" x2="465" y2="83" stroke="rgba(34,197,94,0.25)" stroke-width="1"/>
+
+  <!-- S1: S0 module slot -->
+  <rect x="336" y="95" width="36" height="100" rx="2" fill="rgba(34,197,94,0.04)" stroke="rgba(34,197,94,0.25)" stroke-width="1" stroke-dasharray="4 2"/>
+  <text x="354" y="143" font-family="ui-monospace,'Cascadia Code','Fira Mono',monospace" font-size="7.5" fill="rgba(34,197,94,0.40)" text-anchor="middle" transform="rotate(-90 354 143)">S0 SLOT</text>
+
+  <!-- trace from S0 slot to SoC -->
+  <line x1="372" y1="145" x2="380" y2="145" stroke="rgba(34,197,94,0.25)" stroke-width="1"/>
+
+  <!-- S1: ethernet jack -->
+  <rect x="336" y="225" width="50" height="30" rx="2" fill="rgba(34,197,94,0.06)" stroke="rgba(34,197,94,0.22)" stroke-width="1"/>
+  <text x="361" y="244" font-family="ui-monospace,'Cascadia Code','Fira Mono',monospace" font-size="8" fill="rgba(34,197,94,0.50)" text-anchor="middle">ETH</text>
+
+  <!-- S1: SD card -->
+  <rect x="510" y="225" width="40" height="24" rx="2" fill="rgba(34,197,94,0.06)" stroke="rgba(34,197,94,0.22)" stroke-width="1"/>
+  <text x="530" y="240" font-family="ui-monospace,'Cascadia Code','Fira Mono',monospace" font-size="8" fill="rgba(34,197,94,0.50)" text-anchor="middle">SD</text>
+
+  <!-- S1: USB -->
+  <rect x="410" y="225" width="40" height="24" rx="2" fill="rgba(34,197,94,0.06)" stroke="rgba(34,197,94,0.22)" stroke-width="1"/>
+  <text x="430" y="240" font-family="ui-monospace,'Cascadia Code','Fira Mono',monospace" font-size="8" fill="rgba(34,197,94,0.50)" text-anchor="middle">USB</text>
+
+  <!-- traces to peripherals -->
+  <path d="M 390 195 L 390 215 L 361 215 L 361 225" fill="none" stroke="rgba(34,197,94,0.15)" stroke-width="1"/>
+  <path d="M 430 195 L 430 215 L 430 225" fill="none" stroke="rgba(34,197,94,0.15)" stroke-width="1"/>
+  <path d="M 465 195 L 465 215 L 530 215 L 530 225" fill="none" stroke="rgba(34,197,94,0.15)" stroke-width="1"/>
+
+  <!-- S1: feature labels -->
+  <text x="336" y="285" font-family="ui-monospace,'Cascadia Code','Fira Mono',monospace" font-size="9" fill="rgba(34,197,94,0.30)">Linux · Containers · Edge AI</text>
+
+  <!-- Right column: spec summary -->
+  <line x1="660" y1="40" x2="660" y2="360" stroke="rgba(34,197,94,0.10)" stroke-width="0.8"/>
+
+  <text x="676" y="64" font-family="ui-monospace,'Cascadia Code','Fira Mono',monospace" font-size="10" font-weight="700" fill="rgba(34,197,94,0.60)" letter-spacing="0.8">PROTOCOLS</text>
+  <text x="676" y="82" font-family="ui-monospace,'Cascadia Code','Fira Mono',monospace" font-size="10" fill="rgba(34,197,94,0.45)">Wireless M-Bus</text>
+  <text x="676" y="97" font-family="ui-monospace,'Cascadia Code','Fira Mono',monospace" font-size="10" fill="rgba(34,197,94,0.45)">NB-IoT / LTE-M</text>
+  <text x="676" y="112" font-family="ui-monospace,'Cascadia Code','Fira Mono',monospace" font-size="10" fill="rgba(34,197,94,0.45)">WiFi · BLE</text>
+  <text x="676" y="127" font-family="ui-monospace,'Cascadia Code','Fira Mono',monospace" font-size="10" fill="rgba(34,197,94,0.45)">Ethernet (S1)</text>
+
+  <line x1="676" y1="140" x2="755" y2="140" stroke="rgba(34,197,94,0.10)" stroke-width="0.6"/>
+
+  <text x="676" y="158" font-family="ui-monospace,'Cascadia Code','Fira Mono',monospace" font-size="10" font-weight="700" fill="rgba(34,197,94,0.60)" letter-spacing="0.8">STACK</text>
+  <text x="676" y="176" font-family="ui-monospace,'Cascadia Code','Fira Mono',monospace" font-size="10" fill="rgba(34,197,94,0.45)">Zephyr RTOS</text>
+  <text x="676" y="191" font-family="ui-monospace,'Cascadia Code','Fira Mono',monospace" font-size="10" fill="rgba(34,197,94,0.45)">Linux (S1)</text>
+  <text x="676" y="206" font-family="ui-monospace,'Cascadia Code','Fira Mono',monospace" font-size="10" fill="rgba(34,197,94,0.45)">Magistrala</text>
+  <text x="676" y="221" font-family="ui-monospace,'Cascadia Code','Fira Mono',monospace" font-size="10" fill="rgba(34,197,94,0.45)">Open source HW</text>
+
+  <line x1="676" y1="234" x2="755" y2="234" stroke="rgba(34,197,94,0.10)" stroke-width="0.6"/>
+
+  <text x="676" y="252" font-family="ui-monospace,'Cascadia Code','Fira Mono',monospace" font-size="10" font-weight="700" fill="rgba(34,197,94,0.60)" letter-spacing="0.8">USE CASES</text>
+  <text x="676" y="270" font-family="ui-monospace,'Cascadia Code','Fira Mono',monospace" font-size="10" fill="rgba(34,197,94,0.45)">Smart metering</text>
+  <text x="676" y="285" font-family="ui-monospace,'Cascadia Code','Fira Mono',monospace" font-size="10" fill="rgba(34,197,94,0.45)">Industrial IoT</text>
+  <text x="676" y="300" font-family="ui-monospace,'Cascadia Code','Fira Mono',monospace" font-size="10" fill="rgba(34,197,94,0.45)">Edge computing</text>
+  <text x="676" y="315" font-family="ui-monospace,'Cascadia Code','Fira Mono',monospace" font-size="10" fill="rgba(34,197,94,0.45)">Smart cities</text>
+
+  <!-- Abstract Machines logo mark -->
+  <text x="676" y="355" font-family="ui-monospace,'Cascadia Code','Fira Mono',monospace" font-size="9" fill="rgba(34,197,94,0.20)">absmach.eu</text>
+
+</svg>
