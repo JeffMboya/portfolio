@@ -22,49 +22,32 @@ export default function Hero() {
           />
         </div>
         <div>
-          <div className="text-[15px] font-semibold" style={{ color: 'var(--foreground)' }}>Jeff Mboya</div>
-          <div className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--muted-dim)' }}>
+          <div className="text-[14px] font-medium" style={{ color: 'var(--muted)' }}>
             Mechatronics Engineer · Nairobi
+          </div>
+          <div className="flex items-center gap-1.5 mt-0.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse shrink-0" />
+            <span className="text-[12px]" style={{ color: 'var(--muted-dim)' }}>Open to work</span>
           </div>
         </div>
       </div>
 
-      {/* Currently */}
-      <div className="flex flex-col gap-2 mb-5">
-        <div className="flex items-center gap-2">
-          <span
-            className="text-[10px] font-semibold uppercase tracking-widest px-2 py-0.5 rounded-full"
-            style={{ backgroundColor: 'var(--accent)', color: 'var(--accent-text)' }}
+      {/* Current role + credential */}
+      <div className="flex flex-col gap-1 mb-5">
+        <div className="text-[13px]" style={{ color: 'var(--muted)' }}>
+          Software Engineer II at{' '}
+          <a
+            href="https://github.com/absmach/propeller"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-2 transition-colors duration-150"
+            style={{ color: 'var(--accent)' }}
           >
-            Now
-          </span>
-          <span className="text-[13px]" style={{ color: 'var(--muted)' }}>
-            Software Engineer II at{' '}
-            <a
-              href="https://github.com/absmach/propeller"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline underline-offset-2 transition-colors duration-150"
-              style={{ color: 'var(--accent)' }}
-            >
-              Abstract Machines
-            </a>
-          </span>
+            Abstract Machines
+          </a>
         </div>
-        <div className="flex flex-wrap items-center gap-2">
-          <span
-            className="inline-flex items-center gap-1.5 text-[11px] font-semibold px-2 py-0.5 rounded-full"
-            style={{ backgroundColor: '#dcfce7', border: '1px solid #86efac', color: '#15803d' }}
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse shrink-0" />
-            Open to work
-          </span>
-          <span
-            className="inline-flex items-center gap-1 text-[11px] font-semibold px-2 py-0.5 rounded-full"
-            style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)', color: 'var(--foreground)' }}
-          >
-            🏆 IBM Call for Code MEA Winner 2021
-          </span>
+        <div className="text-[12px]" style={{ color: 'var(--muted-dim)' }}>
+          IBM Call for Code MEA Winner 2021
         </div>
       </div>
 
