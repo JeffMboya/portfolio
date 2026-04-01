@@ -37,8 +37,8 @@ export default function HardwarePage() {
           The S0 and S1 are open-source — schematics and layouts are public.
         </p>
         <PhotoGrid
-          srcs="/hardware/s0.webp, /hardware/baseboard.webp, /hardware/esp32-control.jpg, /hardware/co2-sensor-2.jpg, /bird-deterrent/control-pcb.jpg"
-          captions="S0 IoT module — ESP32-C6, SIM7080G NB-IoT, and RC-S2LP-868 Wireless M-Bus on a single edge-connector board|S0 baseboard — HanRun Ethernet jack, SD card slot, power regulation, and S0 edge connector|ESP32 control module — screw terminals, power regulation, and relay outputs for industrial control|CO2 sensor module — ESP32-S3, electrochemical gas sensor, and field I/O terminals|Main control PCB — ESP32-based controller with actuator I/O and sensor terminals"
+          srcs="/hardware/s0.webp, /hardware/baseboard.webp, /hardware/esp32-control.jpg, /hardware/co2-sensor-2.jpg, /bird-deterrent/control-pcb.jpg, /hardware/digital-input-24v.jpg, /hardware/digital-output.jpg"
+          captions="S0 IoT module — ESP32-C6, SIM7080G NB-IoT, and RC-S2LP-868 Wireless M-Bus on a single edge-connector board|S0 baseboard — HanRun Ethernet jack, SD card slot, power regulation, and S0 edge connector|ESP32 control module — screw terminals, power regulation, and relay outputs for industrial control|CO2 sensor module — ESP32-S3, electrochemical gas sensor, and field I/O terminals|Main control PCB — ESP32-based controller with actuator I/O and sensor terminals|16-channel 24V digital input module — ESP32 WROOM, isolated inputs, and per-channel screw terminals|16-channel digital output module — shift register ICs, DIP address switches, and mixed JST/screw terminal outputs"
         />
 
         {/* RTD module — standalone with blog post link */}
