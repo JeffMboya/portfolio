@@ -76,8 +76,8 @@ export default function HardwarePage() {
       <section className="mb-16">
         <h2 className="text-[18px] font-semibold mb-1" style={{ color: 'var(--foreground)' }}>Nakuja Project</h2>
         <p className="text-[14px] mb-6" style={{ color: 'var(--muted)' }}>
-          Kenya's first student-led sounding rocket program. I worked on avionics, ground support systems,
-          and engine testing at Broglio Space Center, Malindi.
+          Kenya's first student-led sounding rocket program. I worked on propulsion —
+          motor design, static fire testing, and data acquisition.
         </p>
 
         {/* Launch composite — full width */}
@@ -98,7 +98,7 @@ export default function HardwarePage() {
 
         <PhotoGrid
           srcs="/nakuja/IMG_20210422_140013_1.jpg, /nakuja/IMG_20210430_174709.jpg, /nakuja/IMG-20220621-WA0015.jpg, /nakuja/IMG-20220627-WA0003.jpg, /nakuja/IMG_20221111_144738_5.jpg, /nakuja/1L9A3187.JPG, /nakuja/FQNR1ftXMAQkyab.jpeg, /nakuja/IMG_20220413_111411_2.jpg, /nakuja/IMG_20220413_111919_5.jpg"
-          captions="N-1 and N-2 rocket models|N-1 launch prep in the field|Post-fire solid motor casing|Machined convergent-divergent nozzles|JKUAT Innovation Exhibits|Team design session|At Broglio Space Center, Malindi|Broglio ground station dishes|Broglio satellite tracking array"
+          captions="N-1 and N-2 rocket models|N-1 launch prep in the field|Post-fire solid motor casing|Machined convergent-divergent nozzles|JKUAT Innovation Exhibits|Team design session|KSA facility visit|Ground station dishes|Satellite tracking array"
         />
       </section>
 
