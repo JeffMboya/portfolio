@@ -24,7 +24,7 @@ export default function Hero() {
         <div>
           <div className="text-[15px] font-semibold" style={{ color: 'var(--foreground)' }}>Jeff Mboya</div>
           <div className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--muted-dim)' }}>
-            Systems Engineer · Nairobi
+            Mechatronics Engineer · Nairobi
           </div>
         </div>
       </div>

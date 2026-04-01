@@ -9,13 +9,13 @@ const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin']
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://jeffmboya.com'),
-  title: 'Jeff Mboya — Software Engineer',
+  title: 'Jeff Mboya — Mechatronics Engineer',
   description:
-    'Backend and systems engineer focused on WebAssembly, distributed task execution, and infrastructure.',
+    'Mechatronics engineer focused on WebAssembly, distributed task execution, and infrastructure.',
   openGraph: {
-    title: 'Jeff Mboya — Software Engineer',
+    title: 'Jeff Mboya — Mechatronics Engineer',
     description:
-      'Backend and systems engineer focused on WebAssembly, distributed task execution, and infrastructure.',
+      'Mechatronics engineer focused on WebAssembly, distributed task execution, and infrastructure.',
     url: 'https://jeffmboya.com',
     siteName: 'Jeff Mboya',
     type: 'website',
@@ -23,8 +23,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Jeff Mboya — Software Engineer',
-    description: 'Backend and systems engineer. Go · Rust · WebAssembly.',
+    title: 'Jeff Mboya — Mechatronics Engineer',
+    description: 'Mechatronics engineer. Go · Rust · WebAssembly.',
     images: ['/og.png'],
   },
 }
