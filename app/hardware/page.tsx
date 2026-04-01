@@ -37,8 +37,8 @@ export default function HardwarePage() {
           The S0 and S1 are open-source — schematics and layouts are public.
         </p>
         <PhotoGrid
-          srcs="/hardware/s0.webp, /hardware/baseboard.webp, /hardware/esp32-control.jpg, /hardware/co2-sensor-2.jpg"
-          captions="S0 IoT module — ESP32-C6, SIM7080G NB-IoT, and RC-S2LP-868 Wireless M-Bus on a single edge-connector board|S0 baseboard — HanRun Ethernet jack, SD card slot, power regulation, and S0 edge connector|ESP32 control module — screw terminals, power regulation, and relay outputs for industrial control|CO2 sensor module — ESP32-S3, electrochemical gas sensor, and field I/O terminals"
+          srcs="/hardware/s0.webp, /hardware/baseboard.webp, /hardware/esp32-control.jpg, /hardware/co2-sensor-2.jpg, /bird-deterrent/control-pcb.jpg"
+          captions="S0 IoT module — ESP32-C6, SIM7080G NB-IoT, and RC-S2LP-868 Wireless M-Bus on a single edge-connector board|S0 baseboard — HanRun Ethernet jack, SD card slot, power regulation, and S0 edge connector|ESP32 control module — screw terminals, power regulation, and relay outputs for industrial control|CO2 sensor module — ESP32-S3, electrochemical gas sensor, and field I/O terminals|Main control PCB — ESP32-based controller with actuator I/O and sensor terminals"
         />
 
         {/* RTD module — standalone with blog post link */}
@@ -70,19 +70,6 @@ export default function HardwarePage() {
             </Link>
           </div>
         </div>
-      </section>
-
-      {/* Bird Deterrent Robot */}
-      <section className="mb-16">
-        <h2 className="text-[18px] font-semibold mb-1" style={{ color: 'var(--foreground)' }}>Bird Deterrent Robot</h2>
-        <p className="text-[14px] mb-6" style={{ color: 'var(--muted)' }}>
-          Autonomous tracked robot for agricultural bird deterrence. Camera-equipped with audio
-          deterrent system. CAD designs from before fabrication, alongside early mechatronics integration.
-        </p>
-        <PhotoGrid
-          srcs="/bird-deterrent/cad-side.jpg, /bird-deterrent/cad-front.jpg, /bird-deterrent/cad-top.jpg, /bird-deterrent/plc-integration.jpg, /bird-deterrent/control-pcb.jpg"
-          captions="Side view CAD — tracked chassis with camera mast and audio deterrent module|Front view CAD — display panel, sensor tower, and rubber track drivetrain|Top-down CAD — chassis layout with mast mount and dual track assembly|Initial mechatronics integration — PLC wiring and SCADA commissioning|Main control PCB — ESP32-based controller with actuator I/O and sensor terminals"
-        />
       </section>
 
       {/* Nakuja */}
@@ -124,8 +111,8 @@ export default function HardwarePage() {
           and crop monitoring. JKUAT Mechatronics Engineering, 2022.
         </p>
         <PhotoGrid
-          srcs="/thesis-photos/IMG_20221220_181636_8.jpg, /thesis-photos/IMG_20221220_181647_3.jpg, /thesis-photos/IMG_20221220_182158_7.jpg, /thesis-photos/IMG_20221220_182210_6.jpg, /thesis-photos/IMG_20221220_182226_2.jpg, /thesis-photos/IMG_20221220_182254_0.jpg, /thesis-photos/IMG_20221220_182306_0.jpg, /thesis-photos/IMG_20221220_182316_6.jpg, /thesis-photos/IMG_20221220_182318_5.jpg, /thesis-photos/IMG_20221220_182319_5.jpg"
-          captions="Robot navigating dense maize canopy, stereo camera scanning at row height|Front approach through maize rows, sensor mast rising above canopy|Platform at row edge, full maize test site in background|Row boundary positioning, wide-angle field overview|Autonomous traverse along open maize row, overcast field conditions|Navigating between young maize plants, sensor payload active|Full platform: tracked chassis, battery modules, sensor stack deployed in row|Drive detail: chain-driven rubber tracks, dual battery boxes with LCD readouts|Sensor tower close-up — stereo depth camera on adjustable mast mount|Final field trial frame, robot alongside mature maize plant"
+          srcs="/bird-deterrent/cad-side.jpg, /bird-deterrent/cad-front.jpg, /bird-deterrent/cad-top.jpg, /thesis-photos/IMG_20221220_181636_8.jpg, /thesis-photos/IMG_20221220_181647_3.jpg, /thesis-photos/IMG_20221220_182158_7.jpg, /thesis-photos/IMG_20221220_182210_6.jpg, /thesis-photos/IMG_20221220_182226_2.jpg, /thesis-photos/IMG_20221220_182254_0.jpg, /thesis-photos/IMG_20221220_182306_0.jpg, /thesis-photos/IMG_20221220_182316_6.jpg, /thesis-photos/IMG_20221220_182318_5.jpg, /thesis-photos/IMG_20221220_182319_5.jpg"
+          captions="Side view CAD — tracked chassis with camera mast and audio deterrent module|Front view CAD — display panel, sensor tower, and rubber track drivetrain|Top-down CAD — chassis layout with mast mount and dual track assembly|Robot navigating dense maize canopy, stereo camera scanning at row height|Front approach through maize rows, sensor mast rising above canopy|Platform at row edge, full maize test site in background|Row boundary positioning, wide-angle field overview|Autonomous traverse along open maize row, overcast field conditions|Navigating between young maize plants, sensor payload active|Full platform: tracked chassis, battery modules, sensor stack deployed in row|Drive detail: chain-driven rubber tracks, dual battery boxes with LCD readouts|Sensor tower close-up — stereo depth camera on adjustable mast mount|Final field trial frame, robot alongside mature maize plant"
         />
       </section>
     </div>
