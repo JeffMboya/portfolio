@@ -14,7 +14,7 @@ date: "2025-06"
 github: null
 demo: https://hardware.absmach.eu
 featured: true
-cover: /covers/am-gateways.svg
+cover: /hardware/s0.webp
 result: "Multi-protocol IoT gateway shipping to industrial deployments"
 ---
 
@@ -30,6 +30,10 @@ The goal was a modular platform that could do both: small enough to deploy anywh
 
 The S0 is a compact IoT module built around the ESP32-C6, Espressif's RISC-V based SoC with native 802.15.4 support. It runs Zephyr RTOS and handles simultaneous connectivity across four protocol stacks: Wireless M-Bus at 868 MHz, NB-IoT and LTE-M for cellular backhaul, and WiFi and BLE for local connectivity.
 
+<img src="/hardware/s0.webp" alt="S0 IoT module — ESP32-C6, SIM7080G, and RC-S2LP-868 on a single board" style={{width: '100%', maxWidth: '480px', borderRadius: '8px', margin: '12px 0 20px'}} />
+
+The three radio modules are visible on the board: the Espressif module handles WiFi, BLE, and 802.15.4; the SIMCom SIM7080G handles NB-IoT and LTE-M with a nano SIM slot; and the Radiokontrolli RC-S2LP-868 handles Wireless M-Bus at 868 MHz. Everything sits on a dense edge-connector footprint that plugs directly into the baseboard.
+
 The design is modular by intent. The S0 sits on a baseboard that adds Ethernet, SD card logging, and M-Bus pass-through headers — so the same module covers both battery-backed field sensors and rack-mounted aggregators.
 
 ### S1 — The Gateway
@@ -37,6 +41,16 @@ The design is modular by intent. The S0 sits on a baseboard that adds Ethernet, 
 The S1 combines the S0 module with a BeagleV-Fire carrier board. BeagleV-Fire runs full Linux on a PolarFire SoC — RISC-V application cores alongside FPGA fabric. This gives the S1 proper edge compute: containerised workloads, local inference, and protocol translation that would be impossible on a microcontroller.
 
 From a connectivity standpoint the S1 inherits the S0's full wireless stack and adds Ethernet, multiple USB ports, and GPIO expansion. It integrates natively with Magistrala, Abstract Machines' open-source IoT messaging platform, so sensor data flows from the field to the cloud without custom glue code.
+
+<video
+  src="/hardware/s1.mp4"
+  controls
+  muted
+  playsInline
+  style={{width: '100%', borderRadius: '8px', margin: '12px 0 20px'}}
+>
+  S1 gateway demo
+</video>
 
 ## Hardware Engineering
 
