@@ -36,6 +36,8 @@ The three radio modules are visible on the board: the Espressif module handles W
 
 The design is modular by intent. The S0 sits on a baseboard that adds Ethernet, SD card logging, and M-Bus pass-through headers — so the same module covers both battery-backed field sensors and rack-mounted aggregators.
 
+<img src="/hardware/baseboard.webp" alt="S0 Baseboard — HanRun Ethernet jack, SD card slot, power regulation, and S0 edge connector" style={{width: '100%', maxWidth: '480px', borderRadius: '8px', margin: '12px 0 20px'}} />
+
 ### S1 — The Gateway
 
 The S1 combines the S0 module with a BeagleV-Fire carrier board. BeagleV-Fire runs full Linux on a PolarFire SoC — RISC-V application cores alongside FPGA fabric. This gives the S1 proper edge compute: containerised workloads, local inference, and protocol translation that would be impossible on a microcontroller.
@@ -67,3 +69,24 @@ The S1 runs a standard Linux distribution with Magistrala agent services contain
 ## Deployment Context
 
 The gateways are designed for smart metering infrastructure, building management systems, and industrial IoT environments where a single field device needs to aggregate readings from dozens of sensors, apply local logic, and forward structured data upstream. The S0 handles low-power deployments on battery. The S1 handles sites with mains power that need local compute — edge AI inference, local dashboards, or offline buffering.
+
+## Other Hardware I've Built
+
+The gateways sit alongside a wider body of hardware work — boards designed and fabricated for different sensing and control problems.
+
+<PhotoGrid
+  srcs="/hardware/esp32-control.jpg, /hardware/co2-sensor.jpg, /hardware/rtd.jpg"
+  captions="ESP32 control module — screw terminals, power regulation, and relay outputs for industrial control|CO2 sensor module — ESP32-S3, electrochemical gas sensor, and field I/O terminals|32-channel RTD module — per-channel signal conditioning, multiplexed ADC, and dense terminal block layout"
+/>
+
+The 32-channel RTD module was one of the denser routing challenges — matching 32 independent signal paths with consistent trace impedance while keeping the per-channel conditioning circuits identical across the board.
+
+<video
+  src="/hardware/rtd.mov"
+  controls
+  muted
+  playsInline
+  style={{width: '100%', borderRadius: '8px', margin: '12px 0 20px'}}
+>
+  32-channel RTD module
+</video>
