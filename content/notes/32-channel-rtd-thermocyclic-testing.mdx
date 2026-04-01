@@ -14,7 +14,7 @@ So I designed the board from scratch. 32 channels of per-channel signal conditio
 
 That part was straightforward. The interesting part came after.
 
----
+## Why the board sees what the plant sees
 
 DAC plants run thermal cycles constantly. Adsorption at ambient. Regeneration at 100°C+. Cool down. Repeat.
 
@@ -26,7 +26,7 @@ A PCB sitting inside a process enclosure experiences every temperature swing the
 
 This isn't a novel problem. IPC and MIL-SPEC standards have been dealing with it for decades. But most of that literature is for aerospace and defence hardware, where you have big qualification budgets and small unit volumes. We were building towards a fleet of machines. I needed to know what our actual failure modes looked like before we were discovering them in the field.
 
----
+## The test
 
 We ran 450+ cycles. Ambient to somewhere north of 100°C, back to ambient. The board was powered throughout.
 
@@ -40,7 +40,7 @@ But electrically, all 32 channels were still reading.
 
 No trace failures. No cold solder joints that had crept open. No delamination bubbling up at the edges or around the vias. The multiplexed ADC was still converting cleanly. Calibration drift was within normal instrument tolerance — nothing I could attribute specifically to the thermocycling.
 
----
+## What held up
 
 There are a few design decisions that I think contributed to this.
 
@@ -50,13 +50,13 @@ The signal conditioning components were placed and routed to keep thermal gradie
 
 And I used conservative design rules throughout. Wider traces than strictly necessary. Generous via diameters. Thermal reliefs on the pad connections to the plane layers. None of this is heroic engineering. It's just not trying to be clever when reliability is the constraint.
 
----
+## What I'd change
 
 What I'd change for the next version: the board thickness. We used standard 1.6mm FR4. Under thermocyclic load, thicker boards resist warping better, and warping is one of the failure modes you start to see on large-footprint boards with high copper pour coverage. At 450 cycles we weren't seeing it, but if this goes to 2000+ cycles over a machine lifetime, I'd want to qualify it properly and probably move to 2.0mm.
 
 The other thing I'd do is add a dedicated thermistor on the board itself to log the actual temperature the PCB is experiencing during operation. Right now I'm inferring it from the enclosure temperature. A direct measurement would let me correlate any future failures to actual thermal exposure rather than nominal cycle parameters.
 
----
+## Still in service
 
 450 cycles is not a long test. A machine running two regeneration cycles per day would hit that in less than a year. We need this hardware running for years.
 
