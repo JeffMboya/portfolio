@@ -8,6 +8,7 @@ export interface NoteMeta {
   slug: string
   description: string
   date: string
+  cover?: string | null
 }
 
 const NoteMetaSchema = z.object({
@@ -15,6 +16,7 @@ const NoteMetaSchema = z.object({
   slug: z.string(),
   description: z.string(),
   date: z.string(),
+  cover: z.string().nullable().optional(),
 })
 
 const notesDir = path.join(process.cwd(), 'content', 'notes')

@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
@@ -55,6 +56,18 @@ export default async function LogPage({ params }: Props) {
 
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_200px] gap-12 items-start">
         <div>
+          {meta!.cover && (
+            <div className="relative w-full h-[280px] rounded-xl overflow-hidden mb-8">
+              <Image
+                src={meta!.cover}
+                alt={meta!.title}
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 800px"
+                priority
+              />
+            </div>
+          )}
           <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--muted-dim)' }}>
             {formatDate(meta!.date)}
           </div>
