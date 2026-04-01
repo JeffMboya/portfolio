@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import PhotoGrid from '@/components/PhotoGrid'
 
 export const metadata: Metadata = {
@@ -36,8 +37,51 @@ export default function HardwarePage() {
           The S0 and S1 are open-source — schematics and layouts are public.
         </p>
         <PhotoGrid
-          srcs="/hardware/s0.webp, /hardware/baseboard.webp, /hardware/esp32-control.jpg, /hardware/co2-sensor.jpg, /hardware/rtd.jpg"
-          captions="S0 IoT module — ESP32-C6, SIM7080G NB-IoT, and RC-S2LP-868 Wireless M-Bus on a single edge-connector board|S0 baseboard — HanRun Ethernet jack, SD card slot, power regulation, and S0 edge connector|ESP32 control module — screw terminals, power regulation, and relay outputs for industrial control|CO2 sensor module — ESP32-S3, electrochemical gas sensor, and field I/O terminals|32-channel RTD module — per-channel signal conditioning, multiplexed ADC, and dense terminal block layout"
+          srcs="/hardware/s0.webp, /hardware/baseboard.webp, /hardware/esp32-control.jpg, /hardware/co2-sensor-2.jpg"
+          captions="S0 IoT module — ESP32-C6, SIM7080G NB-IoT, and RC-S2LP-868 Wireless M-Bus on a single edge-connector board|S0 baseboard — HanRun Ethernet jack, SD card slot, power regulation, and S0 edge connector|ESP32 control module — screw terminals, power regulation, and relay outputs for industrial control|CO2 sensor module — ESP32-S3, electrochemical gas sensor, and field I/O terminals"
+        />
+
+        {/* RTD module — standalone with blog post link */}
+        <div className="mt-4 flex flex-col sm:flex-row gap-5 items-start p-4 rounded-lg" style={{ border: '1px solid var(--border)' }}>
+          <div className="relative w-full sm:w-64 shrink-0 aspect-[4/3] rounded-md overflow-hidden">
+            <Image
+              src="/hardware/rtd-thermocycle.jpg"
+              alt="32-channel RTD module after 450+ thermocycles"
+              fill
+              className="object-cover"
+              sizes="(max-width: 640px) 100vw, 256px"
+            />
+          </div>
+          <div className="flex flex-col gap-2">
+            <p className="text-[13px] font-medium" style={{ color: 'var(--foreground)' }}>
+              32-channel RTD module
+            </p>
+            <p className="text-[13px] leading-relaxed" style={{ color: 'var(--muted)' }}>
+              Per-channel signal conditioning, multiplexed ADC, and dense terminal block layout.
+              Photographed after 450+ thermocyclic tests — ambient to 100°C+ — validating the
+              design for long-duration deployment inside a direct air capture plant.
+            </p>
+            <Link
+              href="/blogs/32-channel-rtd-thermocyclic-testing"
+              className="text-[12px] font-medium underline underline-offset-2"
+              style={{ color: 'var(--accent)' }}
+            >
+              What 450 thermocycles did to my PCB →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Bird Deterrent Robot */}
+      <section className="mb-16">
+        <h2 className="text-[18px] font-semibold mb-1" style={{ color: 'var(--foreground)' }}>Bird Deterrent Robot</h2>
+        <p className="text-[14px] mb-6" style={{ color: 'var(--muted)' }}>
+          Autonomous tracked robot for agricultural bird deterrence. Camera-equipped with audio
+          deterrent system. CAD designs from before fabrication, alongside early mechatronics integration.
+        </p>
+        <PhotoGrid
+          srcs="/bird-deterrent/cad-side.jpg, /bird-deterrent/cad-front.jpg, /bird-deterrent/cad-top.jpg, /bird-deterrent/plc-integration.jpg, /bird-deterrent/control-pcb.jpg"
+          captions="Side view CAD — tracked chassis with camera mast and audio deterrent module|Front view CAD — display panel, sensor tower, and rubber track drivetrain|Top-down CAD — chassis layout with mast mount and dual track assembly|Initial mechatronics integration — PLC wiring and SCADA commissioning|Main control PCB — ESP32-based controller with actuator I/O and sensor terminals"
         />
       </section>
 
@@ -48,6 +92,23 @@ export default function HardwarePage() {
           Kenya's first student-led sounding rocket program. I worked on avionics, ground support systems,
           and engine testing at Broglio Space Center, Malindi.
         </p>
+
+        {/* Launch composite — full width */}
+        <div className="mb-4">
+          <div className="relative w-full rounded-lg overflow-hidden" style={{ border: '1px solid var(--border)' }}>
+            <Image
+              src="/nakuja/launches-composite.jpg"
+              alt="Nakuja launches — Tana, Perkerra, and Galana"
+              width={1200}
+              height={500}
+              className="w-full object-cover"
+            />
+          </div>
+          <p className="text-[11px] text-center mt-1.5" style={{ color: 'var(--muted-dim)' }}>
+            Three launches: Tana (reaction wheel stabilisation), Perkerra (active canard fins), Galana (parachute ejection)
+          </p>
+        </div>
+
         <PhotoGrid
           srcs="/nakuja/IMG_20210422_140013_1.jpg, /nakuja/IMG_20210430_174709.jpg, /nakuja/IMG-20220621-WA0015.jpg, /nakuja/IMG-20220627-WA0003.jpg, /nakuja/IMG_20221111_144738_5.jpg, /nakuja/1L9A3187.JPG, /nakuja/FQNR1ftXMAQkyab.jpeg, /nakuja/IMG_20220413_111411_2.jpg, /nakuja/IMG_20220413_111919_5.jpg"
           captions="N-1 and N-2 rocket models|N-1 launch prep in the field|Post-fire solid motor casing|Machined convergent-divergent nozzles|JKUAT Innovation Exhibits|Team design session|At Broglio Space Center, Malindi|Broglio ground station dishes|Broglio satellite tracking array"
