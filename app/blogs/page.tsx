@@ -6,6 +6,7 @@ import NoteCard from '@/components/NoteCard'
 export const metadata: Metadata = {
   title: 'Blogs — Jeff Mboya',
   description: 'Observations on hardware, software, and the space between.',
+  alternates: { canonical: '/blogs/' },
 }
 
 export default function BlogsPage() {

@@ -5,7 +5,7 @@
     <link>https://jeffmboya.com</link>
     <description>Systems engineering, software, and research by Jeff Mboya.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Apr 2026 13:57:46 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 02 Apr 2026 08:02:20 GMT</lastBuildDate>
     <atom:link href="https://jeffmboya.com/feed.xml" rel="self" type="application/rss+xml"/>
     
   <item>
@@ -13,6 +13,14 @@
     <link>https://jeffmboya.com/logs/the-claude-code-leak-undercover-mode-and-the-social-contract-we-already-broke</link>
     <guid isPermaLink="true">https://jeffmboya.com/logs/the-claude-code-leak-undercover-mode-and-the-social-contract-we-already-broke</guid>
     <description>The outrage about Anthropic&apos;s Undercover Mode is legitimate. But it arrives after two years of the industry quietly avoiding the same question at the individual level.</description>
+    <pubDate>Wed, 01 Apr 2026 00:00:00 GMT</pubDate>
+    <author>Jeff Mboya</author>
+  </item>
+  <item>
+    <title>Cognitive Surrender</title>
+    <link>https://jeffmboya.com/logs/cognitive-surrender</link>
+    <guid isPermaLink="true">https://jeffmboya.com/logs/cognitive-surrender</guid>
+    <description>It&apos;s not that AI gets things wrong. It&apos;s how easy it is to go along with it anyway — and what that quietly does to your habits.</description>
     <pubDate>Wed, 01 Apr 2026 00:00:00 GMT</pubDate>
     <author>Jeff Mboya</author>
   </item>

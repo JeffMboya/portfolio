@@ -9,6 +9,7 @@ const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin']
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://jeffmboya.com'),
+  alternates: { canonical: '/' },
   title: 'Jeff Mboya — Mechatronics Engineer',
   description:
     'Mechatronics engineer focused on WebAssembly, distributed task execution, and infrastructure.',

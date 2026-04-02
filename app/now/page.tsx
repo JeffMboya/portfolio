@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Now — Jeff Mboya',
   description: 'What Jeff Mboya is working on right now.',
+  alternates: { canonical: '/now/' },
 }
 
 export default function NowPage() {

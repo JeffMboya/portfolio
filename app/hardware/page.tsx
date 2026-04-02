@@ -6,6 +6,7 @@ import PhotoGrid from '@/components/PhotoGrid'
 export const metadata: Metadata = {
   title: 'Hardware — Jeff Mboya',
   description: 'Physical work: PCB design, rocketry, and robotics.',
+  alternates: { canonical: '/hardware/' },
 }
 
 export default function HardwarePage() {

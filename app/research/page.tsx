@@ -5,6 +5,7 @@ import Image from 'next/image'
 export const metadata: Metadata = {
   title: 'Research — Jeff Mboya',
   description: 'Academic publications and research by Jeff Mboya.',
+  alternates: { canonical: '/research/' },
 }
 
 const SCHOLAR_URL = 'https://scholar.google.com/citations?user=KmGiUgcAAAAJ&hl=en'
