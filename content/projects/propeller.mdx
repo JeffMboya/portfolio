@@ -1,7 +1,7 @@
 ---
 title: Propeller
 slug: propeller
-description: A distributed WebAssembly task execution platform. Edge agents written in Rust subscribe via MQTT, receive task dispatch from a Go manager, and execute sandboxed WASM binaries — down to an ESP32-S3 microcontroller running Zephyr RTOS.
+description: An open-source WebAssembly orchestrator for the Cloud-Edge continuum, built by Abstract Machines. Deploys portable Wasm workloads from cloud servers down to microcontrollers running Zephyr RTOS, with sub-10ms boot times and full sandbox isolation. Funded under the EU Horizon Europe ELASTIC project.
 stack:
   - Go
   - Rust
@@ -16,8 +16,14 @@ github: https://github.com/absmach/propeller
 demo: null
 cover: /covers/propeller.webp
 featured: true
-result: "Open source — WebAssembly execution at the edge"
+result: "Open source — Apache-2.0, EU Horizon Europe ELASTIC project"
 ---
+
+## Overview
+
+Propeller is the flagship project of [Abstract Machines](https://abstractmachines.fr), a Paris-based research and engineering team building open-source infrastructure for the Cloud-Edge continuum. The goal: make deploying WebAssembly workloads from cloud servers to constrained microcontrollers as simple as a single CLI command.
+
+I joined as an **Embedded Systems Engineer**, responsible for the Rust-based Proplet edge runtime, Zephyr RTOS integration, and constrained-device deployment pipelines. Propeller is developed in the open under Apache-2.0 and partially funded by the EU Horizon Europe [ELASTIC project](https://elasticproject.eu/) (Grant Agreement No. 101139067), which investigates resilient Cloud-Edge-IoT architectures for smart networks.
 
 ## The Problem
 
