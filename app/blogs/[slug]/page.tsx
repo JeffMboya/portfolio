@@ -67,7 +67,7 @@ export default async function LogPage({ params }: Props) {
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_200px] gap-12 items-start">
         <div>
           {meta!.cover && (
-            <div className="relative w-full h-[280px] rounded-xl overflow-hidden mb-8">
+            <div className="relative w-full aspect-[5/2] rounded-xl overflow-hidden mb-8">
               <Image
                 src={meta!.cover}
                 alt={meta!.title}

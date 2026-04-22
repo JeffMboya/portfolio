@@ -12,7 +12,7 @@ export default function NoteCard({ meta, featured }: { meta: NoteMeta; featured?
         style={{ border: '1px solid var(--border)', backgroundColor: 'var(--surface)' }}
       >
         {meta.cover && (
-          <div className="relative w-full h-[200px] overflow-hidden">
+          <div className="relative w-full aspect-[5/2] overflow-hidden">
             <Image
               src={meta.cover}
               alt={meta.title}
@@ -49,7 +49,7 @@ export default function NoteCard({ meta, featured }: { meta: NoteMeta; featured?
       style={{ border: '1px solid var(--border)', backgroundColor: 'var(--surface)' }}
     >
       {meta.cover && (
-        <div className="relative w-full h-[140px] overflow-hidden">
+        <div className="relative w-full aspect-[5/2] overflow-hidden">
           <Image
             src={meta.cover}
             alt={meta.title}
