@@ -3,11 +3,14 @@ import path from 'path'
 import matter from 'gray-matter'
 import { z } from 'zod'
 
+export type NoteCategory = 'tech' | 'thoughts'
+
 export interface NoteMeta {
   title: string
   slug: string
   description: string
   date: string
+  category: NoteCategory
   cover?: string | null
 }
 
@@ -16,6 +19,7 @@ const NoteMetaSchema = z.object({
   slug: z.string(),
   description: z.string(),
   date: z.string(),
+  category: z.enum(['tech', 'thoughts']),
   cover: z.string().nullable().optional(),
 })
 
@@ -31,6 +35,10 @@ export function getAllNotes(): NoteMeta[] {
       return NoteMetaSchema.parse(data)
     })
     .sort((a, b) => (a.date < b.date ? 1 : -1))
+}
+
+export function getNotesByCategory(category: NoteCategory): NoteMeta[] {
+  return getAllNotes().filter((n) => n.category === category)
 }
 
 export function getNoteBySlug(slug: string): { meta: NoteMeta; content: string } {

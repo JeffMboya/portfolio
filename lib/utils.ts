@@ -1,7 +1,9 @@
 export function formatDate(raw: string): string {
-  const [year, month] = raw.split('-')
-  if (!month) return year
-  const date = new Date(Number(year), Number(month) - 1)
+  const parts = raw.split('-')
+  if (parts.length === 1) return parts[0]
+  const [year, month, day] = parts
+  const date = new Date(Number(year), Number(month) - 1, day ? Number(day) : 1)
+  if (day) return date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
   return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
 }
 
