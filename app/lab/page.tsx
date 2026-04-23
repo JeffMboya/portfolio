@@ -41,7 +41,7 @@ export default function LabPage() {
           <Link href="/" className="transition-colors duration-150 hover:underline" style={{ color: 'var(--accent)' }}>
             Home
           </Link>
-          <span>/</span>
+          <span>›</span>
           <span style={{ color: 'var(--foreground)' }}>Lab</span>
         </nav>
       </div>

@@ -55,11 +55,11 @@ export default async function LogPage({ params }: Props) {
       <div className="mb-8">
         <nav className="flex items-center gap-1.5 text-[12px]" style={{ color: 'var(--muted-dim)' }}>
           <Link href="/" className="transition-colors duration-150 hover:underline" style={{ color: 'var(--accent)' }}>Home</Link>
-          <span>/</span>
+          <span>›</span>
           <Link href="/blogs" className="transition-colors duration-150 hover:underline" style={{ color: 'var(--accent)' }}>Blogs</Link>
-          <span>/</span>
+          <span>›</span>
           <Link href={`/blogs/${meta!.category}`} className="transition-colors duration-150 hover:underline capitalize" style={{ color: 'var(--accent)' }}>{meta!.category}</Link>
-          <span>/</span>
+          <span>›</span>
           <span className="truncate max-w-[200px]" style={{ color: 'var(--foreground)' }}>{meta!.title}</span>
         </nav>
       </div>

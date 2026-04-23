@@ -15,7 +15,7 @@ export default function NowPage() {
           <Link href="/" className="transition-colors duration-150 hover:underline" style={{ color: 'var(--accent)' }}>
             Home
           </Link>
-          <span>/</span>
+          <span>›</span>
           <span style={{ color: 'var(--foreground)' }}>Now</span>
         </nav>
       </div>

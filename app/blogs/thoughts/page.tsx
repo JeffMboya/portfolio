@@ -18,9 +18,9 @@ export default function ThoughtsBlogsPage() {
       <div className="mb-8">
         <nav className="flex items-center gap-1.5 text-[12px]" style={{ color: 'var(--muted-dim)' }}>
           <Link href="/" className="transition-colors duration-150 hover:underline" style={{ color: 'var(--accent)' }}>Home</Link>
-          <span>/</span>
+          <span>›</span>
           <Link href="/blogs" className="transition-colors duration-150 hover:underline" style={{ color: 'var(--accent)' }}>Blogs</Link>
-          <span>/</span>
+          <span>›</span>
           <span style={{ color: 'var(--foreground)' }}>Thoughts</span>
         </nav>
       </div>
