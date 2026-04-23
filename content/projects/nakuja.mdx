@@ -17,26 +17,138 @@ cover: /nakuja/IMG-20220627-WA0003.jpg
 result: "280 m apogee achieved on N-2 rocket"
 ---
 
-## Overview
+## Why Rockets
 
-The Nakuja Project is a student-led rocketry programme at Jomo Kenyatta University of Agriculture and Technology (JKUAT), Kenya. The goal is to develop a liquid-propellant rocket capable of delivering nanosatellites into low Earth orbit — making Kenya and the broader East African region contributors to the global space economy.
+I joined the Nakuja Project because I wanted to work on problems where failure was physical, visible, and expensive.
 
-All work is open source, low-cost, and student-operated in partnership with the Kenya Space Agency (KSA).
+Rockets are honest systems — bad assumptions explode quickly.
 
-## My Involvement
+They force clarity. They punish hand-waving. They demand discipline in design, humility in testing, and respect for reality.
 
-I joined the propulsion sub-team during the N-2 development cycle and contributed through the N-3 and N-3.5 launches. My work spanned motor design, static fire testing, and data acquisition — and fed directly into two peer-reviewed papers published at JKUAT-COETEC 2024:
+I wanted to work on engineering problems where success depended not just on clever ideas, but on whether the system actually worked when ignition happened.
 
-- *Development of Solid Propellant Motor for Low Altitude Model Rockets* — N-2 motor (35 N avg thrust, 34 m apogee)
-- *Development of a Solid Propellant Motor for High-Powered Model Rockets* — N-3 motor (151.7 N avg thrust, 280 m apogee)
+That was what drew me to propulsion.
+
+What kept me there was realising that rockets are never just about rockets.
+
+They depend on teams, test systems, documentation, iteration speed, institutional trust, and whether knowledge survives the people who built the first version.
+
+At Nakuja, the mission is ambitious: build a liquid-propellant rocket capable of placing nanosatellites into low Earth orbit and make Kenya an active contributor to the global space economy.
+
+The work is open source, low-cost, student-operated, and built in partnership with the Kenya Space Agency.
+
+That combination — serious engineering with institutional ambition — is why I stayed.
+
+## Systems I Changed
+
+### Scaling the Team from 6 to 40+ Contributors
+
+One of the first things I noticed was how much progress depended on a very small group of people.
+
+A postgraduate team of six researchers was carrying most of the technical work across propulsion, avionics, structures, and mission operations. The challenge was not a lack of ideas. It was limited execution capacity and too much knowledge concentrated in too few people.
+
+I proposed and led the creation of an internship pipeline that grew Nakuja into a multi-university engineering community of more than 40 active contributors.
+
+That meant designing structured onboarding, technical mentorship, clearer documentation, and stronger collaboration across sub-teams. New contributors needed to become productive quickly, and knowledge needed to remain accessible after people moved on.
+
+The result was faster iteration, stronger institutional continuity, and a team that could move beyond isolated experiments toward repeatable engineering progress.
+
+That growth contributed directly to the successful N-2 launch, long-term programme sustainability, and a strategic collaboration with the Kenya Space Agency.
+
+It taught me that scaling people and scaling hardware follow the same rules: good feedback loops, reliable systems, and clear interfaces.
+
+### Engineering That Survived Peer Review
+
+I never cared much about publishing papers.
+
+What mattered to me was whether our engineering decisions could survive criticism from people who had no reason to be polite.
+
+I co-authored two peer-reviewed research papers based on propulsion systems developed within the Nakuja Project and served as primary author on one.
+
+The work focused on the design, testing, and performance validation of solid rocket motors for student-built sounding rockets:
+
+- *Development of Solid Propellant Motor for Low Altitude Model Rockets* — N-2 motor (35 N average thrust, 34 m apogee)
+- *Development of a Solid Propellant Motor for High-Powered Model Rockets* — N-3 motor (151.7 N average thrust, 280 m apogee)
+
+Writing the papers was the easy part.
+
+The difficult part was defending decisions.
+
+Why this grain geometry? Why this propellant composition? Why this nozzle profile? Why should anyone trust the test data?
+
+Both papers were presented at JKUAT-COETEC 2024 and both received Best Presentation awards — breaking a decade-long precedent by putting students at the centre of technical proceedings instead of the margins.
+
+That recognition mattered because it showed the work held up under scrutiny.
+
+Research matters when assumptions survive attack.
+
+## Key Engineering Work
+
+Most of my work sat between analysis and execution — improving how we designed, tested, and learned from solid rocket motors.
+
+I cared about reducing the distance between an idea and knowing whether it was wrong.
+
+That meant better models, stronger test systems, and faster feedback loops.
+
+### +5% Motor Efficiency
+
+I performed numerical performance analysis of solid rocket motors using MATLAB simulations and OpenMotor, validated against static-fire test data.
+
+The goal was prediction, not prettier graphs.
+
+I developed a combustion model that captured burn behaviour accurately enough to support parameter optimisation and improve motor efficiency by 5%.
+
+In propulsion, small efficiency gains carry real consequences. A few percentage points can decide whether a design is ready for flight or whether the motor architecture needs to be reconsidered entirely.
+
+### +10% Testing Efficiency / −15% Turnaround Time
+
+I helped design and establish a new solid rocket engine test facility, including a custom data acquisition system with real-time performance monitoring.
+
+Testing speed shapes engineering speed. Weak test infrastructure makes every decision slower and more expensive.
+
+The new setup reduced post-test processing overhead significantly and improved turnaround time by 15%, allowing faster design iteration cycles.
+
+A strong test stand often creates more progress than a clever design because it shortens the path between failure and learning.
+
+### −50% Data Analysis Time
+
+Too much engineering time was being lost waiting for raw sensor output to become useful information.
+
+I worked with a teammate to build a Python automation pipeline for test-stand data processing, cutting the analysis cycle in half.
+
+That reduced the time from raw data to actionable insight by 50% and allowed the team to run more test iterations per sprint.
+
+Engineering speed is often limited by latency, not intelligence.
+
+### +15% Motor Thrust
+
+Most optimisation work starts after something underperforms.
+
+I conducted post-test analysis of engine data and identified propellant mixture composition and grain geometry as the highest-leverage variables affecting thrust performance.
+
+Those recommendations were incorporated into later motor revisions and produced a measurable 15% increase in thrust output.
+
+Performance improvements usually come from asking better questions, not from working longer hours.
+
+### Zero Safety Incidents
+
+Propulsion teaches respect.
+
+I supported the fabrication and assembly of solid rocket motor components — including propellant grain preparation, motor casing assembly, and nozzle integration — under strict quality and safety protocols.
+
+Across manufacturing, testing, and launch operations, the propulsion programme maintained a clean safety record while successfully completing its first integrated propulsion system test launch.
+
+In rocketry, safety is inseparable from engineering quality.
 
 ## Propulsion Development
 
-Each rocket in the Nakuja series uses a custom solid propellant motor designed, fabricated, and tested by the team. The propellant is a potassium nitrate / sucrose-dextrose mixture — chosen for availability, cost, and predictable burn characteristics.
+Each rocket in the Nakuja series uses a custom-designed solid propellant motor built entirely by the team.
 
-The nozzle geometry is convergent-divergent, machined in-house from mild steel. We validated designs using static fire tests on a purpose-built thrust stand instrumented with load cells and a custom data acquisition system that logs thrust, chamber pressure, and burn time.
+The propellant uses a potassium nitrate / sucrose-dextrose mixture chosen for availability, cost, and predictable burn characteristics. The nozzle geometry is convergent-divergent, machined in-house from mild steel.
 
-Key milestones:
+Every design is validated through static-fire testing on a purpose-built thrust stand instrumented with load cells and a custom data acquisition system that logs thrust, chamber pressure, and burn time.
+
+The work is deliberately low-cost and practical: build, test, fail, improve, repeat.
 
 | Rocket | Launch | Avg Thrust | Apogee |
 |--------|--------|-----------|--------|
@@ -46,9 +158,35 @@ Key milestones:
 | N-3.5 | May 2024 | — | — |
 | N-4 | November 2024 | — | — |
 
-## KSA Partnership & Broglio Visit
+## Broglio, KSA, and Seeing the Bigger System
 
-The Kenya Space Agency facilitates our launch clearances and has hosted the team at the Broglio Space Center in Malindi — Kenya's historic satellite tracking facility. The visit gave the team hands-on exposure to ground station infrastructure, satellite dish arrays, and orbital mechanics in a professional setting.
+Working with the Kenya Space Agency changed how I thought about the project.
+
+KSA facilitated launch clearances and hosted our team at the Broglio Space Center in Malindi — Kenya's historic satellite tracking facility.
+
+Seeing the ground station infrastructure, satellite dish arrays, and orbital operations firsthand made something clear: rockets are only one layer of the system.
+
+Launch vehicles, mission operations, tracking infrastructure, regulatory approvals, and institutional partnerships all determine whether space engineering works in practice.
+
+That experience changed how I think about technical work.
+
+The hardest engineering problems are rarely isolated technical problems. They are system problems.
+
+That lesson shaped how I approach both rockets and teams.
+
+## How I Think
+
+Engineering leverage comes from three things.
+
+**Better models.** If you can predict behaviour before expensive failure, you move faster. That applies to combustion chambers and to organisations.
+
+**Better systems.** A strong test stand beats heroic debugging. Reliable feedback loops outperform isolated brilliance.
+
+**Better people.** The best technical work compounds when knowledge survives individuals. Good engineering should outlast the engineer.
+
+That is why I care equally about propulsion models, test infrastructure, and internship pipelines.
+
+They all solve the same problem: reducing friction between intention and execution.
 
 ## Photo Gallery
 
