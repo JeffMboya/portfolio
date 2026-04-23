@@ -40,3 +40,18 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .gstack/
+
+# raw media files dumped in repo root
+/*.jpg
+/*.jpeg
+/*.jpeg
+/*.heic
+/*.png
+/*.webp
+/*.mp4
+/*.mov
+/*.zip
+/Photos-extracted/
+/Photos3-extracted/
+/hardware-rtd/
+/octavia-carbon/
