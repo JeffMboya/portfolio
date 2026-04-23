@@ -51,7 +51,7 @@ export default function NowPage() {
         {/* Building */}
         <div>
           <div className="flex items-center gap-3 mb-6">
-            <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--muted-dim)' }}>Building</span>
+            <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--foreground)' }}>Building</span>
             <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
           </div>
           <div className="flex flex-col gap-4">
@@ -89,7 +89,7 @@ export default function NowPage() {
         {/* Learning */}
         <div>
           <div className="flex items-center gap-3 mb-6">
-            <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--muted-dim)' }}>Learning</span>
+            <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--foreground)' }}>Learning</span>
             <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
           </div>
           <div className="flex flex-col gap-4">
@@ -115,7 +115,7 @@ export default function NowPage() {
         {/* Thinking About */}
         <div>
           <div className="flex items-center gap-3 mb-6">
-            <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--muted-dim)' }}>Thinking About</span>
+            <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--foreground)' }}>Thinking About</span>
             <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
           </div>
           <div className="flex flex-col gap-4">
