@@ -112,8 +112,6 @@ export default function Home() {
         </div>
       </section>
 
-      <Leadership />
-
       <section className="mb-20">
         <div className="flex items-center gap-3 mb-8">
           <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--muted-dim)' }}>Research</span>
@@ -201,6 +199,8 @@ export default function Home() {
           </Link>
         </div>
       </section>
+
+      <Leadership />
 
       <section id="contact" className="mb-20">
         <div className="flex items-center gap-3 mb-8">
