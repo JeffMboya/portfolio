@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Community — Jeff Mboya',
-  description: 'Leadership and community involvement: Nakuja Project, Society of Engineering Students, and Thrive Conference.',
+  description: 'Leadership and community involvement: Nakuja Project, JKUAT SES, Thrive Conference, and PACEmaker International.',
   alternates: { canonical: '/community/' },
 }
 
@@ -12,6 +12,8 @@ const roles = [
     org: 'Nakuja Project',
     title: 'Publicity Manager',
     period: 'Feb 2021 – Nov 2022',
+    type: 'Volunteer',
+    location: 'Kenya · On-site',
     bullets: [
       "Established a partnership with the Kenya Space Agency, fostering collaboration and support for the project's objectives.",
       "Expanded the project's reach to the University of Nairobi (UoN) and Kenyatta University (KU).",
@@ -20,23 +22,44 @@ const roles = [
     ],
   },
   {
-    org: 'Society of Engineering Students (S.E.S.)',
-    title: 'Vice-President',
-    period: 'May 2020 – Dec 2021',
+    org: 'Thrive Con 2021',
+    title: 'VP, External Relations',
+    period: 'Aug 2021 – Jan 2022 · 6 mos',
+    type: 'Full-time',
+    location: 'Nairobi, Kenya · On-site',
     bullets: [
-      "Grew club funding from Kshs 5,000 to Kshs 210,000 by securing partnerships with Microsoft, NCA, Moringa School, Africa's Talking, and Elarian.",
-      'Co-ordinated a 2-day tech event with 200+ student attendees, 16 speakers, and 5 sponsors — boosting student interest in robotics by 17%.',
-      'Led mentorship sessions for 308 high-school students from 7 schools, resulting in 35 scholarship recipients worth $70,000.',
-      'Benefited 47 orphaned children in Kahawa West through community donations worth $1,000.',
+      'Established and maintained relationships with external partners, including sponsors, donors, and other stakeholders, to create opportunities for collaboration and support.',
+      'Managed a team of 3 to secure 5 high-calibre speakers from Goldman Sachs London, British American Tobacco East Africa, Deloitte East Africa, Ernst & Young, and London Business School for the Career Kickstart Session.',
+      'Developed and executed external relations strategies to promote the conference, resulting in increased visibility, engagement, and funding opportunities.',
+      'Spearheaded Thrive Conference in partnership with AIESEC in JKUAT and JKUAT Architecture Students Association — a one-week event for 200+ students comprising a Panel Session, 3 Career Kickstart Sessions, a full-day Career Fair, and a networking hangout.',
     ],
   },
   {
-    org: 'Thrive Conference',
-    title: 'VP, External Relations',
-    period: 'Jul – Dec 2021',
+    org: 'JKUAT Society of Engineering Students (S.E.S.)',
+    title: 'Vice-President',
+    period: 'Jan 2021 – Jan 2022 · 1 yr 1 mo',
+    type: 'Full-time',
+    location: 'Kenya · On-site',
     bullets: [
-      'Pioneered a 5-day career event attended by 446 students — 33% increase in engagement with career resources.',
-      'Sourced 5 speakers from Goldman Sachs London, Deloitte East Africa, Ernst & Young, BAT East Africa, and London Business School.',
+      "Secured partnerships with Microsoft East Africa ADC, National Construction Authority, Moringa School, Africa's Talking, and Elarian — growing club funding from Kshs 5,000 to Kshs 210,000.",
+      'Pioneered and coordinated S.E.S. Tech Week, a 2-day event for 150+ engineering students featuring technical talks and demonstrations; one student won a Full Robotics Kenya Sponsorship.',
+      "Led a 4-member cross-functional team to build the society's website — increasing traffic by 30%, reducing bounce rate by 15%, and improving session duration by 40% within a month of launch.",
+      'Managed an executive board of 16 members and oversaw 28 meetups that gave 100+ engineering students a platform to develop communication, teamwork, design thinking, and problem-solving skills.',
+      'Organised a 1-day STEM mentorship session for 308 high-school students from 7 schools; 35 students received Moringa School Software Engineering Scholarships worth $2,000 each.',
+      'Grew club membership by 150 members through initiatives including a quarterly newsletter, a Discord community, an ESP32-based prototyping board, and a tech podcast.',
+    ],
+  },
+  {
+    org: 'PACEmaker International',
+    title: 'Teaching Assistant',
+    period: 'May 2017 – Aug 2017 · 4 mos',
+    type: 'Full-time',
+    location: 'Kitengela · On-site',
+    bullets: [
+      'Collaborated with lead teachers to plan and implement science and math lessons for students in grades K–5, resulting in a 13% increase in student engagement and participation.',
+      'Assisted in developing engaging and interactive lesson plans — including hands-on experiments and activities — resulting in an 11% improvement in student test scores.',
+      'Provided individualised support to students requiring extra help with science and math concepts, resulting in a 21% increase in understanding of challenging topics.',
+      'Accumulated 380 hours of community service.',
     ],
   },
 ]
@@ -74,18 +97,23 @@ export default function CommunityPage() {
             className="rounded-xl p-6"
             style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
           >
-            <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-4">
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
               <div>
-                <span className="text-[15px] font-semibold" style={{ color: 'var(--foreground)' }}>
-                  {r.org}
+                <p className="text-[15px] font-semibold leading-snug" style={{ color: 'var(--foreground)' }}>
+                  {r.title}
+                </p>
+                <p className="text-[13px] mt-0.5" style={{ color: 'var(--muted)' }}>
+                  {r.org} · {r.type}
+                </p>
+              </div>
+              <div className="flex flex-col items-start sm:items-end gap-0.5 shrink-0">
+                <span className="text-[11px] tabular-nums" style={{ color: 'var(--muted-dim)' }}>
+                  {r.period}
                 </span>
-                <span className="ml-2 text-[13px]" style={{ color: 'var(--muted)' }}>
-                  · {r.title}
+                <span className="text-[11px]" style={{ color: 'var(--muted-dim)' }}>
+                  {r.location}
                 </span>
               </div>
-              <span className="text-[11px] tabular-nums shrink-0" style={{ color: 'var(--muted-dim)' }}>
-                {r.period}
-              </span>
             </div>
 
             <ul className="flex flex-col gap-2 pl-3">
