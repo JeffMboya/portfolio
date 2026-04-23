@@ -16,7 +16,7 @@ export default function Footer() {
   return (
     <footer className="mt-20 pb-10">
       <div className="h-px mb-8" style={{ backgroundColor: 'var(--border)' }} />
-      <nav className="flex items-center justify-between mb-4">
+      <nav className="flex flex-wrap items-center gap-x-6 gap-y-2 mb-4">
         {links.map((link) => (
           <Link
             key={link.href}

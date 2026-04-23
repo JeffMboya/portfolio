@@ -13,6 +13,8 @@ export default function ProjectCard({ meta }: ProjectCardProps) {
       href={`/work/${meta.slug}`}
       className="flex flex-col rounded-xl overflow-hidden transition-all duration-150 group hover:translate-y-[-2px]"
       style={{ border: '1px solid var(--border)', backgroundColor: 'var(--surface)' }}
+      onMouseEnter={e => (e.currentTarget.style.borderColor = 'var(--border-hover)')}
+      onMouseLeave={e => (e.currentTarget.style.borderColor = 'var(--border)')}
     >
       {meta.cover ? (
         <div className="relative w-full h-[160px] overflow-hidden">
@@ -69,7 +71,7 @@ export default function ProjectCard({ meta }: ProjectCardProps) {
         </div>
         {meta.result && (
           <div className="mt-3 pt-3" style={{ borderTop: '1px solid var(--border)' }}>
-            <span className="text-[11px]" style={{ color: 'var(--accent)' }}>
+            <span className="text-[12px] font-medium" style={{ color: 'var(--accent)' }}>
               {meta.result}
             </span>
           </div>
