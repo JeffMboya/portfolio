@@ -155,7 +155,7 @@ export default function ResearchPage() {
           continuous human supervision.
         </p>
 
-        <div className="grid grid-cols-3 gap-3 mb-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6">
           {[
             { name: 'IMG_20221220_182226_2', caption: 'Field deployment' },
             { name: 'IMG_20221220_182158_7', caption: 'Row navigation' },

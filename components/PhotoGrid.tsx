@@ -11,7 +11,7 @@ export default function PhotoGrid({ srcs, captions }: Props) {
   const captionList = captions ? captions.split('|').map((c) => c.trim()) : []
 
   return (
-    <div className="grid grid-cols-3 gap-3 my-8 not-prose">
+    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 my-8 not-prose">
       {srcList.map((src, i) => (
         <div key={src} className="flex flex-col gap-1.5">
           <div className="relative aspect-[4/3] rounded-lg overflow-hidden" style={{ border: '1px solid var(--border)' }}>
