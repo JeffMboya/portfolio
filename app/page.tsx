@@ -10,8 +10,8 @@ import { getAllNotes } from '@/lib/notes'
 
 export default function Home() {
   const projects = getAllProjects()
-  const latestNotes = getAllNotes().slice(0, 2)
-  const labProjects = ['swarm', 'njia', 'radar'].map((slug) => getProjectBySlug(slug).meta)
+  const latestNotes = getAllNotes().slice(0, 1)
+  const labProjects = ['swarm', 'njia', 'radar'].slice(0, 1).map((slug) => getProjectBySlug(slug).meta)
 
   return (
     <>
@@ -123,8 +123,7 @@ export default function Home() {
           className="rounded-xl p-6 mb-3"
           style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
         >
-          <div className="flex flex-col gap-4">
-            <div className="flex items-start gap-3">
+          <div className="flex items-start gap-3">
               <span className="text-[11px] font-medium shrink-0 mt-0.5 px-1.5 py-0.5 rounded" style={{ backgroundColor: 'var(--accent-light)', color: 'var(--accent)', border: '1px solid var(--accent-muted)' }}>2025</span>
               <div>
                 <p className="text-[13px] font-medium leading-snug mb-0.5" style={{ color: 'var(--foreground)' }}>
@@ -133,17 +132,6 @@ export default function Home() {
                 <p className="text-[11px]" style={{ color: 'var(--muted-dim)' }}>Sustainable Research and Innovation Conference</p>
               </div>
             </div>
-            <div style={{ height: '1px', backgroundColor: 'var(--border)' }} />
-            <div className="flex items-start gap-3">
-              <span className="text-[11px] font-medium shrink-0 mt-0.5 px-1.5 py-0.5 rounded" style={{ backgroundColor: 'var(--surface-hover)', color: 'var(--muted)', border: '1px solid var(--border)' }}>2024</span>
-              <div>
-                <p className="text-[13px] font-medium leading-snug mb-0.5" style={{ color: 'var(--foreground)' }}>
-                  Improving Small Pest Bird Detection in YOLOv5s for Autonomous Bird Deterrent Systems
-                </p>
-                <p className="text-[11px]" style={{ color: 'var(--muted-dim)' }}>JKUAT-COETEC · 1 citation</p>
-              </div>
-            </div>
-          </div>
         </div>
         <a href="/research" className="text-[13px] font-medium transition-colors duration-150" style={{ color: 'var(--accent)' }}>
           View all 4 publications →
