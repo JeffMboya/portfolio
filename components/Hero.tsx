@@ -1,9 +1,5 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import StackPill from './StackPill'
-
-const primaryStack = ['Go', 'Rust', 'C++']
-const secondaryStack = ['TypeScript', 'WebAssembly', 'Python', 'C', 'TensorFlow/PyTorch', 'MATLAB', 'Siemens PLCs', 'PCB Design', 'Docker', 'MQTT']
 
 export default function Hero() {
   return (
@@ -79,16 +75,6 @@ export default function Hero() {
         >
           See resume
         </a>
-      </div>
-      <div className="flex flex-wrap gap-2 mb-1">
-        {primaryStack.map((s) => (
-          <StackPill key={s} label={s} primary />
-        ))}
-      </div>
-      <div className="flex flex-wrap gap-2">
-        {secondaryStack.map((s) => (
-          <StackPill key={s} label={s} />
-        ))}
       </div>
     </section>
   )
