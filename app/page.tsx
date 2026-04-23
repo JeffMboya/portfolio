@@ -73,7 +73,7 @@ export default function Home() {
                 src="/about-me.png"
                 alt="Jeff Mboya"
                 fill
-                className="object-cover"
+                className="object-cover object-top"
                 sizes="(max-width: 640px) 100vw, 400px"
               />
             </div>
