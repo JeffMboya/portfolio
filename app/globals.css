@@ -31,10 +31,10 @@
   --muted-dim: #626262;
   --border: rgba(0, 0, 0, 0.08);
   --border-hover: rgba(0, 0, 0, 0.18);
-  --accent: #166534;
-  --accent-dim: #14532d;
-  --accent-light: rgba(22, 101, 52, 0.08);
-  --accent-muted: rgba(22, 101, 52, 0.2);
+  --accent: #16a34a;
+  --accent-dim: #15803d;
+  --accent-light: rgba(22, 163, 74, 0.08);
+  --accent-muted: rgba(22, 163, 74, 0.2);
   --accent-text: #ffffff;
   --texture-line: rgba(0, 0, 0, 0.025);
 }
