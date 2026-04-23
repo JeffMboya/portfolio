@@ -47,7 +47,7 @@ export default function LabPage() {
       </div>
 
       <div className="mb-16">
-        <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--muted-dim)' }}>
+        <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--foreground)' }}>
           Lab
         </div>
         <h1 className="text-[36px] font-bold tracking-tight mb-4" style={{ color: 'var(--foreground)' }}>

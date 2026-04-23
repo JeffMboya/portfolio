@@ -38,7 +38,7 @@ export default function Leadership() {
       <div className="flex items-center gap-3 mb-8">
         <span
           className="text-[11px] uppercase tracking-widest font-medium"
-          style={{ color: 'var(--muted-dim)' }}
+          style={{ color: 'var(--foreground)' }}
         >
           Leadership &amp; Involvement
         </span>

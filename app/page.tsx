@@ -20,7 +20,7 @@ export default function Home() {
 
       <section id="work" className="mb-20">
         <div className="flex items-center gap-3 mb-8">
-          <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--muted-dim)' }}>Selected Work</span>
+          <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--foreground)' }}>Selected Work</span>
           <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -32,7 +32,7 @@ export default function Home() {
 
       <section id="about" className="mb-20">
         <div className="flex items-center gap-3 mb-8">
-          <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--muted-dim)' }}>About</span>
+          <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--foreground)' }}>About</span>
           <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
         </div>
         <div
@@ -133,7 +133,7 @@ export default function Home() {
 
       <section className="mb-20">
         <div className="flex items-center gap-3 mb-8">
-          <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--muted-dim)' }}>Research</span>
+          <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--foreground)' }}>Research</span>
           <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
         </div>
         <div
@@ -157,7 +157,7 @@ export default function Home() {
 
       <section className="mb-20">
         <div className="flex items-center gap-3 mb-8">
-          <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--muted-dim)' }}>From the lab</span>
+          <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--foreground)' }}>From the lab</span>
           <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
         </div>
         <div className="flex flex-col gap-4">
@@ -189,7 +189,7 @@ export default function Home() {
 
       <section className="mb-20">
         <div className="flex items-center gap-3 mb-8">
-          <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--muted-dim)' }}>From the blog</span>
+          <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--foreground)' }}>From the blog</span>
           <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
         </div>
         <div className="flex flex-col gap-4">
@@ -221,7 +221,7 @@ export default function Home() {
 
       <section id="contact" className="mb-20">
         <div className="flex items-center gap-3 mb-8">
-          <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--muted-dim)' }}>Contact</span>
+          <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--foreground)' }}>Contact</span>
           <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 items-start">

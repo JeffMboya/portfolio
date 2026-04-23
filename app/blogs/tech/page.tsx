@@ -26,7 +26,7 @@ export default function TechBlogsPage() {
       </div>
 
       <div className="mb-10">
-        <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--muted-dim)' }}>
+        <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--foreground)' }}>
           Category
         </div>
         <h1 className="text-[32px] font-bold tracking-tight mb-3" style={{ color: 'var(--foreground)' }}>Tech</h1>

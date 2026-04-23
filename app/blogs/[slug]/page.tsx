@@ -78,7 +78,7 @@ export default async function LogPage({ params }: Props) {
               />
             </div>
           )}
-          <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--muted-dim)' }}>
+          <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--foreground)' }}>
             {formatDate(meta!.date)}
           </div>
           <h1 className="text-[32px] font-bold tracking-tight mb-3 leading-[1.15]" style={{ color: 'var(--foreground)' }}>
@@ -103,7 +103,7 @@ export default async function LogPage({ params }: Props) {
 
         {headings.length > 0 && (
           <aside className="hidden lg:block sticky top-8">
-            <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--muted-dim)' }}>
+            <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--foreground)' }}>
               On this page
             </div>
             <nav className="flex flex-col gap-1">

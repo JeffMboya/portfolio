@@ -94,7 +94,7 @@ export default function ResearchPage() {
       </div>
 
       <div className="mb-10">
-        <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--muted-dim)' }}>
+        <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--foreground)' }}>
           Academic Work
         </div>
         <h1 className="text-[32px] font-bold tracking-tight mb-3" style={{ color: 'var(--foreground)' }}>Research</h1>
@@ -118,7 +118,7 @@ export default function ResearchPage() {
 
       {/* Undergraduate Thesis */}
       <div className="flex items-center gap-3 mb-8">
-        <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--muted-dim)' }}>
+        <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--foreground)' }}>
           Undergraduate Thesis
         </span>
         <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
@@ -193,7 +193,7 @@ export default function ResearchPage() {
 
       {/* Publications */}
       <div className="flex items-center gap-3 mb-8">
-        <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--muted-dim)' }}>
+        <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--foreground)' }}>
           Publications
         </span>
         <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
@@ -246,7 +246,7 @@ export default function ResearchPage() {
 
       {/* Conferences */}
       <div className="flex items-center gap-3 mt-16 mb-8">
-        <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--muted-dim)' }}>
+        <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--foreground)' }}>
           Invited Conferences
         </span>
         <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />

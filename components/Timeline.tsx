@@ -103,7 +103,7 @@ export default function Timeline() {
   return (
     <section className="mb-20">
       <div className="flex items-center gap-3 mb-8">
-        <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--muted-dim)' }}>
+        <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--foreground)' }}>
           Career Arc
         </span>
         <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />

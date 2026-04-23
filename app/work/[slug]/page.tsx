@@ -65,7 +65,7 @@ export default async function ProjectPage({ params }: Props) {
 
         {/* Main content */}
         <div>
-          <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--muted-dim)' }}>
+          <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--foreground)' }}>
             {formatDate(meta!.date)}
           </div>
           <h1 className="text-[32px] font-bold tracking-tight mb-3" style={{ color: 'var(--foreground)' }}>{meta!.title}</h1>
@@ -88,7 +88,7 @@ export default async function ProjectPage({ params }: Props) {
         {/* Right sidebar — Stack */}
         <aside className="hidden lg:block sticky top-8">
           <div className="rounded-xl p-5" style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}>
-            <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--muted-dim)' }}>Stack</div>
+            <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--foreground)' }}>Stack</div>
             <div className="flex flex-col gap-1.5 mb-5">
               {meta!.stack.map((s) => (
                 <span key={s} className="text-[13px] pb-1.5" style={{ color: 'var(--muted)', borderBottom: '1px solid var(--border)' }}>
