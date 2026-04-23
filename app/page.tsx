@@ -5,12 +5,13 @@ import ProjectCard from '@/components/ProjectCard'
 import Timeline from '@/components/Timeline'
 import Leadership from '@/components/Leadership'
 import ContactForm from '@/components/ContactForm'
-import { getAllProjects } from '@/lib/projects'
+import { getAllProjects, getProjectBySlug } from '@/lib/projects'
 import { getAllNotes } from '@/lib/notes'
 
 export default function Home() {
   const projects = getAllProjects()
   const latestNotes = getAllNotes().slice(0, 2)
+  const labProjects = ['swarm', 'njia', 'radar'].map((slug) => getProjectBySlug(slug).meta)
 
   return (
     <>
@@ -147,6 +148,38 @@ export default function Home() {
         <a href="/research" className="text-[13px] font-medium transition-colors duration-150" style={{ color: 'var(--accent)' }}>
           View all 4 publications →
         </a>
+      </section>
+
+      <section className="mb-20">
+        <div className="flex items-center gap-3 mb-8">
+          <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--muted-dim)' }}>From the lab</span>
+          <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
+        </div>
+        <div className="flex flex-col gap-4">
+          {labProjects.map((project) => (
+            <Link
+              key={project.slug}
+              href={`/work/${project.slug}`}
+              className="block rounded-xl p-6 transition-colors duration-150 group"
+              style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
+            >
+              <h3 className="text-[18px] font-semibold tracking-tight mb-2 group-hover:underline underline-offset-2" style={{ color: 'var(--foreground)' }}>
+                {project.title}
+              </h3>
+              <p className="text-[13px] leading-relaxed mb-4" style={{ color: 'var(--muted)' }}>
+                {project.description}
+              </p>
+              <span className="text-[13px] font-medium" style={{ color: 'var(--accent)' }}>
+                Explore →
+              </span>
+            </Link>
+          ))}
+        </div>
+        <div className="mt-4">
+          <Link href="/lab" className="text-[13px] font-medium transition-colors duration-150" style={{ color: 'var(--accent)' }}>
+            View all projects →
+          </Link>
+        </div>
       </section>
 
       <section className="mb-20">
