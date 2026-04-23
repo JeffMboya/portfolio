@@ -165,10 +165,8 @@ export default function Home() {
             <Link
               key={project.slug}
               href={`/work/${project.slug}`}
-              className="block rounded-xl p-6 transition-all duration-150 group hover:translate-y-[-2px]"
+              className="hover-card block rounded-xl p-6 transition-all duration-150 group hover:translate-y-[-2px]"
               style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
-              onMouseEnter={e => (e.currentTarget.style.borderColor = 'var(--border-hover)')}
-              onMouseLeave={e => (e.currentTarget.style.borderColor = 'var(--border)')}
             >
               <h3 className="text-[18px] font-semibold tracking-tight mb-2 group-hover:underline underline-offset-2" style={{ color: 'var(--foreground)' }}>
                 {project.title}
@@ -199,10 +197,8 @@ export default function Home() {
             <Link
               key={note.slug}
               href={`/blogs/${note.slug}`}
-              className="block rounded-xl p-6 transition-all duration-150 group hover:translate-y-[-2px]"
+              className="hover-card block rounded-xl p-6 transition-all duration-150 group hover:translate-y-[-2px]"
               style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
-              onMouseEnter={e => (e.currentTarget.style.borderColor = 'var(--border-hover)')}
-              onMouseLeave={e => (e.currentTarget.style.borderColor = 'var(--border)')}
             >
               <h3 className="text-[18px] font-semibold tracking-tight mb-2 group-hover:underline underline-offset-2" style={{ color: 'var(--foreground)' }}>
                 {note.title}

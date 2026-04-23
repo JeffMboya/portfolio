@@ -11,10 +11,8 @@ export default function ProjectCard({ meta }: ProjectCardProps) {
   return (
     <Link
       href={`/work/${meta.slug}`}
-      className="flex flex-col rounded-xl overflow-hidden transition-all duration-150 group hover:translate-y-[-2px]"
+      className="hover-card flex flex-col rounded-xl overflow-hidden transition-all duration-150 group hover:translate-y-[-2px]"
       style={{ border: '1px solid var(--border)', backgroundColor: 'var(--surface)' }}
-      onMouseEnter={e => (e.currentTarget.style.borderColor = 'var(--border-hover)')}
-      onMouseLeave={e => (e.currentTarget.style.borderColor = 'var(--border)')}
     >
       {meta.cover ? (
         <div className="relative w-full h-[160px] overflow-hidden">

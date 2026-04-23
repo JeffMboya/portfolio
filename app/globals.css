@@ -112,3 +112,7 @@ body {
   padding: 0.5rem 0.75rem;
   border-bottom: 1px solid var(--border);
 }
+
+.hover-card:hover {
+  border-color: var(--border-hover) !important;
+}
