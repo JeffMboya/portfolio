@@ -70,7 +70,7 @@ export default function Home() {
           <div className="flex flex-col gap-4">
             <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden" style={{ border: '1px solid var(--border)' }}>
               <Image
-                src="/avatar-about.jpg"
+                src="/about-me.png"
                 alt="Jeff Mboya"
                 fill
                 className="object-cover"
