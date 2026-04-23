@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Now — Jeff Mboya',
@@ -8,48 +9,156 @@ export const metadata: Metadata = {
 
 export default function NowPage() {
   return (
-    <div className="pb-20 max-w-[640px]">
-      <nav className="flex items-center gap-1.5 text-[12px] mb-10" style={{ color: 'var(--muted-dim)' }}>
-        <a href="/" className="transition-colors duration-150 hover:underline" style={{ color: 'var(--accent)' }}>Home</a>
-        <span>/</span>
-        <span style={{ color: 'var(--foreground)' }}>Now</span>
-      </nav>
-      <div className="flex items-center gap-3 mb-6">
-        <h1 className="text-[28px] font-bold tracking-tight" style={{ color: 'var(--foreground)' }}>
-          Now
-        </h1>
-        <span className="text-[12px]" style={{ color: 'var(--muted-dim)' }}>
-          Updated March 2026 · <a href="https://nownownow.com/about" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">what is this?</a>
-        </span>
+    <div className="pb-24 max-w-[680px]">
+      <div className="mb-8">
+        <nav className="flex items-center gap-1.5 text-[12px]" style={{ color: 'var(--muted-dim)' }}>
+          <Link href="/" className="transition-colors duration-150 hover:underline" style={{ color: 'var(--accent)' }}>
+            Home
+          </Link>
+          <span>/</span>
+          <span style={{ color: 'var(--foreground)' }}>Now</span>
+        </nav>
       </div>
 
-      <div className="flex flex-col gap-10">
+      <div className="mb-12">
+        <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--muted-dim)' }}>
+          Now
+        </div>
+        <h1 className="text-[32px] font-bold tracking-tight mb-4" style={{ color: 'var(--foreground)' }}>
+          What I&apos;m doing now
+        </h1>
+        <div className="flex items-center gap-2">
+          <span
+            className="text-[11px] font-medium px-2 py-0.5 rounded"
+            style={{ backgroundColor: 'var(--accent-light)', color: 'var(--accent)', border: '1px solid var(--accent-muted)' }}
+          >
+            Updated March 2026
+          </span>
+          <a
+            href="https://nownownow.com/about"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[12px] underline underline-offset-2"
+            style={{ color: 'var(--muted-dim)' }}
+          >
+            what is this?
+          </a>
+        </div>
+      </div>
+
+      <div className="flex flex-col gap-12">
+
+        {/* Building */}
         <div>
-          <h2 className="text-[13px] font-semibold uppercase tracking-widest mb-3" style={{ color: 'var(--foreground)' }}>
-            Building
-          </h2>
-          <p className="text-[15px] leading-relaxed" style={{ color: 'var(--muted)' }}>
-            Working on <a href="https://github.com/absmach/propeller" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2" style={{ color: 'var(--accent)' }}>Propeller</a> at Abstract Machines — a WebAssembly orchestrator that deploys workloads across the cloud-edge continuum, from bare-metal servers down to Zephyr RTOS microcontrollers. The Go manager schedules tasks and the Rust proplet workers execute them via Wasmtime, pulling images from OCI registries over MQTT. The interesting current work is the TEE runtime: decrypting and running encrypted WASM inside a Trusted Execution Environment, so clients can verify their code ran untampered. We also have federated learning built in — training ML models across distributed edge nodes without the raw data ever leaving the device.
-          </p>
+          <div className="flex items-center gap-3 mb-6">
+            <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--muted-dim)' }}>Building</span>
+            <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
+          </div>
+          <div className="flex flex-col gap-4">
+            <p className="text-[15px] leading-relaxed" style={{ color: 'var(--muted)' }}>
+              I&apos;m building{' '}
+              <a href="https://github.com/absmach/propeller" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2" style={{ color: 'var(--accent)' }}>
+                Propeller
+              </a>{' '}
+              at Abstract Machines — a WebAssembly orchestrator for deploying workloads across the
+              cloud-edge continuum, from bare-metal servers to Zephyr RTOS microcontrollers.
+            </p>
+            <p className="text-[15px] leading-relaxed" style={{ color: 'var(--muted)' }}>
+              The system is designed around a simple idea: edge infrastructure should be programmable
+              with the same reliability as cloud infrastructure. The Go-based manager handles
+              orchestration and scheduling, while lightweight Rust &ldquo;proplets&rdquo; execute
+              workloads through Wasmtime, pulling OCI images over MQTT and running them close to where
+              computation actually matters.
+            </p>
+            <p className="text-[15px] leading-relaxed" style={{ color: 'var(--muted)' }}>
+              The most interesting work right now is around trusted execution. I&apos;m building the
+              TEE runtime layer so encrypted WASM workloads can be decrypted and executed inside
+              Trusted Execution Environments, allowing clients to verify that their code ran exactly
+              as intended and that sensitive data never left a protected boundary.
+            </p>
+            <p className="text-[15px] leading-relaxed" style={{ color: 'var(--muted)' }}>
+              We also have federated learning built into the platform — training models across
+              distributed edge nodes without moving raw data off-device. For me, this is where
+              infrastructure becomes meaningful: not just distributed systems for their own sake,
+              but systems that make secure, low-cost intelligence deployable in places where cloud
+              assumptions fail.
+            </p>
+          </div>
         </div>
 
+        {/* Learning */}
         <div>
-          <h2 className="text-[13px] font-semibold uppercase tracking-widest mb-3" style={{ color: 'var(--foreground)' }}>
-            Learning
-          </h2>
-          <p className="text-[15px] leading-relaxed" style={{ color: 'var(--muted)' }}>
-            Going deep on the WASM component model and how it changes the trust boundary between a host runtime and guest modules — relevant directly to the TEE work. I&apos;m also working through the Confidential Containers attestation stack: how a Key Broker Service and Attestation Agent cooperate to release secrets only to verified enclaves. On the Rust side, learning to write async MQTT clients that stay sub-1 MB resident on ARM Cortex-M4. The constraint forces clarity that you don&apos;t get writing services for cloud VMs.
-          </p>
+          <div className="flex items-center gap-3 mb-6">
+            <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--muted-dim)' }}>Learning</span>
+            <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
+          </div>
+          <div className="flex flex-col gap-4">
+            <p className="text-[15px] leading-relaxed" style={{ color: 'var(--muted)' }}>
+              I&apos;ve been going deep on the WASM component model and how it reshapes the trust
+              boundary between host runtimes and guest modules — especially relevant for confidential
+              execution and TEE design.
+            </p>
+            <p className="text-[15px] leading-relaxed" style={{ color: 'var(--muted)' }}>
+              I&apos;m also studying the Confidential Containers attestation stack: how the
+              Attestation Agent, Key Broker Service, and enclave verification pipeline work together
+              so secrets are only released to verified runtimes.
+            </p>
+            <p className="text-[15px] leading-relaxed" style={{ color: 'var(--muted)' }}>
+              On the Rust side, I&apos;ve been learning to write async MQTT clients that stay under
+              1 MB resident on ARM Cortex-M4 targets. Constraints like that force a kind of
+              engineering clarity you never get when building for cloud VMs with infinite memory
+              and forgiving abstractions.
+            </p>
+          </div>
         </div>
 
+        {/* Thinking About */}
         <div>
-          <h2 className="text-[13px] font-semibold uppercase tracking-widest mb-3" style={{ color: 'var(--foreground)' }}>
-            Thinking about
-          </h2>
-          <p className="text-[15px] leading-relaxed" style={{ color: 'var(--muted)' }}>
-            Whether the computer vision pipelines that currently require an NVIDIA GPU in a lab can be made to run on a $10 ARM device in a field. My first-author work modified YOLOv5s with Transformer encoder blocks and BiFPN to detect small pest birds in agricultural imagery — a 4.8% mAP gain at only 4ms extra inference. The harder follow-on question is deployment: Propeller&apos;s WASI-NN integration means a WASM-packaged model can be dispatched to a constrained edge node the same way you&apos;d schedule any other workload, with 95% device compatibility across ARM hardware. The use case I keep returning to is African smallholder agriculture — early pest and drought stress detection that doesn&apos;t require cloud connectivity or expensive hardware, just a cheap SBC and an open orchestration layer.
-          </p>
+          <div className="flex items-center gap-3 mb-6">
+            <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--muted-dim)' }}>Thinking About</span>
+            <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
+          </div>
+          <div className="flex flex-col gap-4">
+            <p className="text-[15px] leading-relaxed" style={{ color: 'var(--muted)' }}>
+              I keep returning to one question:
+            </p>
+            <div
+              className="rounded-lg px-4 py-3.5 text-[14px] font-medium leading-relaxed"
+              style={{
+                backgroundColor: 'var(--accent-light)',
+                border: '1px solid var(--accent-muted)',
+                color: 'var(--accent)',
+              }}
+            >
+              Can the computer vision systems that currently need an NVIDIA GPU in a lab run
+              reliably on a $10 ARM device in the field?
+            </div>
+            <p className="text-[15px] leading-relaxed" style={{ color: 'var(--muted)' }}>
+              My first-author research modified YOLOv5s using Transformer encoder blocks and BiFPN
+              to improve small pest bird detection in agricultural imagery, achieving a 4.8% mAP
+              improvement with only 4ms additional inference time.
+            </p>
+            <p className="text-[15px] leading-relaxed" style={{ color: 'var(--muted)' }}>
+              But model accuracy is only half the problem. Deployment is the real bottleneck.
+            </p>
+            <p className="text-[15px] leading-relaxed" style={{ color: 'var(--muted)' }}>
+              With Propeller&apos;s WASI-NN integration, a WASM-packaged model can be scheduled
+              to constrained edge nodes the same way as any other workload, with broad ARM
+              compatibility and no dependency on constant cloud access.
+            </p>
+            <p className="text-[15px] leading-relaxed" style={{ color: 'var(--muted)' }}>
+              The use case I care about most is African smallholder agriculture: early pest
+              detection, drought stress monitoring, and low-cost field intelligence that works
+              offline — using cheap SBCs, local inference, and infrastructure that assumes
+              unreliable connectivity instead of pretending it doesn&apos;t exist.
+            </p>
+            <p className="text-[15px] leading-relaxed" style={{ color: 'var(--muted)' }}>
+              That feels like the right problem: not building impressive demos for labs, but
+              building durable systems people can actually use.
+            </p>
+          </div>
         </div>
+
       </div>
     </div>
   )
