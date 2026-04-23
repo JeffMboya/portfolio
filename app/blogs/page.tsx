@@ -34,11 +34,9 @@ export default function BlogsPage() {
       </div>
 
       <section className="mb-14">
-        <div className="flex items-center justify-between mb-5">
-          <div>
-            <div className="text-[11px] uppercase tracking-widest font-medium mb-1" style={{ color: 'var(--muted-dim)' }}>Category</div>
-            <h2 className="text-[20px] font-bold tracking-tight" style={{ color: 'var(--foreground)' }}>Tech</h2>
-          </div>
+        <div className="flex items-center gap-3 mb-6">
+          <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--muted-dim)' }}>Tech</span>
+          <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
           <Link href="/blogs/tech" className="text-[13px] font-medium transition-colors duration-150 hover:underline" style={{ color: 'var(--accent)' }}>
             View all →
           </Link>
@@ -53,11 +51,9 @@ export default function BlogsPage() {
       </section>
 
       <section>
-        <div className="flex items-center justify-between mb-5">
-          <div>
-            <div className="text-[11px] uppercase tracking-widest font-medium mb-1" style={{ color: 'var(--muted-dim)' }}>Category</div>
-            <h2 className="text-[20px] font-bold tracking-tight" style={{ color: 'var(--foreground)' }}>Thoughts</h2>
-          </div>
+        <div className="flex items-center gap-3 mb-6">
+          <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--muted-dim)' }}>Thoughts</span>
+          <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
           <Link href="/blogs/thoughts" className="text-[13px] font-medium transition-colors duration-150 hover:underline" style={{ color: 'var(--accent)' }}>
             View all →
           </Link>
