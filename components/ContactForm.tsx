@@ -71,13 +71,13 @@ export default function ContactForm() {
         </div>
         <div className="flex flex-col gap-1">
           <label className="text-[11px] uppercase tracking-wider font-medium" style={{ color: 'var(--muted-dim)' }}>
-            Subject
+            What are you building?
           </label>
           <input
             type="text"
             name="subject"
             required
-            placeholder="What's this about?"
+            placeholder="One line on the project"
             className="rounded-md px-3 py-2 text-[13px] outline-none transition-colors duration-150"
             style={{
               backgroundColor: 'var(--surface-hover)',
@@ -91,13 +91,13 @@ export default function ContactForm() {
       </div>
       <div className="flex flex-col gap-1">
         <label className="text-[11px] uppercase tracking-wider font-medium" style={{ color: 'var(--muted-dim)' }}>
-          Message
+          Tell me about the problem
         </label>
         <textarea
           name="message"
           required
           rows={5}
-          placeholder="Tell me about what you're building..."
+          placeholder="What are you working on, what's hard about it, and where do I fit?"
           className="rounded-md px-3 py-2 text-[13px] outline-none transition-colors duration-150 resize-none"
           style={{
             backgroundColor: 'var(--surface-hover)',

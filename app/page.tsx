@@ -229,10 +229,20 @@ export default function Home() {
             <h2 className="text-[22px] font-bold tracking-tight mb-3" style={{ color: 'var(--foreground)' }}>
               Working on something hard?
             </h2>
-            <p className="text-[13px] leading-relaxed" style={{ color: 'var(--muted)' }}>
-              Working on something hard at the intersection of physical systems and software? I might
-              be the unusual fit you&apos;ve been looking for. Open to backend, systems, and
-              infrastructure roles — and always happy to hear interesting proposals.
+            <p className="text-[13px] leading-relaxed mb-4" style={{ color: 'var(--muted)' }}>
+              If you&apos;re building difficult systems — especially where software meets the physical
+              world — we should talk.
+            </p>
+            <p className="text-[13px] leading-relaxed mb-4" style={{ color: 'var(--muted)' }}>
+              I work across backend, infrastructure, controls, and distributed systems, with enough
+              hardware intuition to debug what most software teams can&apos;t see.
+            </p>
+            <p className="text-[13px] leading-relaxed mb-4" style={{ color: 'var(--muted)' }}>
+              I&apos;ve shipped production systems in factories, pilot plants, and cloud infrastructure
+              — from PLCs and control loops to Go services and distributed orchestration.
+            </p>
+            <p className="text-[13px]" style={{ color: 'var(--muted-dim)' }}>
+              Open to backend, systems, and infrastructure roles, consulting, and unusual technical problems.
             </p>
           </div>
           <ContactForm />
