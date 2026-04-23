@@ -25,17 +25,15 @@ result: "Multi-tenant IoT platform at scale"
 
 ## Why This Work Mattered
 
-IoT platforms do not fail because pub/sub is hard.
+Working on Magistrala meant working on the part of the system people only notice when it fails—trust.
 
-They fail because trust is hard.
+Moving messages across MQTT, HTTP, WebSocket, or CoAP is only one part of the platform. The harder problem is making sure the right users and devices can communicate, while the wrong ones cannot.
 
-A raw MQTT broker can move messages, but it does not solve tenant isolation, identity management, authorization, policy enforcement, deployment safety, or production reliability.
+That includes tenant isolation, identity management, authorization, policy enforcement, deployment safety, and long-term production reliability.
 
-When multiple organizations share the same platform — each with their own users, devices, channels, and data — the hardest problem is making sure the wrong device never reads the wrong message, and that every deployment remains reliable while the system keeps evolving.
+When multiple organizations share the same platform—each with their own users, devices, channels, and data—the system has to guarantee that boundaries remain strict even as deployments grow and services keep changing.
 
-That was the engineering problem I worked on.
-
-Not just messaging. Trust at scale.
+That was the part of the platform I worked on: making sure access stayed safe, releases stayed reliable, and trust remained invisible because it consistently worked.
 
 ## My Role
 
