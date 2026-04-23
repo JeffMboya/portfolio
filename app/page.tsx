@@ -30,11 +30,15 @@ export default function Home() {
         </div>
       </section>
 
-      <section
-        id="about"
-        className="rounded-xl p-8 mb-20 grid grid-cols-1 sm:grid-cols-2 gap-8"
-        style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
-      >
+      <section id="about" className="mb-20">
+        <div className="flex items-center gap-3 mb-8">
+          <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--muted-dim)' }}>About</span>
+          <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
+        </div>
+        <div
+          className="rounded-xl p-8 grid grid-cols-1 sm:grid-cols-2 gap-8"
+          style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
+        >
         <div>
           <h2 className="text-[20px] font-semibold tracking-tight mb-3" style={{ color: 'var(--foreground)' }}>About me</h2>
           <p className="text-[13px] leading-relaxed mb-5" style={{ color: 'var(--muted)' }}>
@@ -108,6 +112,7 @@ export default function Home() {
               Google Scholar
             </a>
           </div>
+        </div>
         </div>
       </section>
 
