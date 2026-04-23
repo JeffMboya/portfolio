@@ -21,6 +21,21 @@ cover: /covers/octavia.jpg
 result: "$3.1M Series A · 63% CAPEX reduction · 3 PCT patents"
 ---
 
+I joined Octavia Carbon as employee #24 when the company had already built its first DAC machine—but it did not work.
+
+There was no reliable regeneration cycle, controls were unstable, instrumentation was unreliable, and the system could not produce commercial-grade CO₂ output. Operation was manual or semi-automatic, data quality was poor, and regeneration times were too long to make the system economically viable.
+
+I became the first engineer owning electrical, instrumentation, and controls, and helped turn that failed prototype into the Global South's first fully deployed commercial Direct Air Capture system operating at 99.9% purity.
+
+I broke a two-year technical deadlock, led the controller redesign that reduced CAPEX by 63%, and helped validate the scale-up path from TRL6 pilot systems (1 kg/day and 2 ton/year) to a 60 ton/year commercial field unit.
+
+<PhotoGrid
+  srcs="/octavia/plc-setup.jpg, /octavia/pilot-plant-gen1.jpg, /octavia/team-machine.jpg, /octavia/team-visit.jpg"
+  captions="PLC commissioning — Siemens S7-1200 with sensor wiring and I/O modules|Pilot plant control cabinet — instrumentation, actuator wiring, and process interlocks|The pilot DAC unit at Octavia's Nairobi facility|Team at Octavia Carbon's manufacturing facility, Nairobi"
+/>
+
+---
+
 ## Why This Work Mattered
 
 We were not improving an existing industry.
@@ -33,24 +48,17 @@ If we succeeded, we proved that the Global South could lead carbon removal infra
 
 At the same time, DAC only works if costs fall below the industry target of $100 per ton.
 
-Every engineering decision — controls, regeneration speed, purity, CAPEX, and energy recovery — was a direct bet on whether that would ever be possible.
+Every engineering decision—controls, regeneration speed, purity, CAPEX, and energy recovery—was a direct bet on whether that would ever be possible.
 
-I joined as employee #24 when the company had already built its first DAC machine — but it did not work.
-
-There was no reliable regeneration cycle, controls were unstable, instrumentation was unreliable, and the system could not produce commercial-grade CO₂ output. Operation was manual or semi-automatic, data quality was poor, and regeneration times were too long to make the system economically viable.
-
-I became the first engineer owning electrical, instrumentation, and controls, and helped turn that failed prototype into the Global South's first fully deployed commercial Direct Air Capture system operating at 99.9% purity.
-
-<PhotoGrid
-  srcs="/octavia/plc-setup.jpg, /octavia/pilot-plant-gen1.jpg, /octavia/team-machine.jpg, /octavia/team-visit.jpg"
-  captions="PLC commissioning — Siemens S7-1200 with sensor wiring and I/O modules|Pilot plant control cabinet — instrumentation, actuator wiring, and process interlocks|The pilot DAC unit at Octavia's Nairobi facility|Team at Octavia Carbon's manufacturing facility, Nairobi"
-/>
+---
 
 ## Engineering Impact
 
-Most of my work sat between technical correctness and commercial viability — making sure the machine captured CO₂ efficiently enough, cheaply enough, and reliably enough to justify deployment.
+Most of my work sat between technical correctness and commercial viability—making sure the machine captured CO₂ efficiently enough, cheaply enough, and reliably enough to justify deployment.
 
 That meant solving both physics and economics at the same time.
+
+---
 
 ### 63% CAPEX Reduction — Rebuilding the Control Stack
 
@@ -64,15 +72,17 @@ I initiated and led the transition.
 
 I owned:
 
-- PCB design for sensor conditioning and actuator interfacing
-- firmware architecture for distributed control
-- validation and deployment across R&D machines
-- the full build-vs-buy analysis
-- rollout of the proprietary controller stack across pilot systems
+* PCB design for sensor conditioning and actuator interfacing
+* firmware architecture for distributed control
+* validation and deployment across R&D machines
+* the full build-vs-buy analysis
+* rollout of the proprietary controller stack across pilot systems
 
 This decision delivered the full 63% CAPEX reduction in control architecture costs while improving flexibility, OTA updates, custom I/O density, and long-term deployment economics.
 
 It removed one of the biggest commercialization barriers in the company.
+
+---
 
 ### Breaking a 2-Year Technical Deadlock
 
@@ -84,14 +94,16 @@ I led the work that broke that deadlock.
 
 This included:
 
-- replacing thermocouples with RTDs to eliminate temperature-control inaccuracies
-- writing automated control programs to remove operator-driven process variability
-- redesigning seal interfaces and vacuum draw paths to ensure complete purge before regeneration
-- improving regeneration consistency through better thermal control and sequencing
+* replacing thermocouples with RTDs to eliminate temperature-control inaccuracies
+* writing automated control programs to remove operator-driven process variability
+* redesigning seal interfaces and vacuum draw paths to ensure complete purge before regeneration
+* improving regeneration consistency through better thermal control and sequencing
 
-The result was a stable 24/5 industrial operation achieving 99.9% product purity every cycle — directly enabling the first fully deployed commercial DAC system in the Global South.
+The result was a stable 24/5 industrial operation achieving 99.9% product purity every cycle—directly enabling the first fully deployed commercial DAC system in the Global South.
 
 This was the moment the company moved from a lab experiment to an industrial system.
+
+---
 
 ### 83% Faster Regeneration / 3.6× CO₂ Throughput
 
@@ -101,15 +113,17 @@ How long it took to regenerate the adsorbent determined throughput, energy consu
 
 I diagnosed regeneration as the critical bottleneck and led 3 cross-functional teams to redesign the system around:
 
-- heat transfer improvements
-- airflow optimization
-- regeneration sequence redesign
-- sorbent type selection and packing
-- thermal recovery improvements
+* heat transfer improvements
+* airflow optimization
+* regeneration sequence redesign
+* sorbent type selection and packing
+* thermal recovery improvements
 
 The outcome was an 83% reduction in regeneration cycle time and a 3.6× increase in daily CO₂ throughput.
 
 This materially moved the system toward the sub-$100/ton commercial target.
+
+---
 
 ### 0% Downtime Across 400+ Test Cycles
 
@@ -119,20 +133,24 @@ This was made possible by stronger controls, maintenance discipline, calibration
 
 Without repeatability, scale is only a theory.
 
+---
+
 ### 4.6× Return on R&D Capital
 
 I co-developed the technical R&D roadmap and due diligence framework that helped secure $3.1M in Series A funding.
 
 I contributed through:
 
-- technical diligence documentation
-- pilot validation data
-- machine performance modeling
-- system readiness validation for investors
+* technical diligence documentation
+* pilot validation data
+* machine performance modeling
+* system readiness validation for investors
 
 I also helped generate a 4.6× return on a $137K R&D budget, catalyzing $630K+ in follow-on capital to deploy a 9-unit regional pilot fleet in the Rift Valley.
 
 That work directly validated the technology case for a 30× scale-up from the 2 ton/year pilot to a 60 ton/year field deployment.
+
+---
 
 ## Research and Validation
 
@@ -140,7 +158,7 @@ I co-authored:
 
 **Simulation and Airflow Experimentation of a Multi-Layer Adsorbent Chamber for Enhanced Direct Air Capture Efficiency**
 
-Conventional axial-flow DAC systems force air directly through packed adsorbent beds — high resistance, high fan energy, and poor economics.
+Conventional axial-flow DAC systems force air directly through packed adsorbent beds—high resistance, high fan energy, and poor economics.
 
 We designed a multi-layer chamber that routed airflow laterally across thinner adsorbent sections in parallel, reducing pressure drop and fan load.
 
@@ -150,9 +168,11 @@ The work was presented at the Sustainable Research and Innovation Conference (20
 
 Research mattered because it improved unit economics, not because it became a paper.
 
+---
+
 ## External Validation
 
-Our pilot validation, purity standards, and operational reliability directly supported Octavia's AAA rating from BeZero Carbon — placing the project among the top tier of carbon removal projects globally.
+Our pilot validation, purity standards, and operational reliability directly supported Octavia's AAA rating from BeZero Carbon—placing the project among the top tier of carbon removal projects globally.
 
 The facility also received visits from figures including Meg Whitman and Ali Mohamed, reflecting the geopolitical importance of proving African-led carbon removal infrastructure at commercial scale.
 
@@ -173,11 +193,13 @@ When the world is watching, every data point matters.
   Octavia Carbon pilot plant
 </video>
 
+---
+
 ## Building the Team
 
 As the system scaled, so did the team.
 
-I led the conversion of 9 interns into full-time engineering contributors — building the execution capacity required to move from prototype experimentation to repeatable industrial operation.
+I led the conversion of 9 interns into full-time engineering contributors—building the execution capacity required to move from prototype experimentation to repeatable industrial operation.
 
 The challenge was not hiring.
 
@@ -185,11 +207,13 @@ It was making people productive inside a system still being built.
 
 That meant clearer ownership, stronger operational discipline, and faster collaboration across mechanical, chemical, and controls teams.
 
+---
+
 ## How I Think
 
 Climate hardware is unforgiving.
 
-Reliable systems come from three things.
+Reliable systems come from three things:
 
 **Correct physics** — the process must work thermodynamically before it works financially.
 
@@ -199,4 +223,6 @@ Reliable systems come from three things.
 
 That is why I care equally about controls, process design, and team structure.
 
-They all solve the same problem: turning technical possibility into commercial reality.
+They all solve the same problem:
+
+turning technical possibility into commercial reality.
