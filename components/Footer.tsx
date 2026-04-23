@@ -16,21 +16,23 @@ export default function Footer() {
   return (
     <footer className="mt-20 pb-10">
       <div className="h-px mb-8" style={{ backgroundColor: 'var(--border)' }} />
-      <nav className="flex flex-wrap items-center gap-x-6 gap-y-2 mb-4">
-        {links.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            className="text-[12px] transition-colors duration-150 hover:underline underline-offset-2"
-            style={{ color: 'var(--muted-dim)' }}
-          >
-            {link.label}
-          </Link>
-        ))}
-      </nav>
-      <p className="text-[12px]" style={{ color: 'var(--muted-dim)' }}>
-        © {year} Jeff Mboya. All rights reserved.
-      </p>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <p className="text-[12px]" style={{ color: 'var(--muted-dim)' }}>
+          © {year} Jeff Mboya. All rights reserved.
+        </p>
+        <nav className="flex flex-wrap gap-x-5 gap-y-2">
+          {links.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="text-[12px] transition-colors duration-150 hover:underline underline-offset-2"
+              style={{ color: 'var(--muted-dim)' }}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+      </div>
     </footer>
   )
 }
