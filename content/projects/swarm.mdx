@@ -15,19 +15,17 @@ result: "Emergent market consensus from competing AI agents"
 
 ## The Problem
 
-Market-moving events are ambiguous. A Fed rate hike is bullish for banks, bearish for growth stocks, and neutral for commodities — depending on who you ask. No single analyst captures all of that. The interesting signal isn't any one view; it's where a diverse set of participants land after they've heard each other out.
+Market-moving events are ambiguous. A Fed rate hike is bullish for banks, bearish for growth stocks, and neutral for commodities — depending on who you ask. No single analyst captures all of that. The interesting signal is not any one view; it is where a diverse set of participants land after they have heard each other out.
 
-## Approach
+## How It Works
 
-Swarm runs 15 distinct trader personas in parallel — each with a different role, style, natural bias, and time horizon. A quant fund doesn't react the same way as a macro tourist or a retail momentum trader.
+Swarm runs 15 distinct trader personas in parallel — each with a different role, style, natural bias, and time horizon. A quant fund does not react the same way as a macro tourist or a retail momentum trader.
 
 Round 1 is independent: every agent reads the headline and forms a view without knowing what anyone else thinks. Round 2 is the debate: each agent reads a summary of all other positions and decides whether to hold firm, partially update, or flip entirely. View changes are tracked and surfaced in the final output.
 
-The result is an emergent consensus — or a persistent disagreement — that no single prompt could produce.
+### Why Two Rounds
 
-## Why Two Rounds
-
-A single round of parallel calls gives you a breadth of views but no interaction. The interesting dynamics in real markets happen when participants update on each other. A momentum trader who reads that every macro fund is bearish might temper their enthusiasm. A contrarian who sees consensus forming in one direction has more reason to go the other way.
+A single round of parallel calls gives you breadth of views but no interaction. The interesting dynamics in real markets happen when participants update on each other. A momentum trader who reads that every macro fund is bearish might temper their enthusiasm. A contrarian who sees consensus forming in one direction has more reason to go the other way.
 
 Round 2 is what makes the output feel alive rather than just a list of opinions.
 

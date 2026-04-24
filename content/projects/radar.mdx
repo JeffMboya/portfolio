@@ -15,27 +15,27 @@ result: "From raw arXiv feed to ranked build opportunities in one command"
 
 ## The Problem
 
-Research papers are hard to act on. They're written for academics, not developers. The abstract tells you what was studied; it doesn't tell you what to build. And with 50+ new AI papers hitting arXiv every day, filtering signal from noise by hand is a losing game.
+Research papers are hard to act on. They are written for academics, not developers. The abstract tells you what was studied; it does not tell you what to build. And with 50+ new AI papers hitting arXiv every day, filtering signal from noise by hand is a losing game.
 
-Most research digest tools just summarize. That's not the bottleneck. The bottleneck is knowing which paper to build on, why it matters now, and what the first concrete step looks like.
+Most research digest tools just summarize. That is not the bottleneck. The bottleneck is knowing which paper to build on, why it matters now, and what the first concrete step looks like.
 
-## Approach
+## How It Works
 
-Radar is inspired by [DAGverse](https://arxiv.org/abs/2603.25293), which argues that the most useful thing you can extract from a paper isn't its conclusion — it's the dependency structure that makes the conclusion usable. Which concepts cause which other concepts? What enables what?
+Radar is inspired by DAGverse, which argues that the most useful thing you can extract from a paper is not its conclusion — it is the dependency structure that makes the conclusion usable: which concepts cause which other concepts, and what enables what.
 
-Every paper gets analyzed by Claude Haiku in parallel. The output is a semantic dependency graph (nodes: key concepts; edges: directed relationships like "drives", "enables", "predicts") and a build signal score from 1 to 10. Score 9-10 means ship this week. Score 1-4 means theoretical, no near-term application. Papers are sorted by score before display.
+Every paper gets analyzed by Claude Haiku in parallel. The output is a semantic dependency graph and a build signal score from 1 to 10. Score 9–10 means ship this week. Score 1–4 means theoretical, no near-term application. Papers are sorted by score before display.
 
 After the per-paper pass, Claude Sonnet runs a single synthesis call across all analyzed papers to find cross-paper patterns: trending concepts appearing in 3+ papers, a build stack of papers that layer together into a combined tool, and the single best build opportunity in the batch.
 
-## The Build Subcommand
+### The Build Subcommand
 
-`radar build <N>` takes the number of any paper from your last run and generates a full project brief: name, tagline, the problem it solves, how the tool works, what stack to use, three MVP features, a task list, and a realistic time estimate. It's the difference between "interesting paper" and "I know what to build Monday morning."
+`radar build <N>` takes the number of any paper from your last run and generates a full project brief: name, tagline, the problem it solves, how the tool works, what stack to use, three MVP features, a task list, and a realistic time estimate. It is the difference between "interesting paper" and "I know what to build Monday morning."
 
 ## Design
 
-The entire tool is a single Go binary, no runtime dependencies. Per-paper analysis runs as goroutines across the full batch with results assembled via channels. Analyzed papers are cached at `~/.radar/cache.json` with a 7-day TTL, so repeated runs are fast.
+The entire tool is a single Go binary with no runtime dependencies. Per-paper analysis runs as goroutines across the full batch with results assembled via channels. Analyzed papers are cached at `~/.radar/cache.json` with a 7-day TTL so repeated runs are fast.
 
-New flags added in the 10x version:
+Available flags:
 
 - `--topics cs.AI,cs.LG,cs.CL` — parallel fetch across multiple arXiv categories, deduplicated by paper ID
 - `--brief` — single-line triage mode for quick overviews

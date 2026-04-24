@@ -166,3 +166,47 @@ That is where gateway projects usually succeed or fail.
 Not in the schematic alone.
 
 In the first week someone tries to make the board useful.
+
+## What Operating This Taught Me
+
+### Hardware Fails at Interfaces
+
+Theory and datasheets tell you what should happen. Field hardware tells you what actually happens.
+
+Modem startup sequences specified as deterministic turn out to depend on exact power rail settling times. Edge connectors develop intermittent signal integrity problems in environments with vibration and dust. UART receive buffers fill silently when firmware does not read fast enough, and nobody notices until a deployment is live and a device is unresponsive.
+
+Every one of these is an interface failure — between the schematic and the board, between the board and the firmware, between the firmware and the field condition. The SIM7080G startup behavior that caused unexpected resets was not a firmware bug. It was a power sequencing gap that only appeared under certain input voltage conditions. Finding it required treating the board as a system, not as a collection of individual components.
+
+The interesting engineering work is never in the datasheet. It is in the gap between what the datasheet says and what actually happens in the field.
+
+### Documentation Is Part of the Deliverable
+
+A board that works but that nobody can successfully bring up is not shipped hardware.
+
+The S0 has multiple radios, a cellular modem with credential management, an edge connector with dozens of signals, and a baseboard with its own power architecture and protocol wiring. A developer trying to configure LTE-M backhaul or bring up a first Wireless M-Bus session needs to understand the board well enough to debug it when something behaves unexpectedly.
+
+That meant treating device tree overlays, Zephyr board definitions, protocol setup guides, credential provisioning flows, and firmware example code as first-class engineering deliverables — not afterthoughts written after the schematic was finished.
+
+The first week a developer spends with the hardware is where the design is actually evaluated.
+
+## Platform Scale
+
+The S0 and S1 form the open hardware connectivity tier of Abstract Machines' IoT stack.
+
+Both boards are fully open-source: schematics, PCB layouts, BOM, and firmware examples are publicly available. The design targets real field conditions — 24V DC industrial input with an 18–36V operating range, battery backup with clean switchover, DIN-rail mounting, and protocol coverage that does not assume stable cellular or clean lab power.
+
+The S0 targets standalone deployments at the meter and sensor level: Wireless M-Bus meter reading, cellular backhaul, WiFi and BLE commissioning, and offline buffering for sites where connectivity is intermittent. The S1 targets sites that need Linux compute alongside wireless connectivity — edge processing, containerized workloads, Magistrala agents, or local data aggregation before cloud forwarding.
+
+Together, the two gateways cover the hardware layer from individual field devices through industrial edge infrastructure, built around the same modular wireless core.
+
+## How I Think
+
+Hardware engineering teaches you to think in constraints.
+
+Most software problems can be retried, patched, or rolled back. A board in a utility cabinet in Nairobi cannot. A bad power path, a firmware that cannot survive a modem reset, a connector pinout with signal integrity issues at speed — these are not problems you fix with a CI pipeline.
+
+That changes what you optimize for.
+
+I care equally about schematics, firmware, and documentation because they all answer the same question: can someone deploy this without expert support? A gateway that requires specialist knowledge for every field deployment is not modular hardware. It is a dependency.
+
+The goal of embedded hardware work is to make the board disappear — to become the invisible, reliable layer that the application stack above it can trust completely, regardless of what the field environment looks like.

@@ -17,7 +17,7 @@ cover: /nakuja/IMG-20220627-WA0003.jpg
 result: "N-3.5 first Nakuja rocket to exceed 1,000 m apogee in flight"
 ---
 
-## Why Nakuja
+## Why This Work Mattered
 
 I joined the Nakuja Project because I wanted to work on engineering problems where failure was physical, visible, and expensive.
 
@@ -51,8 +51,6 @@ The result was faster iteration, stronger institutional continuity, and a team t
 
 That growth contributed directly to the successful N-2 launch, long-term program sustainability, and stronger collaboration with the Kenya Space Agency.
 
-It also changed how I think about engineering leadership. Scaling people and scaling hardware both depend on good feedback loops, reliable systems, and clear interfaces.
-
 ### Engineering That Survived Peer Review
 
 I co-authored two peer-reviewed research papers based on propulsion systems developed within the Nakuja Project and served as primary author on one.
@@ -68,107 +66,99 @@ Every choice had to be justified: grain geometry, propellant composition, nozzle
 
 Both papers were presented at the Sustainable Research and Innovation Conference, and both received Best Presentation awards. It was the first time in more than a decade that student-led work received that level of recognition in the proceedings.
 
-That mattered because it showed the propulsion work held up under technical scrutiny.
+That mattered because it showed the propulsion work held up under independent technical scrutiny.
 
 ## Engineering Impact
 
-Most of my work sat between analysis and execution — improving how we designed, tested, and learned from solid rocket motors.
-
-I cared about reducing the distance between an idea and knowing whether it was wrong.
-
-That meant better models, stronger test systems, and faster feedback loops.
+Most of my work sat at the intersection of analysis and build cycles — improving how the team designed, tested, and learned from each motor iteration.
 
 ### +5% Motor Efficiency
 
-I performed numerical performance analysis of solid rocket motors using MATLAB simulations and OpenMotor, validated against static-fire test data.
+Numerical performance analysis using MATLAB simulations and OpenMotor, validated against static-fire test data, produced burn-rate optimizations that improved motor efficiency by 5% over the previous baseline design.
 
-Static-fire validated burn-rate optimization improved motor efficiency by 5% over the previous baseline motor design.
-
-Small efficiency gains in propulsion carry real consequences. A few percentage points can decide whether a design is ready for flight or whether the motor architecture needs to be reconsidered entirely.
+Small efficiency gains in propulsion carry real consequences. A few percentage points can decide whether a design is flight-ready or whether the motor architecture needs fundamental reconsideration.
 
 ### +10% Testing Efficiency / −15% Turnaround Time
 
-I helped design and establish a new solid rocket engine test facility, including a custom data acquisition system with real-time performance monitoring.
+I helped design and establish a new solid rocket engine test facility with a custom data acquisition system and real-time performance monitoring.
 
-Weak test infrastructure makes every engineering decision slower and more expensive.
-
-The new setup reduced post-test processing overhead and improved turnaround time by 15%, allowing faster design iteration cycles and stronger test reliability.
+The new setup reduced post-test processing overhead and improved turnaround time by 15%, allowing faster design iterations and stronger test reliability across the propulsion team.
 
 ### −50% Data Analysis Time
 
 I worked with a teammate to build a Python automation pipeline for processing test-stand data from static-fire tests.
 
-Before that, moving from raw sensor output to usable engineering insight took too long and slowed down iteration across the propulsion team. Test results often required manual cleanup, repeated calculations, and delayed post-test analysis.
-
-We built a workflow that automated data cleaning, processing, and performance interpretation, making it easier to move from thrust data and burn measurements to actual design decisions.
-
-This reduced analysis time by 50% and allowed the team to run more test iterations within each sprint.
-
-Faster engineering often comes from reducing delay between testing and learning, not from working longer hours.
+Before that, moving from raw sensor output to usable engineering insight took too long and slowed iteration. The pipeline automated data cleaning, processing, and performance interpretation — reducing analysis time by 50% and enabling more test iterations within each sprint.
 
 ### +15% Motor Thrust
 
-Post-test analysis showed that propellant mixture composition and grain geometry were the variables with the greatest influence on thrust performance.
+Post-test analysis identified propellant composition and grain geometry as the variables with the greatest influence on thrust performance.
 
-By comparing simulation results with static-fire test data, we were able to identify where performance losses were happening and which design changes would produce the most meaningful improvement.
+By comparing simulation results with static-fire data, we located where performance losses were occurring and which changes would produce the most meaningful improvement. Adjustments to propellant composition and grain design delivered a 15% increase in thrust output.
 
-Those recommendations were incorporated into later motor revisions through adjustments to propellant composition and grain design, resulting in a measurable 15% increase in thrust output.
+The improvement came from understanding the system more precisely, not from simply increasing effort.
 
-The improvement came from understanding the system more clearly and making better design decisions, not from simply increasing effort.
+### Manufacturing and Test Discipline
 
-### Propulsion Manufacturing and Test Discipline
+I supported fabrication and assembly of solid rocket motor components — propellant grain preparation, motor casing assembly, and nozzle integration — under strict quality and safety procedures.
 
-I supported the fabrication and assembly of solid rocket motor components, including propellant grain preparation, motor casing assembly, and nozzle integration, under strict quality and safety procedures.
+Across manufacturing, testing, and launch operations, the propulsion program maintained a clean safety record while completing its first integrated propulsion system test launch.
 
-Across manufacturing, testing, and launch operations, the propulsion program maintained a clean safety record while successfully completing its first integrated propulsion system test launch.
+## What Operating This Taught Me
 
-In rocketry, safety is inseparable from engineering quality.
+### Rockets Are Systems Problems
 
-## Propulsion Development
+Working with the Kenya Space Agency changed how I thought about what the Nakuja Project was actually building.
 
-Each rocket in the Nakuja series uses a custom-designed solid propellant motor built entirely by the team.
+KSA facilitated launch clearances and hosted our team at the Broglio Space Center in Malindi — Kenya's historic satellite tracking facility. Seeing the ground station infrastructure, satellite dish arrays, and orbital operations firsthand made something concrete: the rocket is only one layer of the problem.
 
-The propellant uses a potassium nitrate / sucrose-dextrose mixture chosen for availability, cost, and predictable burn characteristics. The nozzle geometry is convergent-divergent and machined in-house from mild steel.
+Launch vehicles, mission operations, tracking infrastructure, regulatory approvals, and institutional partnerships all determine whether a space program delivers payloads. A motor that performs perfectly on a test stand but cannot get launch clearance is not a working system. A program that builds excellent hardware but has no path to orbit has not yet solved the actual problem.
 
-Every design is validated through static-fire testing on a purpose-built thrust stand instrumented with load cells and a custom data acquisition system logging thrust, chamber pressure, and burn time.
+The hardest engineering challenges are rarely isolated technical problems. They are system problems that look like technical ones until you zoom out far enough to see the full picture.
 
-The work is deliberately low-cost and practical: build, test, fail, improve, repeat.
+### The Team Is the Infrastructure
+
+Growing Nakuja from 6 to 40+ contributors taught me something about engineering programs that motor testing never could.
+
+Knowledge that lives in one person is not institutional knowledge. It is a countdown timer.
+
+Critical propulsion know-how — propellant chemistry, fabrication procedures, test stand operation, failure mode analysis — that exists only in the heads of two or three people cannot sustain reliable iteration. When those people graduate, the program restarts from a lower baseline.
+
+The most durable thing I built at Nakuja was not a motor. It was the onboarding structure, technical documentation, and mentorship culture that let the program carry forward knowledge across cohorts. A program that absorbs new contributors quickly and preserves what it already knows is one that compounds over time instead of cycling.
+
+## Platform Scale
+
+The Nakuja Project has grown from a 6-person research group into a multi-university engineering community working toward orbital launch capability.
+
+The rocket series has validated progressively harder targets across five vehicles:
 
 | Rocket | Launch | Avg Thrust | Apogee |
 |--------|--------|-----------|--------|
-| N-1 | May 2021 | — | 34 m (recorded flight); 285 m simulated |
+| N-1 | May 2021 | — | 34 m recorded / 285 m simulated |
 | N-2 | November 2022 | 35 N | 500 m target altitude |
-| N-3 | January 2024 | 151.7 N | ~1,637 m simulated apogee |
-| N-3.5 | May 2024 | — | >1,000 m (first achieved) |
+| N-3 | January 2024 | 151.7 N | ~1,637 m simulated |
+| N-3.5 | May 2024 | — | >1,000 m first achieved |
 | N-4 | 2024– | — | In development |
 
-## Broglio, KSA, and Systems Thinking
+The propellant uses a potassium nitrate / sucrose-dextrose mixture chosen for availability, cost, and predictable burn characteristics. Every design is validated through static-fire testing on a purpose-built thrust stand instrumented with load cells and a custom data acquisition system.
 
-Working with the Kenya Space Agency changed how I thought about the project.
+Both published research papers received Best Presentation awards at the Sustainable Research and Innovation Conference — the first student-led work to receive that recognition in more than a decade.
 
-KSA facilitated launch clearances and hosted our team at the Broglio Space Center — Kenya's historic satellite tracking facility.
-
-Seeing the ground station infrastructure, satellite dish arrays, and orbital operations firsthand made something clear: rockets are only one layer of the system.
-
-Launch vehicles, mission operations, tracking infrastructure, regulatory approvals, and institutional partnerships all determine whether space engineering works in practice.
-
-The hardest engineering problems are rarely isolated technical problems. They are system problems.
-
-That lesson shaped how I approach both rockets and teams.
+The program operates in collaboration with the Kenya Space Agency and maintains an open-source model with public hardware and software repositories.
 
 ## How I Think
 
-Engineering leverage comes from three things.
+Engineering leverage comes from three places.
 
-**Better models** — If you can predict behavior before expensive failure, you move faster.
+**Better models.** If you can predict motor behavior before fabrication, you spend time on iteration rather than diagnosis. Every hour of simulation before a static fire is worth multiple hours of post-failure analysis.
 
-**Better systems** — Strong test infrastructure beats heroic debugging.
+**Better systems.** Strong test infrastructure outperforms individual heroics. A DAQ that logs reliably, a test stand that produces clean data, a pipeline that removes manual processing — these multiply the value of every experiment the team runs.
 
-**Better people** — The best technical work compounds when knowledge survives individuals.
+**Better people.** Technical work compounds only when knowledge survives the individuals who created it. Building the internship pipeline was not a management task. It was an engineering investment in the program's ability to keep learning.
 
-That is why I care equally about propulsion models, test infrastructure, and internship pipelines.
+That is why I care equally about propulsion models, test infrastructure, and team onboarding.
 
-They all solve the same problem: reducing friction between intention and execution.
+They all answer the same question: how do you turn a design hypothesis into a verified data point before it becomes a launch-day assumption?
 
 ## Photo Gallery
 

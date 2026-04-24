@@ -33,149 +33,99 @@ The economics were equally demanding. DAC only becomes viable when the cost of c
 
 Controls, regeneration speed, purity, CAPEX, and energy recovery were all part of that same question: could the technology work reliably enough and cheaply enough to become commercially real?
 
----
+## Systems I Changed
 
-## Engineering Impact
+### Building a Proprietary Control Architecture
 
-Most of my work sat between technical correctness and commercial viability—making sure the machine captured CO₂ efficiently enough, cheaply enough, and reliably enough to justify deployment.
+For most of the machine's development, the control system ran on off-the-shelf industrial hardware. That was the right choice for a prototype: mature tooling, known behavior, fast setup.
 
-That meant solving both physics and economics at the same time.
+It was the wrong architecture for commercial scale.
 
----
+The platform could not support the sensor density required for R&D units without expensive expansion modules. Customization was limited. Long-term unit economics were untenable.
 
-### 63% CAPEX Reduction — Rebuilding the Control Stack
+I initiated and led the transition to a proprietary control stack built around in-house hardware and firmware.
 
-My proudest engineering decision was replacing the off-the-shelf industrial controller architecture with a custom proprietary control stack built around in-house hardware and firmware.
+I owned the PCB design for sensor conditioning and actuator interfacing, the firmware architecture for distributed control, the full build-vs-buy analysis, validation across R&D machines, and rollout across pilot systems.
 
-The original off-the-shelf setup was the right prototype choice for an early machine, where reliability and mature tooling mattered more than cost or flexibility. But as the system moved toward commercial readiness, it became economically impossible to scale.
+This was the decision that removed one of the biggest commercialization barriers in the company.
 
-The platform could not support the sensor density required for R&D units without expensive expansion modules, limited customization, and poor long-term unit economics.
+### Unlocking Stable Purity
 
-I initiated and led the transition.
-
-I owned:
-
-* PCB design for sensor conditioning and actuator interfacing
-* firmware architecture for distributed control
-* validation and deployment across R&D machines
-* the full build-vs-buy analysis
-* rollout of the proprietary controller stack across pilot systems
-
-This decision delivered the full 63% CAPEX reduction in control architecture costs while improving flexibility, OTA updates, custom I/O density, and long-term deployment economics.
-
-It removed one of the biggest commercialization barriers in the company.
-
----
-
-### Breaking a 2-Year Technical Deadlock
-
-For nearly two years, capture and regeneration inefficiency prevented the system from reaching commercial-grade output.
-
-The machine could run, but it could not produce stable CO₂ output pure enough for deployment.
+For nearly two years, capture and regeneration inefficiency prevented the system from reaching commercial-grade output. The machine could run, but it could not produce stable CO₂ pure enough for deployment.
 
 I led the work that broke that deadlock.
 
-This included:
+I replaced thermocouples with RTDs to eliminate temperature-control inaccuracies that introduced variability into every regeneration cycle. I wrote automated control programs to remove operator-driven process inconsistency. I redesigned seal interfaces and vacuum draw paths to ensure complete purge before regeneration. I improved regeneration consistency through better thermal sequencing.
 
-* replacing thermocouples with RTDs to eliminate temperature-control inaccuracies
-* writing automated control programs to remove operator-driven process variability
-* redesigning seal interfaces and vacuum draw paths to ensure complete purge before regeneration
-* improving regeneration consistency through better thermal control and sequencing
+Each change attacked a different failure mode. Together, they produced stable 24/5 industrial operation and the first fully deployed commercial DAC system in the Global South.
 
-The result was a stable 24/5 industrial operation achieving 99.9% product purity every cycle—directly enabling the first fully deployed commercial DAC system in the Global South.
-
-This was the moment the company moved from a lab experiment to an industrial system.
-
----
-
-### 83% Faster Regeneration / 3.6× CO₂ Throughput
+### Redesigning the Regeneration Cycle
 
 The binding constraint on unit economics was regeneration cycle time.
 
-How long it took to regenerate the adsorbent determined throughput, energy consumption, and ultimately cost per ton of CO₂ removed.
+Faster regeneration meant higher throughput, lower energy cost per ton, and a cleaner path toward sub-$100/ton capture. I diagnosed regeneration as the critical bottleneck and led cross-functional teams through the redesign.
 
-I diagnosed regeneration as the critical bottleneck and led 3 cross-functional teams to redesign the system around:
+The work covered heat transfer improvements, airflow optimization, regeneration sequence redesign, sorbent type selection and packing, and thermal recovery improvements.
 
-* heat transfer improvements
-* airflow optimization
-* regeneration sequence redesign
-* sorbent type selection and packing
-* thermal recovery improvements
+Each element had to be validated independently before integration, because the interactions between thermal, fluidic, and chemical behavior were not fully predictable from simulation alone.
 
-The outcome was an 83% reduction in regeneration cycle time and a 3.6× increase in daily CO₂ throughput.
+### Growing the Engineering Team
 
-This materially moved the system toward the sub-$100/ton commercial target.
+As the pilot plant became more reliable, it needed a team that could operate and maintain it without depending on the people who built it.
 
----
+I led the transition of 9 interns into full-time engineering contributors.
 
-### 0% Downtime Across 400+ Test Cycles
+This required more than onboarding documentation. New engineers needed clear ownership, strong operational discipline, and enough context to debug a system that was still evolving. I focused on building cross-functional collaboration across mechanical, chemical, and controls teams so that knowledge stayed accessible rather than siloed in a few people.
 
-I led a 5-person team operating the 2 ton/year TRL6 pilot plant and maintained 0% downtime across more than 400 test cycles.
+The goal was a team that could run 24/5 operations independently — and keep improving the machine while doing it.
 
-This was made possible by stronger controls, maintenance discipline, calibration schedules, fault detection, and faster operational debugging.
+## Engineering Impact
 
-Without repeatability, scale is only a theory.
+The outcomes from this work were measurable across cost, purity, throughput, reliability, and capital.
 
----
+**63% CAPEX reduction** in control architecture costs through the proprietary controller transition.
 
-### 4.6× Return on R&D Capital
+**99.9% CO₂ product purity** achieved and sustained across continuous 24/5 industrial operation — the threshold that enabled commercial deployment.
 
-I co-developed the technical R&D roadmap and due diligence framework that helped secure $3.1M in Series A funding.
+**83% faster regeneration cycle time** and a **3.6× increase** in daily CO₂ throughput from the regeneration redesign.
 
-I contributed through:
+**Zero downtime** across more than 400 test cycles operating the 2 ton/year TRL6 pilot plant.
 
-* technical diligence documentation
-* pilot validation data
-* machine performance modeling
-* system readiness validation for investors
+**$3.1M Series A** secured, with technical validation directly supporting the investment thesis.
 
-I also helped generate a 4.6× return on a $137K R&D budget, catalyzing $630K+ in follow-on capital to deploy a 9-unit regional pilot fleet in the Rift Valley.
+**4.6× return on a $137K R&D budget**, catalyzing $630K+ in follow-on capital toward a 9-unit regional pilot fleet.
 
-That work directly validated the technology case for a 30× scale-up from the 2 ton/year pilot to a 60 ton/year field deployment.
+**Validated scale-up path** from 2 ton/year pilot to a 60 ton/year commercial field unit — a 30× increase.
 
----
+## What Operating This Taught Me
 
-## Research and Validation
+### The Machine Answers to Physics First
 
-I co-authored:
+You can design control sequences, set timing parameters, and tune setpoints — but the adsorbent behaves according to thermochemistry, not schedule.
 
-**Simulation and Airflow Experimentation of a Multi-Layer Adsorbent Chamber for Enhanced Direct Air Capture Efficiency**
+The two-year purity deadlock was not a controls problem. It was a physics problem that looked like a controls problem until the instrumentation was accurate enough to show what was actually happening. Replacing thermocouples with RTDs did not fix the control algorithm. It revealed that the temperature readings had been wrong the entire time.
 
-Conventional axial-flow DAC systems push air directly through packed adsorbent beds, which creates high resistance, increases fan energy demand, and raises the cost per ton of captured CO₂.
+Working at the interface between control systems and physical processes taught me that the most important debugging step is often improving your ability to observe the system — not changing what the system does.
 
-We designed a multi-layer chamber that directed airflow laterally across thinner adsorbent sections in parallel, reducing pressure drop and lowering fan load.
+### Pilot Reliability Is Not Production Reliability
 
-The design was modeled in Ansys and then validated experimentally using airflow measurements from a prototype chamber.
+A machine that runs 24/5 but concentrates critical knowledge in three people is not a reliable system. It is a fragile one that has not failed yet.
 
-The work was presented at the Sustainable Research and Innovation Conference (2025).
+The transition from pilot operation to production-ready plant required building the team deliberately, not just growing headcount. Engineers needed to understand not just how to operate the machine, but why it was designed the way it was — what the failure modes were, which parameters mattered most, and how to debug under live operating conditions.
 
-The value of the research was in improving unit economics and system performance, with the paper serving as a record of work that had already proven useful in practice.
+Reliable industrial operation is not a property of the hardware alone. It is a property of the hardware and the team that understands it.
 
----
+## Platform Scale
 
-## External Validation
+Octavia Carbon operates the Global South's first fully deployed commercial Direct Air Capture system.
 
-Our pilot validation, purity standards, and operational reliability directly supported Octavia's AAA rating from BeZero Carbon—placing the project among the top tier of carbon removal projects globally.
+The pilot plant operates at 2 ton/year under a TRL6 classification. The engineering validation completed during this work established the scale-up path to a 60 ton/year commercial field unit — a 30× increase in capacity.
 
-The facility also received visits from figures including Meg Whitman and Ali Mohamed, reflecting the geopolitical importance of proving African-led carbon removal infrastructure at commercial scale.
+The system achieved a BeZero Carbon AAA rating, placing it among the highest-rated carbon removal projects globally. The facility has received visits from international figures including Meg Whitman and Ali Mohamed, reflecting the strategic importance of African-led climate infrastructure at commercial scale.
 
-When the world is watching, every data point matters.
+Three PCT patents have been filed covering the core technology.
 
----
-
-## Building the Team
-
-As the pilot plant became more reliable, the team had to grow with it.
-
-I led the transition of 9 interns into full-time engineering contributors, helping build the execution capacity needed to move from prototype experimentation to repeatable industrial operation.
-
-The work required more than adding people to the team. New engineers needed clear ownership, strong operational discipline, better documentation, and enough context to contribute effectively inside a system that was still being designed and tested in real time.
-
-I focused on creating stronger collaboration across mechanical, chemical, and controls teams so that knowledge stayed accessible and progress did not depend on a small group of people.
-
-Scaling the plant and scaling the team happened together. Both depended on building systems that could keep working even after the people who built the first version stepped away.
-
----
+Research was presented at the Sustainable Research and Innovation Conference (2025), covering simulation and experimental validation of a multi-layer adsorbent chamber design for enhanced DAC efficiency.
 
 ## How I Think
 
@@ -183,17 +133,15 @@ Climate hardware is unforgiving.
 
 Reliable systems come from three things:
 
-**Correct physics** — the process must work thermodynamically before it works financially.
+**Correct physics** — the process must work thermodynamically before it works financially. No amount of engineering discipline compensates for a chemistry that does not close.
 
-**Control over the stack** — the economics improve when you own the system instead of renting critical decisions from suppliers.
+**Control over the stack** — the economics improve when you own the system instead of renting critical decisions from suppliers. A proprietary controller is not an engineering preference. It is a cost structure.
 
-**Operational discipline** — a machine is only real when it can run repeatedly without heroics.
+**Operational discipline** — a machine is only real when it can run repeatedly, under real conditions, operated by people who were not there when it was designed.
 
 That is why I care equally about controls, process design, and team structure.
 
-They all solve the same problem:
-
-turning technical possibility into commercial reality.
+They all solve the same problem: turning technical possibility into commercial reality.
 
 ## Photo Gallery
 

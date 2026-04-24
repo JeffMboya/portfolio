@@ -21,41 +21,35 @@ result: "Route intelligence built for Nairobi"
 
 ## The Problem
 
-Running in Nairobi is hard to plan. Generic mapping apps give you roads, not loops.
-They don't know which trails turn to mud after the long rains, which stretches have
-no pavement, where loose dogs are reported, or whether a route stays shaded during
-the midday heat. Njia solves all of that in a single route request.
+Running in Nairobi is hard to plan. Generic mapping apps give you roads, not loops. They do not know which trails turn to mud after the long rains, which stretches have no pavement, where loose dogs are reported, or whether a route stays shaded during midday heat. Njia solves all of that in a single route request.
 
 ## How It Works
 
-The user picks a start point on a Mapbox map, sets a target distance, and chooses
-surface and shade preferences. The API calls a self-hosted **GraphHopper** instance
-(configured with Nairobi OSM data) using the `round_trip` routing algorithm to
-generate a closed loop of approximately the requested distance.
+The user picks a start point on a Mapbox map, sets a target distance, and chooses surface and shade preferences. The API calls a self-hosted GraphHopper instance configured with Nairobi OSM data using the `round_trip` routing algorithm to generate a closed loop of approximately the requested distance.
 
 The raw route is then enriched by four independent services before being returned:
 
 | Service | What it does |
 |---|---|
 | Weather | Fetches Open-Meteo forecast; flags mud risk and suppresses trail suggestions when rain is recent |
-| Shade | Scores route segments by tree/building cover using sun-position geometry (suncalc) and OSM land-use tags |
-| Safety | Queries crowd-sourced hazard reports (dogs, flooding, darkness, construction) stored in PostGIS, weighted by category severity and time-of-day |
+| Shade | Scores route segments by tree and building cover using sun-position geometry and OSM land-use tags |
+| Safety | Queries crowd-sourced hazard reports weighted by category severity and time of day |
 | Fuel | Finds petrol stations within 300 m of the route — useful as water-stop landmarks on longer runs |
 
-## Architecture
+### Payments
 
-The repo is a **npm workspaces monorepo** with three packages:
+Premium routes beyond the 3 free/month limit are unlocked via M-Pesa STK Push — Kenya's dominant mobile money platform. The API integrates directly with the Safaricom Daraja API: the user enters their phone number, a push notification appears on their phone, and the plan activates immediately on payment confirmation via webhook.
+
+### Safety Scoring
+
+The safety model is time-aware. A `darkness` alert filed at 21:00 carries full weight at night but zero weight at noon. Each hazard category has its own default expiry: `dog` = 7 days, `flooding` = 3 days, `no_sidewalk` = 180 days. Confirmed and disputed counts from other runners shift the score up or down.
+
+## Design
+
+The repo is an npm workspaces monorepo with three packages:
 
 - `apps/api` — Express + TypeScript REST API, Vitest test suite, Pino structured logging
 - `apps/web` — Next.js 15 frontend with Mapbox GL JS for map rendering, Google OAuth login
 - `packages/shared` — Zod schemas, type definitions, and shared utilities used by both apps
 
 The whole stack runs in Docker Compose. nginx terminates TLS and proxies to the API and web containers. A read replica of the OSM PBF extract is loaded directly into GraphHopper's routing engine at startup.
-
-## Payments
-
-Premium routes (beyond the 3 free/month limit) are unlocked via **M-Pesa STK Push** — Kenya's dominant mobile money platform. The API integrates directly with the Safaricom Daraja API: the user enters their phone number, a push notification appears on their phone, and the plan is activated immediately on payment confirmation via webhook.
-
-## Safety Scoring
-
-The safety model is intentionally time-aware. A `darkness` alert filed at 21:00 carries full weight at night but zero weight at noon. Each hazard category has its own default expiry (`dog` = 7 days, `flooding` = 3 days, `no_sidewalk` = 180 days). Confirmed and disputed counts from other runners shift the score up or down.
