@@ -1,12 +1,20 @@
 ---
 title: Scripli
 slug: scripli
-description: A privacy-first human authorship certificate platform. Proves a document was written by a real person — without ever seeing the document. Zero content storage, cryptographically verifiable, publicly checkable without an account.
+description: A privacy-first human authorship certificate platform built solo from scratch. Issues cryptographically verifiable Human Authenticity Certificates proving a document was written by a real person—without ever seeing the document. Built the full stack end-to-end: REST API, Next.js frontend, browser telemetry SDK, Chrome extension, and a multi-tenant institutional platform with LMS integration, billing, and public verification.
 stack:
   - Next.js
   - TypeScript
+  - Fastify
   - PostgreSQL
+  - Redis / BullMQ
+  - Prisma
   - Web Cryptography API
+  - Stripe
+  - PDFKit
+  - Chrome Extension (MV3)
+  - Docker
+  - nginx
 date: "2026-02"
 github: null
 demo: https://scripli.com
@@ -15,47 +23,172 @@ cover: /covers/scripli.svg
 result: "Privacy-first authorship verification"
 ---
 
-## The Problem
+## Why This Work Mattered
 
 Generative AI broke the implicit trust contract between writers and their readers.
 
-For most of history, if someone submitted an essay, a report, or an article, you
-could assume a human wrote it. That assumption no longer holds. The dominant response
-has been AI detection — classifiers that try to determine whether text was machine-generated.
-Detection is the wrong framing. It's probabilistic, produces false positives, and degrades
-as models improve. A student who wrote their own essay can be flagged. A journalist with a
-genuine scoop can be accused of fabrication.
+For most of history, if someone submitted an essay, a report, or an article, you could assume a human wrote it.
 
-The right question isn't "did a human write this?" — it's "can this person prove they wrote this?"
-Proof is binary. Detection is probabilistic.
+That assumption no longer holds.
 
-## Approach
+The dominant response has been AI detection — classifiers that try to determine whether text was machine-generated. Detection is the wrong framing. It is probabilistic, produces false positives, and degrades as models improve. A student who wrote their own essay can be flagged. A journalist with a genuine scoop can be accused of fabrication.
 
-Scripli establishes authorship through process evidence rather than content analysis.
-The document never leaves the user's device. What gets recorded and sealed is evidence
-of the writing session itself — enough to demonstrate a human was at the keyboard,
-without revealing what they wrote.
+Detection treats the writer as a suspect.
 
-The result is a certificate: a short, shareable identifier that maps to a public
-verification page anyone can check without an account.
+The right question is not "did a human write this?" — it is "can this person prove they wrote this?" Proof is binary. Detection is probabilistic.
 
-## Privacy as a Hard Constraint
+Scripli is the answer to the second question.
 
-Zero content storage is not a policy promise — it's an architectural constraint enforced
-at every layer. The system is designed so that no document text can be transmitted or
-stored even if a developer wanted to. A technically sophisticated user can confirm this
-independently without needing to trust the platform.
+## What I Built
 
-This constraint ruled out a large class of simpler implementations and shaped every
-major technical decision in the product.
+I built Scripli as a complete product, solo, from scratch.
 
-## Public Verification
+That meant designing and shipping the full system: a Fastify REST API, a Next.js web application, a browser telemetry SDK distributed as both ESM and CJS packages, a Chrome extension for Google Docs, a multi-tenant institutional platform for universities and instructors, an async job pipeline, a certificate issuance and PDF generation system, Stripe billing, and public verification infrastructure.
 
-Any certificate can be verified by anyone, without an account. A certificate identifier
-maps to a public page showing who issued it, when the session ran, and whether the seal
-is intact.
+Every layer of the product reflects a single design constraint: zero document content can ever leave the writer's device.
 
-The value is not the certificate itself — it's that the certificate can be checked
-independently. A hiring manager, a professor, or an editor can verify without treating
-Scripli as a trusted intermediary. The verification path is intentionally minimal and
-cacheable.
+That constraint shaped every technical decision.
+
+## Systems I Built
+
+### The Writing Session SDK
+
+The core of Scripli is a browser SDK that captures process evidence — not content.
+
+It ships as a standalone JavaScript package (ESM and CJS) and as a React Native module, designed to integrate into any editor environment. It was also wrapped into a Chrome extension that works inside Google Docs.
+
+The SDK records only metadata: timing patterns, revision behavior, session events, and client-side document state signals. No text is ever transmitted. A technically sophisticated user can confirm this independently.
+
+That meant I had to solve for a hard constraint on day one: the SDK needed to be meaningful enough to distinguish real human sessions from automated or copy-pasted submissions, without ever touching the words.
+
+I built the SDK to be embeddable anywhere: the Scripli editor, third-party applications via the public package, the Chrome extension, and eventually Word and LMS-embedded editors.
+
+### Human Authenticity Certificates
+
+After a writing session closes, Scripli analyzes the session evidence and issues a Human Authenticity Certificate (HAC) — a cryptographically signed, tamper-evident record that the session occurred.
+
+I built the full certificate pipeline: session analysis, certificate issuance, cryptographic signing, PDF generation, and public verification.
+
+Each certificate has a short identifier that maps to a public verification page. Anyone — a professor, an editor, a hiring manager — can verify a certificate without creating an account or treating Scripli as a trusted intermediary.
+
+The certificate also supports optional Bitcoin timestamp anchoring through OpenTimestamps, which allows the existence of a session to be proved against a public, immutable record independent of the Scripli platform.
+
+Revocation is supported as a first-class feature. Certificates can be revoked with a visible reason, and verification pages show revocation status so third parties always see the current state.
+
+### Institutional Platform
+
+Individual writers are one side of the market. The larger opportunity is institutions.
+
+I built a full multi-tenant platform for universities, companies, and educational providers. Every resource is scoped to an institution from day one: users, documents, sessions, certificates, courses, and assignments.
+
+Instructors can create courses, assign writing sessions to students, and view class-wide analysis. Students can see their own writing history, manage documents, and download their certificates.
+
+I also built a defense request workflow for cases where a student has been accused of AI-generated writing. The student can submit their writing evidence through the platform as part of a formal appeal, with the session record and certificate supporting their case.
+
+### LMS Integration
+
+Institutions already have learning management systems.
+
+I built LTI 1.3 support so Scripli can be launched directly from Canvas, Moodle, or any standards-compliant LMS. An instructor creates an assignment inside their LMS, students click through and land in a Scripli session already scoped to that assignment. The session record is linked back to the original assignment context.
+
+That mattered because adoption inside institutions depends on reducing friction for instructors. Requiring every instructor to log into a separate platform to manage assignments was a non-starter. The LTI path removes that barrier.
+
+### Writing Fingerprint and Wrapped
+
+Beyond certificates, I built a writing fingerprint view that gives writers a behavioral profile of their writing patterns across sessions — not a score to be gamed, but a personal record of how they actually write.
+
+I also built Wrapped: an annual writing year-in-review that summarizes a writer's year of sessions, behavioral patterns, and certificate history. It generates a shareable card and a personal summary page.
+
+### Billing and Platform Operations
+
+Scripli runs as a live commercial product.
+
+I integrated Stripe for subscription billing with a founding member tier, webhook handling for subscription lifecycle events, and a billing dashboard inside the web app.
+
+I also built the full operational infrastructure: async job queue for certificate issuance, data retention policies configurable per institution, weekly digest emails for instructors, demo environment cleanup, and a super-admin analytics dashboard for platform-level visibility.
+
+## Engineering Decisions
+
+### Privacy as Architecture, Not Policy
+
+Most platforms make privacy a policy choice. A policy can change. An architecture cannot.
+
+I designed Scripli so that no document text can be transmitted or stored — not because of a rule, but because the system provides no path to do so. The client computes one-way representations of document state and sends only those.
+
+This constraint eliminated a large class of simpler implementations and raised the difficulty of certain analyses. I chose the constraint anyway because the platform's credibility depends entirely on that guarantee being independently verifiable, not just stated.
+
+A privacy policy is not evidence. An architecture is.
+
+### Public Verification Without a Trusted Intermediary
+
+Anyone can check a Scripli certificate.
+
+That design decision — verification without an account, without trusting the platform — was deliberate. The goal was to make the certificate meaningful regardless of whether Scripli exists in five years.
+
+A certificate that requires a platform to stay online to be checkable is not a certificate. It is a lookup table with a vendor dependency.
+
+The verification path is intentionally minimal and designed to be cacheable, so the certificate remains checkable even under adverse conditions.
+
+### Building for Both Ends of the Market
+
+Individual writers need a simple, fast path: write, get a certificate, share it.
+
+Institutions need enrollment management, assignment workflows, class-wide analysis, audit trails, LMS integration, and billing.
+
+These are very different products sharing the same core data model.
+
+I designed the multi-tenant architecture from the beginning with this in mind, so the same session records and certificates that work for an individual writer also feed into instructor dashboards, course-level analysis, and institution-wide reporting without a separate data pipeline.
+
+## What Building This Taught Me
+
+### Proof Is Harder Than Detection
+
+Every AI detection product has the same architecture: input text, output probability.
+
+Proof is a harder problem because it requires you to build infrastructure around the absence of something — the content — rather than its presence.
+
+You cannot analyze what you do not have. That meant building a different kind of signal, one that is meaningful without revealing the document.
+
+Getting that right required thinking carefully about what actually distinguishes a human writing session from an automated one, and making sure the answer was legible to a third party who was not in the room.
+
+### Trust Is Infrastructure
+
+Scripli is not primarily a writing tool.
+
+It is trust infrastructure for a world where the default assumption about text has changed.
+
+The certificate is the product. But what makes the certificate valuable is not the platform — it is that the platform can be verified independently, that the signatures can be checked, that the privacy guarantee can be confirmed.
+
+Building for trust means every layer of the system has to be defensible.
+
+Not just secure. Defensible.
+
+A user should be able to understand why their data is safe — not just be told it is.
+
+### Friction Is a Design Failure
+
+The hardest part of building Scripli was not the cryptography, the SDK, or the multi-tenancy.
+
+It was making the path from "I need to prove I wrote this" to "I have a certificate I can share" as short as possible.
+
+Every extra step is a student who gives up. Every extra login prompt is an instructor who does not assign it.
+
+Adoption inside institutions depends on the product being genuinely easier than the alternative, not just technically better.
+
+That meant building the LTI integration, the Chrome extension, the shareable verification link, and the defense request workflow — all paths designed to reduce the distance between need and proof.
+
+## How I Think
+
+The right framing for Scripli is not "AI detection, but better."
+
+It is "authorship infrastructure for a world that has lost its default assumptions."
+
+That reframing changes what you build.
+
+Detection asks: is this AI?
+
+Proof asks: can you show that it was not?
+
+The answer to the second question requires building a system that records trustworthy evidence, seals it cryptographically, makes it publicly verifiable, and does none of that at the cost of the writer's privacy.
+
+That is what Scripli is.
