@@ -1,16 +1,26 @@
 ---
 title: Propeller
 slug: propeller
-description: An open-source WebAssembly orchestrator for the Cloud-Edge continuum, built by Abstract Machines. Deploys portable Wasm workloads from cloud servers down to microcontrollers running Zephyr RTOS, with sub-10ms boot times and full sandbox isolation. Funded under the EU Horizon Europe ELASTIC project.
+description: Open-source WebAssembly orchestrator for secure workload execution across the Cloud–Edge–IoT continuum. Worked across embedded Wasm execution, Zephyr RTOS integration, MQTT-based task delivery, Wasm component invocation, task scheduling, binary delivery, and runtime reliability—helping make Propeller capable of dispatching workloads from cloud servers down to ESP32-S3 microcontrollers running WAMR.
 stack:
   - Go
   - Rust
-  - C / Zephyr RTOS
+  - C
+  - Zephyr RTOS
   - WebAssembly
+  - WAMR
+  - Wasmtime
   - MQTT
   - ESP32-S3
-  - wasmtime / WAMR
   - PostgreSQL
+  - SQLite
+  - Docker
+  - TinyGo
+  - WASI Components
+  - WAVE Encoding
+  - ELASTIC HAL Interfaces
+  - Confidential Computing
+  - Attestation / TEE Validation
 date: "2024-03"
 github: https://github.com/absmach/propeller
 demo: null
@@ -19,181 +29,186 @@ featured: true
 result: "Open source — Apache-2.0, EU Horizon Europe ELASTIC project"
 ---
 
-## Overview
+## Why This Work Mattered
 
-Propeller is the flagship project of [Abstract Machines](https://abstractmachines.fr), a Paris-based research and engineering team building open-source infrastructure for the Cloud-Edge continuum. The goal: make deploying WebAssembly workloads from cloud servers to constrained microcontrollers as simple as a single CLI command.
+Most orchestration systems assume Linux, containers, stable networking, and enough memory to run heavyweight control planes.
 
-I joined as an **Embedded Systems Engineer**, responsible for the Rust-based Proplet edge runtime, Zephyr RTOS integration, and constrained-device deployment pipelines. Propeller is developed in the open under Apache-2.0 and partially funded by the EU Horizon Europe [ELASTIC project](https://elasticproject.eu/) (Grant Agreement No. 101139067), which investigates resilient Cloud-Edge-IoT architectures for smart networks.
+That assumption breaks at the edge.
 
-## The Problem
+Real edge systems are full of devices that do not behave like servers—microcontrollers with unreliable connectivity, RTOS devices with strict memory limits, gateways with inconsistent uptime, and edge nodes where Kubernetes is more burden than solution.
 
-Running arbitrary workloads on heterogeneous edge devices is harder than it looks.
-The edge is full of devices with different architectures, operating systems, and
-resource constraints. You want to ship code to a fleet of devices and have it run
-correctly on all of them — without pre-installing runtimes, without SSH access, and
-without a reliable network connection.
+You still need to deploy code there. You still need sandboxing. You still need secure execution. You still need trust.
 
-WebAssembly solves the portability problem. A WASM binary compiled once runs anywhere
-that has a WASM runtime. But that only solves half the problem. You still need a way
-to dispatch tasks, deliver binaries, and get results back — reliably, over a
-bandwidth-constrained connection that may drop at any time.
+Propeller exists to remove what I think of as the Linux tax.
 
-## How It Works
+The same workload should be deployable on a cloud VM or a constrained ESP32 running Zephyr without changing the execution model. A $4 microcontroller should be treated with the same architectural seriousness as a server.
 
-Propeller has two main components that communicate over MQTT:
+That was the part of the system I worked on: making the execution layer real across both manager and proplet runtimes, especially where memory, networking, and runtime behavior are all hard constraints.
 
-**Manager** (Go) — the control plane. Accepts task submissions via a REST API,
-stores task state in PostgreSQL (or SQLite for lighter deployments), and dispatches
-tasks to proplets over MQTT. Handles task lifecycle: pending to scheduled to running to completed or failed.
+## Systems I Changed
 
-**Proplet** (Rust) — the execution agent. Runs on edge devices. Subscribes to MQTT
-topics for its channel, receives `StartRequest` messages, fetches the WASM binary,
-executes it in a sandboxed wasmtime instance, and publishes results back to the manager.
+### 24 Concurrent WebAssembly Instances on a $4 Device
 
-```
-Manager (Go)
-    │  REST API  │  MQTT pub
-    │            ↓
-    │     RabbitMQ broker
-    │            ↓
-    └──── Proplet (Rust) ──── wasmtime ──── WASM binary
-                ↑
-         result publish
-```
+The strongest proof of the system was the embedded benchmark.
 
-MQTT was chosen over HTTP for the manager-proplet transport because it handles
-unreliable connections gracefully. QoS levels give you at-least-once delivery,
-the broker buffers messages when a device is offline, and the pub/sub model
-means you can fan out a task to multiple proplets with zero extra code.
+Using an ESP32-S3 running Zephyr RTOS and the WebAssembly Micro Runtime, I helped build and validate the embedded Proplet path capable of running 24 concurrent CPU-bound WebAssembly instances on a single microcontroller.
 
-## WASM Binary Delivery
+CPU-bound workloads scaled to 24 isolated instances with memory still available. Memory-heavy workloads hit hard limits much earlier, which made the benchmark useful beyond the headline because it mapped the real operating envelope.
 
-The most interesting engineering challenge was binary delivery. WASM binaries can
-be tens of megabytes. MQTT has a default message size limit of ~128MB but
-in practice brokers and clients struggle with messages over a few megabytes.
+That benchmark validated Propeller's central claim: the same orchestration layer can span from cloud infrastructure down to constrained RTOS devices without changing how workloads are dispatched or executed.
 
-We implemented three delivery strategies, in order of complexity:
+Portable execution only matters if it survives real hardware limits.
 
-**Inline base64** — for tiny binaries in development. The binary is base64-encoded
-and sent directly in the `StartRequest` payload. Simple, but doesn't scale.
+### Embedded Reliability Across Unfriendly Systems
 
-**OCI registry** — for production. The manager publishes the image reference, the
-proplet pulls the WASM binary from an OCI-compatible registry using the chunked
-MQTT protocol. The binary is split into ~512KB chunks, each published as a
-separate MQTT message, and the proplet reassembles them in order. This decouples
-binary size from message size.
+Running Wasm on a microcontroller is mostly not about Wasm.
 
-**HTTP URL** — the newest delivery path. For cases where you're already serving
-WASM binaries from a plain HTTP server, the proplet can fetch directly via `reqwest`
-with a streaming 100MB size limit. No MQTT chunking overhead, no OCI registry needed.
+It is about everything around it: Wi-Fi station mode, MQTT lifecycle ordering, reconnect behavior, socket polling, keepalive failures, stack sizes, memory fragmentation, discovery failures, result publishing, and WAMR compatibility.
 
-```rust
-async fn fetch_wasm_from_http(client: &HttpClient, url: &str) -> Result<Vec<u8>> {
-    let response = client.get(url).send().await?;
-    // fast-fail on content-length before downloading
-    if let Some(len) = response.content_length() {
-        if len as usize > WASM_FETCH_MAX_BYTES {
-            return Err(anyhow!("response exceeds size limit"));
-        }
-    }
-    // streaming read with running total check
-    let mut binary = Vec::new();
-    let mut stream = response.bytes_stream();
-    while let Some(chunk) = stream.next().await {
-        binary.extend_from_slice(&chunk?);
-        if binary.len() > WASM_FETCH_MAX_BYTES {
-            return Err(anyhow!("response exceeds size limit"));
-        }
-    }
-    Ok(binary)
-}
-```
+A device disappears and the system usually tells you almost nothing.
 
-## Embedded Proplet — Wasm on Microcontrollers
+I worked through failures across Wi-Fi provisioning, MQTT initialization order, reconnect handling, keepalive publishing, Last Will and Testament (LWT) behavior, failed proplet discovery, embedded credential management, stack sizing, and Zephyr kernel configuration.
 
-The most constrained environment Propeller targets is the ESP32-S3 — a dual-core
-Xtensa microcontroller with 512KB SRAM and no OS. To run WebAssembly on it, we use
-the **WebAssembly Micro Runtime (WAMR)** integrated with the **Zephyr RTOS**, with
-MQTT as the task transport layer.
+The goal was simple: make failures boring.
 
-I built and maintain the embedded proplet — a C implementation that runs on the
-ESP32-S3 and joins the same Propeller network as any Rust proplet:
+Reliable systems are built when invisible failures become predictable and recoverable.
 
-- **WiFi + MQTT client** — handles credential provisioning, reconnect logic, and
-  QoS-1 subscriptions for task delivery
-- **WASM handler** — invokes WAMR to instantiate and execute Wasm modules with
-  configurable memory limits and execution sandboxing
-- **Task monitor** — collects metrics (heap usage, CPU cycles) and publishes
-  heartbeat messages back to the manager
+### Extending the Wasm Runtime Beyond Simple Modules
 
-```c
-// Task dispatch on the embedded proplet
-static void handle_start_request(const cJSON *payload) {
-    const char *wasm_b64 = cJSON_GetStringValue(cJSON_GetObjectItem(payload, "wasm"));
-    size_t wasm_len = 0;
-    uint8_t *wasm_buf = base64_decode(wasm_b64, &wasm_len);
-    wasm_handler_run(wasm_buf, wasm_len);
-    free(wasm_buf);
-}
-```
+Propeller needed more than basic Wasm module execution.
 
-The Zephyr kernel config required careful tuning — WAMR's JIT is unavailable on
-Xtensa, so we use the interpreter mode. The key result from benchmarking on a
-single-core configuration (512KB SRAM, no PSRAM):
+I extended the Rust Proplet runtime to support custom component exports, WAVE-encoded invocation arguments, string-based task inputs, component export selection, ELASTIC HAL interfaces, and attestation and TEE validation paths.
 
-![24 concurrent WebAssembly instances on a $4 ESP32-S3](/covers/propeller-esp32-cover.webp)
+This moved the platform from "run a Wasm module" toward "run portable Wasm components that can interact with real hardware abstractions."
 
-**24 concurrent CPU-bound Wasm instances** running simultaneously on a single
-$4 chip, with 40KB of arena remaining and zero errors. Each instance gets an
-isolated 4KB stack and ~6KB of linear memory — the module is parsed once and
-instantiated N times, so the parse cost is paid exactly once regardless of
-instance count. MEM-type workloads (64KB linear memory each) cap at 2 concurrent
-instances before hitting OOM — the benchmark maps the limits precisely.
+That matters because production orchestration is not about executing a hello-world module. It is about executing real workloads safely across incompatible systems.
 
-This validates Propeller's core claim: a heterogeneous fleet ranging from cloud
-VMs to $4 microcontrollers can be orchestrated through the same MQTT-based
-dispatch layer.
+Runtime interfaces are where portability becomes useful.
 
-## The Hard Parts
+### Task Scheduling That Actually Understands the Edge
 
-**MQTT reconnect drops subscriptions.** When the manager sends a large MQTT message
-(a 9MB WASM binary dispatched inline will do it), the broker drops the connection.
-On reconnect, the manager re-publishes the message but its subscriptions — including
-the heartbeat topic for proplet liveness — are not automatically re-established.
-The proplet appears dead to the manager until a restart. The fix is to re-subscribe
-after every reconnect. This is a well-known MQTT footgun that the spec handles via
-`cleanSession: false`, but not all client libraries make this obvious.
+I worked on task orchestration across scheduling, dispatch, and execution targeting.
 
-**wasmtime WASI-HTTP proxy.** Running a WASM component that implements the
-`wasi:http/proxy` interface requires specific wasmtime configuration. The proplet
-supports both an external runtime (calling `wasmtime run` as a subprocess) and
-an internal runtime (wasmtime embedded as a Rust library). Only the internal runtime
-can configure the HTTP proxy listener properly. The `PROPLET_EXTERNAL_WASM_RUNTIME`
-environment variable must be empty for WASI-HTTP workloads — a non-obvious constraint
-that burned several hours of debugging.
+This included scheduled cron tasks, task priority scheduling, broadcast execution, targeted proplet execution, proplet metadata and identity handling, liveness history, and cleaner failure behavior for invalid or missing proplet IDs.
 
-**Database migrations across two storage backends.** Propeller supports both
-PostgreSQL and SQLite. Every schema change needs a migration for both. We use
-numbered migration IDs (`1_create_tables`, `2_add_workflow_job_columns`, etc.) with
-`ALTER TABLE ... ADD COLUMN IF NOT EXISTS` so migrations are idempotent. The PostgreSQL
-and SQLite migration runners use different libraries but the same numbered ID scheme,
-which makes it easy to keep them in sync.
+Scheduling is not just about when something runs.
 
-## What I'd Do Differently
+It is also about where it should run, who should execute it, whether it should fan out across multiple devices, and what should happen when the target disappears.
 
-**Observability from day one.** The current system is hard to debug in production.
-Task state is queryable via the REST API, but there's no distributed tracing and the
-MQTT message flow is invisible without attaching a broker-level monitor. Adding
-OpenTelemetry spans to the MQTT publish/subscribe path from the start would have
-saved significant debugging time.
+Good schedulers reduce operational surprise.
 
-**Abstract the delivery mechanism earlier.** The WASM delivery code in the proplet
-started as an if/else over `file` vs `image_url`. Adding `wasm_http_url` as a third
-path made the branching logic more complex than it needed to be. A proper
-`WasmSource` enum with a `fetch() -> Vec<u8>` interface would have made each
-delivery strategy independently testable from the start.
+Bad ones create it.
 
-**Use a proper service mesh for the broker.** Running RabbitMQ in Docker works but
-the keep-alive timeout configuration is fragile. A managed MQTT broker (HiveMQ Cloud,
-EMQX) would remove an entire class of connection stability issues that are outside
-the application's control.
+### Flexible Binary Delivery Instead of Forced Complexity
+
+Wasm binaries are easy until they are not.
+
+Inline payloads work for development. OCI registries work for production. But many teams already serve binaries over plain HTTP.
+
+I added HTTP-based Wasm delivery so Proplets could fetch binaries directly from HTTP and HTTPS URLs instead of forcing every deployment through registry workflows.
+
+That required new task model fields, PostgreSQL and SQLite storage changes, manager dispatch updates, safe streaming fetch limits, runtime routing logic, and delivery tests.
+
+The runtime should not care where the bytes came from.
+
+It should receive Wasm and execute it.
+
+Good infrastructure should support the simplest safe path instead of forcing unnecessary complexity.
+
+### Runtime Trust and Confidential Execution
+
+I also worked on the foundation for confidential edge computing.
+
+By extending support for ELASTIC HAL interfaces and attestation paths, I helped move execution trust closer to something verifiable instead of assumed.
+
+If workloads are going to run across shared or multi-tenant infrastructure, especially across the cloud-edge continuum, integrity matters.
+
+You need to know that a workload executed where it was supposed to execute, under the guarantees it expected.
+
+Attestation and TEE validation paths were the first step toward that.
+
+This was less about security as a feature and more about trust as infrastructure.
+
+## Engineering Impact
+
+Most of my work sat between runtime capability and constrained-device reliability—making sure workloads could actually run where the architecture claimed they could.
+
+That meant proving cloud-to-microcontroller execution was not just possible, but operationally reliable.
+
+Reliable orchestration is not just scheduling work.
+
+It is making sure the task can be delivered, fetched, executed, observed, and trusted across environments that behave nothing alike.
+
+The strongest engineering work was usually not adding features.
+
+It was removing uncertainty.
+
+Making devices visible.
+
+Making delivery predictable.
+
+Making execution trustworthy.
+
+That is where infrastructure becomes real.
+
+## What Operating This Taught Me
+
+### Execution Is the Product
+
+People think orchestration platforms are about scheduling.
+
+They are not.
+
+They are about trust.
+
+Can I submit work and know where it ran?
+
+Can I trust the result?
+
+Can I debug failure without touching the device?
+
+Can a constrained microcontroller behave like part of the same system as a cloud VM?
+
+That is the real product.
+
+Everything else is interface.
+
+### Reliability Starts Before Incidents
+
+Most failures begin long before the outage.
+
+Unsafe delivery paths, weak reconnect logic, poor observability, fragile migrations, bad rollback assumptions, and missing liveness signals create incidents long before production notices them.
+
+Working on Propeller reinforced the same lesson repeatedly: reliability is usually decided before the incident exists.
+
+The best systems do not eliminate failure.
+
+They make failure predictable.
+
+## Platform Scale
+
+Propeller is part of the EU Horizon Europe ELASTIC project and serves as orchestration infrastructure for secure Cloud–Edge–IoT execution across research and production environments.
+
+The system is built around WebAssembly-native execution, MQTT-based distributed task dispatch, Zephyr RTOS and WAMR support, Wasmtime runtime execution, OCI and HTTP Wasm artifact delivery, secure sandboxed execution, and no dependency on Kubernetes or heavyweight control planes.
+
+This was Day 0 engineering—building the execution model early enough that the rest of the platform could trust it.
+
+Working on systems like this changes how you think.
+
+You stop optimizing for features.
+
+You optimize for trust.
+
+## How I Think
+
+Reliable distributed systems come from three things.
+
+Strong execution boundaries. Workloads must run safely and consistently across different hardware and runtime environments.
+
+Safe delivery paths. The system must survive bad networks, constrained devices, and partial failure without losing trust.
+
+Operational clarity. Debugging should be fast, boring, and predictable.
+
+That is why I care equally about runtimes, schedulers, protocols, and observability.
+
+They all solve the same problem: reducing the distance between submitted work and trusted execution.
