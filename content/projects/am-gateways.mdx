@@ -1,7 +1,7 @@
 ---
 title: S0 & S1 IoT Gateways
 slug: am-gateways
-description: Open-source IoT gateway hardware built at Abstract Machines. The S0 is a compact RISC-V module running Zephyr with multi-protocol wireless support. The S1 pairs it with a Linux-capable BeagleV-Fire processor for edge computing and containerised workloads.
+description: Open-source IoT gateway hardware built at Abstract Machines for smart metering, industrial IoT, and edge computing. I worked across Zephyr firmware, board schematic design, multi-protocol connectivity, hardware bring-up, documentation, and platform integration—helping turn the S0 and S1 gateways into modular infrastructure for field devices that need to speak Wireless M-Bus, cellular, WiFi, BLE, Ethernet, and cloud protocols from the same open hardware stack.
 stack:
   - PCB Design
   - ESP32-C6
@@ -9,6 +9,11 @@ stack:
   - RISC-V
   - Wireless M-Bus
   - NB-IoT / LTE-M
+  - WiFi / BLE
+  - Ethernet (W5500)
+  - SIM7080G
+  - BeagleV-Fire
+  - Magistrala
   - C
 date: "2025-06"
 github: null
@@ -18,55 +23,146 @@ cover: /hardware/s0.webp
 result: "Multi-protocol IoT gateway shipping to industrial deployments"
 ---
 
-## The Problem
+## Why This Work Mattered
 
-Most IoT gateway hardware forces a choice: either something small and power-efficient that speaks only one protocol, or something powerful enough for real edge compute but too large and expensive for field deployments. Smart metering infrastructure, in particular, depends on Wireless M-Bus — a protocol that most commodity modules simply don't support.
+Most IoT gateway hardware forces a bad tradeoff.
 
-The goal was a modular platform that could do both: small enough to deploy anywhere, powerful enough to run real workloads, and open down to the schematics.
+Small embedded devices are power-efficient and cheap to deploy, but they are usually limited in protocol support and edge compute. Larger gateways can run Linux, containers, and richer workloads, but they are often too expensive, too closed, or too large for real field deployments.
 
-## What We Built
+Smart metering makes that tradeoff worse.
 
-### S0 — The Module
+A field gateway may need to read Wireless M-Bus meters at 868 MHz, maintain NB-IoT or LTE-M backhaul, expose WiFi or BLE locally, buffer data offline, and integrate cleanly with a cloud IoT platform. Most commodity boards do not cover that full stack.
 
-The S0 is a compact IoT module built around the ESP32-C6, Espressif's RISC-V based SoC with native 802.15.4 support. It runs Zephyr RTOS and handles simultaneous connectivity across four protocol stacks: Wireless M-Bus at 868 MHz, NB-IoT and LTE-M for cellular backhaul, and WiFi and BLE for local connectivity.
+The goal of S0 and S1 was to build a modular gateway family that could scale from low-power embedded deployments to Linux-based industrial edge computing without changing the core connectivity model.
 
-<img src="/hardware/s0.webp" alt="S0 IoT module — ESP32-C6, SIM7080G, and RC-S2LP-868 on a single board" style={{width: '100%', maxWidth: '480px', borderRadius: '8px', margin: '12px 0 20px'}} />
+S0 handles the constrained side.
 
-The three radio modules are visible on the board: the Espressif module handles WiFi, BLE, and 802.15.4; the SIMCom SIM7080G handles NB-IoT and LTE-M with a nano SIM slot; and the Radiokontrolli RC-S2LP-868 handles Wireless M-Bus at 868 MHz. Everything sits on a dense edge-connector footprint that plugs directly into the baseboard.
+S1 extends the same wireless core into a Linux gateway.
 
-The design is modular by intent. The S0 sits on a baseboard that adds Ethernet, SD card logging, and M-Bus pass-through headers — so the same module covers both battery-backed field sensors and rack-mounted aggregators.
+I worked on making that system reliable enough for real deployments, from board-level power paths to Zephyr firmware behavior and platform integration.
 
-<img src="/hardware/baseboard.webp" alt="S0 Baseboard — HanRun Ethernet jack, SD card slot, power regulation, and S0 edge connector" style={{width: '100%', maxWidth: '480px', borderRadius: '8px', margin: '12px 0 20px'}} />
+## Systems I Changed
 
-### S1 — The Gateway
+### A Modular Gateway Instead of Another Closed Box
 
-The S1 combines the S0 module with a BeagleV-Fire carrier board. BeagleV-Fire runs full Linux on a PolarFire SoC — RISC-V application cores alongside FPGA fabric. This gives the S1 proper edge compute: containerised workloads, local inference, and protocol translation that would be impossible on a microcontroller.
+I worked on shaping the S0 as a deployable gateway rather than just another radio board.
 
-From a connectivity standpoint the S1 inherits the S0's full wireless stack and adds Ethernet, multiple USB ports, and GPIO expansion. It integrates natively with Magistrala, Abstract Machines' open-source IoT messaging platform, so sensor data flows from the field to the cloud without custom glue code.
+The S0 is built around the ESP32-C6, a RISC-V microcontroller running Zephyr RTOS, and combines Wireless M-Bus, NB-IoT, LTE-M, WiFi, and BLE in a compact open-source module.
 
-<video
-  src="/hardware/s1.mp4"
-  controls
-  muted
-  playsInline
-  style={{width: '100%', borderRadius: '8px', margin: '12px 0 20px'}}
->
-  S1 gateway demo
-</video>
+I worked across the hardware and firmware decisions that made that architecture practical for smart metering deployments where a single gateway needs to handle local meter collection, cellular backhaul, commissioning access, and offline recovery without becoming multiple separate devices.
 
-## Hardware Engineering
+The baseboard extends that module with Ethernet, wired M-Bus, SD card logging, 24V industrial power input, battery backup, and DIN-rail mounting.
 
-Both boards are fully open-source — schematics, PCB layouts, and BOM are publicly available. The design choices reflect field constraints more than lab constraints: wide input voltage ranges, secure boot, encrypted storage, and a form factor that fits standard DIN rail enclosures.
+That turns the S0 from a development board into field infrastructure.
 
-The RF design required careful attention to antenna placement and ground plane management to maintain sensitivity across the M-Bus band while coexisting with WiFi and BLE on the same board. Regulatory compliance for 868 MHz operation in the EU shaped the output power budget and duty cycle handling in firmware.
+### I Designed the Power Architecture Around Real Deployment Conditions
 
-## Firmware
+I worked directly on the board schematic design, especially around the power architecture of the S0 baseboard.
 
-The S0 firmware is written in C against the Zephyr RTOS HAL. Zephyr's device tree model maps cleanly to the S0's hardware — peripheral configuration lives in the DTS overlay rather than scattered across application code. Protocol drivers for Wireless M-Bus are implemented as Zephyr subsystem modules, which keeps the radio stack testable in isolation.
+The board was designed for 24V DC industrial input with a wide operating range of roughly 18–36V because that reflects the reality of industrial cabinets, smart metering installations, and building systems—not clean lab power supplies.
 
-The S1 runs a standard Linux distribution with Magistrala agent services containerised via Docker. The S0 module on the S1 handles all RF and sensor I/O; the BeagleV-Fire application cores handle routing, storage, and cloud egress. The boundary between the two is a UART bridge — simple and reliable.
+I worked on the regulator path, voltage conversion flow, battery backup behavior, charging path, and power sequencing needed to keep the gateway stable across noisy field power conditions.
 
-## Deployment Context
+The board needed reliable conversion down to the rails required by the ESP32-C6, the SIM7080G cellular modem, the Ethernet controller, storage components, and peripheral interfaces.
 
-The gateways are designed for smart metering infrastructure, building management systems, and industrial IoT environments where a single field device needs to aggregate readings from dozens of sensors, apply local logic, and forward structured data upstream. The S0 handles low-power deployments on battery. The S1 handles sites with mains power that need local compute — edge AI inference, local dashboards, or offline buffering.
+Battery backup was especially important because telemetry systems cannot simply disappear during short outages. I worked on ensuring clean switchover behavior between external power and backup power without destabilizing the radio modules or SD logging path.
 
+I also focused on modem startup behavior. Cellular modules like the SIM7080G are extremely sensitive to unstable enable lines and poor power sequencing. A bad startup sequence often looks like a networking failure, which makes debugging painful.
+
+Stable power paths and predictable startup behavior were critical.
+
+Good power design is invisible when it works, but it is usually the first reason field hardware fails.
+
+### I Designed Networking Interfaces for Failure, Not Just Connectivity
+
+I worked on the networking sections of the board so deployments could survive real field conditions instead of ideal assumptions.
+
+The S0 handled wireless connectivity through Wireless M-Bus at 868 MHz for smart metering, NB-IoT and LTE-M for cellular backhaul through the SIM7080G, and WiFi and BLE through the ESP32-C6 for commissioning and local access.
+
+I worked around how those interfaces were exposed in the schematic, including modem control lines, SIM routing, Ethernet reset handling, interrupt paths, and how those signals were carried through the module-to-baseboard edge connector.
+
+The baseboard added wired Ethernet using the W5500 controller, which gave deployments a stable primary uplink where cellular was unnecessary, too expensive, or needed as fallback redundancy.
+
+That split mattered because different installations need different failure models. Some rely entirely on cellular, some depend on Ethernet, and others require both.
+
+The goal was not just adding connectivity.
+
+It was making connectivity predictable.
+
+A gateway should not require a hardware redesign every time deployment conditions change.
+
+### S1: Keeping the Same Wireless Core, Adding Linux Compute
+
+I helped shape the system boundary between S0 and S1 so the architecture stayed clean.
+
+The S1 pairs the S0 module with the BeagleV-Fire, giving the gateway a full Linux environment on RISC-V while keeping the S0 as the wireless connectivity core.
+
+The S0 handles RF, meter communication, low-power connectivity, and protocol-facing work. The BeagleV-Fire handles Linux-side processing, containers, edge AI, protocol translation, local storage, and cloud integration.
+
+That separation matters because it avoids forcing a microcontroller to behave like a server while still giving industrial deployments the compute they need.
+
+S0 is the field radio layer.
+
+S1 is the edge compute layer.
+
+Together, they form a gateway platform instead of a single-purpose device.
+
+### I Built Firmware Around the Board, Not Around Demos
+
+I worked on the embedded Zephyr firmware where the hardware becomes usable.
+
+Zephyr's device tree model made it possible to map the S0 hardware properly. I worked around how radio interfaces, GPIOs, UARTs, SPI devices, modem control lines, and protocol-specific configuration were represented so the board definition stayed clean instead of pushing hardware assumptions deep into application code.
+
+That mattered because the S0 is not a simple development board.
+
+It has multiple radios, modem control paths, external interfaces, and expansion through the baseboard. Firmware needed to reflect the actual board architecture and make protocol examples usable without developers having to reverse-engineer hardware behavior first.
+
+Good embedded firmware starts with making the board understandable.
+
+### Multi-Protocol Connectivity That People Can Actually Use
+
+The S0 was designed as a Swiss knife for wireless IoT.
+
+It supports Wireless M-Bus for smart metering, NB-IoT and LTE-M for cellular backhaul, WiFi and BLE for local connectivity, and expansion through the baseboard for Ethernet, wired M-Bus, and SD card logging.
+
+The hard part is not listing protocols on a feature sheet.
+
+The hard part is making the gateway architecture clean enough that those protocols can coexist without turning the firmware into a pile of one-off demos.
+
+I worked around configuration paths, build targets, interface ownership, documentation, and how someone would actually bring up each protocol path during deployment.
+
+A gateway is only useful if people can make it talk to the systems around it.
+
+### Magistrala Integration
+
+I worked on making the gateways fit naturally into Magistrala, Abstract Machines' open-source IoT platform.
+
+That mattered because hardware is only one half of the problem.
+
+A meter reading is not useful until it can move through authentication, device identity, channels, messaging, storage, and cloud-side processing.
+
+S0 collects and forwards data from constrained field devices.
+
+S1 adds local compute and richer edge-to-cloud behavior.
+
+Magistrala provides the platform layer for ingestion, device management, and messaging.
+
+The result is not just hardware.
+
+It is a complete path from field device to cloud infrastructure.
+
+## Engineering Impact
+
+Most of my work sat between hardware bring-up and platform usability.
+
+The boards needed to be open, modular, and technically capable, but they also needed to be understandable by someone trying to build on them.
+
+That meant working across schematics, firmware examples, hardware documentation, protocol setup, pinouts, board architecture, and integration paths.
+
+My goal was reducing the distance between receiving the hardware and collecting useful data from the field.
+
+That is where gateway projects usually succeed or fail.
+
+Not in the schematic alone.
+
+In the first week someone tries to make the board useful.
