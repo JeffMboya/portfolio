@@ -166,7 +166,7 @@ export default function LabPage() {
                     </a>
                   )}
                   <Link
-                    href={`/work/${project.slug}`}
+                    href={`/work/${project.slug}/`}
                     className="inline-flex items-center gap-1.5 text-[13px] transition-opacity duration-150 hover:opacity-70"
                     style={{ color: 'var(--muted)' }}
                   >

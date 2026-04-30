@@ -164,7 +164,7 @@ export default function Home() {
           {labProjects.map((project) => (
             <Link
               key={project.slug}
-              href={`/work/${project.slug}`}
+              href={`/work/${project.slug}/`}
               className="hover-card block rounded-xl p-6 transition-all duration-150 group hover:translate-y-[-2px]"
               style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
             >
@@ -196,7 +196,7 @@ export default function Home() {
           {latestNotes.map((note) => (
             <Link
               key={note.slug}
-              href={`/blogs/${note.slug}`}
+              href={`/blogs/${note.slug}/`}
               className="hover-card block rounded-xl p-6 transition-all duration-150 group hover:translate-y-[-2px]"
               style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
             >

@@ -7,7 +7,7 @@ export default function NoteCard({ meta, featured }: { meta: NoteMeta; featured?
   if (featured) {
     return (
       <Link
-        href={`/blogs/${meta.slug}`}
+        href={`/blogs/${meta.slug}/`}
         className="hover-card flex flex-col rounded-xl overflow-hidden transition-all duration-150 group hover:translate-y-[-1px]"
         style={{ border: '1px solid var(--border)', backgroundColor: 'var(--surface)' }}
       >
@@ -44,7 +44,7 @@ export default function NoteCard({ meta, featured }: { meta: NoteMeta; featured?
 
   return (
     <Link
-      href={`/blogs/${meta.slug}`}
+      href={`/blogs/${meta.slug}/`}
       className="hover-card flex flex-col rounded-xl overflow-hidden transition-all duration-150 group hover:translate-y-[-2px]"
       style={{ border: '1px solid var(--border)', backgroundColor: 'var(--surface)' }}
     >

@@ -10,7 +10,7 @@ interface ProjectCardProps {
 export default function ProjectCard({ meta }: ProjectCardProps) {
   return (
     <Link
-      href={`/work/${meta.slug}`}
+      href={`/work/${meta.slug}/`}
       className="hover-card flex flex-col rounded-xl overflow-hidden transition-all duration-150 group hover:translate-y-[-2px]"
       style={{ border: '1px solid var(--border)', backgroundColor: 'var(--surface)' }}
     >

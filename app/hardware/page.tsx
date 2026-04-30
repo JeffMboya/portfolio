@@ -63,7 +63,7 @@ export default function HardwarePage() {
               design for long-duration deployment inside a direct air capture plant.
             </p>
             <Link
-              href="/blogs/32-channel-rtd-thermocyclic-testing"
+              href="/blogs/32-channel-rtd-thermocyclic-testing/"
               className="text-[12px] font-medium underline underline-offset-2"
               style={{ color: 'var(--accent)' }}
             >
