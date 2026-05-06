@@ -164,7 +164,7 @@ export default function ResearchPage() {
             <div key={name} className="flex flex-col gap-1.5">
               <div className="relative aspect-[4/3] rounded-lg overflow-hidden" style={{ border: '1px solid var(--border)' }}>
                 <Image
-                  src={`/thesis-photos/${name}.jpg`}
+                  src={`/bird-deterrent/${name}.jpg`}
                   alt={caption}
                   fill
                   className="object-cover hover:scale-105 transition-transform duration-300"
