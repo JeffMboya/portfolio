@@ -23,27 +23,6 @@ This is the source for my personal portfolio. It covers my engineering work acro
 
 ---
 
-## Stack
-
-- **Framework:** Next.js 15 (App Router)
-- **Language:** TypeScript
-- **Content:** MDX (project pages, blog posts)
-- **Styling:** CSS custom properties, Tailwind
-- **Deployment:** Vercel
-
----
-
-## Running Locally
-
-```bash
-bun install
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000).
-
----
-
 ## Contact
 
 jeffmboya.com/contact · linkedin.com/in/jeffmboya · github.com/JeffMboya
