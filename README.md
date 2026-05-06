@@ -1,7 +1,5 @@
 # Jeff Mboya — Portfolio
 
-**jeffmboya.com**
-
 I build high-reliability infrastructure where there is no safety net — from solid rocket motors at the Nakuja Project to the Global South's first direct air capture control system at Octavia Carbon to WASM orchestrators at the edge at Abstract Machines.
 
 This is the source for my personal portfolio. It covers my engineering work across embedded systems, distributed infrastructure, edge compute, hardware, and independent projects.
