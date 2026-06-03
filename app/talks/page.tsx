@@ -17,19 +17,19 @@ const presentations = [
   },
   {
     year: 2024,
-    event: 'JKUAT-COETEC',
+    event: 'Sustainable Research and Innovation (SRI) Conference',
     paper: 'Improving Small Pest Bird Detection in YOLOv5s for Autonomous Bird Deterrent Systems',
     topic: 'Computer vision · Precision agriculture',
   },
   {
     year: 2024,
-    event: 'JKUAT-COETEC',
+    event: 'Sustainable Research and Innovation (SRI) Conference',
     paper: 'Development of Solid Propellant Motor for Low Altitude Model Rockets',
     topic: 'Propulsion · Rocketry',
   },
   {
     year: 2024,
-    event: 'JKUAT-COETEC',
+    event: 'Sustainable Research and Innovation (SRI) Conference',
     paper: 'Development of a Solid Propellant Motor for High-Powered Model Rockets',
     topic: 'Propulsion · Rocketry',
   },
