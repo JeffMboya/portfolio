@@ -19,7 +19,7 @@ export default function Footer() {
     <footer className="mt-20 pb-10">
       <div className="h-px mb-8" style={{ backgroundColor: 'var(--border)' }} />
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <p className="text-[12px]" style={{ color: 'var(--muted-dim)' }}>
+        <p className="text-[14px]" style={{ color: 'var(--muted-dim)' }}>
           © {year} Jeff Mboya. All rights reserved.
         </p>
         <nav className="flex flex-wrap gap-x-5 gap-y-2">
@@ -27,7 +27,7 @@ export default function Footer() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-[12px] transition-colors duration-150 hover:underline underline-offset-2"
+              className="text-[14px] transition-colors duration-150 hover:underline underline-offset-2"
               style={{ color: 'var(--muted-dim)' }}
             >
               {link.label}

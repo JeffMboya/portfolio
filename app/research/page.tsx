@@ -61,7 +61,7 @@ const publications: Publication[] = [
 
 function AuthorList({ authors }: { authors: string[] }) {
   return (
-    <p className="text-[12px] mb-1" style={{ color: 'var(--muted-dim)' }}>
+    <p className="text-[14px] mb-1" style={{ color: 'var(--muted-dim)' }}>
       {authors.map((author, i) => (
         <span key={author}>
           {author === 'Jeff Mboya' || author === 'Angina J Mboya' ? (
@@ -83,29 +83,29 @@ export default function ResearchPage() {
         <nav className="flex items-center gap-1.5" style={{ color: 'var(--muted-dim)' }}>
           <Link
             href="/"
-            className="text-[12px] transition-colors duration-150 hover:underline"
+            className="text-[14px] transition-colors duration-150 hover:underline"
             style={{ color: 'var(--accent)' }}
           >
             Home
           </Link>
-          <span className="text-[12px]">/</span>
-          <span className="text-[12px]" style={{ color: 'var(--foreground)' }}>Research</span>
+          <span className="text-[14px]">/</span>
+          <span className="text-[14px]" style={{ color: 'var(--foreground)' }}>Research</span>
         </nav>
       </div>
 
       <div className="mb-10">
-        <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--foreground)' }}>
+        <div className="text-[13px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--foreground)' }}>
           Academic Work
         </div>
-        <h1 className="text-[32px] font-bold tracking-tight mb-3" style={{ color: 'var(--foreground)' }}>Research</h1>
-        <p className="text-[15px] leading-relaxed max-w-[560px] mb-5" style={{ color: 'var(--muted)' }}>
+        <h1 className="text-[34px] font-bold tracking-tight mb-3" style={{ color: 'var(--foreground)' }}>Research</h1>
+        <p className="text-[17px] leading-relaxed max-w-[560px] mb-5" style={{ color: 'var(--muted)' }}>
           Published work spanning computer vision, rocketry, and climate tech.
         </p>
         <a
           href={SCHOLAR_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-[13px] px-4 py-2 rounded-md transition-colors duration-150"
+          className="inline-flex items-center gap-2 text-[15px] px-4 py-2 rounded-md transition-colors duration-150"
           style={{
             color: 'var(--accent)',
             backgroundColor: 'var(--accent-light)',
@@ -118,18 +118,18 @@ export default function ResearchPage() {
 
       {/* Undergraduate Thesis */}
       <div className="flex items-center gap-3 mb-8">
-        <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--foreground)' }}>
+        <span className="text-[13px] uppercase tracking-widest font-medium" style={{ color: 'var(--foreground)' }}>
           Undergraduate Thesis
         </span>
         <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
-        <span className="text-[11px]" style={{ color: 'var(--muted-dim)' }}>2023</span>
+        <span className="text-[13px]" style={{ color: 'var(--muted-dim)' }}>2023</span>
       </div>
 
       <div className="rounded-xl p-6 mb-12" style={{ border: '1px solid var(--border)', backgroundColor: 'var(--surface)' }}>
         <div className="flex items-center gap-2 mb-3">
-          <span className="text-[11px] font-medium uppercase tracking-wider" style={{ color: 'var(--muted-dim)' }}>2023</span>
+          <span className="text-[13px] font-medium uppercase tracking-wider" style={{ color: 'var(--muted-dim)' }}>2023</span>
           <span
-            className="text-[11px] px-1.5 py-0.5 rounded"
+            className="text-[13px] px-1.5 py-0.5 rounded"
             style={{
               color: 'var(--muted-dim)',
               backgroundColor: 'var(--surface-hover)',
@@ -139,16 +139,16 @@ export default function ResearchPage() {
             Mechatronics Engineering
           </span>
         </div>
-        <h3 className="text-[18px] font-semibold tracking-tight mb-1.5 leading-snug" style={{ color: 'var(--foreground)' }}>
+        <h3 className="text-[20px] font-semibold tracking-tight mb-1.5 leading-snug" style={{ color: 'var(--foreground)' }}>
           Design and Fabrication of an Autonomous Bird Deterrent Robot Prototype
         </h3>
-        <p className="text-[12px] mb-1" style={{ color: 'var(--muted-dim)' }}>
+        <p className="text-[14px] mb-1" style={{ color: 'var(--muted-dim)' }}>
           <strong style={{ color: 'var(--foreground)', fontWeight: 600 }}>Jeff Mboya</strong>, Steve Nyaga
         </p>
-        <p className="text-[11px] italic mb-4" style={{ color: 'var(--muted-dim)' }}>
+        <p className="text-[13px] italic mb-4" style={{ color: 'var(--muted-dim)' }}>
           JKUAT — Department of Mechatronics Engineering · Supervised by Dr.-Ing. Jackson G. Njiri
         </p>
-        <p className="text-[13px] leading-relaxed mb-6" style={{ color: 'var(--muted)' }}>
+        <p className="text-[15px] leading-relaxed mb-6" style={{ color: 'var(--muted)' }}>
           Designed and built a rover-type robot that autonomously detects and deters granivorous pest
           birds in agricultural fields. The system combines a YOLOv5s computer-vision pipeline for
           real-time bird detection with an onboard deterrent mechanism, enabling deployment without
@@ -171,7 +171,7 @@ export default function ResearchPage() {
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>
-              <p className="text-[11px] text-center" style={{ color: 'var(--muted-dim)' }}>{caption}</p>
+              <p className="text-[13px] text-center" style={{ color: 'var(--muted-dim)' }}>{caption}</p>
             </div>
           ))}
         </div>
@@ -180,7 +180,7 @@ export default function ResearchPage() {
           href="/thesis/report.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-[13px] px-4 py-2 rounded-md transition-colors duration-150"
+          className="inline-flex items-center gap-2 text-[15px] px-4 py-2 rounded-md transition-colors duration-150"
           style={{
             color: 'var(--accent)',
             backgroundColor: 'var(--accent-light)',
@@ -193,11 +193,11 @@ export default function ResearchPage() {
 
       {/* Publications */}
       <div className="flex items-center gap-3 mb-8">
-        <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--foreground)' }}>
+        <span className="text-[13px] uppercase tracking-widest font-medium" style={{ color: 'var(--foreground)' }}>
           Publications
         </span>
         <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
-        <span className="text-[11px]" style={{ color: 'var(--muted-dim)' }}>{publications.length} papers</span>
+        <span className="text-[13px]" style={{ color: 'var(--muted-dim)' }}>{publications.length} papers</span>
       </div>
 
       <div className="flex flex-col gap-5">
@@ -213,12 +213,12 @@ export default function ResearchPage() {
             <div className="flex items-start justify-between gap-4">
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="text-[11px] font-medium uppercase tracking-wider" style={{ color: 'var(--muted-dim)' }}>
+                  <span className="text-[13px] font-medium uppercase tracking-wider" style={{ color: 'var(--muted-dim)' }}>
                     {pub.year}
                   </span>
                   {pub.citations > 0 && (
                     <span
-                      className="text-[11px] px-1.5 py-0.5 rounded"
+                      className="text-[13px] px-1.5 py-0.5 rounded"
                       style={{
                         color: 'var(--muted-dim)',
                         backgroundColor: 'var(--surface-hover)',
@@ -229,12 +229,12 @@ export default function ResearchPage() {
                     </span>
                   )}
                 </div>
-                <h3 className="text-[16px] font-semibold tracking-tight mb-1.5 leading-snug" style={{ color: 'var(--foreground)' }}>
+                <h3 className="text-[18px] font-semibold tracking-tight mb-1.5 leading-snug" style={{ color: 'var(--foreground)' }}>
                   {pub.title}
                 </h3>
                 <AuthorList authors={pub.authors} />
-                <p className="text-[11px] italic mb-3" style={{ color: 'var(--muted-dim)' }}>{pub.venue}</p>
-                <p className="text-[13px] leading-relaxed" style={{ color: 'var(--muted)' }}>{pub.abstract}</p>
+                <p className="text-[13px] italic mb-3" style={{ color: 'var(--muted-dim)' }}>{pub.venue}</p>
+                <p className="text-[15px] leading-relaxed" style={{ color: 'var(--muted)' }}>{pub.abstract}</p>
               </div>
               <span className="text-lg mt-1 shrink-0 transition-colors duration-150" style={{ color: 'var(--muted-dim)' }}>
                 ↗
@@ -246,11 +246,11 @@ export default function ResearchPage() {
 
       {/* Conferences */}
       <div className="flex items-center gap-3 mt-16 mb-8">
-        <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--foreground)' }}>
+        <span className="text-[13px] uppercase tracking-widest font-medium" style={{ color: 'var(--foreground)' }}>
           Invited Conferences
         </span>
         <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
-        <span className="text-[11px]" style={{ color: 'var(--muted-dim)' }}>4 events</span>
+        <span className="text-[13px]" style={{ color: 'var(--muted-dim)' }}>4 events</span>
       </div>
 
       <div className="flex flex-col gap-3">
@@ -282,16 +282,16 @@ export default function ResearchPage() {
             style={{ border: '1px solid var(--border)', backgroundColor: 'var(--surface)' }}
           >
             <div
-              className="text-[13px] font-semibold tabular-nums shrink-0 pt-0.5"
+              className="text-[15px] font-semibold tabular-nums shrink-0 pt-0.5"
               style={{ color: 'var(--accent)' }}
             >
               {c.year}
             </div>
             <div>
-              <div className="text-[14px] font-semibold leading-snug mb-1" style={{ color: 'var(--foreground)' }}>
+              <div className="text-[16px] font-semibold leading-snug mb-1" style={{ color: 'var(--foreground)' }}>
                 {c.name}
               </div>
-              <div className="text-[12px] italic leading-relaxed" style={{ color: 'var(--muted)' }}>
+              <div className="text-[14px] italic leading-relaxed" style={{ color: 'var(--muted)' }}>
                 {c.theme}
               </div>
             </div>

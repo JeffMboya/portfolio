@@ -53,7 +53,7 @@ export default async function LogPage({ params }: Props) {
   return (
     <div className="pb-20">
       <div className="mb-8">
-        <nav className="flex items-center gap-1.5 text-[12px]" style={{ color: 'var(--muted-dim)' }}>
+        <nav className="flex items-center gap-1.5 text-[14px]" style={{ color: 'var(--muted-dim)' }}>
           <Link href="/" className="transition-colors duration-150 hover:underline" style={{ color: 'var(--accent)' }}>Home</Link>
           <span>›</span>
           <Link href="/blogs" className="transition-colors duration-150 hover:underline" style={{ color: 'var(--accent)' }}>Blogs</Link>
@@ -78,13 +78,13 @@ export default async function LogPage({ params }: Props) {
               />
             </div>
           )}
-          <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--foreground)' }}>
+          <div className="text-[13px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--foreground)' }}>
             {formatDate(meta!.date)}
           </div>
-          <h1 className="text-[32px] font-bold tracking-tight mb-3 leading-[1.15]" style={{ color: 'var(--foreground)' }}>
+          <h1 className="text-[34px] font-bold tracking-tight mb-3 leading-[1.15]" style={{ color: 'var(--foreground)' }}>
             {meta!.title}
           </h1>
-          <p className="text-[15px] mb-10 leading-relaxed" style={{ color: 'var(--muted)' }}>
+          <p className="text-[17px] mb-10 leading-relaxed" style={{ color: 'var(--muted)' }}>
             {meta!.description}
           </p>
           <article className="prose">
@@ -103,7 +103,7 @@ export default async function LogPage({ params }: Props) {
 
         {headings.length > 0 && (
           <aside className="hidden lg:block sticky top-8">
-            <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--foreground)' }}>
+            <div className="text-[13px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--foreground)' }}>
               On this page
             </div>
             <nav className="flex flex-col gap-1">
@@ -111,7 +111,7 @@ export default async function LogPage({ params }: Props) {
                 <a
                   key={h.id}
                   href={`#${h.id}`}
-                  className="text-[12px] leading-snug transition-colors duration-150"
+                  className="text-[14px] leading-snug transition-colors duration-150"
                   style={{
                     color: 'var(--muted)',
                     paddingLeft: h.level === 3 ? '12px' : '0',

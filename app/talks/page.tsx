@@ -62,7 +62,7 @@ export default function TalksPage() {
   return (
     <div className="pb-24">
       <div className="mb-8">
-        <nav className="flex items-center gap-1.5 text-[12px]" style={{ color: 'var(--muted-dim)' }}>
+        <nav className="flex items-center gap-1.5 text-[14px]" style={{ color: 'var(--muted-dim)' }}>
           <Link href="/" className="transition-colors duration-150 hover:underline" style={{ color: 'var(--accent)' }}>
             Home
           </Link>
@@ -72,24 +72,24 @@ export default function TalksPage() {
       </div>
 
       <div className="mb-12">
-        <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--foreground)' }}>
+        <div className="text-[13px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--foreground)' }}>
           Public Work
         </div>
-        <h1 className="text-[32px] font-bold tracking-tight mb-3" style={{ color: 'var(--foreground)' }}>
+        <h1 className="text-[34px] font-bold tracking-tight mb-3" style={{ color: 'var(--foreground)' }}>
           Talks
         </h1>
-        <p className="text-[15px] leading-relaxed max-w-[520px]" style={{ color: 'var(--muted)' }}>
+        <p className="text-[17px] leading-relaxed max-w-[520px]" style={{ color: 'var(--muted)' }}>
           Conference papers and appearances spanning rocketry, computer vision, and climate tech.
         </p>
       </div>
 
       {/* Conference Papers */}
       <div className="flex items-center gap-3 mb-6">
-        <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--foreground)' }}>
+        <span className="text-[13px] uppercase tracking-widest font-medium" style={{ color: 'var(--foreground)' }}>
           Conference Papers
         </span>
         <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
-        <span className="text-[11px]" style={{ color: 'var(--muted-dim)' }}>{presentations.length} papers</span>
+        <span className="text-[13px]" style={{ color: 'var(--muted-dim)' }}>{presentations.length} papers</span>
       </div>
 
       <div className="flex flex-col gap-4 mb-12">
@@ -100,20 +100,20 @@ export default function TalksPage() {
             style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
           >
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
-              <p className="text-[14px] font-semibold leading-snug" style={{ color: 'var(--foreground)' }}>
+              <p className="text-[16px] font-semibold leading-snug" style={{ color: 'var(--foreground)' }}>
                 {p.paper}
               </p>
-              <span className="text-[13px] font-semibold tabular-nums shrink-0" style={{ color: 'var(--accent)' }}>
+              <span className="text-[15px] font-semibold tabular-nums shrink-0" style={{ color: 'var(--accent)' }}>
                 {p.year}
               </span>
             </div>
-            <p className="text-[12px] mb-1" style={{ color: 'var(--muted)' }}>{p.event}</p>
-            <p className="text-[11px]" style={{ color: 'var(--muted-dim)' }}>{p.topic}</p>
+            <p className="text-[14px] mb-1" style={{ color: 'var(--muted)' }}>{p.event}</p>
+            <p className="text-[13px]" style={{ color: 'var(--muted-dim)' }}>{p.topic}</p>
           </div>
         ))}
       </div>
 
-      <p className="text-[13px] mb-12" style={{ color: 'var(--muted-dim)' }}>
+      <p className="text-[15px] mb-12" style={{ color: 'var(--muted-dim)' }}>
         Full paper details, abstracts, and Google Scholar links on the{' '}
         <Link href="/research" className="underline underline-offset-2 transition-colors" style={{ color: 'var(--accent)' }}>
           Research
@@ -123,11 +123,11 @@ export default function TalksPage() {
 
       {/* Conference Appearances */}
       <div className="flex items-center gap-3 mb-6">
-        <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--foreground)' }}>
+        <span className="text-[13px] uppercase tracking-widest font-medium" style={{ color: 'var(--foreground)' }}>
           Conference Appearances
         </span>
         <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
-        <span className="text-[11px]" style={{ color: 'var(--muted-dim)' }}>{appearances.length} events</span>
+        <span className="text-[13px]" style={{ color: 'var(--muted-dim)' }}>{appearances.length} events</span>
       </div>
 
       <div className="flex flex-col gap-3">
@@ -137,14 +137,14 @@ export default function TalksPage() {
             className="flex items-start gap-5 rounded-xl px-5 py-4"
             style={{ border: '1px solid var(--border)', backgroundColor: 'var(--surface)' }}
           >
-            <div className="text-[13px] font-semibold tabular-nums shrink-0 pt-0.5" style={{ color: 'var(--accent)' }}>
+            <div className="text-[15px] font-semibold tabular-nums shrink-0 pt-0.5" style={{ color: 'var(--accent)' }}>
               {c.year}
             </div>
             <div>
-              <div className="text-[14px] font-semibold leading-snug mb-1" style={{ color: 'var(--foreground)' }}>
+              <div className="text-[16px] font-semibold leading-snug mb-1" style={{ color: 'var(--foreground)' }}>
                 {c.name}
               </div>
-              <div className="text-[12px] italic leading-relaxed" style={{ color: 'var(--muted)' }}>
+              <div className="text-[14px] italic leading-relaxed" style={{ color: 'var(--muted)' }}>
                 {c.theme}
               </div>
             </div>

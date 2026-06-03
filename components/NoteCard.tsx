@@ -24,13 +24,13 @@ export default function NoteCard({ meta, featured }: { meta: NoteMeta; featured?
         )}
         <div className="flex items-start justify-between gap-6 px-6 py-6">
           <div className="flex-1 min-w-0">
-            <div className="text-[11px] uppercase tracking-wider font-medium mb-2" style={{ color: 'var(--muted-dim)' }}>
+            <div className="text-[13px] uppercase tracking-wider font-medium mb-2" style={{ color: 'var(--muted-dim)' }}>
               {formatDate(meta.date)}
             </div>
-            <h2 className="text-[22px] font-bold tracking-tight mb-3" style={{ color: 'var(--foreground)' }}>
+            <h2 className="text-[24px] font-bold tracking-tight mb-3" style={{ color: 'var(--foreground)' }}>
               {meta.title}
             </h2>
-            <p className="text-[14px] leading-relaxed max-w-[640px]" style={{ color: 'var(--muted)' }}>
+            <p className="text-[16px] leading-relaxed max-w-[640px]" style={{ color: 'var(--muted)' }}>
               {meta.description}
             </p>
           </div>
@@ -60,13 +60,13 @@ export default function NoteCard({ meta, featured }: { meta: NoteMeta; featured?
         </div>
       )}
       <div className="flex flex-col px-5 py-4 flex-1">
-        <div className="text-[11px] uppercase tracking-wider font-medium mb-2" style={{ color: 'var(--muted-dim)' }}>
+        <div className="text-[13px] uppercase tracking-wider font-medium mb-2" style={{ color: 'var(--muted-dim)' }}>
           {formatDate(meta.date)}
         </div>
-        <h3 className="text-[15px] font-semibold tracking-tight mb-2 flex-1" style={{ color: 'var(--foreground)' }}>
+        <h3 className="text-[17px] font-semibold tracking-tight mb-2 flex-1" style={{ color: 'var(--foreground)' }}>
           {meta.title}
         </h3>
-        <p className="text-[12px] leading-relaxed" style={{ color: 'var(--muted)' }}>
+        <p className="text-[14px] leading-relaxed" style={{ color: 'var(--muted)' }}>
           {meta.description}
         </p>
         <span className="text-sm mt-4 transition-colors duration-150 self-end" style={{ color: 'var(--muted-dim)' }}>

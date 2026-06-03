@@ -37,7 +37,7 @@ export default function LabPage() {
   return (
     <div className="pb-24">
       <div className="mb-8">
-        <nav className="flex items-center gap-1.5 text-[12px]" style={{ color: 'var(--muted-dim)' }}>
+        <nav className="flex items-center gap-1.5 text-[14px]" style={{ color: 'var(--muted-dim)' }}>
           <Link href="/" className="transition-colors duration-150 hover:underline" style={{ color: 'var(--accent)' }}>
             Home
           </Link>
@@ -47,13 +47,13 @@ export default function LabPage() {
       </div>
 
       <div className="mb-16">
-        <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--foreground)' }}>
+        <div className="text-[13px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--foreground)' }}>
           Lab
         </div>
-        <h1 className="text-[36px] font-bold tracking-tight mb-4" style={{ color: 'var(--foreground)' }}>
+        <h1 className="text-[38px] font-bold tracking-tight mb-4" style={{ color: 'var(--foreground)' }}>
           Side Projects
         </h1>
-        <p className="text-[15px] leading-relaxed max-w-[520px]" style={{ color: 'var(--muted)' }}>
+        <p className="text-[17px] leading-relaxed max-w-[520px]" style={{ color: 'var(--muted)' }}>
           Things built for curiosity, not a job description. Each one started as a problem
           I kept running into and couldn&apos;t find a good solution for.
         </p>
@@ -68,32 +68,32 @@ export default function LabPage() {
               <div>
                 <div className="flex items-center gap-3 mb-5">
                   <span
-                    className="text-[11px] font-mono tabular-nums"
+                    className="text-[13px] font-mono tabular-nums"
                     style={{ color: 'var(--muted-dim)' }}
                   >
                     {String(i + 1).padStart(2, '0')}
                   </span>
-                  <span className="text-[18px]" style={{ color: 'var(--accent)' }}>
+                  <span className="text-[20px]" style={{ color: 'var(--accent)' }}>
                     {project.icon}
                   </span>
                 </div>
 
                 <h2
-                  className="text-[40px] font-bold tracking-tight leading-none mb-4"
+                  className="text-[42px] font-bold tracking-tight leading-none mb-4"
                   style={{ color: 'var(--foreground)' }}
                 >
                   {project.title}
                 </h2>
 
                 <p
-                  className="text-[15px] leading-relaxed mb-7 max-w-[480px]"
+                  className="text-[17px] leading-relaxed mb-7 max-w-[480px]"
                   style={{ color: 'var(--muted)' }}
                 >
                   {project.description}
                 </p>
 
                 <div
-                  className="rounded-lg px-4 py-3.5 text-[13px] leading-relaxed max-w-[480px]"
+                  className="rounded-lg px-4 py-3.5 text-[15px] leading-relaxed max-w-[480px]"
                   style={{
                     backgroundColor: 'var(--surface)',
                     border: '1px solid var(--border)',
@@ -101,7 +101,7 @@ export default function LabPage() {
                   }}
                 >
                   <span
-                    className="text-[10px] uppercase tracking-widest font-medium block mb-1.5"
+                    className="text-[12px] uppercase tracking-widest font-medium block mb-1.5"
                     style={{ color: 'var(--muted-dim)' }}
                   >
                     Key detail
@@ -115,13 +115,13 @@ export default function LabPage() {
                 {project.result && (
                   <div>
                     <span
-                      className="text-[10px] uppercase tracking-widest font-medium block mb-2"
+                      className="text-[12px] uppercase tracking-widest font-medium block mb-2"
                       style={{ color: 'var(--muted-dim)' }}
                     >
                       Result
                     </span>
                     <p
-                      className="text-[14px] font-medium leading-snug"
+                      className="text-[16px] font-medium leading-snug"
                       style={{ color: 'var(--accent)' }}
                     >
                       {project.result}
@@ -131,7 +131,7 @@ export default function LabPage() {
 
                 <div>
                   <span
-                    className="text-[10px] uppercase tracking-widest font-medium block mb-2.5"
+                    className="text-[12px] uppercase tracking-widest font-medium block mb-2.5"
                     style={{ color: 'var(--muted-dim)' }}
                   >
                     Stack
@@ -140,7 +140,7 @@ export default function LabPage() {
                     {project.stack.map((s) => (
                       <span
                         key={s}
-                        className="text-[12px] px-2.5 py-1 rounded"
+                        className="text-[14px] px-2.5 py-1 rounded"
                         style={{
                           backgroundColor: 'var(--surface)',
                           color: 'var(--muted)',
@@ -159,7 +159,7 @@ export default function LabPage() {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-[13px] font-medium underline underline-offset-2 transition-opacity duration-150 hover:opacity-70"
+                      className="inline-flex items-center gap-1.5 text-[15px] font-medium underline underline-offset-2 transition-opacity duration-150 hover:opacity-70"
                       style={{ color: 'var(--accent)' }}
                     >
                       View on GitHub ↗
@@ -167,7 +167,7 @@ export default function LabPage() {
                   )}
                   <Link
                     href={`/work/${project.slug}/`}
-                    className="inline-flex items-center gap-1.5 text-[13px] transition-opacity duration-150 hover:opacity-70"
+                    className="inline-flex items-center gap-1.5 text-[15px] transition-opacity duration-150 hover:opacity-70"
                     style={{ color: 'var(--muted)' }}
                   >
                     Full write-up →

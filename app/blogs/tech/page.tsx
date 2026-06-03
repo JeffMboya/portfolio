@@ -16,7 +16,7 @@ export default function TechBlogsPage() {
   return (
     <div className="pb-20">
       <div className="mb-8">
-        <nav className="flex items-center gap-1.5 text-[12px]" style={{ color: 'var(--muted-dim)' }}>
+        <nav className="flex items-center gap-1.5 text-[14px]" style={{ color: 'var(--muted-dim)' }}>
           <Link href="/" className="transition-colors duration-150 hover:underline" style={{ color: 'var(--accent)' }}>Home</Link>
           <span>›</span>
           <Link href="/blogs" className="transition-colors duration-150 hover:underline" style={{ color: 'var(--accent)' }}>Blogs</Link>
@@ -26,17 +26,17 @@ export default function TechBlogsPage() {
       </div>
 
       <div className="mb-10">
-        <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--foreground)' }}>
+        <div className="text-[13px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--foreground)' }}>
           Category
         </div>
-        <h1 className="text-[32px] font-bold tracking-tight mb-3" style={{ color: 'var(--foreground)' }}>Tech</h1>
-        <p className="text-[15px] leading-relaxed max-w-[560px]" style={{ color: 'var(--muted)' }}>
+        <h1 className="text-[34px] font-bold tracking-tight mb-3" style={{ color: 'var(--foreground)' }}>Tech</h1>
+        <p className="text-[17px] leading-relaxed max-w-[560px]" style={{ color: 'var(--muted)' }}>
           Deep dives into hardware, embedded systems, IoT, and software architecture.
         </p>
       </div>
 
       {notes.length === 0 ? (
-        <p className="text-[14px]" style={{ color: 'var(--muted-dim)' }}>Nothing here yet — check back soon.</p>
+        <p className="text-[16px]" style={{ color: 'var(--muted-dim)' }}>Nothing here yet — check back soon.</p>
       ) : (
         <div className="flex flex-col gap-4">
           {featured && <NoteCard key={featured.slug} meta={featured} featured />}

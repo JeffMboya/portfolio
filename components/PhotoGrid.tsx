@@ -24,7 +24,7 @@ export default function PhotoGrid({ srcs, captions }: Props) {
             />
           </div>
           {captionList[i] && (
-            <p className="text-[11px] text-center" style={{ color: 'var(--muted-dim)' }}>{captionList[i]}</p>
+            <p className="text-[13px] text-center" style={{ color: 'var(--muted-dim)' }}>{captionList[i]}</p>
           )}
         </div>
       ))}

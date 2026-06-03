@@ -13,7 +13,7 @@ export default function HardwarePage() {
   return (
     <div className="pb-20">
       <div className="mb-8">
-        <nav className="flex items-center gap-1.5 text-[12px]" style={{ color: 'var(--muted-dim)' }}>
+        <nav className="flex items-center gap-1.5 text-[14px]" style={{ color: 'var(--muted-dim)' }}>
           <Link href="/" className="transition-colors duration-150 hover:underline" style={{ color: 'var(--accent)' }}>Home</Link>
           <span>›</span>
           <span style={{ color: 'var(--foreground)' }}>Hardware</span>
@@ -21,19 +21,19 @@ export default function HardwarePage() {
       </div>
 
       <div className="mb-12">
-        <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--foreground)' }}>
+        <div className="text-[13px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--foreground)' }}>
           Hardware
         </div>
-        <h1 className="text-[32px] font-bold tracking-tight mb-3" style={{ color: 'var(--foreground)' }}>Physical Work</h1>
-        <p className="text-[15px] leading-relaxed max-w-[560px]" style={{ color: 'var(--muted)' }}>
+        <h1 className="text-[34px] font-bold tracking-tight mb-3" style={{ color: 'var(--foreground)' }}>Physical Work</h1>
+        <p className="text-[17px] leading-relaxed max-w-[560px]" style={{ color: 'var(--muted)' }}>
           PCBs, rockets, and robots. Everything that had to work in the real world.
         </p>
       </div>
 
       {/* PCB Boards */}
       <section className="mb-16">
-        <h2 className="text-[18px] font-semibold mb-1" style={{ color: 'var(--foreground)' }}>PCB Design</h2>
-        <p className="text-[14px] mb-6" style={{ color: 'var(--muted)' }}>
+        <h2 className="text-[20px] font-semibold mb-1" style={{ color: 'var(--foreground)' }}>PCB Design</h2>
+        <p className="text-[16px] mb-6" style={{ color: 'var(--muted)' }}>
           Boards designed and fabricated for sensing, control, and IoT infrastructure.
           The S0 and S1 are open-source — schematics and layouts are public.
         </p>
@@ -54,17 +54,17 @@ export default function HardwarePage() {
             />
           </div>
           <div className="flex flex-col gap-2">
-            <p className="text-[13px] font-medium" style={{ color: 'var(--foreground)' }}>
+            <p className="text-[15px] font-medium" style={{ color: 'var(--foreground)' }}>
               32-channel RTD module
             </p>
-            <p className="text-[13px] leading-relaxed" style={{ color: 'var(--muted)' }}>
+            <p className="text-[15px] leading-relaxed" style={{ color: 'var(--muted)' }}>
               Per-channel signal conditioning, multiplexed ADC, and dense terminal block layout.
               Photographed after 450+ thermocyclic tests — ambient to 100°C+ — validating the
               design for long-duration deployment inside a direct air capture plant.
             </p>
             <Link
               href="/blogs/32-channel-rtd-thermocyclic-testing/"
-              className="text-[12px] font-medium underline underline-offset-2"
+              className="text-[14px] font-medium underline underline-offset-2"
               style={{ color: 'var(--accent)' }}
             >
               What 450 thermocycles did to my PCB →
@@ -75,8 +75,8 @@ export default function HardwarePage() {
 
       {/* Nakuja */}
       <section className="mb-16">
-        <h2 className="text-[18px] font-semibold mb-1" style={{ color: 'var(--foreground)' }}>Nakuja Project</h2>
-        <p className="text-[14px] mb-6" style={{ color: 'var(--muted)' }}>
+        <h2 className="text-[20px] font-semibold mb-1" style={{ color: 'var(--foreground)' }}>Nakuja Project</h2>
+        <p className="text-[16px] mb-6" style={{ color: 'var(--muted)' }}>
           Kenya's first student-led sounding rocket program. I worked on propulsion —
           motor design, static fire testing, and data acquisition.
         </p>
@@ -92,7 +92,7 @@ export default function HardwarePage() {
               className="w-full object-cover"
             />
           </div>
-          <p className="text-[11px] text-center mt-1.5" style={{ color: 'var(--muted-dim)' }}>
+          <p className="text-[13px] text-center mt-1.5" style={{ color: 'var(--muted-dim)' }}>
             Three launches: Tana (reaction wheel stabilisation), Perkerra (active canard fins), Galana (parachute ejection)
           </p>
         </div>
@@ -105,8 +105,8 @@ export default function HardwarePage() {
 
       {/* Thesis */}
       <section className="mb-16">
-        <h2 className="text-[18px] font-semibold mb-1" style={{ color: 'var(--foreground)' }}>Undergraduate Thesis</h2>
-        <p className="text-[14px] mb-6" style={{ color: 'var(--muted)' }}>
+        <h2 className="text-[20px] font-semibold mb-1" style={{ color: 'var(--foreground)' }}>Undergraduate Thesis</h2>
+        <p className="text-[16px] mb-6" style={{ color: 'var(--muted)' }}>
           Autonomous agricultural robot for maize field scouting. Tracked chassis,
           stereo depth camera on an elevated mast, onboard compute for row navigation
           and crop monitoring. JKUAT Mechatronics Engineering, 2022.

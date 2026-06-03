@@ -52,7 +52,7 @@ export default async function ProjectPage({ params }: Props) {
   return (
     <div className="pb-20">
       <div className="mb-8">
-        <nav className="flex items-center gap-1.5 text-[12px]" style={{ color: 'var(--muted-dim)' }}>
+        <nav className="flex items-center gap-1.5 text-[14px]" style={{ color: 'var(--muted-dim)' }}>
           <Link href="/" className="transition-colors duration-150 hover:underline" style={{ color: 'var(--accent)' }}>Home</Link>
           <span>›</span>
           <Link href="/#work" className="transition-colors duration-150 hover:underline" style={{ color: 'var(--accent)' }}>Work</Link>
@@ -65,11 +65,11 @@ export default async function ProjectPage({ params }: Props) {
 
         {/* Main content */}
         <div>
-          <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--foreground)' }}>
+          <div className="text-[13px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--foreground)' }}>
             {formatDate(meta!.date)}
           </div>
-          <h1 className="text-[32px] font-bold tracking-tight mb-3" style={{ color: 'var(--foreground)' }}>{meta!.title}</h1>
-          <p className="text-[15px] mb-10 leading-relaxed" style={{ color: 'var(--muted)' }}>{meta!.description}</p>
+          <h1 className="text-[34px] font-bold tracking-tight mb-3" style={{ color: 'var(--foreground)' }}>{meta!.title}</h1>
+          <p className="text-[17px] mb-10 leading-relaxed" style={{ color: 'var(--muted)' }}>{meta!.description}</p>
           <article className="prose">
             <MDXRemote
               source={content!}
@@ -88,10 +88,10 @@ export default async function ProjectPage({ params }: Props) {
         {/* Right sidebar — Stack */}
         <aside className="hidden lg:block sticky top-8">
           <div className="rounded-xl p-5" style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}>
-            <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--foreground)' }}>Stack</div>
+            <div className="text-[13px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--foreground)' }}>Stack</div>
             <div className="flex flex-col gap-1.5 mb-5">
               {meta!.stack.map((s) => (
-                <span key={s} className="text-[13px] pb-1.5" style={{ color: 'var(--muted)', borderBottom: '1px solid var(--border)' }}>
+                <span key={s} className="text-[15px] pb-1.5" style={{ color: 'var(--muted)', borderBottom: '1px solid var(--border)' }}>
                   {s}
                 </span>
               ))}
@@ -102,7 +102,7 @@ export default async function ProjectPage({ params }: Props) {
                   href={meta!.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[13px] underline underline-offset-2 transition-colors duration-150"
+                  className="text-[15px] underline underline-offset-2 transition-colors duration-150"
                   style={{ color: 'var(--accent)' }}
                 >
                   View on GitHub ↗
@@ -113,7 +113,7 @@ export default async function ProjectPage({ params }: Props) {
                   href={meta!.demo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[13px] underline underline-offset-2 transition-colors duration-150"
+                  className="text-[15px] underline underline-offset-2 transition-colors duration-150"
                   style={{ color: 'var(--accent)' }}
                 >
                   Live demo ↗

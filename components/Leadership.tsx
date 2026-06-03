@@ -37,7 +37,7 @@ export default function Leadership() {
     <section className="mb-20">
       <div className="flex items-center gap-3 mb-8">
         <span
-          className="text-[11px] uppercase tracking-widest font-medium"
+          className="text-[13px] uppercase tracking-widest font-medium"
           style={{ color: 'var(--foreground)' }}
         >
           Leadership &amp; Involvement
@@ -58,20 +58,20 @@ export default function Leadership() {
             <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-3">
               <div>
                 <span
-                  className="text-[14px] font-semibold"
+                  className="text-[16px] font-semibold"
                   style={{ color: 'var(--foreground)' }}
                 >
                   {r.org}
                 </span>
                 <span
-                  className="ml-2 text-[12px]"
+                  className="ml-2 text-[14px]"
                   style={{ color: 'var(--muted)' }}
                 >
                   · {r.title}
                 </span>
               </div>
               <span
-                className="text-[11px] tabular-nums shrink-0"
+                className="text-[13px] tabular-nums shrink-0"
                 style={{ color: 'var(--muted-dim)' }}
               >
                 {r.period}
@@ -80,7 +80,7 @@ export default function Leadership() {
 
             <ul className="flex flex-col gap-1.5 pl-3">
               {r.bullets.map((b, i) => (
-                <li key={i} className="flex gap-2 text-[12px] leading-relaxed" style={{ color: 'var(--muted)' }}>
+                <li key={i} className="flex gap-2 text-[14px] leading-relaxed" style={{ color: 'var(--muted)' }}>
                   <span style={{ color: 'var(--accent)' }} className="mt-[3px] shrink-0">›</span>
                   {b}
                 </li>

@@ -72,23 +72,23 @@ function Card({ m, position }: { m: Milestone; position: 'above' | 'below' }) {
           : { borderTop: `2px solid ${color}` }),
       }}
     >
-      <div className="text-[10px] mb-1 text-center tabular-nums" style={{ color: 'var(--muted-dim)' }}>
+      <div className="text-[12px] mb-1 text-center tabular-nums" style={{ color: 'var(--muted-dim)' }}>
         {m.year}
       </div>
-      <div className="text-[12px] font-bold leading-snug mb-0.5 text-center" style={{ color: 'var(--foreground)' }}>
+      <div className="text-[14px] font-bold leading-snug mb-0.5 text-center" style={{ color: 'var(--foreground)' }}>
         {m.role}
       </div>
-      <div className="text-[11px] mb-2 text-center" style={{ color: 'var(--muted-dim)' }}>
+      <div className="text-[13px] mb-2 text-center" style={{ color: 'var(--muted-dim)' }}>
         {m.org}
       </div>
-      <div className="text-[11px] leading-snug text-center" style={{ color: 'var(--muted)' }}>
+      <div className="text-[13px] leading-snug text-center" style={{ color: 'var(--muted)' }}>
         {m.impact}
       </div>
       {m.current && (
         <div className="flex justify-center items-center gap-1.5 mt-2">
           <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse shrink-0" />
           <span
-            className="text-[9px] font-medium uppercase tracking-wider"
+            className="text-[11px] font-medium uppercase tracking-wider"
             style={{ color: 'var(--muted-dim)' }}
           >
             Now
@@ -103,7 +103,7 @@ export default function Timeline() {
   return (
     <section className="mb-20">
       <div className="flex items-center gap-3 mb-8">
-        <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--foreground)' }}>
+        <span className="text-[13px] uppercase tracking-widest font-medium" style={{ color: 'var(--foreground)' }}>
           Career Arc
         </span>
         <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
@@ -211,14 +211,14 @@ export default function Timeline() {
               }}
             >
               <div className="flex items-center justify-between gap-2 mb-0.5">
-                <div className="text-[13px] font-bold leading-snug" style={{ color: 'var(--foreground)' }}>
+                <div className="text-[15px] font-bold leading-snug" style={{ color: 'var(--foreground)' }}>
                   {m.role}
                 </div>
                 {m.current && (
                   <span className="flex items-center gap-1 shrink-0">
                     <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse shrink-0" />
                     <span
-                      className="text-[9px] font-medium uppercase tracking-wider"
+                      className="text-[11px] font-medium uppercase tracking-wider"
                       style={{ color: 'var(--muted-dim)' }}
                     >
                       Now
@@ -226,10 +226,10 @@ export default function Timeline() {
                   </span>
                 )}
               </div>
-              <div className="text-[11px] mb-1.5" style={{ color: 'var(--muted-dim)' }}>
+              <div className="text-[13px] mb-1.5" style={{ color: 'var(--muted-dim)' }}>
                 {m.org} · {m.year}
               </div>
-              <div className="text-[12px] leading-snug" style={{ color: 'var(--muted)' }}>
+              <div className="text-[14px] leading-snug" style={{ color: 'var(--muted)' }}>
                 {m.impact}
               </div>
             </div>

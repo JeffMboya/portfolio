@@ -44,7 +44,7 @@ export default function Nav() {
         className="flex items-center justify-between py-6 mb-16"
         style={{ borderBottom: '1px solid var(--border)' }}
       >
-        <Link href="/" className="text-[15px] font-semibold tracking-tight shrink-0 whitespace-nowrap mr-6" style={{ color: 'var(--foreground)' }}>
+        <Link href="/" className="text-[17px] font-semibold tracking-tight shrink-0 whitespace-nowrap mr-6" style={{ color: 'var(--foreground)' }}>
           Jeff Mboya
         </Link>
 
@@ -57,7 +57,7 @@ export default function Nav() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[13px] transition-colors duration-150"
+                className="text-[15px] transition-colors duration-150"
                 style={{ color: 'var(--muted-dim)' }}
                 onMouseEnter={e => ((e.target as HTMLElement).style.color = 'var(--foreground)')}
                 onMouseLeave={e => ((e.target as HTMLElement).style.color = 'var(--muted-dim)')}
@@ -68,7 +68,7 @@ export default function Nav() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-[13px] transition-colors duration-150"
+                className="text-[15px] transition-colors duration-150"
                 style={{
                   color: isActive(link.href, pathname) ? 'var(--foreground)' : 'var(--muted-dim)',
                   fontWeight: isActive(link.href, pathname) ? '500' : undefined,
@@ -81,7 +81,7 @@ export default function Nav() {
           <ThemeToggle />
           <a
             href="/#contact"
-            className="text-[13px] px-4 py-1.5 rounded-full font-medium transition-colors duration-150"
+            className="text-[15px] px-4 py-1.5 rounded-full font-medium transition-colors duration-150"
             style={{ color: 'var(--accent-text)', backgroundColor: 'var(--accent)' }}
             onMouseEnter={e => ((e.currentTarget as HTMLElement).style.backgroundColor = 'var(--accent-dim)')}
             onMouseLeave={e => ((e.currentTarget as HTMLElement).style.backgroundColor = 'var(--accent)')}
@@ -137,7 +137,7 @@ export default function Nav() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
-                className="text-[14px] px-3 py-2.5 rounded-lg transition-colors duration-150"
+                className="text-[16px] px-3 py-2.5 rounded-lg transition-colors duration-150"
                 style={{ color: 'var(--muted)' }}
               >
                 {link.label} ↗
@@ -147,7 +147,7 @@ export default function Nav() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="text-[14px] px-3 py-2.5 rounded-lg transition-colors duration-150"
+                className="text-[16px] px-3 py-2.5 rounded-lg transition-colors duration-150"
                 style={{
                   color: isActive(link.href, pathname) ? 'var(--accent)' : 'var(--muted)',
                   fontWeight: isActive(link.href, pathname) ? '500' : undefined,
@@ -162,7 +162,7 @@ export default function Nav() {
             <a
               href="/#contact"
               onClick={() => setOpen(false)}
-              className="block text-center text-[14px] px-4 py-2.5 rounded-lg font-medium"
+              className="block text-center text-[16px] px-4 py-2.5 rounded-lg font-medium"
               style={{ color: 'var(--accent-text)', backgroundColor: 'var(--accent)' }}
             >
               Contact

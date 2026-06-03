@@ -30,7 +30,7 @@ export default function AwardsPage() {
   return (
     <div className="pb-24">
       <div className="mb-8">
-        <nav className="flex items-center gap-1.5 text-[12px]" style={{ color: 'var(--muted-dim)' }}>
+        <nav className="flex items-center gap-1.5 text-[14px]" style={{ color: 'var(--muted-dim)' }}>
           <Link href="/" className="transition-colors duration-150 hover:underline" style={{ color: 'var(--accent)' }}>
             Home
           </Link>
@@ -40,13 +40,13 @@ export default function AwardsPage() {
       </div>
 
       <div className="mb-12">
-        <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--foreground)' }}>
+        <div className="text-[13px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--foreground)' }}>
           Recognition
         </div>
-        <h1 className="text-[32px] font-bold tracking-tight mb-3" style={{ color: 'var(--foreground)' }}>
+        <h1 className="text-[34px] font-bold tracking-tight mb-3" style={{ color: 'var(--foreground)' }}>
           Awards
         </h1>
-        <p className="text-[15px] leading-relaxed max-w-[520px]" style={{ color: 'var(--muted)' }}>
+        <p className="text-[17px] leading-relaxed max-w-[520px]" style={{ color: 'var(--muted)' }}>
           Notable recognition for technical work and research.
         </p>
       </div>
@@ -60,18 +60,18 @@ export default function AwardsPage() {
           >
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
               <div>
-                <p className="text-[16px] font-semibold leading-snug" style={{ color: 'var(--foreground)' }}>
+                <p className="text-[18px] font-semibold leading-snug" style={{ color: 'var(--foreground)' }}>
                   {award.title}
                 </p>
-                <p className="text-[13px] mt-1" style={{ color: 'var(--muted)' }}>
+                <p className="text-[15px] mt-1" style={{ color: 'var(--muted)' }}>
                   {award.issuer} · {award.category}
                 </p>
               </div>
-              <span className="text-[13px] font-semibold tabular-nums shrink-0" style={{ color: 'var(--accent)' }}>
+              <span className="text-[15px] font-semibold tabular-nums shrink-0" style={{ color: 'var(--accent)' }}>
                 {award.year}
               </span>
             </div>
-            <p className="text-[13px] leading-relaxed" style={{ color: 'var(--muted)' }}>
+            <p className="text-[15px] leading-relaxed" style={{ color: 'var(--muted)' }}>
               {award.description}
             </p>
           </div>

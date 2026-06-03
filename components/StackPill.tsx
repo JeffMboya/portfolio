@@ -6,7 +6,7 @@ interface StackPillProps {
 export default function StackPill({ label, primary }: StackPillProps) {
   return (
     <span
-      className="inline-block text-[11px] px-2.5 py-1 rounded-full"
+      className="inline-block text-[13px] px-2.5 py-1 rounded-full"
       style={{
         backgroundColor: 'var(--accent-light)',
         border: '1px solid var(--accent-muted)',

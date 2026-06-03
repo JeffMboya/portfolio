@@ -20,7 +20,7 @@ export default function Home() {
 
       <section id="work" className="mb-20">
         <div className="flex items-center gap-3 mb-8">
-          <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--foreground)' }}>Selected Work</span>
+          <span className="text-[13px] uppercase tracking-widest font-medium" style={{ color: 'var(--foreground)' }}>Selected Work</span>
           <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -32,7 +32,7 @@ export default function Home() {
 
       <section id="about" className="mb-20">
         <div className="flex items-center gap-3 mb-8">
-          <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--foreground)' }}>About</span>
+          <span className="text-[13px] uppercase tracking-widest font-medium" style={{ color: 'var(--foreground)' }}>About</span>
           <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
         </div>
         <div
@@ -40,7 +40,7 @@ export default function Home() {
           style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
         >
           <div>
-            <p className="text-[13px] leading-relaxed mb-4" style={{ color: 'var(--muted)' }}>
+            <p className="text-[15px] leading-relaxed mb-4" style={{ color: 'var(--muted)' }}>
               I build high-reliability infrastructure where there is no safety net. My work has always
               lived at &ldquo;Day 0&rdquo; — the stage where systems are still fragile, constraints are
               real, and success depends on engineering judgment rather than excess capital. From designing
@@ -48,7 +48,7 @@ export default function Home() {
               Air Capture control system at Octavia Carbon, I focus on turning first-principles engineering
               into durable industrial systems.
             </p>
-            <p className="text-[13px] leading-relaxed mb-5" style={{ color: 'var(--muted)' }}>
+            <p className="text-[15px] leading-relaxed mb-5" style={{ color: 'var(--muted)' }}>
               Whether I&apos;m writing Go and Rust orchestration systems for distributed WebAssembly
               execution at Abstract Machines, refining DAC plant controls, or designing embedded systems
               for industrial deployment — the goal is always the same: build systems that work reliably
@@ -56,7 +56,7 @@ export default function Home() {
               systems that moved from prototype to industrial deployment.
             </p>
             <div
-              className="rounded-lg px-4 py-3.5 text-[12px] leading-relaxed"
+              className="rounded-lg px-4 py-3.5 text-[14px] leading-relaxed"
               style={{
                 backgroundColor: 'var(--accent-light)',
                 border: '1px solid var(--accent-muted)',
@@ -68,10 +68,10 @@ export default function Home() {
             </div>
             <div className="flex items-start gap-3 pt-4 mt-4" style={{ borderTop: '1px solid var(--border)' }}>
               <div>
-                <p className="text-[13px] font-medium" style={{ color: 'var(--foreground)' }}>
+                <p className="text-[15px] font-medium" style={{ color: 'var(--foreground)' }}>
                   BSc, Mechatronics Engineering
                 </p>
-                <p className="text-[12px] mt-0.5" style={{ color: 'var(--muted-dim)' }}>
+                <p className="text-[14px] mt-0.5" style={{ color: 'var(--muted-dim)' }}>
                   Jomo Kenyatta University of Agriculture and Technology · Nairobi
                 </p>
               </div>
@@ -92,7 +92,7 @@ export default function Home() {
                 href="https://github.com/JeffMboya"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2.5 text-[13px] rounded-md px-3.5 py-2.5 transition-colors duration-150"
+                className="flex items-center gap-2.5 text-[15px] rounded-md px-3.5 py-2.5 transition-colors duration-150"
                 style={{ color: 'var(--muted)', backgroundColor: 'var(--surface-hover)', border: '1px solid var(--border)' }}
               >
                 <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -104,7 +104,7 @@ export default function Home() {
                 href="https://linkedin.com/in/jeffmboya"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2.5 text-[13px] rounded-md px-3.5 py-2.5 transition-colors duration-150"
+                className="flex items-center gap-2.5 text-[15px] rounded-md px-3.5 py-2.5 transition-colors duration-150"
                 style={{ color: 'var(--muted)', backgroundColor: 'var(--surface-hover)', border: '1px solid var(--border)' }}
               >
                 <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -116,7 +116,7 @@ export default function Home() {
                 href="https://x.com/mboya_angina"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2.5 text-[13px] rounded-md px-3.5 py-2.5 transition-colors duration-150"
+                className="flex items-center gap-2.5 text-[15px] rounded-md px-3.5 py-2.5 transition-colors duration-150"
                 style={{ color: 'var(--muted)', backgroundColor: 'var(--surface-hover)', border: '1px solid var(--border)' }}
               >
                 <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -128,7 +128,7 @@ export default function Home() {
                 href="https://scholar.google.com/citations?user=KmGiUgcAAAAJ&hl=en"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2.5 text-[13px] rounded-md px-3.5 py-2.5 transition-colors duration-150"
+                className="flex items-center gap-2.5 text-[15px] rounded-md px-3.5 py-2.5 transition-colors duration-150"
                 style={{ color: 'var(--muted)', backgroundColor: 'var(--surface-hover)', border: '1px solid var(--border)' }}
               >
                 <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -143,7 +143,7 @@ export default function Home() {
 
       <section className="mb-20">
         <div className="flex items-center gap-3 mb-8">
-          <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--foreground)' }}>Research</span>
+          <span className="text-[13px] uppercase tracking-widest font-medium" style={{ color: 'var(--foreground)' }}>Research</span>
           <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
         </div>
         <div
@@ -151,20 +151,20 @@ export default function Home() {
           style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
         >
           <div className="flex items-start gap-3">
-              <span className="text-[11px] font-medium shrink-0 mt-0.5 px-1.5 py-0.5 rounded" style={{ backgroundColor: 'var(--accent-light)', color: 'var(--accent)', border: '1px solid var(--accent-muted)' }}>2025</span>
+              <span className="text-[13px] font-medium shrink-0 mt-0.5 px-1.5 py-0.5 rounded" style={{ backgroundColor: 'var(--accent-light)', color: 'var(--accent)', border: '1px solid var(--accent-muted)' }}>2025</span>
               <div>
-                <p className="text-[13px] font-medium leading-snug mb-0.5" style={{ color: 'var(--foreground)' }}>
+                <p className="text-[15px] font-medium leading-snug mb-0.5" style={{ color: 'var(--foreground)' }}>
                   Simulation and Airflow Experimentation of a Multi-Layer Adsorbent Chamber for Enhanced Direct Air Capture Efficiency
                 </p>
-                <p className="text-[11px]" style={{ color: 'var(--muted-dim)' }}>Sustainable Research and Innovation Conference</p>
+                <p className="text-[13px]" style={{ color: 'var(--muted-dim)' }}>Sustainable Research and Innovation Conference</p>
               </div>
             </div>
         </div>
         <div className="flex items-center gap-6">
-          <a href="/research" className="text-[13px] font-medium transition-colors duration-150" style={{ color: 'var(--accent)' }}>
+          <a href="/research" className="text-[15px] font-medium transition-colors duration-150" style={{ color: 'var(--accent)' }}>
             View all 4 publications →
           </a>
-          <Link href="/talks" className="text-[13px] font-medium transition-colors duration-150" style={{ color: 'var(--muted)' }}>
+          <Link href="/talks" className="text-[15px] font-medium transition-colors duration-150" style={{ color: 'var(--muted)' }}>
             Conference talks →
           </Link>
         </div>
@@ -172,7 +172,7 @@ export default function Home() {
 
       <section className="mb-20">
         <div className="flex items-center gap-3 mb-8">
-          <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--foreground)' }}>From the lab</span>
+          <span className="text-[13px] uppercase tracking-widest font-medium" style={{ color: 'var(--foreground)' }}>From the lab</span>
           <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
         </div>
         <div className="flex flex-col gap-4">
@@ -183,20 +183,20 @@ export default function Home() {
               className="hover-card block rounded-xl p-6 transition-all duration-150 group hover:translate-y-[-2px]"
               style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
             >
-              <h3 className="text-[18px] font-semibold tracking-tight mb-2 group-hover:underline underline-offset-2" style={{ color: 'var(--foreground)' }}>
+              <h3 className="text-[20px] font-semibold tracking-tight mb-2 group-hover:underline underline-offset-2" style={{ color: 'var(--foreground)' }}>
                 {project.title}
               </h3>
-              <p className="text-[13px] leading-relaxed mb-4" style={{ color: 'var(--muted)' }}>
+              <p className="text-[15px] leading-relaxed mb-4" style={{ color: 'var(--muted)' }}>
                 {project.description}
               </p>
-              <span className="text-[13px] font-medium" style={{ color: 'var(--accent)' }}>
+              <span className="text-[15px] font-medium" style={{ color: 'var(--accent)' }}>
                 Explore →
               </span>
             </Link>
           ))}
         </div>
         <div className="mt-4">
-          <Link href="/lab" className="text-[13px] font-medium transition-colors duration-150" style={{ color: 'var(--accent)' }}>
+          <Link href="/lab" className="text-[15px] font-medium transition-colors duration-150" style={{ color: 'var(--accent)' }}>
             View all projects →
           </Link>
         </div>
@@ -204,7 +204,7 @@ export default function Home() {
 
       <section className="mb-20">
         <div className="flex items-center gap-3 mb-8">
-          <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--foreground)' }}>From the community</span>
+          <span className="text-[13px] uppercase tracking-widest font-medium" style={{ color: 'var(--foreground)' }}>From the community</span>
           <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
@@ -212,9 +212,9 @@ export default function Home() {
             className="rounded-xl p-5"
             style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
           >
-            <p className="text-[13px] font-semibold mb-0.5" style={{ color: 'var(--foreground)' }}>Nakuja Project</p>
-            <p className="text-[11px] mb-3" style={{ color: 'var(--muted-dim)' }}>Publicity Manager · 2021–2022</p>
-            <p className="text-[13px] leading-relaxed" style={{ color: 'var(--muted)' }}>
+            <p className="text-[15px] font-semibold mb-0.5" style={{ color: 'var(--foreground)' }}>Nakuja Project</p>
+            <p className="text-[13px] mb-3" style={{ color: 'var(--muted-dim)' }}>Publicity Manager · 2021–2022</p>
+            <p className="text-[15px] leading-relaxed" style={{ color: 'var(--muted)' }}>
               Grew membership from 6 to 100+. Launched two annual 12-week internship programs absorbing 60+ students per cohort. Established Kenya Space Agency partnership.
             </p>
           </div>
@@ -222,21 +222,21 @@ export default function Home() {
             className="rounded-xl p-5"
             style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
           >
-            <p className="text-[13px] font-semibold mb-0.5" style={{ color: 'var(--foreground)' }}>JKUAT Society of Engineering Students</p>
-            <p className="text-[11px] mb-3" style={{ color: 'var(--muted-dim)' }}>Vice-President · 2021–2022</p>
-            <p className="text-[13px] leading-relaxed" style={{ color: 'var(--muted)' }}>
+            <p className="text-[15px] font-semibold mb-0.5" style={{ color: 'var(--foreground)' }}>JKUAT Society of Engineering Students</p>
+            <p className="text-[13px] mb-3" style={{ color: 'var(--muted-dim)' }}>Vice-President · 2021–2022</p>
+            <p className="text-[15px] leading-relaxed" style={{ color: 'var(--muted)' }}>
               Grew club funding from Kshs 5,000 to 210,000. Ran a STEM day for 308 high-school students — 35 received $2,000 Moringa School scholarships.
             </p>
           </div>
         </div>
-        <Link href="/community" className="text-[13px] font-medium transition-colors duration-150" style={{ color: 'var(--accent)' }}>
+        <Link href="/community" className="text-[15px] font-medium transition-colors duration-150" style={{ color: 'var(--accent)' }}>
           View all community work →
         </Link>
       </section>
 
       <section className="mb-20">
         <div className="flex items-center gap-3 mb-8">
-          <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--foreground)' }}>From the blog</span>
+          <span className="text-[13px] uppercase tracking-widest font-medium" style={{ color: 'var(--foreground)' }}>From the blog</span>
           <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
         </div>
         <div className="flex flex-col gap-4">
@@ -247,20 +247,20 @@ export default function Home() {
               className="hover-card block rounded-xl p-6 transition-all duration-150 group hover:translate-y-[-2px]"
               style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
             >
-              <h3 className="text-[18px] font-semibold tracking-tight mb-2 group-hover:underline underline-offset-2" style={{ color: 'var(--foreground)' }}>
+              <h3 className="text-[20px] font-semibold tracking-tight mb-2 group-hover:underline underline-offset-2" style={{ color: 'var(--foreground)' }}>
                 {note.title}
               </h3>
-              <p className="text-[13px] leading-relaxed mb-4" style={{ color: 'var(--muted)' }}>
+              <p className="text-[15px] leading-relaxed mb-4" style={{ color: 'var(--muted)' }}>
                 {note.description}
               </p>
-              <span className="text-[13px] font-medium" style={{ color: 'var(--accent)' }}>
+              <span className="text-[15px] font-medium" style={{ color: 'var(--accent)' }}>
                 Read the post →
               </span>
             </Link>
           ))}
         </div>
         <div className="mt-4">
-          <Link href="/blogs" className="text-[13px] font-medium transition-colors duration-150" style={{ color: 'var(--accent)' }}>
+          <Link href="/blogs" className="text-[15px] font-medium transition-colors duration-150" style={{ color: 'var(--accent)' }}>
             View all posts →
           </Link>
         </div>
@@ -268,27 +268,27 @@ export default function Home() {
 
       <section id="contact" className="mb-20">
         <div className="flex items-center gap-3 mb-8">
-          <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--foreground)' }}>Contact</span>
+          <span className="text-[13px] uppercase tracking-widest font-medium" style={{ color: 'var(--foreground)' }}>Contact</span>
           <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 items-start">
           <div>
-            <h2 className="text-[22px] font-bold tracking-tight mb-3" style={{ color: 'var(--foreground)' }}>
+            <h2 className="text-[24px] font-bold tracking-tight mb-3" style={{ color: 'var(--foreground)' }}>
               Working on something hard?
             </h2>
-            <p className="text-[13px] leading-relaxed mb-4" style={{ color: 'var(--muted)' }}>
+            <p className="text-[15px] leading-relaxed mb-4" style={{ color: 'var(--muted)' }}>
               If you&apos;re building difficult systems — especially where software meets the physical
               world — we should talk.
             </p>
-            <p className="text-[13px] leading-relaxed mb-4" style={{ color: 'var(--muted)' }}>
+            <p className="text-[15px] leading-relaxed mb-4" style={{ color: 'var(--muted)' }}>
               I work across backend, infrastructure, controls, and distributed systems, with enough
               hardware intuition to debug what most software teams can&apos;t see.
             </p>
-            <p className="text-[13px] leading-relaxed mb-4" style={{ color: 'var(--muted)' }}>
+            <p className="text-[15px] leading-relaxed mb-4" style={{ color: 'var(--muted)' }}>
               I&apos;ve shipped production systems in factories, pilot plants, and cloud infrastructure
               — from PLCs and control loops to Go services and distributed orchestration.
             </p>
-            <p className="text-[13px]" style={{ color: 'var(--muted-dim)' }}>
+            <p className="text-[15px]" style={{ color: 'var(--muted-dim)' }}>
               Open to backend, systems, and infrastructure roles, consulting, and unusual technical problems.
             </p>
           </div>

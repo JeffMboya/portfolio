@@ -29,14 +29,14 @@ export default function ProjectCard({ meta }: ProjectCardProps) {
           className="w-full h-[160px] flex items-center justify-center"
           style={{ backgroundColor: 'var(--surface-hover)', borderBottom: '1px solid var(--border)' }}
         >
-          <span className="text-[48px] font-bold tracking-tighter select-none" style={{ color: 'var(--border-hover)', opacity: 0.5 }}>
+          <span className="text-[50px] font-bold tracking-tighter select-none" style={{ color: 'var(--border-hover)', opacity: 0.5 }}>
             {meta.title.slice(0, 2).toUpperCase()}
           </span>
         </div>
       )}
       <div className="flex flex-col p-5 flex-1">
         <div className="flex items-start justify-between mb-2">
-          <div className="text-[11px] uppercase tracking-wider font-medium" style={{ color: 'var(--muted-dim)' }}>
+          <div className="text-[13px] uppercase tracking-wider font-medium" style={{ color: 'var(--muted-dim)' }}>
             {formatDate(meta.date)}
           </div>
           <span
@@ -46,17 +46,17 @@ export default function ProjectCard({ meta }: ProjectCardProps) {
             ↗
           </span>
         </div>
-        <h3 className="text-[17px] font-semibold tracking-tight mb-2" style={{ color: 'var(--foreground)' }}>
+        <h3 className="text-[19px] font-semibold tracking-tight mb-2" style={{ color: 'var(--foreground)' }}>
           {meta.title}
         </h3>
-        <p className="text-[13px] leading-relaxed flex-1" style={{ color: 'var(--muted)' }}>
+        <p className="text-[15px] leading-relaxed flex-1" style={{ color: 'var(--muted)' }}>
           {meta.description}
         </p>
         <div className="flex flex-wrap gap-1.5 mt-4">
           {meta.stack.map((s) => (
             <span
               key={s}
-              className="text-[11px] px-2 py-0.5 rounded"
+              className="text-[13px] px-2 py-0.5 rounded"
               style={{
                 backgroundColor: 'var(--surface-hover)',
                 color: 'var(--muted)',
@@ -69,7 +69,7 @@ export default function ProjectCard({ meta }: ProjectCardProps) {
         </div>
         {meta.result && (
           <div className="mt-3 pt-3" style={{ borderTop: '1px solid var(--border)' }}>
-            <span className="text-[12px] font-medium" style={{ color: 'var(--accent)' }}>
+            <span className="text-[14px] font-medium" style={{ color: 'var(--accent)' }}>
               {meta.result}
             </span>
           </div>

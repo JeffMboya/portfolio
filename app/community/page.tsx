@@ -68,7 +68,7 @@ export default function CommunityPage() {
   return (
     <div className="pb-24">
       <div className="mb-8">
-        <nav className="flex items-center gap-1.5 text-[12px]" style={{ color: 'var(--muted-dim)' }}>
+        <nav className="flex items-center gap-1.5 text-[14px]" style={{ color: 'var(--muted-dim)' }}>
           <Link href="/" className="transition-colors duration-150 hover:underline" style={{ color: 'var(--accent)' }}>
             Home
           </Link>
@@ -78,13 +78,13 @@ export default function CommunityPage() {
       </div>
 
       <div className="mb-12">
-        <div className="text-[11px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--foreground)' }}>
+        <div className="text-[13px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--foreground)' }}>
           Community
         </div>
-        <h1 className="text-[32px] font-bold tracking-tight mb-3" style={{ color: 'var(--foreground)' }}>
+        <h1 className="text-[34px] font-bold tracking-tight mb-3" style={{ color: 'var(--foreground)' }}>
           Leadership &amp; Involvement
         </h1>
-        <p className="text-[15px] leading-relaxed max-w-[520px]" style={{ color: 'var(--muted)' }}>
+        <p className="text-[17px] leading-relaxed max-w-[520px]" style={{ color: 'var(--muted)' }}>
           Roles outside the job description — building communities, running events,
           and creating opportunities for other engineers.
         </p>
@@ -99,18 +99,18 @@ export default function CommunityPage() {
           >
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
               <div>
-                <p className="text-[15px] font-semibold leading-snug" style={{ color: 'var(--foreground)' }}>
+                <p className="text-[17px] font-semibold leading-snug" style={{ color: 'var(--foreground)' }}>
                   {r.title}
                 </p>
-                <p className="text-[13px] mt-0.5" style={{ color: 'var(--muted)' }}>
+                <p className="text-[15px] mt-0.5" style={{ color: 'var(--muted)' }}>
                   {r.org} · {r.type}
                 </p>
               </div>
               <div className="flex flex-col items-start sm:items-end gap-0.5 shrink-0">
-                <span className="text-[11px] tabular-nums" style={{ color: 'var(--muted-dim)' }}>
+                <span className="text-[13px] tabular-nums" style={{ color: 'var(--muted-dim)' }}>
                   {r.period}
                 </span>
-                <span className="text-[11px]" style={{ color: 'var(--muted-dim)' }}>
+                <span className="text-[13px]" style={{ color: 'var(--muted-dim)' }}>
                   {r.location}
                 </span>
               </div>
@@ -118,7 +118,7 @@ export default function CommunityPage() {
 
             <ul className="flex flex-col gap-2 pl-3">
               {r.bullets.map((b, i) => (
-                <li key={i} className="flex gap-2 text-[13px] leading-relaxed" style={{ color: 'var(--muted)' }}>
+                <li key={i} className="flex gap-2 text-[15px] leading-relaxed" style={{ color: 'var(--muted)' }}>
                   <span className="mt-[3px] shrink-0" style={{ color: 'var(--accent)' }}>›</span>
                   {b}
                 </li>

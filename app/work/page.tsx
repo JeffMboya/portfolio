@@ -105,7 +105,7 @@ function Section({ label, roles }: { label: string; roles: Role[] }) {
   return (
     <div className="mb-16">
       <p
-        className="text-[11px] uppercase tracking-widest font-medium pt-10 pb-5"
+        className="text-[13px] uppercase tracking-widest font-medium pt-10 pb-5"
         style={{ color: 'var(--muted-dim)' }}
       >
         {label}
@@ -123,26 +123,26 @@ function Section({ label, roles }: { label: string; roles: Role[] }) {
                 href={role.orgUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[16px] font-bold hover:underline underline-offset-2"
+                className="text-[18px] font-bold hover:underline underline-offset-2"
                 style={{ color: 'var(--foreground)' }}
               >
                 {role.org} ↗
               </a>
             ) : (
-              <p className="text-[16px] font-bold" style={{ color: 'var(--foreground)' }}>
+              <p className="text-[18px] font-bold" style={{ color: 'var(--foreground)' }}>
                 {role.org}
               </p>
             )}
-            <p className="text-[13px] mt-1.5" style={{ color: 'var(--muted)' }}>
+            <p className="text-[15px] mt-1.5" style={{ color: 'var(--muted)' }}>
               {role.title}
             </p>
-            <p className="text-[11px] uppercase tracking-wider mt-2" style={{ color: 'var(--muted-dim)' }}>
+            <p className="text-[13px] uppercase tracking-wider mt-2" style={{ color: 'var(--muted-dim)' }}>
               {role.location}
             </p>
           </div>
           <ul className="flex flex-col gap-4 pt-0.5">
             {role.bullets.map((b, i) => (
-              <li key={i} className="flex gap-3 text-[14px] leading-relaxed" style={{ color: 'var(--muted)' }}>
+              <li key={i} className="flex gap-3 text-[16px] leading-relaxed" style={{ color: 'var(--muted)' }}>
                 <span
                   className="mt-[9px] shrink-0 rounded-full"
                   style={{ width: '5px', height: '5px', backgroundColor: 'var(--accent)', opacity: 0.8, flexShrink: 0 }}
@@ -161,7 +161,7 @@ export default function WorkPage() {
   return (
     <div className="pb-24">
       <div className="mb-8">
-        <nav className="flex items-center gap-1.5 text-[12px]" style={{ color: 'var(--muted-dim)' }}>
+        <nav className="flex items-center gap-1.5 text-[14px]" style={{ color: 'var(--muted-dim)' }}>
           <Link href="/" className="transition-colors duration-150 hover:underline" style={{ color: 'var(--accent)' }}>
             Home
           </Link>
@@ -171,10 +171,10 @@ export default function WorkPage() {
       </div>
 
       <div className="mb-4">
-        <h1 className="text-[32px] font-bold tracking-tight mb-3" style={{ color: 'var(--foreground)' }}>
+        <h1 className="text-[34px] font-bold tracking-tight mb-3" style={{ color: 'var(--foreground)' }}>
           Work
         </h1>
-        <p className="text-[15px] leading-relaxed max-w-[560px]" style={{ color: 'var(--muted)' }}>
+        <p className="text-[17px] leading-relaxed max-w-[560px]" style={{ color: 'var(--muted)' }}>
           I build high-reliability systems at the intersection of hardware and software — from DAC plant controls to distributed Wasm orchestration.
         </p>
       </div>
@@ -184,7 +184,7 @@ export default function WorkPage() {
 
       <div>
         <p
-          className="text-[11px] uppercase tracking-widest font-medium pt-10 pb-5"
+          className="text-[13px] uppercase tracking-widest font-medium pt-10 pb-5"
           style={{ color: 'var(--muted-dim)' }}
         >
           Education
@@ -195,25 +195,25 @@ export default function WorkPage() {
           style={{ borderBottom: '1px solid var(--border)' }}
         >
           <div>
-            <p className="text-[16px] font-bold" style={{ color: 'var(--foreground)' }}>
+            <p className="text-[18px] font-bold" style={{ color: 'var(--foreground)' }}>
               Jomo Kenyatta University of Agriculture and Technology
             </p>
-            <p className="text-[13px] mt-1.5" style={{ color: 'var(--muted)' }}>
+            <p className="text-[15px] mt-1.5" style={{ color: 'var(--muted)' }}>
               BSc, Mechatronics Engineering
             </p>
-            <p className="text-[11px] uppercase tracking-wider mt-2" style={{ color: 'var(--muted-dim)' }}>
+            <p className="text-[13px] uppercase tracking-wider mt-2" style={{ color: 'var(--muted-dim)' }}>
               Nairobi · Graduated 2023
             </p>
           </div>
           <ul className="flex flex-col gap-4 pt-0.5">
-            <li className="flex gap-3 text-[14px] leading-relaxed" style={{ color: 'var(--muted)' }}>
+            <li className="flex gap-3 text-[16px] leading-relaxed" style={{ color: 'var(--muted)' }}>
               <span
                 className="mt-[9px] shrink-0 rounded-full"
                 style={{ width: '5px', height: '5px', backgroundColor: 'var(--accent)', opacity: 0.8, flexShrink: 0 }}
               />
               Five-year programme spanning embedded systems, control theory, and robotics.
             </li>
-            <li className="flex gap-3 text-[14px] leading-relaxed" style={{ color: 'var(--muted)' }}>
+            <li className="flex gap-3 text-[16px] leading-relaxed" style={{ color: 'var(--muted)' }}>
               <span
                 className="mt-[9px] shrink-0 rounded-full"
                 style={{ width: '5px', height: '5px', backgroundColor: 'var(--accent)', opacity: 0.8, flexShrink: 0 }}
@@ -222,7 +222,7 @@ export default function WorkPage() {
             </li>
           </ul>
         </div>
-        <p className="text-[13px] mt-6" style={{ color: 'var(--muted-dim)' }}>
+        <p className="text-[15px] mt-6" style={{ color: 'var(--muted-dim)' }}>
           For awards and recognition, see{' '}
           <Link href="/awards" className="underline underline-offset-2" style={{ color: 'var(--accent)' }}>awards</Link>.{' '}
           For talks and papers, see{' '}
