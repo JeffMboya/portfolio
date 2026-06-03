@@ -8,12 +8,12 @@ import ThemeToggle from './ThemeToggle'
 const links = [
   { href: '/work', label: 'Work' },
   { href: '/lab', label: 'Projects' },
-  { href: '/blogs', label: 'Writing' },
-  { href: '/talks', label: 'Talks' },
-  { href: '/awards', label: 'Awards' },
   { href: '/hardware', label: 'Hardware' },
-  { href: '/community', label: 'Community' },
   { href: '/research', label: 'Research' },
+  { href: '/talks', label: 'Talks' },
+  { href: '/blogs', label: 'Writing' },
+  { href: '/awards', label: 'Awards' },
+  { href: '/community', label: 'Community' },
   { href: '/now', label: 'Now' },
   { href: 'https://github.com/JeffMboya', label: 'GitHub', external: true },
 ]
