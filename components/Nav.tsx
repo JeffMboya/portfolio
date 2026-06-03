@@ -44,12 +44,12 @@ export default function Nav() {
         className="flex items-center justify-between py-6 mb-16"
         style={{ borderBottom: '1px solid var(--border)' }}
       >
-        <Link href="/" className="text-[15px] font-semibold tracking-tight" style={{ color: 'var(--foreground)' }}>
+        <Link href="/" className="text-[15px] font-semibold tracking-tight shrink-0 whitespace-nowrap mr-6" style={{ color: 'var(--foreground)' }}>
           Jeff Mboya
         </Link>
 
         {/* Desktop links */}
-        <div className="hidden sm:flex items-center gap-6">
+        <div className="hidden sm:flex items-center gap-4">
           {links.map((link) =>
             link.external ? (
               <a
