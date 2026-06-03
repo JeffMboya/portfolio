@@ -1,9 +1,11 @@
 import Link from 'next/link'
 
 const links = [
-  { href: '/#work', label: 'Work' },
-  { href: '/lab', label: 'Lab' },
-  { href: '/blogs', label: 'Blogs' },
+  { href: '/work', label: 'Work' },
+  { href: '/lab', label: 'Projects' },
+  { href: '/blogs', label: 'Writing' },
+  { href: '/talks', label: 'Talks' },
+  { href: '/awards', label: 'Awards' },
   { href: '/research', label: 'Research' },
   { href: '/hardware', label: 'Hardware' },
   { href: '/community', label: 'Community' },

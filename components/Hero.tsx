@@ -42,9 +42,13 @@ export default function Hero() {
             Abstract Machines
           </a>
         </div>
-        <div className="text-[12px]" style={{ color: 'var(--muted-dim)' }}>
+        <a
+          href="/awards"
+          className="text-[12px] underline-offset-2 hover:underline transition-colors"
+          style={{ color: 'var(--muted-dim)' }}
+        >
           IBM Call for Code MEA Winner 2021
-        </div>
+        </a>
       </div>
 
       <h1 className="text-[44px] font-bold leading-[1.1] tracking-tight mb-3" style={{ color: 'var(--foreground)' }}>

@@ -66,6 +66,16 @@ export default function Home() {
               I am most valuable where the blueprint does not yet exist — where the job is not to
               optimise an existing machine, but to build the machine the industry will depend on next.
             </div>
+            <div className="flex items-start gap-3 pt-4 mt-4" style={{ borderTop: '1px solid var(--border)' }}>
+              <div>
+                <p className="text-[13px] font-medium" style={{ color: 'var(--foreground)' }}>
+                  BSc, Mechatronics Engineering
+                </p>
+                <p className="text-[12px] mt-0.5" style={{ color: 'var(--muted-dim)' }}>
+                  Jomo Kenyatta University of Agriculture and Technology · Nairobi
+                </p>
+              </div>
+            </div>
           </div>
           <div className="flex flex-col gap-4">
             <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden" style={{ border: '1px solid var(--border)' }}>
@@ -150,9 +160,14 @@ export default function Home() {
               </div>
             </div>
         </div>
-        <a href="/research" className="text-[13px] font-medium transition-colors duration-150" style={{ color: 'var(--accent)' }}>
-          View all 4 publications →
-        </a>
+        <div className="flex items-center gap-6">
+          <a href="/research" className="text-[13px] font-medium transition-colors duration-150" style={{ color: 'var(--accent)' }}>
+            View all 4 publications →
+          </a>
+          <Link href="/talks" className="text-[13px] font-medium transition-colors duration-150" style={{ color: 'var(--muted)' }}>
+            Conference talks →
+          </Link>
+        </div>
       </section>
 
       <section className="mb-20">
@@ -185,6 +200,38 @@ export default function Home() {
             View all projects →
           </Link>
         </div>
+      </section>
+
+      <section className="mb-20">
+        <div className="flex items-center gap-3 mb-8">
+          <span className="text-[11px] uppercase tracking-widest font-medium" style={{ color: 'var(--foreground)' }}>From the community</span>
+          <div className="flex-1 h-px" style={{ backgroundColor: 'var(--border)' }} />
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+          <div
+            className="rounded-xl p-5"
+            style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
+          >
+            <p className="text-[13px] font-semibold mb-0.5" style={{ color: 'var(--foreground)' }}>Nakuja Project</p>
+            <p className="text-[11px] mb-3" style={{ color: 'var(--muted-dim)' }}>Publicity Manager · 2021–2022</p>
+            <p className="text-[13px] leading-relaxed" style={{ color: 'var(--muted)' }}>
+              Grew membership from 6 to 100+. Launched two annual 12-week internship programs absorbing 60+ students per cohort. Established Kenya Space Agency partnership.
+            </p>
+          </div>
+          <div
+            className="rounded-xl p-5"
+            style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--border)' }}
+          >
+            <p className="text-[13px] font-semibold mb-0.5" style={{ color: 'var(--foreground)' }}>JKUAT Society of Engineering Students</p>
+            <p className="text-[11px] mb-3" style={{ color: 'var(--muted-dim)' }}>Vice-President · 2021–2022</p>
+            <p className="text-[13px] leading-relaxed" style={{ color: 'var(--muted)' }}>
+              Grew club funding from Kshs 5,000 to 210,000. Ran a STEM day for 308 high-school students — 35 received $2,000 Moringa School scholarships.
+            </p>
+          </div>
+        </div>
+        <Link href="/community" className="text-[13px] font-medium transition-colors duration-150" style={{ color: 'var(--accent)' }}>
+          View all community work →
+        </Link>
       </section>
 
       <section className="mb-20">

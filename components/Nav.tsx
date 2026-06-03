@@ -6,11 +6,12 @@ import { useState } from 'react'
 import ThemeToggle from './ThemeToggle'
 
 const links = [
-  { href: '/#work', label: 'Work' },
-  { href: '/#about', label: 'About' },
-  { href: '/blogs', label: 'Blogs' },
+  { href: '/work', label: 'Work' },
+  { href: '/lab', label: 'Projects' },
+  { href: '/blogs', label: 'Writing' },
+  { href: '/talks', label: 'Talks' },
+  { href: '/awards', label: 'Awards' },
   { href: '/hardware', label: 'Hardware' },
-  { href: '/lab', label: 'Lab' },
   { href: '/community', label: 'Community' },
   { href: '/research', label: 'Research' },
   { href: '/now', label: 'Now' },
@@ -21,12 +22,15 @@ function isActive(href: string, pathname: string) {
   if (href.startsWith('/#')) return pathname === '/'
   if (href === pathname) return true
   return (
+    (href === '/work' && pathname.startsWith('/work')) ||
     (href === '/research' && pathname.startsWith('/research')) ||
     (href === '/blogs' && pathname.startsWith('/blogs')) ||
     (href === '/hardware' && pathname.startsWith('/hardware')) ||
     (href === '/now' && pathname.startsWith('/now')) ||
     (href === '/lab' && pathname.startsWith('/lab')) ||
-    (href === '/community' && pathname.startsWith('/community'))
+    (href === '/community' && pathname.startsWith('/community')) ||
+    (href === '/talks' && pathname.startsWith('/talks')) ||
+    (href === '/awards' && pathname.startsWith('/awards'))
   )
 }
 
