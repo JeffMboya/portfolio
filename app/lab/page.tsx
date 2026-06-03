@@ -46,139 +46,100 @@ export default function LabPage() {
         </nav>
       </div>
 
-      <div className="mb-16">
-        <div className="text-[13px] uppercase tracking-widest mb-3 font-medium" style={{ color: 'var(--foreground)' }}>
+      <div className="mb-4">
+        <h1 className="text-[34px] font-bold tracking-tight mb-3" style={{ color: 'var(--foreground)' }}>
           Lab
-        </div>
-        <h1 className="text-[38px] font-bold tracking-tight mb-4" style={{ color: 'var(--foreground)' }}>
-          Side Projects
         </h1>
-        <p className="text-[17px] leading-relaxed max-w-[520px]" style={{ color: 'var(--muted)' }}>
+        <p className="text-[17px] leading-relaxed max-w-[560px]" style={{ color: 'var(--muted)' }}>
           Things built for curiosity, not a job description. Each one started as a problem
           I kept running into and couldn&apos;t find a good solution for.
         </p>
       </div>
 
-      <div className="flex flex-col">
-        {projects.map((project, i) => (
-          <div key={project.slug}>
-            <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-10 py-14">
-
-              {/* Left — main info */}
-              <div>
-                <div className="flex items-center gap-3 mb-5">
-                  <span
-                    className="text-[13px] font-mono tabular-nums"
-                    style={{ color: 'var(--muted-dim)' }}
-                  >
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                  <span className="text-[20px]" style={{ color: 'var(--accent)' }}>
-                    {project.icon}
-                  </span>
-                </div>
-
-                <h2
-                  className="text-[42px] font-bold tracking-tight leading-none mb-4"
-                  style={{ color: 'var(--foreground)' }}
-                >
-                  {project.title}
-                </h2>
-
-                <p
-                  className="text-[17px] leading-relaxed mb-7 max-w-[480px]"
-                  style={{ color: 'var(--muted)' }}
-                >
-                  {project.description}
+      <div className="mb-16">
+        <p
+          className="text-[13px] uppercase tracking-widest font-medium pt-10 pb-5"
+          style={{ color: 'var(--muted-dim)' }}
+        >
+          Side Projects
+        </p>
+        <div className="h-px" style={{ backgroundColor: 'var(--border)' }} />
+        {projects.map((project) => (
+          <div
+            key={project.slug}
+            className="grid grid-cols-1 sm:grid-cols-[240px_1fr] gap-6 sm:gap-12 py-10"
+            style={{ borderBottom: '1px solid var(--border)' }}
+          >
+            <div>
+              <Link
+                href={`/work/${project.slug}/`}
+                className="text-[18px] font-bold hover:underline underline-offset-2"
+                style={{ color: 'var(--foreground)' }}
+              >
+                {project.title}
+              </Link>
+              {project.result && (
+                <p className="text-[15px] mt-1.5 font-medium" style={{ color: 'var(--accent)' }}>
+                  {project.result}
                 </p>
-
-                <div
-                  className="rounded-lg px-4 py-3.5 text-[15px] leading-relaxed max-w-[480px]"
-                  style={{
-                    backgroundColor: 'var(--surface)',
-                    border: '1px solid var(--border)',
-                    color: 'var(--muted)',
-                  }}
-                >
-                  <span
-                    className="text-[12px] uppercase tracking-widest font-medium block mb-1.5"
-                    style={{ color: 'var(--muted-dim)' }}
+              )}
+              <div className="flex flex-col gap-2 mt-3">
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[13px] hover:underline underline-offset-2"
+                    style={{ color: 'var(--accent)' }}
                   >
-                    Key detail
-                  </span>
-                  {project.insight}
-                </div>
-              </div>
-
-              {/* Right — meta */}
-              <div className="flex flex-col gap-6 lg:pt-10">
-                {project.result && (
-                  <div>
-                    <span
-                      className="text-[12px] uppercase tracking-widest font-medium block mb-2"
-                      style={{ color: 'var(--muted-dim)' }}
-                    >
-                      Result
-                    </span>
-                    <p
-                      className="text-[16px] font-medium leading-snug"
-                      style={{ color: 'var(--accent)' }}
-                    >
-                      {project.result}
-                    </p>
-                  </div>
+                    GitHub ↗
+                  </a>
                 )}
-
-                <div>
-                  <span
-                    className="text-[12px] uppercase tracking-widest font-medium block mb-2.5"
-                    style={{ color: 'var(--muted-dim)' }}
-                  >
-                    Stack
-                  </span>
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.stack.map((s) => (
-                      <span
-                        key={s}
-                        className="text-[14px] px-2.5 py-1 rounded"
-                        style={{
-                          backgroundColor: 'var(--surface)',
-                          color: 'var(--muted)',
-                          border: '1px solid var(--border)',
-                        }}
-                      >
-                        {s}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-2.5">
-                  {project.github && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-[15px] font-medium underline underline-offset-2 transition-opacity duration-150 hover:opacity-70"
-                      style={{ color: 'var(--accent)' }}
-                    >
-                      View on GitHub ↗
-                    </a>
-                  )}
-                  <Link
-                    href={`/work/${project.slug}/`}
-                    className="inline-flex items-center gap-1.5 text-[15px] transition-opacity duration-150 hover:opacity-70"
-                    style={{ color: 'var(--muted)' }}
-                  >
-                    Full write-up →
-                  </Link>
-                </div>
+                <Link
+                  href={`/work/${project.slug}/`}
+                  className="text-[13px] hover:underline underline-offset-2"
+                  style={{ color: 'var(--muted-dim)' }}
+                >
+                  Full write-up →
+                </Link>
               </div>
             </div>
-
-            {i < projects.length - 1 && (
-              <div style={{ height: '1px', backgroundColor: 'var(--border)' }} />
-            )}
+            <div className="flex flex-col gap-5 pt-0.5">
+              <p className="text-[16px] leading-relaxed" style={{ color: 'var(--muted)' }}>
+                {project.description}
+              </p>
+              <div
+                className="rounded-lg px-4 py-3.5 text-[15px] leading-relaxed"
+                style={{
+                  backgroundColor: 'var(--surface)',
+                  border: '1px solid var(--border)',
+                  color: 'var(--muted)',
+                }}
+              >
+                <span
+                  className="text-[12px] uppercase tracking-widest font-medium block mb-1.5"
+                  style={{ color: 'var(--muted-dim)' }}
+                >
+                  Key detail
+                </span>
+                {project.insight}
+              </div>
+              <div className="flex flex-wrap gap-1.5">
+                {project.stack.map((s) => (
+                  <span
+                    key={s}
+                    className="text-[14px] px-2.5 py-1 rounded"
+                    style={{
+                      backgroundColor: 'var(--surface)',
+                      color: 'var(--muted)',
+                      border: '1px solid var(--border)',
+                    }}
+                  >
+                    {s}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         ))}
       </div>
