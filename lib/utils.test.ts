@@ -9,9 +9,12 @@ describe('formatDate', () => {
     expect(result).toBe('March 2026')
   })
 
-  it('converts YYYY-MM-DD to "Month YYYY"', () => {
+  // Day-precision dates keep the day (see content/notes/care-deeply-stay-unbothered.mdx,
+  // which is dated "2026-04-22" and renders as "April 22, 2026").
+  it('converts YYYY-MM-DD to "Month D, YYYY" (not raw)', () => {
     const result = formatDate('2023-06-15')
-    expect(result).toBe('June 2023')
+    expect(result).not.toMatch(/^\d{4}-\d{2}-\d{2}$/)
+    expect(result).toBe('June 15, 2023')
   })
 
   it('handles all work-page date formats used in content', () => {
