@@ -6,32 +6,29 @@ import { useState } from 'react'
 import ThemeToggle from './ThemeToggle'
 
 const links = [
-  { href: '/work', label: 'Work' },
-  { href: '/lab', label: 'Projects' },
-  { href: '/hardware', label: 'Hardware' },
-  { href: '/research', label: 'Research' },
-  { href: '/talks', label: 'Talks' },
-  { href: '/blogs', label: 'Writing' },
-  { href: '/awards', label: 'Awards' },
-  { href: '/community', label: 'Community' },
-  { href: '/now', label: 'Now' },
+  { href: '/work/', label: 'Work' },
+  { href: '/lab/', label: 'Projects' },
+  { href: '/hardware/', label: 'Hardware' },
+  { href: '/research/', label: 'Research' },
+  { href: '/talks/', label: 'Talks' },
+  { href: '/blogs/', label: 'Writing' },
+  { href: '/awards/', label: 'Awards' },
+  { href: '/community/', label: 'Community' },
+  { href: '/now/', label: 'Now' },
   { href: 'https://github.com/JeffMboya', label: 'GitHub', external: true },
 ]
 
+// Hrefs and pathnames are compared with a guaranteed trailing slash so a section
+// link stays active on its child pages (/work/ matches /work/scripli/).
+function withSlash(p: string) {
+  return p.endsWith('/') ? p : `${p}/`
+}
+
 function isActive(href: string, pathname: string) {
   if (href.startsWith('/#')) return pathname === '/'
-  if (href === pathname) return true
-  return (
-    (href === '/work' && pathname.startsWith('/work')) ||
-    (href === '/research' && pathname.startsWith('/research')) ||
-    (href === '/blogs' && pathname.startsWith('/blogs')) ||
-    (href === '/hardware' && pathname.startsWith('/hardware')) ||
-    (href === '/now' && pathname.startsWith('/now')) ||
-    (href === '/lab' && pathname.startsWith('/lab')) ||
-    (href === '/community' && pathname.startsWith('/community')) ||
-    (href === '/talks' && pathname.startsWith('/talks')) ||
-    (href === '/awards' && pathname.startsWith('/awards'))
-  )
+  const base = withSlash(href)
+  const path = withSlash(pathname)
+  return base === '/' ? path === '/' : path.startsWith(base)
 }
 
 export default function Nav() {

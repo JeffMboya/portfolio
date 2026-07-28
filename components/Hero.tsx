@@ -43,7 +43,7 @@ export default function Hero() {
           </a>
         </div>
         <a
-          href="/awards"
+          href="/awards/"
           className="text-[14px] underline-offset-2 hover:underline transition-colors"
           style={{ color: 'var(--muted-dim)' }}
         >

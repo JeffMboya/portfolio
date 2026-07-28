@@ -161,10 +161,10 @@ export default function Home() {
             </div>
         </div>
         <div className="flex items-center gap-6">
-          <a href="/research" className="text-[15px] font-medium transition-colors duration-150" style={{ color: 'var(--accent)' }}>
+          <a href="/research/" className="text-[15px] font-medium transition-colors duration-150" style={{ color: 'var(--accent)' }}>
             View all 4 publications →
           </a>
-          <Link href="/talks" className="text-[15px] font-medium transition-colors duration-150" style={{ color: 'var(--muted)' }}>
+          <Link href="/talks/" className="text-[15px] font-medium transition-colors duration-150" style={{ color: 'var(--muted)' }}>
             Conference talks →
           </Link>
         </div>
@@ -196,7 +196,7 @@ export default function Home() {
           ))}
         </div>
         <div className="mt-4">
-          <Link href="/lab" className="text-[15px] font-medium transition-colors duration-150" style={{ color: 'var(--accent)' }}>
+          <Link href="/lab/" className="text-[15px] font-medium transition-colors duration-150" style={{ color: 'var(--accent)' }}>
             View all projects →
           </Link>
         </div>
@@ -229,7 +229,7 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <Link href="/community" className="text-[15px] font-medium transition-colors duration-150" style={{ color: 'var(--accent)' }}>
+        <Link href="/community/" className="text-[15px] font-medium transition-colors duration-150" style={{ color: 'var(--accent)' }}>
           View all community work →
         </Link>
       </section>
@@ -260,7 +260,7 @@ export default function Home() {
           ))}
         </div>
         <div className="mt-4">
-          <Link href="/blogs" className="text-[15px] font-medium transition-colors duration-150" style={{ color: 'var(--accent)' }}>
+          <Link href="/blogs/" className="text-[15px] font-medium transition-colors duration-150" style={{ color: 'var(--accent)' }}>
             View all posts →
           </Link>
         </div>

@@ -112,7 +112,7 @@ export default function TalksPage() {
         ))}
         <p className="text-[15px] mt-6" style={{ color: 'var(--muted-dim)' }}>
           Full abstracts and Google Scholar links on the{' '}
-          <Link href="/research" className="underline underline-offset-2" style={{ color: 'var(--accent)' }}>
+          <Link href="/research/" className="underline underline-offset-2" style={{ color: 'var(--accent)' }}>
             Research
           </Link>{' '}
           page.

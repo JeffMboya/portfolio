@@ -1,15 +1,15 @@
 import Link from 'next/link'
 
 const links = [
-  { href: '/work', label: 'Work' },
-  { href: '/lab', label: 'Projects' },
-  { href: '/blogs', label: 'Writing' },
-  { href: '/talks', label: 'Talks' },
-  { href: '/awards', label: 'Awards' },
-  { href: '/research', label: 'Research' },
-  { href: '/hardware', label: 'Hardware' },
-  { href: '/community', label: 'Community' },
-  { href: '/now', label: 'Now' },
+  { href: '/work/', label: 'Work' },
+  { href: '/lab/', label: 'Projects' },
+  { href: '/blogs/', label: 'Writing' },
+  { href: '/talks/', label: 'Talks' },
+  { href: '/awards/', label: 'Awards' },
+  { href: '/research/', label: 'Research' },
+  { href: '/hardware/', label: 'Hardware' },
+  { href: '/community/', label: 'Community' },
+  { href: '/now/', label: 'Now' },
 ]
 
 export default function Footer() {

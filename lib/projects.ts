@@ -31,16 +31,24 @@ const ProjectMetaSchema = z.object({
 
 const projectsDir = path.join(process.cwd(), 'content', 'projects')
 
-export function getAllProjects(): ProjectMeta[] {
+function readProjects(): ProjectMeta[] {
   const files = fs.readdirSync(projectsDir).filter((f) => f.endsWith('.mdx'))
-  const projects = files.map((filename) => {
-    const raw = fs.readFileSync(path.join(projectsDir, filename), 'utf8')
-    const { data } = matter(raw)
-    return ProjectMetaSchema.parse(data)
-  })
-  return projects
-    .filter((p) => p.featured)
+  return files
+    .map((filename) => {
+      const raw = fs.readFileSync(path.join(projectsDir, filename), 'utf8')
+      const { data } = matter(raw)
+      return ProjectMetaSchema.parse(data)
+    })
     .sort((a, b) => (a.date < b.date ? 1 : -1))
+}
+
+export function getAllProjects(): ProjectMeta[] {
+  return readProjects().filter((p) => p.featured)
+}
+
+/** Every project that has a built page, featured or not — used by the sitemap. */
+export function getEveryProject(): ProjectMeta[] {
+  return readProjects()
 }
 
 export function getProjectBySlug(slug: string): { meta: ProjectMeta; content: string } {

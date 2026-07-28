@@ -224,11 +224,11 @@ export default function WorkPage() {
         </div>
         <p className="text-[15px] mt-6" style={{ color: 'var(--muted-dim)' }}>
           For awards and recognition, see{' '}
-          <Link href="/awards" className="underline underline-offset-2" style={{ color: 'var(--accent)' }}>awards</Link>.{' '}
+          <Link href="/awards/" className="underline underline-offset-2" style={{ color: 'var(--accent)' }}>awards</Link>.{' '}
           For talks and papers, see{' '}
-          <Link href="/research" className="underline underline-offset-2" style={{ color: 'var(--accent)' }}>research</Link>{' '}
+          <Link href="/research/" className="underline underline-offset-2" style={{ color: 'var(--accent)' }}>research</Link>{' '}
           and{' '}
-          <Link href="/talks" className="underline underline-offset-2" style={{ color: 'var(--accent)' }}>talks</Link>.
+          <Link href="/talks/" className="underline underline-offset-2" style={{ color: 'var(--accent)' }}>talks</Link>.
         </p>
       </div>
     </div>

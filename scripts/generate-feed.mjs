@@ -46,8 +46,8 @@ const itemsXml = items
     (item) => `
   <item>
     <title>${escapeXml(item.title)}</title>
-    <link>${SITE_URL}/logs/${item.slug}</link>
-    <guid isPermaLink="true">${SITE_URL}/logs/${item.slug}</guid>
+    <link>${SITE_URL}/blogs/${item.slug}/</link>
+    <guid isPermaLink="true">${SITE_URL}/blogs/${item.slug}/</guid>
     <description>${escapeXml(item.description)}</description>
     <pubDate>${new Date(item.date).toUTCString()}</pubDate>
     <author>${escapeXml(AUTHOR)}</author>
@@ -59,7 +59,7 @@ const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>${escapeXml(AUTHOR)}</title>
-    <link>${SITE_URL}</link>
+    <link>${SITE_URL}/</link>
     <description>Systems engineering, software, and research by ${escapeXml(AUTHOR)}.</description>
     <language>en-us</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>

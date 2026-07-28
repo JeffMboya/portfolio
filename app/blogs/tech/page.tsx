@@ -19,7 +19,7 @@ export default function TechBlogsPage() {
         <nav className="flex items-center gap-1.5 text-[14px]" style={{ color: 'var(--muted-dim)' }}>
           <Link href="/" className="transition-colors duration-150 hover:underline" style={{ color: 'var(--accent)' }}>Home</Link>
           <span>›</span>
-          <Link href="/blogs" className="transition-colors duration-150 hover:underline" style={{ color: 'var(--accent)' }}>Blogs</Link>
+          <Link href="/blogs/" className="transition-colors duration-150 hover:underline" style={{ color: 'var(--accent)' }}>Blogs</Link>
           <span>›</span>
           <span style={{ color: 'var(--foreground)' }}>Tech</span>
         </nav>
